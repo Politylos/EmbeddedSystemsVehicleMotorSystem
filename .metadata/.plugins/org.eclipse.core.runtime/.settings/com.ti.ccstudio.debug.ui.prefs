@@ -1,0 +1,9 @@
+MODULES_CODE_OFFSET=
+MODULES_DATA_OFFSET=
+MODULES_MRU_PATH=C\:\\Users\\polit\\Desktop\\EGH456\\RTOS-Lab4_senseHighLow\\Debug\\RTOS-Lab4_senseHighLow.out\#THREAD_IDS\#Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0
+MODULES_MRU_PATH.1=C\:\\Users\\polit\\Desktop\\EGH456\\Lab_4_Task_A\\Debug\\Lab_4_Task_A.out\#THREAD_IDS\#Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0
+MODULES_MRU_PATH.2=\#SYM_\#(,)path\=C\:\\Users\\polit\\Desktop\\EGH456\\hibernate\\Debug\\hibernate.out\#THREAD_IDS\#Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0
+MODULES_MRU_PATH.3=C\:\\Users\\polit\\Desktop\\EGH456\\hibernate\\Debug\\hibernate.out
+MODULES_MRU_PATH.4=C\:\\Users\\polit\\Desktop\\EGH456\\timers\\Debug\\timers.out\#THREAD_IDS\#Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0
+eclipse.preferences.version=1
+useAnnotationsPrefPage=true

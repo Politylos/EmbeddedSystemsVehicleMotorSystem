@@ -1,0 +1,484 @@
+//LAB 3 TASK C SKELETON FILE
+
+//ADD INCLUDE FILES HERE
+//e.g.
+#include <stdint.h>
+#include <stdbool.h>
+
+
+/* XDCtools Header files */
+#include <xdc/std.h>
+#include <xdc/runtime/System.h>
+
+/* BIOS Header files */
+#include <ti/sysbios/BIOS.h>
+#include <ti/sysbios/knl/Task.h>
+
+/* TI-RTOS Header files */
+#include <ti/drivers/GPIO.h>
+#include <ti/drivers/UART.h>
+
+/* Example/Board Header files */
+#include "Board.h"
+
+#include <stdint.h>
+/* XDCtools Header files */
+#include <xdc/std.h>
+#include <xdc/runtime/System.h>
+
+/* BIOS Header files */
+#include <ti/sysbios/BIOS.h>
+#include <ti/sysbios/knl/Task.h>
+
+/* TI-RTOS Header files */
+#include <ti/drivers/GPIO.h>
+#include <ti/drivers/UART.h>
+
+/* Example/Board Header files */
+#include "Board.h"
+
+#include <stdint.h>
+
+#include <stdint.h>
+#include <stdbool.h>
+
+#include "inc/hw_ints.h"
+#include "inc/hw_memmap.h"
+#include "inc/hw_types.h"
+#include "driverlib/debug.h"
+#include "driverlib/fpu.h"
+#include "driverlib/gpio.h"
+#include "driverlib/interrupt.h"
+#include "driverlib/pin_map.h"
+#include "driverlib/rom.h"
+#include "driverlib/rom_map.h"
+#include "driverlib/sysctl.h"
+#include "driverlib/timer.h"
+#include "driverlib/uart.h"
+#include "utils/uartstdio.h"
+#include "grlib/grlib.h"
+#include "grlib/widget.h"
+#include "grlib/canvas.h"
+
+
+#include <ti/sysbios/BIOS.h>
+#include <ti/sysbios/knl/Task.h>
+#include <ti/sysbios/knl/Swi.h>
+#include <ti/sysbios/hal/Hwi.h>
+#include <stdint.h>
+#include <stdbool.h>
+#include "inc/hw_ints.h"
+#include "inc/hw_memmap.h"
+#include "inc/hw_nvic.h"
+#include "inc/hw_types.h"
+#include "driverlib/gpio.h"
+#include "driverlib/interrupt.h"
+#include "driverlib/pin_map.h"
+#include "driverlib/systick.h"
+#include "driverlib/sysctl.h"
+#include "driverlib/rom.h"
+#include "driverlib/rom_map.h"
+//#include "drivers/pinout.h"
+#include "utils/uartstdio.h"
+#include <ti/sysbios/gates/GateHwi.h>
+#include <ti/sysbios/BIOS.h>
+#include <xdc/runtime/Types.h>
+#include <xdc/runtime/Error.h>
+
+#include <ti/sysbios/knl/Event.h>
+#include "drivers/touch.h"
+#include "drivers/Kentec320x240x16_ssd2119_spi.h"
+
+//This file is not complete and requires modification to get Task C to work
+//This file will not compile in its current form
+//You also need to have some correct modules included in the TI-RTOS .cfg file
+#define TASKSTACKSIZE     768
+#define size 10
+#define BUFFERSIZE        10
+int enterCount = 0;
+int Up = 0;
+int Left = 0;
+int Right = 0;
+int Down = 0;
+char charBuffer[BUFFERSIZE];
+int buffPos = 0;
+int xpos = 2;
+int ypos = 2;
+int EnterBuffer = 0;
+int ymax=0;
+int xmax=0;
+int ymin=2;
+int xmin=2;
+int xlast = 0;
+int ylast = 0;
+tContext sContext;
+tRectangle sRect;
+Task_Struct task0Struct;
+Char task0Stack[TASKSTACKSIZE];
+uint32_t g_ui32SysClock;
+char input;
+Task_Struct task1Struct;
+Char task1Stack[TASKSTACKSIZE];
+char c;
+GateHwi_Handle gateHwi;
+GateHwi_Params gHwiprms;
+IArg  gateKey;
+Swi_Handle SwiHandle;
+Hwi_Handle UartHwiHandle;
+UART_Handle uartL;
+    UART_Params uartParams;
+    char test;
+
+
+// You can use two different methods for UART hwi setup
+// 1. creating the Hwi yourself and map the hwi to the UART receive/transmit interrupt
+// 2. using the TI-RTOS UART driver and using the UART_read and UART_write functions
+
+// Use these definitions if using TI-RTOS drivers
+//
+uint32_t intStatus;
+//Interrupt Handlers
+void UARTFxn(){
+    UInt gateKey;
+    UART_read(uartL, &input, 1);
+    //
+    // Get and clear interrupt status.
+    //intStatus = UARTIntStatus(uart,true);
+    //UARTIntClear(uart, intStatus);
+
+    //This should output to console, use to check if UART is working
+    System_printf("Write Some Debug Info here\n");
+    System_flush();
+    gateKey = GateHwi_enter(gateHwi);
+
+    //Recommendation is to use multiple buffers to keep track of which keys are pressed
+
+    //Typical process here is trigger a Swi after a certain number of char have been received in buffer
+
+    //alternatively you could check if space or carriage return conditions are met
+    //Flag to swi thread that condition has been met
+    //input=c;
+    System_printf("hardware int\n");
+    System_flush();
+        System_flush();
+        if (input == '\r'){
+            EnterBuffer++;
+            System_printf("Call to maths\n");
+                   System_flush();
+        } else{
+            EnterBuffer = 0;
+            charBuffer[buffPos] = input;
+            buffPos = (buffPos+1)%BUFFERSIZE;
+        }
+
+
+    GateHwi_leave(gateHwi, gateKey);
+/*
+    int j = 0;
+    for(j = 0; j < size; j++){
+
+        //Get character from UART
+        c = (char)UARTCharGetNonBlocking(uart);
+
+        //Use this to protect shared resources that might be used in Swi or Task threads
+        //These need to be setup appropriately
+
+    }
+*/
+}
+
+//Implement Swi Function to flag to task that a space character has been found
+void SwiFxn(){
+    UInt gateKey;
+
+    //Ensure to output system prints
+    System_printf("collected");
+
+    //use this to access shared buffers
+    gateKey = GateHwi_enter(gateHwi);
+
+    System_printf("System int\n");
+        System_flush();
+        if (EnterBuffer == 2){
+            System_printf("Call to draw\n");
+                   System_flush();
+        }else{
+            int j= 0;
+            for (j = 0; j < BUFFERSIZE; j++){
+                if (charBuffer[j] == 'w'){
+                    ypos--;
+                }else if (charBuffer[j] == 'a'){
+                    xpos--;
+                }else if (charBuffer[j] == 's'){
+                    ypos++;
+                }else if (charBuffer[j] == 'd'){
+                    xpos++;
+                }
+            }
+            strncpy(charBuffer,"",BUFFERSIZE);
+        }
+
+    //it is now safe to read from buffers
+    //Put code in here to handle swi post event
+    //Use gatekey only if access shared resources is needed
+    GateHwi_leave(gateHwi, gateKey);
+
+}
+void gpioButtonFxn0(unsigned int index)
+{
+    /* Clear the GPIO interrupt and toggle an LED */
+
+    GPIO_toggle(Board_LED0);
+    System_printf("System int\n");
+        System_flush();
+}
+
+//An alternative method is to use the TI-RTOS driver implementation of uart
+//This example skeleton needs to be modified for it to work with the TI-RTOS driver implementation
+//you will need to investigate the driver functions UART_read() and UART_write()
+// void openUART(){
+
+//     /* Create a UART with data processing off. */
+//     UART_Params_init(&uartParams);
+//     uartParams.readMode = UART_MODE_CALLBACK;
+//     uartParams.readCallback = UARTCallbackFxn;
+//     uartParams.writeDataMode = ??;
+//     uartParams.readDataMode = ??;
+//     uartParams.readReturnMode = UART_RETURN_FULL;
+//     uartParams.readEcho = UART_ECHO_OFF;
+//     uartParams.baudRate = ??;
+//     uart = UART_open(??, &uartParams);
+
+//     if (uart == NULL) {
+//         System_abort("Error opening the UART");
+//     }
+// }
+
+
+//This is a suggested initialisation function for simple UART implementation
+void initUART(){
+    System_printf("uart \n");
+        System_flush();
+    //Create Hwi for UART interrupt
+    Hwi_Params hwiParams;
+    Hwi_Params_init(&hwiParams);
+    //hwiParams.eventId = 5;
+    System_printf("HWI \n");
+    System_flush();
+    //need to find the interrupt number for the uart and replace at XX
+
+  UartHwiHandle = Hwi_create(21, (Hwi_FuncPtr)UARTFxn , &hwiParams, NULL);
+    System_printf("handle \n");
+    System_flush();
+  // if (UartHwiHandle == NULL) {
+  //     System_abort("Hwi create failed");
+   // }
+
+        const char echoPrompt[] = "\fEchoing characters:\r\n";
+
+        /* Create a UART with data processing off. */
+    //    UART_Params_init(&uartParams);
+      //  uartParams.writeDataMode = UART_DATA_BINARY;
+      //  uartParams.readDataMode = UART_DATA_BINARY;
+     //   uartParams.readReturnMode = UART_RETURN_FULL;
+      //  uartParams.readEcho = UART_ECHO_OFF;
+       // uartParams.baudRate = 9600;
+
+       // uartL = UART_open(Board_UART0, &uartParams);
+       // UART_write(uartL, echoPrompt, sizeof(echoPrompt));
+       // UART_read(uartL, &input, 1);
+      //  UART_write(uartL, &input, 1);
+        System_printf("config \n");
+        System_flush();
+        ///GPIO_enableInt(Board_BUTTON1);
+       // GPIO_setCallback(Board_BUTTON1,gpioButtonFxn0);
+
+
+    //
+    // Configure and Enable the UART and interrupt for recieve and transmit.
+    //
+    // Need to include in arguments to configset:
+    // base of UART device you want to use, baud rate and config for data length (8, stop bit is one, parity is none)
+    Types_FreqHz cpuFreq;
+    BIOS_getCpuFreq(&cpuFreq);
+    System_printf("freq \n");
+    System_flush();
+    int configs = 8;
+    //Board_UART0
+    //UART_config[index]
+    UARTConfigSetExpClk(UART0_BASE, (uint32_t)cpuFreq.lo, 9800, UART_CONFIG_WLEN_8 | UART_CONFIG_STOP_ONE |UART_CONFIG_PAR_NONE);
+    System_printf("config \n");
+    System_flush();
+    //Need to turn on the uart,
+    UARTEnable(UART0_BASE);
+    System_printf("enable \n");
+    System_flush();
+    //This enables the interrupt for uart in the vector table
+
+    IntEnable(UART_INT_RX);
+    System_printf("enable 2\n");
+    System_flush();
+    //configure the what type of interrupt you want to cause an interrupt on the uart
+    //Need to choose the right config values for the interrupt behaviours you want
+    //Have a look in driverlib/uart.h for some predefines for these settings
+    UARTIntEnable(UART0_BASE, UART_INT_RX | UART_INT_DMARX);
+    System_printf("new\n");
+    System_flush();
+    //const char echoPrompt[] = "\fEchoing characters:\r\n";
+    //UART_write(UART0_BASE, echoPrompt, sizeof(echoPrompt));
+
+}
+
+
+void displayFxn(UArg arg0, UArg arg1)
+{
+    //Make sure you have setup variables here
+    System_printf("start tasks \n");
+        System_flush();
+    Types_FreqHz cpuFreq;
+    BIOS_getCpuFreq(&cpuFreq);
+
+    //Add init functions for LCD and touch screen
+    System_printf("set up screen \n");
+    System_flush();
+        System_flush();
+    Kentec320x240x16_SSD2119Init((uint32_t)cpuFreq.lo);
+        GrContextInit(&sContext, &g_sKentec320x240x16_SSD2119);
+
+        xmax = GrContextDpyWidthGet(&sContext) - 5;
+        ymax = GrContextDpyHeightGet(&sContext) - 5;
+        GrContextForegroundSet(&sContext, ClrDarkGreen);
+        GrCircleDraw(&sContext,xpos,ypos,2);
+        GrCircleFill(&sContext,xpos,ypos,2);
+        xlast = xpos;
+        ylast = ypos;
+
+    //Title screen for display
+    //Feel free to modify this
+    //FrameDraw(&sContext, "Lab 3 Drawing App");
+        System_printf("start while \n");
+        System_flush();
+
+        System_printf("Write Some Debug Info here\n");
+        System_flush();
+    while(1) {
+
+        //use this to access shared buffers
+
+        //it is now safe to read from buffers
+
+        //Add logic here to see if should draw line to display
+        //UART_read(test, &test, 1);
+        System_printf("Write Some Debug Info here\n");
+        System_flush();
+        //UART_write(uartL, &c, 1);
+        if (EnterBuffer >= 2){
+            gateKey = GateHwi_enter(gateHwi);
+            System_printf("Received a second carriage return character drawing line to screen \n");
+        EnterBuffer = 0;
+            System_printf("main Task\n");
+            System_flush();
+            if (xpos < xmin){
+                xpos = xmin;
+            } else if (xpos > xmax){
+                xpos = xmax;
+            }
+            if (ypos < ymin){
+                ypos = ymin;
+            } else if (ypos > ymax){
+                ypos = ymax;
+            }
+            GrContextForegroundSet(&sContext, ClrBlack);
+            GrCircleDraw(&sContext,xlast,ylast,2);
+            GrCircleFill(&sContext,xlast,ylast,2);
+            xlast = xpos;
+            ylast = ypos;
+            GrContextForegroundSet(&sContext, ClrDarkGreen);
+            GrCircleDraw(&sContext,xpos,ypos,2);
+            GrCircleFill(&sContext,xpos,ypos,2);
+            GateHwi_leave(gateHwi, gateKey);
+        }
+        //make sure to flag we have finished accessing buffers
+
+
+        //Use this to print debug info to console while task is running
+        System_flush();
+    }
+}
+
+/*
+ *  ======== main ========
+ */
+int main(void)
+{
+    /* Call board init functions */
+    Board_initGeneral();
+    Board_initGPIO();
+    System_printf("1 \n");
+    System_flush();
+    //This can be used for either Peripheral driver or TI-RTOS driver
+    //Primarily this setups UART pins and we can reuse that
+    //This will also create a TI-RTOS uart via the config structs but
+    //usually doesn't conflict if we setup a Hwi directly
+    Board_initUART();
+    System_printf("2 \n");
+    System_flush();
+    /* Construct BIOS objects */
+    Task_Params taskParams;
+    System_printf("3 \n");
+    System_flush();
+    //Create the task threads
+    //Can use create or construct
+    //Construct requies stack parameters to be set
+    Task_Params_init(&taskParams);
+    taskParams.stackSize = TASKSTACKSIZE;
+    taskParams.stack;
+    taskParams.instance->name = "display";
+    Error_Block eb;
+    Error_init(&eb);
+    Task_Struct DrawTask;
+    Task_construct(&DrawTask,(Task_FuncPtr)displayFxn,&taskParams,&eb);
+    System_printf("4 \n");
+    System_flush();
+    //Create the Swi thread
+    //Can use construct or create
+    Swi_Handle SwiHandle; Swi_Params swiParams;
+    Error_Block ebSw; Error_init(&ebSw);
+    Swi_Params_init(&swiParams);
+   SwiHandle = Swi_create(SwiFxn,&swiParams,&ebSw);
+
+    //Good practice to check if handle was created
+    if (SwiHandle == NULL) {
+       System_abort("Swi create failed");
+    }
+    System_printf("5 \n");
+    System_flush();
+    //Create Hwi Gate Mutex
+  /*  GateHwi_Params_init(&gHwiprms);
+    Error_Block ebHD; Error_init(&ebHD);
+    gateHwi = GateHwi_create(&gHwiprms, &ebHD);
+    if (gateHwi == NULL) {
+        System_abort("Gate Hwi create failed");
+    }*/
+
+    //Call function to initialise UART
+    initUART();
+    System_printf("6 \n");
+    System_flush();
+    /* This example has logging and many other debug capabilities enabled */
+    System_printf("This example does not attempt to minimize code or data "
+                  "footprint\n");
+
+    System_printf("Starting the UART Echo example\nSystem provider is set to "
+                  "SysMin. Halt the target to view any SysMin contents in "
+                  "ROV.\n");
+
+    /* SysMin will only print to the console when you call flush or exit */
+    System_flush();
+
+    /* Start BIOS */
+    BIOS_start();
+
+
+    return (0);
+}

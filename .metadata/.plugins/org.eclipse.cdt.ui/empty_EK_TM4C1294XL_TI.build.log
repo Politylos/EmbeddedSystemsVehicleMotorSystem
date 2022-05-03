@@ -1,0 +1,72 @@
+
+**** Build of configuration Debug for project empty_EK_TM4C1294XL_TI ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+Building file: "../empty.cfg"
+Invoking: XDCtools
+"C:/ti/ccs1110/xdctools_3_32_00_06_core/xs" --xdcpath="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/ndk_2_25_00_09/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/uia_2_00_05_50/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/ns_1_11_00_10/packages;" xdc.tools.configuro -o configPkg -t ti.targets.arm.elf.M4F -p ti.platforms.tiva:TM4C1294NCPDT -r release -c "C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS" --compileOptions "-mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path=\"C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1\" --include_path=\"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI\" --include_path=\"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI\" --include_path=\"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b\" --include_path=\"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix\" --include_path=\"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include\" --define=ccs=\"ccs\" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi  " "../empty.cfg"
+making package.mak (because of package.bld) ...
+generating interfaces for package configPkg (because package/package.xdc.inc is older than package.xdc) ...
+configuring empty.xem4f from package/cfg/empty_pem4f.cfg ...
+generating custom ti.sysbios library makefile ... 
+Starting build of library sources ...
+making C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI/src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI/src/sysbios'
+clem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/BIOS.c ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/Hwi_asm.sv7M ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/Hwi_asm_switch.sv7M ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/IntrinsicsSupport_asm.sv7M ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/TaskSupport_asm.sv7M ...
+arem4f BIOS.obj m3_Hwi_asm.obj m3_Hwi_asm_switch.obj m3_IntrinsicsSupport_asm.obj m3_TaskSupport_asm.obj ...
+gmake[1]: Leaving directory `C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI/src/sysbios'
+Build of libraries done.
+clem4f package/cfg/empty_pem4f.c ...
+"package/cfg/empty_pem4f.c", line 15648: warning #112-D: statement is unreachable
+"package/cfg/empty_pem4f.c", line 15922: warning #112-D: statement is unreachable
+"package/cfg/empty_pem4f.c", line 16103: warning #112-D: statement is unreachable
+Finished building: "../empty.cfg"
+ 
+        1 file(s) copied.
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../drivers/pinout.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="drivers/pinout.d_raw" --obj_directory="drivers" --cmd_file="configPkg/compiler.opt"  "../drivers/pinout.c"
+Finished building: "../drivers/pinout.c"
+ 
+Building file: "../drivers/touch.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="drivers/touch.d_raw" --obj_directory="drivers" --cmd_file="configPkg/compiler.opt"  "../drivers/touch.c"
+Finished building: "../drivers/touch.c"
+ 
+Building file: "../drivers/Kentec320x240x16_ssd2119_spi.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="drivers/Kentec320x240x16_ssd2119_spi.d_raw" --obj_directory="drivers" --cmd_file="configPkg/compiler.opt"  "../drivers/Kentec320x240x16_ssd2119_spi.c"
+Finished building: "../drivers/Kentec320x240x16_ssd2119_spi.c"
+ 
+Building file: "../drivers/frame.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="drivers/frame.d_raw" --obj_directory="drivers" --cmd_file="configPkg/compiler.opt"  "../drivers/frame.c"
+Finished building: "../drivers/frame.c"
+ 
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+Building file: "../EK_TM4C1294XL.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_EK_TM4C1294XL_TI" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="EK_TM4C1294XL.d_raw" --cmd_file="configPkg/compiler.opt"  "../EK_TM4C1294XL.c"
+Finished building: "../EK_TM4C1294XL.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "empty_EK_TM4C1294XL_TI.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"empty_EK_TM4C1294XL_TI.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="empty_EK_TM4C1294XL_TI_linkInfo.xml" --rom_model -o "empty_EK_TM4C1294XL_TI.out" "./EK_TM4C1294XL.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" -l"configPkg/linker.cmd"  -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "empty_EK_TM4C1294XL_TI.out"
+ 
+
+**** Build Finished ****

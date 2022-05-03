@@ -1,0 +1,32 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+SHELL = cmd.exe
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/Kentec320x240x16_ssd2119_spi.c \
+C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/touch.c 
+
+C_DEPS += \
+./Drivers/Kentec320x240x16_ssd2119_spi.d \
+./Drivers/touch.d 
+
+OBJS += \
+./Drivers/Kentec320x240x16_ssd2119_spi.obj \
+./Drivers/touch.obj 
+
+OBJS__QUOTED += \
+"Drivers\Kentec320x240x16_ssd2119_spi.obj" \
+"Drivers\touch.obj" 
+
+C_DEPS__QUOTED += \
+"Drivers\Kentec320x240x16_ssd2119_spi.d" \
+"Drivers\touch.d" 
+
+C_SRCS__QUOTED += \
+"C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/Kentec320x240x16_ssd2119_spi.c" \
+"C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/touch.c" 
+
+

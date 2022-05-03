@@ -1,0 +1,76 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+SHELL = cmd.exe
+
+# Add inputs and outputs from these tool invocations to the build variables 
+CFG_SRCS += \
+../uartecho.cfg 
+
+CMD_SRCS += \
+../EK_TM4C1294XL.cmd 
+
+C_SRCS += \
+../EK_TM4C1294XL.c \
+C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/Kentec320x240x16_ssd2119_spi.c \
+../startup_ccs.c \
+C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/touch.c \
+../uartecho.c 
+
+GEN_CMDS += \
+./configPkg/linker.cmd 
+
+GEN_FILES += \
+./configPkg/linker.cmd \
+./configPkg/compiler.opt 
+
+GEN_MISC_DIRS += \
+./configPkg/ 
+
+C_DEPS += \
+./EK_TM4C1294XL.d \
+./Kentec320x240x16_ssd2119_spi.d \
+./startup_ccs.d \
+./touch.d \
+./uartecho.d 
+
+GEN_OPTS += \
+./configPkg/compiler.opt 
+
+OBJS += \
+./EK_TM4C1294XL.obj \
+./Kentec320x240x16_ssd2119_spi.obj \
+./startup_ccs.obj \
+./touch.obj \
+./uartecho.obj 
+
+GEN_MISC_DIRS__QUOTED += \
+"configPkg\" 
+
+OBJS__QUOTED += \
+"EK_TM4C1294XL.obj" \
+"Kentec320x240x16_ssd2119_spi.obj" \
+"startup_ccs.obj" \
+"touch.obj" \
+"uartecho.obj" 
+
+C_DEPS__QUOTED += \
+"EK_TM4C1294XL.d" \
+"Kentec320x240x16_ssd2119_spi.d" \
+"startup_ccs.d" \
+"touch.d" \
+"uartecho.d" 
+
+GEN_FILES__QUOTED += \
+"configPkg\linker.cmd" \
+"configPkg\compiler.opt" 
+
+C_SRCS__QUOTED += \
+"../EK_TM4C1294XL.c" \
+"C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/Kentec320x240x16_ssd2119_spi.c" \
+"../startup_ccs.c" \
+"C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/touch.c" \
+"../uartecho.c" 
+
+

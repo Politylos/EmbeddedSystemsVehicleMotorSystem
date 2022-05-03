@@ -1,0 +1,24 @@
+
+**** Build of configuration Debug for project watchdog_EK_TM4C1294XL_TI ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+Building file: "../watchdog.cfg"
+Invoking: XDCtools
+"C:/ti/ccs1110/xdctools_3_62_01_16_core/xs" --xdcpath="C:/ti/tirtos_tivac_2_16_00_08/packages;C:/ti/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages;C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages;C:/ti/tirtos_tivac_2_16_00_08/products/ndk_2_25_00_09/packages;C:/ti/tirtos_tivac_2_16_00_08/products/uia_2_00_05_50/packages;C:/ti/tirtos_tivac_2_16_00_08/products/ns_1_11_00_10/packages;" xdc.tools.configuro -o configPkg -t ti.targets.arm.elf.M4F -p ti.platforms.tiva:TM4C1294NCPDT -r release -c "C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS" --compileOptions "-mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path=\"C:/Users/polit/Desktop/EGH456/watchdog_EK_TM4C1294XL_TI\" --include_path=\"C:/Users/polit/Desktop/EGH456/watchdog_EK_TM4C1294XL_TI\" --include_path=\"C:/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b\" --include_path=\"C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix\" --include_path=\"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include\" --define=ccs=\"ccs\" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi  " "../watchdog.cfg"
+making package.mak (because of package.bld) ...
+generating interfaces for package configPkg (because package/package.xdc.inc is older than package.xdc) ...
+configuring watchdog.xem4f from package/cfg/watchdog_pem4f.cfg ...
+subdir_rules.mk:19: recipe for target 'build-1390914897-inproc' failed
+error: xdc.cfg.Program: "C:/ti/ccs1110/xdctools_3_62_01_16_core/packages/xdc/cfg/Program.xs", line 71: xdc.cfg.Program : The package 'ti.sysbios.knl' is not compatible with XDCtools used in this build. Please either use XDCtools compatible with that package, or update the product containing that package, or rebuild the package with XDCtools 3.50 or later.
+js: "C:/ti/ccs1110/xdctools_3_62_01_16_core/packages/xdc/cfg/Main.xs", line 160: Error: Configuration failed!
+gmake.exe: *** [package.mak:202: package/cfg/watchdog_pem4f.xdl] Error 1
+js: "C:/ti/ccs1110/xdctools_3_62_01_16_core/packages/xdc/tools/Cmdr.xs", line 52: Error: xdc.tools.configuro: configuration failed due to earlier errors (status = 2); 'linker.cmd' deleted.
+gmake[1]: *** [build-1390914897-inproc] Error 1
+gmake: *** No rule to make target 'build-1390914897', needed by 'configPkg/compiler.opt'.
+gmake: *** No rule to make target 'build-1390914897', needed by 'configPkg/linker.cmd'.
+gmake: *** No rule to make target 'build-1390914897', needed by 'configPkg/compiler.opt'.
+gmake: *** No rule to make target 'build-1390914897', needed by 'configPkg/compiler.opt'.
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****

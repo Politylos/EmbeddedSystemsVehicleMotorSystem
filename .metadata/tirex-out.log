@@ -1,0 +1,19 @@
+-----TI-REX started at Wed Mar 09 2022 13:17:10 GMT+1000 (E. Australia Standard Time)
+Wed, 09 Mar 2022 03:17:14 GMT connect deprecated methodOverride: use method-override npm module instead at app.js:647:21
+       "mac": "0a:00:27:00:00:0a",
+        "internal": false
+    }
+]
+2022-03-09T03:17:10.800Z INFO DAEMON dinfra - [
+    "multiple candidate address ignored",
+    "vEthernet (WSL)",
+    {
+        "address": "192.168.56.1",
+        "netmask": "255.255.255.0",
+        "family": "IPv4",
+        "mac": "0a:00:27:00:00:0a",
+        "internal": false
+    }
+]
+-----TI-REX started at Wed Mar 09 2022 13:17:10 GMT+1000 (E. Australia Standard Time)
+TIREX server listening on port 55432

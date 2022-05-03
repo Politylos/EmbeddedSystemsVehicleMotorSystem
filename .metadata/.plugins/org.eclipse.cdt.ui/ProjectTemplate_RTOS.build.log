@@ -1,0 +1,6 @@
+Buildfile generation error occurred..
+This project was created using a version of compiler that is not currently installed - GNU_4.9.3:Linaro [Arm]:
+- See 'Help > Install New Software' and select 'Code Generation Tools Updates' to check if this compiler is available through a CCS update.
+- Visit CCS App Center to get the latest compiler support.
+- Or download and install the compiler [http://software-dl.ti.com/codegen/non-esd/downloads], then register it with CCS through 'Preferences > CCS > Build > Compilers'.
+Build stopped..

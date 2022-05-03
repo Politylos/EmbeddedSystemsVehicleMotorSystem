@@ -1,0 +1,30 @@
+
+**** Build of configuration Debug for project uartechodma_EK_TM4C1294XL_TI ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "uartechodma_EK_TM4C1294XL_TI.out"
+Invoking: Arm Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=TI_DRIVERS_UART_DMA --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"uartechodma_EK_TM4C1294XL_TI.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="uartechodma_EK_TM4C1294XL_TI_linkInfo.xml" --rom_model -o "uartechodma_EK_TM4C1294XL_TI.out" "./EK_TM4C1294XL.obj" "./uartecho.obj" "./Drivers/Kentec320x240x16_ssd2119_spi.obj" "./Drivers/touch.obj" "../EK_TM4C1294XL.cmd" -l"configPkg/linker.cmd"  -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/driverlib/ccs/Debug/driverlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+ 
+ undefined                    first referenced
+  symbol                          in file     
+ ---------                    ----------------
+ Kentec320x240x16_SSD2119Init ./uartecho.obj  
+ g_sKentec320x240x16_SSD2119  ./uartecho.obj  
+ 
+error #10234-D: unresolved symbols remain
+error #10010: errors encountered during linking; "uartechodma_EK_TM4C1294XL_TI.out" not built
+ 
+>> Compilation failure
+makefile:151: recipe for target 'uartechodma_EK_TM4C1294XL_TI.out' failed
+gmake[1]: *** [uartechodma_EK_TM4C1294XL_TI.out] Error 1
+makefile:147: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****

@@ -1,0 +1,47 @@
+
+**** Build of configuration Debug for project pwmled_EK_TM4C1294XL_TI ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+Building file: "../pwmled.cfg"
+Invoking: XDCtools
+"C:/ti/ccs1110/xdctools_3_32_00_06_core/xs" --xdcpath="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/ndk_2_25_00_09/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/uia_2_00_05_50/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/ns_1_11_00_10/packages;" xdc.tools.configuro -o configPkg -t ti.targets.arm.elf.M4F -p ti.platforms.tiva:TM4C1294NCPDT -r release -c "C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS" --compileOptions "-mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path=\"C:/Users/polit/Desktop/EGH456/pwmled_EK_TM4C1294XL_TI\" --include_path=\"C:/Users/polit/Desktop/EGH456/pwmled_EK_TM4C1294XL_TI\" --include_path=\"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b\" --include_path=\"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix\" --include_path=\"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include\" --define=ccs=\"ccs\" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi  " "../pwmled.cfg"
+making package.mak (because of package.bld) ...
+generating interfaces for package configPkg (because package/package.xdc.inc is older than package.xdc) ...
+configuring pwmled.xem4f from package/cfg/pwmled_pem4f.cfg ...
+generating custom ti.sysbios library makefile ... 
+Starting build of library sources ...
+making C:/Users/polit/Desktop/EGH456/pwmled_EK_TM4C1294XL_TI/src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `C:/Users/polit/Desktop/EGH456/pwmled_EK_TM4C1294XL_TI/src/sysbios'
+clem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/BIOS.c ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/Hwi_asm.sv7M ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/Hwi_asm_switch.sv7M ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/IntrinsicsSupport_asm.sv7M ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/TaskSupport_asm.sv7M ...
+arem4f BIOS.obj m3_Hwi_asm.obj m3_Hwi_asm_switch.obj m3_IntrinsicsSupport_asm.obj m3_TaskSupport_asm.obj ...
+gmake[1]: Leaving directory `C:/Users/polit/Desktop/EGH456/pwmled_EK_TM4C1294XL_TI/src/sysbios'
+Build of libraries done.
+clem4f package/cfg/pwmled_pem4f.c ...
+"package/cfg/pwmled_pem4f.c", line 15109: warning #112-D: statement is unreachable
+"package/cfg/pwmled_pem4f.c", line 15595: warning #112-D: statement is unreachable
+"package/cfg/pwmled_pem4f.c", line 15869: warning #112-D: statement is unreachable
+"package/cfg/pwmled_pem4f.c", line 16050: warning #112-D: statement is unreachable
+Finished building: "../pwmled.cfg"
+ 
+        1 file(s) copied.
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../pwmled.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Desktop/EGH456/pwmled_EK_TM4C1294XL_TI" --include_path="C:/Users/polit/Desktop/EGH456/pwmled_EK_TM4C1294XL_TI" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="pwmled.d_raw" --cmd_file="configPkg/compiler.opt"  "../pwmled.c"
+Finished building: "../pwmled.c"
+ 
+
+**** Build of configuration Debug for project pwmled_EK_TM4C1294XL_TI ****
+
+!CommandLauncher.error.commandCanceled!
+Error: Program "C:/ti/ccs1110/ccs/utils/bin/gmake" is not found in PATH
+
+PATH=[C:/ti/ccs1110/ccs/eclipse/jre/bin/client;C:/ti/ccs1110/ccs/eclipse/jre/bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Amazon Corretto\jdk15.0.2_7\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\MATLAB\R2020b\bin;C:\Program Files\Git\cmd;C:\Program Files\Git LFS;C:\Program Files\PuTTY\;C:\Program Files\nodejs\;C:\Program Files\Amazon\AWSCLIV2\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\dotnet\;C:\ProgramData\chocolatey\bin;C:\Program Files\CMake\bin;C:\Users\polit\Python\Python39\Scripts\;C:\Users\polit\Python\Python39\;C:\Users\polit\AppData\Local\Microsoft\WindowsApps;C:\Users\polit\.dotnet\tools;C:\Users\polit\AppData\Local\atom\bin;C:\Users\polit\AppData\Local\GitHubDesktop\bin;C:\Users\polit\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\polit\AppData\Roaming\npm;C:\Users\polit\.dotnet\tools;C:\Users\polit\spicetify-cli;C:\Program Files\opencv\build\x64\vc15\bin;;C:\ti\ccs1110\ccs\eclipse;]
+
+**** Build Finished ****
