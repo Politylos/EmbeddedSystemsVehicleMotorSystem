@@ -32705,3 +32705,893 @@ making ../src/sysbios/sysbios.aem4f ...
 gmake[2]: Nothing to be done for 'all'.
 
 **** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "EGH456MotorProject.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "EGH456MotorProject.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "EGH456MotorProject.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "EGH456MotorProject.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../UART.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="UART.d_raw" --cmd_file="configPkg/compiler.opt"  "../UART.c"
+"../UART.c", line 21: warning #112-D: statement is unreachable
+"../UART.c", line 21: warning #225-D: function "System_abort" declared implicitly
+Finished building: "../UART.c"
+ 
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+"..\UART.c", line 21: warning #112-D: statement is unreachable
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UART.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+error #10056: symbol "WriteUART" redefined: first defined in "./UART.obj"; redefined in "./empty.obj"
+error #10056: symbol "initUART" redefined: first defined in "./UART.obj"; redefined in "./empty.obj"
+error #10010: errors encountered during linking; "EGH456MotorProject.out" not built
+ 
+>> Compilation failure
+makefile:157: recipe for target 'EGH456MotorProject.out' failed
+gmake[1]: *** [EGH456MotorProject.out] Error 1
+makefile:153: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../UARTLocal.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="UARTLocal.d_raw" --cmd_file="configPkg/compiler.opt"  "../UARTLocal.c"
+"../UARTLocal.c", line 21: warning #112-D: statement is unreachable
+"../UARTLocal.c", line 21: warning #225-D: function "System_abort" declared implicitly
+Finished building: "../UARTLocal.c"
+ 
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+"..\UARTLocal.c", line 21: warning #112-D: statement is unreachable
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+error #10056: symbol "WriteUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10056: symbol "initUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10010: errors encountered during linking; "EGH456MotorProject.out" not built
+ 
+>> Compilation failure
+makefile:157: recipe for target 'EGH456MotorProject.out' failed
+gmake[1]: *** [EGH456MotorProject.out] Error 1
+makefile:153: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/UARTLocal.c", line 21: warning #112-D: statement is unreachable
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+error #10056: symbol "WriteUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10056: symbol "initUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10010: errors encountered during linking; "EGH456MotorProject.out" not built
+ 
+>> Compilation failure
+makefile:157: recipe for target 'EGH456MotorProject.out' failed
+gmake[1]: *** [EGH456MotorProject.out] Error 1
+makefile:153: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../UARTLocal.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="UARTLocal.d_raw" --cmd_file="configPkg/compiler.opt"  "../UARTLocal.c"
+"../UARTLocal.c", line 21: warning #112-D: statement is unreachable
+"../UARTLocal.c", line 21: warning #225-D: function "System_abort" declared implicitly
+Finished building: "../UARTLocal.c"
+ 
+Building file: "../drivers/pinout.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="drivers/pinout.d_raw" --obj_directory="drivers" --cmd_file="configPkg/compiler.opt"  "../drivers/pinout.c"
+Finished building: "../drivers/pinout.c"
+ 
+Building file: "../drivers/touch.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="drivers/touch.d_raw" --obj_directory="drivers" --cmd_file="configPkg/compiler.opt"  "../drivers/touch.c"
+Finished building: "../drivers/touch.c"
+ 
+Building file: "../drivers/Kentec320x240x16_ssd2119_spi.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="drivers/Kentec320x240x16_ssd2119_spi.d_raw" --obj_directory="drivers" --cmd_file="configPkg/compiler.opt"  "../drivers/Kentec320x240x16_ssd2119_spi.c"
+Finished building: "../drivers/Kentec320x240x16_ssd2119_spi.c"
+ 
+Building file: "../drivers/frame.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="drivers/frame.d_raw" --obj_directory="drivers" --cmd_file="configPkg/compiler.opt"  "../drivers/frame.c"
+Finished building: "../drivers/frame.c"
+ 
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+"..\UARTLocal.c", line 21: warning #112-D: statement is unreachable
+Finished building: "../empty.c"
+ 
+Building file: "../EK_TM4C1294XL.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="EK_TM4C1294XL.d_raw" --cmd_file="configPkg/compiler.opt"  "../EK_TM4C1294XL.c"
+"../EK_TM4C1294XL.c", line 412: warning #837-D: pragma can only be applied to a file level symbol, not 'PWM_config'
+Finished building: "../EK_TM4C1294XL.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+error #10056: symbol "WriteUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10056: symbol "initUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10010: errors encountered during linking; "EGH456MotorProject.out" not built
+ 
+>> Compilation failure
+makefile:157: recipe for target 'EGH456MotorProject.out' failed
+gmake[1]: *** [EGH456MotorProject.out] Error 1
+makefile:153: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../drivers/UARTLocal.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="drivers/UARTLocal.d_raw" --obj_directory="drivers" --cmd_file="configPkg/compiler.opt"  "../drivers/UARTLocal.c"
+"../drivers/UARTLocal.c", line 21: warning #112-D: statement is unreachable
+"../drivers/UARTLocal.c", line 21: warning #225-D: function "System_abort" declared implicitly
+Finished building: "../drivers/UARTLocal.c"
+ 
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+"..\drivers/UARTLocal.c", line 21: warning #112-D: statement is unreachable
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/UARTLocal.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+error #10056: symbol "WriteUART" redefined: first defined in "./empty.obj"; redefined in "./drivers/UARTLocal.obj"
+error #10056: symbol "initUART" redefined: first defined in "./empty.obj"; redefined in "./drivers/UARTLocal.obj"
+error #10010: errors encountered during linking; "EGH456MotorProject.out" not built
+ 
+>> Compilation failure
+makefile:157: recipe for target 'EGH456MotorProject.out' failed
+gmake[1]: *** [EGH456MotorProject.out] Error 1
+makefile:153: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+ 
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'empty.obj' failed
+"..\drivers/UARTLocal.h", line 19: error #131: expected a "{"
+"../empty.c", line 111: warning #12-D: parsing restarts here after previous syntax error
+"../empty.c", line 111: warning #176-D: expression has no effect
+"../empty.c", line 111: warning #176-D: expression has no effect
+"../empty.c", line 111: error #20: identifier "g_sStartStopBttn" is undefined
+"../empty.c", line 111: warning #176-D: expression has no effect
+"../empty.c", line 111: error #29: expected an expression
+"../empty.c", line 111: error #66: expected a ";"
+"../empty.c", line 111: error #29: expected an expression
+"../empty.c", line 111: error #66: expected a ";"
+"../empty.c", line 111: warning #994-D: missing return statement at end of non-void function "initUART"
+"../empty.c", line 115: error #20: identifier "g_sBackground" is undefined
+"../empty.c", line 115: error #45: expression must have pointer type
+"../empty.c", line 115: error #20: identifier "StartStopBttnPress" is undefined
+"../empty.c", line 126: error #20: identifier "motorStartStop" is undefined
+"../empty.c", line 238: error #20: identifier "task0Stack" is undefined
+"../empty.c", line 239: error #20: identifier "task0Struct" is undefined
+"../empty.c", line 246: error #20: identifier "sContext" is undefined
+"../empty.c", line 249: error #20: identifier "uart" is undefined
+"../empty.c", line 250: warning #225-D: function "WriteUART" declared implicitly
+14 errors detected in the compilation of "../empty.c".
+gmake: *** [empty.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/UARTLocal.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "EGH456MotorProject.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../drivers/UARTLocal.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="drivers/UARTLocal.d_raw" --obj_directory="drivers" --cmd_file="configPkg/compiler.opt"  "../drivers/UARTLocal.c"
+"../drivers/UARTLocal.c", line 20: warning #225-D: function "System_abort" declared implicitly
+Finished building: "../drivers/UARTLocal.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/UARTLocal.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+ 
+ undefined    first referenced       
+  symbol          in file            
+ ---------    ----------------       
+ System_abort ./drivers/UARTLocal.obj
+ 
+error #10234-D: unresolved symbols remain
+error #10010: errors encountered during linking; "EGH456MotorProject.out" not built
+ 
+>> Compilation failure
+makefile:157: recipe for target 'EGH456MotorProject.out' failed
+gmake[1]: *** [EGH456MotorProject.out] Error 1
+makefile:153: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../drivers/UARTLocal.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="drivers/UARTLocal.d_raw" --obj_directory="drivers" --cmd_file="configPkg/compiler.opt"  "../drivers/UARTLocal.c"
+Finished building: "../drivers/UARTLocal.c"
+ 
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+ 
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'empty.obj' failed
+"../empty.c", line 250: warning #225-D: function "ystem_printf" declared implicitly
+"../empty.c", line 251: error #66: expected a ";"
+1 error detected in the compilation of "../empty.c".
+gmake: *** [empty.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+"../empty.c", line 250: warning #225-D: function "ystem_printf" declared implicitly
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/UARTLocal.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+ 
+ undefined    first referenced
+  symbol          in file     
+ ---------    ----------------
+ ystem_printf ./empty.obj     
+ 
+error #10234-D: unresolved symbols remain
+error #10010: errors encountered during linking; "EGH456MotorProject.out" not built
+ 
+>> Compilation failure
+makefile:157: recipe for target 'EGH456MotorProject.out' failed
+gmake[1]: *** [EGH456MotorProject.out] Error 1
+makefile:153: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/UARTLocal.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "EGH456MotorProject.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../UARTLocal.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="UARTLocal.d_raw" --cmd_file="configPkg/compiler.opt"  "../UARTLocal.c"
+Finished building: "../UARTLocal.c"
+ 
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+error #10056: symbol "WriteUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10056: symbol "initUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10010: errors encountered during linking; "EGH456MotorProject.out" not built
+ 
+>> Compilation failure
+makefile:157: recipe for target 'EGH456MotorProject.out' failed
+gmake[1]: *** [EGH456MotorProject.out] Error 1
+makefile:153: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+error #10056: symbol "WriteUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10056: symbol "initUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10010: errors encountered during linking; "EGH456MotorProject.out" not built
+ 
+>> Compilation failure
+makefile:157: recipe for target 'EGH456MotorProject.out' failed
+gmake[1]: *** [EGH456MotorProject.out] Error 1
+makefile:153: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+error #10056: symbol "WriteUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10056: symbol "initUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10010: errors encountered during linking; "EGH456MotorProject.out" not built
+ 
+>> Compilation failure
+makefile:157: recipe for target 'EGH456MotorProject.out' failed
+gmake[1]: *** [EGH456MotorProject.out] Error 1
+makefile:153: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "EGH456MotorProject.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+error #10056: symbol "WriteUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10056: symbol "initUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10010: errors encountered during linking; "EGH456MotorProject.out" not built
+ 
+>> Compilation failure
+makefile:157: recipe for target 'EGH456MotorProject.out' failed
+gmake[1]: *** [EGH456MotorProject.out] Error 1
+makefile:153: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "EGH456MotorProject.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "EGH456MotorProject.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../UARTLocal.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="UARTLocal.d_raw" --cmd_file="configPkg/compiler.opt"  "../UARTLocal.c"
+Finished building: "../UARTLocal.c"
+ 
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "EGH456MotorProject.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+error #10056: symbol "WriteUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10056: symbol "initUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10010: errors encountered during linking; "EGH456MotorProject.out" not built
+ 
+>> Compilation failure
+makefile:157: recipe for target 'EGH456MotorProject.out' failed
+gmake[1]: *** [EGH456MotorProject.out] Error 1
+makefile:153: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+error #10056: symbol "WriteUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10056: symbol "initUART" redefined: first defined in "./UARTLocal.obj"; redefined in "./empty.obj"
+error #10010: errors encountered during linking; "EGH456MotorProject.out" not built
+ 
+>> Compilation failure
+makefile:157: recipe for target 'EGH456MotorProject.out' failed
+gmake[1]: *** [EGH456MotorProject.out] Error 1
+makefile:153: recipe for target 'all' failed
+gmake: *** [all] Error 2
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "EGH456MotorProject.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "EGH456MotorProject.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project EGH456MotorProject ****
+
+"C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[1]: Nothing to be done for 'all'.
+Building file: "../empty.c"
+Invoking: ARM Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+Finished building: "../empty.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "EGH456MotorProject.out"
+Invoking: ARM Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+Finished building target: "EGH456MotorProject.out"
+ 
+
+**** Build Finished ****

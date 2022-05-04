@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="MemoryDumperFillAction">
-		<item key="com.ti.ccstudio.system.setup.ui.editors.connectionName" value="Texas Instruments XDS100v2 USB Debug Probe"/>
-		<item key="com.ti.ccstudio.system.setup.ui.editors.connectionType" value="TIXDS100v2"/>
+		<item key="com.ti.ccstudio.system.setup.ui.editors.connectionName" value="Stellaris In-Circuit Debug Interface"/>
+		<item key="com.ti.ccstudio.system.setup.ui.editors.connectionType" value="LM_ICDI"/>
 	</section>
 	<section name="ImportExportAction">
 		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="com.ti.ccstudio.project.ui.wizards.importexport.ImportCCSProjectWizard"/>

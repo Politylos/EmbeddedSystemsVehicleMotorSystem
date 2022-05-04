@@ -261,6 +261,8 @@ empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packag
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/package/Seconds_SecondsProxy.h
 empty.obj: C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/drivers/motorlib.h
 empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h
+empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/UART.h
+empty.obj: ../UARTLocal.h
 empty.obj: ../Board.h
 empty.obj: ../EK_TM4C1294XL.h
 
@@ -785,6 +787,10 @@ C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbi
 C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/drivers/motorlib.h:
 
 C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h:
+
+C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/UART.h:
+
+../UARTLocal.h:
 
 ../Board.h:
 

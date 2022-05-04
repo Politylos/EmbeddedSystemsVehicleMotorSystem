@@ -83,15 +83,20 @@
 #include <ti/sysbios/hal/Seconds.h>
 #include <time.h>
 #include <drivers/motorlib.h>
-
-// Graphics
-tContext sContext;
-uint8_t motorStartStop = 1;
-
+#include <ti/drivers/UART.h>
+#include "UARTLocal.h"
 /* Board Header file */
 #include "Board.h"
 
 #define TASKSTACKSIZE   1024
+
+// Graphics
+tContext sContext;
+uint8_t motorStartStop = 1;
+UART_Handle uart;
+
+
+
 
 Task_Struct task0Struct;
 Char task0Stack[TASKSTACKSIZE];
@@ -223,6 +228,7 @@ int main(void)
     Board_initGeneral();
     Board_initGPIO();
     Board_initI2C();
+    Board_initUART();
     PinoutSet(false, false);
 
 
@@ -241,7 +247,11 @@ int main(void)
     GrContextInit(&sContext, &g_sKentec320x240x16_SSD2119);
     TouchScreenInit(120000000);
     TouchScreenCallbackSet(WidgetPointerMessage);
-
+    if (!initUART(&uart)){
+        System_printf("EROR\n");
+    } else{
+        WriteUART(uart,"UART Running\r\n");
+    }
 
 
 

@@ -1,0 +1,15 @@
+/*
+ * UARTLocal.h
+ *
+ *  Created on: 5 May 2022
+ *      Author: polit
+ */
+
+#ifndef DRIVERS_UARTLOCAL_H_
+#define DRIVERS_UARTLOCAL_H_
+
+
+bool initUART(UART_Handle *uart)
+
+
+#endif /* DRIVERS_UARTLOCAL_H_ */

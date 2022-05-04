@@ -2,7 +2,7 @@ LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
 activeLaunchTarget=null\:---
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:EGH456MotorProject
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:empty_EK_TM4C1294XL_TI,org.eclipse.launchbar.core.descriptorType.default\:EGH456MotorProject
 eclipse.preferences.version=1
 org.eclipse.launchbar.core.descriptorType.default\:EGH456MotorProject/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:EGH456MotorProject/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
