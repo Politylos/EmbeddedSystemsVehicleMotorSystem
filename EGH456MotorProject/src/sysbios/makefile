@@ -16,7 +16,7 @@ BIOS_INC  = -I"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/pa
 
 TARGET_INC = -I"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/"
 
-INCS = $(BIOS_INC) $(TARGET_INC)  --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" 
+INCS = $(BIOS_INC) $(TARGET_INC)  --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" 
 
 CC = C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl -c $(CCOPTS) -I C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include
 ASM = C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl -c $(CCOPTS) -I C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include
@@ -53,7 +53,7 @@ m3_TaskSupport_asm.obj: family/arm/m3/TaskSupport_asm.sv7M makefile
 	$(ASSEMBLE) --output_file=m3_TaskSupport_asm.obj
 
 
-BIOS.obj: BIOS.c knl/Clock.c knl/Idle.c knl/Intrinsics.c knl/Queue.c knl/Semaphore.c knl/Swi.c knl/Swi_andn.c knl/Task.c hal/Hwi.c hal/Hwi_stack.c hal/Hwi_startup.c family/arm/m3/Hwi.c family/arm/m3/TaskSupport.c gates/GateHwi.c gates/GateMutex.c heaps/HeapMem.c family/arm/lm4/Timer.c makefile
+BIOS.obj: BIOS.c knl/Clock.c knl/Idle.c knl/Intrinsics.c knl/Queue.c knl/Semaphore.c knl/Swi.c knl/Swi_andn.c knl/Task.c hal/Hwi.c hal/Hwi_stack.c hal/Hwi_startup.c hal/Seconds.c hal/SecondsClock.c hal/Timer.c family/arm/m3/Hwi.c family/arm/m3/TaskSupport.c gates/GateHwi.c gates/GateMutex.c heaps/HeapMem.c family/arm/lm4/TimestampProvider.c family/arm/lm4/Timer.c makefile
 	@-$(call RM, $@)
 	@echo clem4f $< ...
 	@$(CC) $(BIOS_DEFS) $(XOPTS) $(INCS) \
@@ -69,11 +69,15 @@ BIOS.obj: BIOS.c knl/Clock.c knl/Idle.c knl/Intrinsics.c knl/Queue.c knl/Semapho
 	$(BIOS_ROOT)hal/Hwi.c \
 	$(BIOS_ROOT)hal/Hwi_stack.c \
 	$(BIOS_ROOT)hal/Hwi_startup.c \
+	$(BIOS_ROOT)hal/Seconds.c \
+	$(BIOS_ROOT)hal/SecondsClock.c \
+	$(BIOS_ROOT)hal/Timer.c \
 	$(BIOS_ROOT)family/arm/m3/Hwi.c \
 	$(BIOS_ROOT)family/arm/m3/TaskSupport.c \
 	$(BIOS_ROOT)gates/GateHwi.c \
 	$(BIOS_ROOT)gates/GateMutex.c \
 	$(BIOS_ROOT)heaps/HeapMem.c \
+	$(BIOS_ROOT)family/arm/lm4/TimestampProvider.c \
 	$(BIOS_ROOT)family/arm/lm4/Timer.c \
 
 sysbios.aem4f: BIOS.obj m3_Hwi_asm.obj m3_Hwi_asm_switch.obj m3_IntrinsicsSupport_asm.obj m3_TaskSupport_asm.obj

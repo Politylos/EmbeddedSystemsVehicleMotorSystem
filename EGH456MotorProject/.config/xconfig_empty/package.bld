@@ -11,7 +11,7 @@ var makeAssembly = false;
 var Executable = xdc.module('xdc.bld.Executable');
 
 var exeOpts = new Executable.Attrs({
-        cfgScript: 'C:/ti/rtos_ws/empty_EK_TM4C1294XL_TI/empty.cfg',
+        cfgScript: 'C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/empty.cfg',
         profile: 'release',
         cfgHome: 'xconfig_empty',
 });
@@ -40,8 +40,8 @@ else {
 }
 
 var thisObj = {
-    cfg:        'C:/ti/rtos_ws/empty_EK_TM4C1294XL_TI/empty.cfg',
-    outputPath: 'C:/ti/rtos_ws/empty_EK_TM4C1294XL_TI/.config/xconfig_empty',
+    cfg:        'C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/empty.cfg',
+    outputPath: 'C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/.config/xconfig_empty',
     exeName:    'empty' + suffix,
     exeIntName: 'empty' + suffix.replace('.', '_'),
     targ:       targ,

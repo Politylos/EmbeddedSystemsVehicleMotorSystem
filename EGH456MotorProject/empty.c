@@ -41,9 +41,12 @@
 #include <ti/sysbios/BIOS.h>
 #include <ti/sysbios/knl/Task.h>
 
+#include <time.h>
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdint.h>
+#include <math.h>
+
 
 #include "inc/hw_memmap.h"
 
@@ -61,6 +64,7 @@
 #include <xdc/runtime/System.h>
 #include <driverlib/sysctl.h>
 #include <driverlib/pin_map.h>
+#include <ti/sysbios/hal/Timer.h>
 
 
 
@@ -87,15 +91,28 @@
 #include "UARTLocal.h"
 /* Board Header file */
 #include "Board.h"
+#include "empty.h"
+//#include <ti/sysbios/family/arm/msp432/Seconds.h>
+#include <ti/sysbios/hal/Seconds.h>
 
 #define TASKSTACKSIZE   1024
+
+typedef struct FullTime{
+    int year;
+    int months;
+    int days;
+    int hours;
+    int minutes;
+    int seconds;
+}FT;
 
 // Graphics
 tContext sContext;
 uint8_t motorStartStop = 1;
 UART_Handle uart;
+FT datetime;
 
-
+Timer_Handle timerclock;
 
 
 Task_Struct task0Struct;
@@ -199,8 +216,8 @@ void MotorTest(){
 }
 Void heartBeatFxn(UArg arg0, UArg arg1)
 {
-
-    MotorInit();
+    //Timer_start(timerclock);
+   // MotorInit();
     // Add the compile-time defined widgets to the widget tree.
     WidgetAdd(WIDGET_ROOT, (tWidget *)&g_sBackground);
 
@@ -220,6 +237,113 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
 /*
  *  ======== main ========
  */
+FT timeConvert(Seconds_Time time){
+    FT ft;
+    ft.year = floor(1970+time.secs/31556926);//10%5;//((int)time.secs/31556926 - time%31556926);
+    int leap = floor((ft.year/4)-(ft.year/100)+(ft.year/400)-((1970/4)-(1970/100)+(1970/400)));
+    int normyear = floor((ft.year-1970)-leap);
+    //ft.months = ((time.secs%31556926)/2629743);// -time%31556926%2629743;
+    int left = floor((((time.secs-(31536000*normyear+leap*31622400)))));
+    ft.days = floor((left/86400));
+
+    int l = 0;
+    if(ft.year%400+ ft.year%400+ ft.year%4 +ft.year%100 == 0){
+        l++;
+    }
+    ft.months=0;
+    int sday = ft.days*24*60*60;
+    if ((ft.days - 31) > 0){
+        ft.days=ft.days- 31;
+        ft.months=1;
+
+        if (((ft.days - 27+l)) > 0){
+                ft.days=ft.days- (27+l);
+                ft.months=2;
+
+                if (((ft.days - 31)) > 0){
+                             ft.days=ft.days- 31;
+                             ft.months=3;
+                             if ((ft.days - 30) > 0){
+                                 ft.days=ft.days- 30;
+                                 ft.months=4;
+                                 if (((ft.days - 31)) > 0){
+                                             ft.days=ft.days- 31;
+                                             ft.months=5;
+
+                                             if (((ft.days - 30)) > 0){
+                                                         ft.days=ft.days- 30;
+                                                         ft.months=6;
+
+                                                         if (((ft.days - 31)) > 0){
+                                                                     ft.days=ft.days- 31;
+                                                                     ft.months=7;
+
+                                                                     if (((ft.days - 31)) > 0){
+                                                                                 ft.days=ft.days- 31;
+                                                                                 ft.months=8;
+
+                                                                                 if (((ft.days - 30)) > 0){
+                                                                                             ft.days=ft.days- 30;
+                                                                                             ft.months=9;
+
+                                                                                             if (((ft.days - 31)) > 0){
+                                                                                                         ft.days=ft.days- 31;
+                                                                                                         ft.months=10;
+
+                                                                                                         if (((ft.days - 30)) > 0){
+                                                                                                                     ft.days=ft.days- 30;
+                                                                                                                     ft.months=11;
+                                                                                                                     if (((ft.days - 31)) > 0){
+                                                                                                                                 ft.days=ft.days- 31;
+                                                                                                                                 ft.months=12;
+                                                                                                                     }
+                                                                                                         }
+
+                                                                                             }
+
+                                                                                 }
+
+                                                                     }
+
+                                                         }
+
+                                             }
+
+                                 }
+
+                             }
+
+                 }
+
+        }
+
+    }
+    ft.hours = (((floor(((left%86400))/3600)+10)));//((((time.secs%31556926)%2629743)%86400)/3600);//(time.secs%31556926%2629743%86400/3600) -time%31556926%2629743%86400%3600;
+    ft.minutes = floor(((left%86400)%3600)/60);//(((((time.secs%31556926)%2629743)%86400)%3600)/60);// (time.secs%31556926%2629743%86400%3600/60) -time%31556926%2629743%86400%3600%60;
+    ft.seconds = floor(((left%86400)%3600)%60);
+    return ft;
+
+}
+void updatetime(){
+    Seconds_Time secs;
+    UInt32 test3 =Seconds_getTime(&secs);
+    datetime = timeConvert(secs);
+}
+bool timer1sec(){
+    Timer_Params params;
+    Timer_Params_init(&params);
+    params.period = 1000000;
+    // Period of a tick
+    params.periodType = ti_sysbios_interfaces_ITimer_PeriodType_MICROSECS;
+
+    // Period type
+    params.runMode = ti_sysbios_interfaces_ITimer_RunMode_CONTINUOUS;
+    // Timer run mode
+    params.startMode = ti_sysbios_interfaces_ITimer_StartMode_AUTO;
+    params.arg =  NULL;
+    timerclock=Timer_create(1,updatetime,&params,NULL);
+    return true;
+}
 int main(void)
 {
     Task_Params taskParams;
@@ -238,7 +362,21 @@ int main(void)
     taskParams.stackSize = TASKSTACKSIZE;
     taskParams.stack = &task0Stack;
     Task_construct(&task0Struct, (Task_FuncPtr)heartBeatFxn, &taskParams, NULL);
+    time_t t;
+      struct tm *ltm;
+      char *curTime;
 
+      Seconds_set(1651752452);//1651751655);
+
+      t = time(NULL);
+      ltm = localtime(&t);
+      curTime = asctime(ltm);
+      System_printf("Time(GMT): %s\n", curTime);
+      Seconds_Time  test4;
+      Seconds_Module_startup();
+    UInt32 test3 = Seconds_getTime(&test4);
+
+    timeConvert(test4);
     // Turn on user LED
     GPIO_write(Board_LED0, Board_LED_ON);
 
@@ -250,7 +388,11 @@ int main(void)
     if (!initUART(&uart)){
         System_printf("EROR\n");
     } else{
-        WriteUART(uart,"UART Running\r\n");
+        WriteUART(uart,"UART Running/r\n");
+       // char temp[40];
+        //sprintf(temp,"%s\n\r",curTime);
+       // WriteUART(uart,"UART Running\r\n");
+      //  WriteUART(uart,temp);
     }
 
 
@@ -263,6 +405,7 @@ int main(void)
     System_flush();
 
     /* Start BIOS */
+    timer1sec();
     BIOS_start();
 
     return (0);

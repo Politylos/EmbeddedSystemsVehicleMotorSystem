@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Board.h"/>
+		<item key="selection" value=";"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value=";"/>
+			<item value="timer"/>
+			<item value="PWM"/>
+			<item value="pwm"/>
 			<item value="board.h"/>
 			<item value="uart"/>
 			<item value="PWM_Config "/>
@@ -19,10 +23,6 @@
 			<item value="GPIO_PinConfig"/>
 			<item value="EK_TM4C1294XL_USR_SW1"/>
 			<item value="GPIO"/>
-			<item value="GPIOName"/>
-			<item value="EK_TM4C1294XL_GPIOName"/>
-			<item value="low"/>
-			<item value="bool"/>
 		</list>
 		<list key="replacehistory">
 		</list>
