@@ -217,6 +217,7 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
 
     // Paint the widget tree to make sure they all appear on the display.
     WidgetPaint(WIDGET_ROOT);
+    char tempc[30];
     while (1) {
         //SysCtlDelay(100);
         //GPIO_toggle(Board_LED0);
@@ -225,6 +226,9 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
 
 
 //        TouchScreenIntHandler
+        Task_sleep(1000);
+        sprintf(tempc,"%d:%d:%d %d/%d/%d \r\n",datetime.hours,datetime.minutes,datetime.seconds,datetime.days,datetime.months,datetime.year);
+        UART_write(uart, tempc, sizeof(tempc));
     }
 }
 
@@ -250,24 +254,8 @@ int main(void)
     taskParams.stackSize = TASKSTACKSIZE;
     taskParams.stack = &task0Stack;
     Task_construct(&task0Struct, (Task_FuncPtr)heartBeatFxn, &taskParams, NULL);
-    time_t t;
-      struct tm *ltm;
-      char *curTime;
-
-      Seconds_set(1651752452);//1651751655);
-
-      t = time(NULL);
-      ltm = localtime(&t);
-      curTime = asctime(ltm);
-      System_printf("Time(GMT): %s\n", curTime);
-      Seconds_Time  test4;
-      Seconds_Module_startup();
-    UInt32 test3 = Seconds_getTime(&test4);
-
-    timeConvert(test4);
     // Turn on user LED
     GPIO_write(Board_LED0, Board_LED_ON);
-
     //tContext sContext;
     Kentec320x240x16_SSD2119Init(120000000);
     GrContextInit(&sContext, &g_sKentec320x240x16_SSD2119);
@@ -275,12 +263,6 @@ int main(void)
     TouchScreenCallbackSet(WidgetPointerMessage);
     if (!initUART(&uart)){
         System_printf("EROR\n");
-    } else{
-        WriteUART(uart,"UART Running/r\n");
-       // char temp[40];
-        //sprintf(temp,"%s\n\r",curTime);
-       // WriteUART(uart,"UART Running\r\n");
-      //  WriteUART(uart,temp);
     }
 
 

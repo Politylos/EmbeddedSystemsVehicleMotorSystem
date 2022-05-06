@@ -124,9 +124,11 @@ void updatetime(FT *date){
     *date = timeConvert(secs);
 }
 bool timer1sec(Timer_Handle *timer,FT *data){
+    Seconds_set(1651752452);
+    Seconds_Module_startup();
     Timer_Params params;
     Timer_Params_init(&params);
-    params.period = 1000000;
+    params.period = Clock_tickPeriod*1000;
     // Period of a tick
     params.periodType = ti_sysbios_interfaces_ITimer_PeriodType_MICROSECS;
 
