@@ -111,7 +111,7 @@ Timer_Handle timerclock;
 
 Task_Struct task0Struct;
 Char task0Stack[TASKSTACKSIZE];
-
+char tempc[30];
 
 tCanvasWidget     g_sBackground;
 tPushButtonWidget g_sStartStopBttn;
@@ -217,18 +217,19 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
 
     // Paint the widget tree to make sure they all appear on the display.
     WidgetPaint(WIDGET_ROOT);
-    char tempc[30];
+
     while (1) {
-        //SysCtlDelay(100);
-        //GPIO_toggle(Board_LED0);
+        //Task_sleep(100);
+        GPIO_toggle(Board_LED0);
         //MotorTest();
-   //     WidgetMessageQueueProcess();
+        WidgetMessageQueueProcess();
 
 
-//        TouchScreenIntHandler
+        //TouchScreenIntHandler;
         Task_sleep(1000);
         sprintf(tempc,"%d:%d:%d %d/%d/%d \r\n",datetime.hours,datetime.minutes,datetime.seconds,datetime.days,datetime.months,datetime.year);
-        UART_write(uart, tempc, sizeof(tempc));
+        //UART_write(uart, tempc, sizeof(tempc));
+        FrameDraw(&sContext, tempc);
     }
 }
 
@@ -265,9 +266,9 @@ int main(void)
         System_printf("EROR\n");
     }
 
+    FrameDraw(&sContext, tempc);
 
 
-    FrameDraw(&sContext, "Touch Screen Test");
 
     System_printf("Starting the example\nSystem provider is set to SysMin. "
                   "Halt the target to view any SysMin contents in ROV.\n");

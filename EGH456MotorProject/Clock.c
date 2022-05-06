@@ -137,7 +137,7 @@ bool timer1sec(Timer_Handle *timer,FT *data){
     // Timer run mode
     params.startMode = ti_sysbios_interfaces_ITimer_StartMode_AUTO;
     params.arg = data;
-    *timer=Timer_create(1,updatetime,&params,NULL);
+    *timer=Timer_create(5,updatetime,&params,NULL);
     if (timer == NULL){
         return false;
     }
