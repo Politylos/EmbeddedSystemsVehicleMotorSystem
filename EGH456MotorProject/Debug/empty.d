@@ -276,6 +276,9 @@ empty.obj: ../UARTLocal.h
 empty.obj: ../Board.h
 empty.obj: ../EK_TM4C1294XL.h
 empty.obj: ../empty.h
+empty.obj: ../Clock.h
+empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Timer.h
+empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h
 
 ../empty.c:
@@ -829,6 +832,12 @@ C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packag
 ../EK_TM4C1294XL.h:
 
 ../empty.h:
+
+../Clock.h:
+
+C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Timer.h:
+
+C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h:
 
 C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h:
 
