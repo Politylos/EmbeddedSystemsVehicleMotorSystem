@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Hwi"/>
+		<item key="selection" value="gpioPinConfigs"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="gpioPinConfigs"/>
+			<item value="gpio"/>
+			<item value="StartStopBttnPress"/>
 			<item value="hwi"/>
 			<item value="stack"/>
 			<item value="timer1sec"/>
@@ -20,9 +23,6 @@
 			<item value="PWM_Config "/>
 			<item value="Clock.timerId"/>
 			<item value="driverlib"/>
-			<item value="drierlib"/>
-			<item value="CONFIG_LATCHMODE"/>
-			<item value="gpioPinConfigs"/>
 		</list>
 		<list key="replacehistory">
 		</list>

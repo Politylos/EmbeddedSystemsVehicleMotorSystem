@@ -107,7 +107,9 @@ UART_Handle uart;
 FT datetime;
 
 Timer_Handle timerclock;
-
+bool HA=false;
+bool HB=false;
+bool HC=false;
 
 Task_Struct task0Struct;
 Char task0Stack[TASKSTACKSIZE];
@@ -193,31 +195,76 @@ void StartStopBttnPress(tWidget *psWidget)
  *  is configured for the heartBeat Task instance.
  */
 void MotorInit(){
+    enableMotor();
     initMotorLib(20, NULL);
-    setDuty(25);
+    updateMotor(0, 0,1);
+    setDuty(100);
 }
 void MotorTest(){
 
     updateMotor(0, 1, 0);
-    SysCtlDelay(1000);
+    Task_sleep(100);
 
     updateMotor(0, 0, 1);
 
-    SysCtlDelay(1000);
+    Task_sleep(100);
     updateMotor(1, 0, 0);
-    SysCtlDelay(1000);
+    Task_sleep(100);
+    updateMotor(0, 1, 0);
+    Task_sleep(100);
+
+    updateMotor(0, 0, 1);
+
+    Task_sleep(100);
+    updateMotor(1, 0, 0);
+    Task_sleep(100);
+    updateMotor(0, 1, 0);
+    Task_sleep(100);
+
+    updateMotor(0, 0, 1);
+
+    Task_sleep(100);
+    updateMotor(1, 0, 0);
+    Task_sleep(100);
+    updateMotor(0, 1, 0);
+    Task_sleep(100);
+
+    updateMotor(0, 0, 1);
+
+    Task_sleep(100);
+    updateMotor(1, 0, 0);
+    Task_sleep(100);
+    updateMotor(0, 1, 0);
+    Task_sleep(100);
+
+    updateMotor(0, 0, 1);
+
+    Task_sleep(100);
+    updateMotor(1, 0, 0);
+    Task_sleep(100);
+    updateMotor(0, 1, 0);
+    Task_sleep(100);
+
+    updateMotor(0, 0, 1);
+
+    Task_sleep(100);
+    updateMotor(1, 0, 0);
+    Task_sleep(100);
 
 }
 Void heartBeatFxn(UArg arg0, UArg arg1)
 {
+    bool LA,LB,LC;
+    HA=1;
     //Timer_start(timerclock);
-   // MotorInit();
+   //MotorInit();
     // Add the compile-time defined widgets to the widget tree.
     WidgetAdd(WIDGET_ROOT, (tWidget *)&g_sBackground);
 
     // Paint the widget tree to make sure they all appear on the display.
     WidgetPaint(WIDGET_ROOT);
-
+    //MotorInit();
+    //MotorTest();
     while (1) {
         //Task_sleep(100);
         GPIO_toggle(Board_LED0);
@@ -226,17 +273,26 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
 
 
         //TouchScreenIntHandler;
-        Task_sleep(1000);
+        Task_sleep(500);
         sprintf(tempc,"%d:%d:%d %d/%d/%d \r\n",datetime.hours,datetime.minutes,datetime.seconds,datetime.days,datetime.months,datetime.year);
         //UART_write(uart, tempc, sizeof(tempc));
         FrameDraw(&sContext, tempc);
+
     }
 }
 
 /*
  *  ======== main ========
  */
-
+void HAF(unsigned int index){
+    HA=!HA;
+}
+void HBF(unsigned int index){
+    HB=!HB;
+}
+void HCF(unsigned int index){
+    HC=!HC;
+}
 int main(void)
 {
     Task_Params taskParams;
@@ -267,7 +323,9 @@ int main(void)
     }
 
     FrameDraw(&sContext, tempc);
-
+    GPIO_setCallback(HALL_A, HAF);
+    GPIO_setCallback(HALL_B, HBF);
+    GPIO_setCallback(HALL_C, HCF);
 
 
     System_printf("Starting the example\nSystem provider is set to SysMin. "
