@@ -93,10 +93,11 @@
 #include "Board.h"
 #include "empty.h"
 #include "Clock.h"
+//#include "Screen/GUIMain.h"
 //#include <ti/sysbios/family/arm/msp432/Seconds.h>
 #include <ti/sysbios/hal/Seconds.h>
 
-#define TASKSTACKSIZE   1024
+#define TASKSTACKSIZE   2048//1024
 
 
 
@@ -116,9 +117,9 @@ Char task0Stack[TASKSTACKSIZE];
 tCanvasWidget     g_sBackground;
 tPushButtonWidget g_sStartStopBttn;
 
-void StartStopBttnPress(tWidget *psWidget);
+//void StartStopBttnPress(tWidget *psWidget);
 
-// The canvas widget acting as the background to the display.
+/*// The canvas widget acting as the background to the display.
 Canvas(g_sBackground, WIDGET_ROOT, 0, &g_sStartStopBttn,
        &g_sKentec320x240x16_SSD2119, 10, 25, 300, (240 - 25 -10),
        CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0);
@@ -129,7 +130,7 @@ RectangularButton(g_sStartStopBttn, &g_sBackground, 0, 0,
                    PB_STYLE_FILL | PB_STYLE_RELEASE_NOTIFY),
                    ClrDarkBlue, ClrBlue, ClrWhite, ClrWhite,
                    g_psFontCmss16b, "Start", 0, 0, 0, 0, StartStopBttnPress);
-
+*/
 
 
 void StartStopBttnPress(tWidget *psWidget)
@@ -213,10 +214,10 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
     //Timer_start(timerclock);
    // MotorInit();
     // Add the compile-time defined widgets to the widget tree.
-    WidgetAdd(WIDGET_ROOT, (tWidget *)&g_sBackground);
-
+    //WidgetAdd(WIDGET_ROOT, (tWidget *)&g_sBackground);
+    //InitScreen();
     // Paint the widget tree to make sure they all appear on the display.
-    WidgetPaint(WIDGET_ROOT);
+    //WidgetPaint(WIDGET_ROOT);
     char tempc[30];
     while (1) {
         //SysCtlDelay(100);
@@ -257,17 +258,16 @@ int main(void)
     // Turn on user LED
     GPIO_write(Board_LED0, Board_LED_ON);
     //tContext sContext;
-    Kentec320x240x16_SSD2119Init(120000000);
-    GrContextInit(&sContext, &g_sKentec320x240x16_SSD2119);
-    TouchScreenInit(120000000);
-    TouchScreenCallbackSet(WidgetPointerMessage);
+
+
+   /* TouchScreenCallbackSet(WidgetPointerMessage);
     if (!initUART(&uart)){
         System_printf("EROR\n");
-    }
+    }*/
 
 
 
-    FrameDraw(&sContext, "Touch Screen Test");
+    //FrameDraw(&sContext, "Touch Screen Test");
 
     System_printf("Starting the example\nSystem provider is set to SysMin. "
                   "Halt the target to view any SysMin contents in ROV.\n");
@@ -276,6 +276,9 @@ int main(void)
 
     /* Start BIOS */
     timer1sec(&timerclock,&datetime);
+    updatetime(&datetime);
+    updatetimeDisp(datetime);
+
     BIOS_start();
 
     return (0);
