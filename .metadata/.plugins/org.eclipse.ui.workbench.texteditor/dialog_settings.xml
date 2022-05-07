@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="gpioPinConfigs"/>
+		<item key="selection" value="WidgetAdd(WIDGET_ROOT, (tWidget *)&amp;g_sNext);"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="WidgetAdd(WIDGET_ROOT, (tWidget *)&amp;g_sNext)"/>
+			<item value="WidgetAdd(WIDGET_ROOT, (tWidget *)&amp;g_sNext);"/>
+			<item value="WidgetAdd"/>
+			<item value="ClrWhite"/>
+			<item value="TouchScreenInit"/>
+			<item value="drawframe"/>
+			<item value="g_ui32Panel"/>
+			<item value="ww"/>
+			<item value="day"/>
+			<item value="CanvasImageSet"/>
+			<item value="g_sCanvas2"/>
+			<item value="g_pui8Logo"/>
+			<item value="TouchScreenCallbackSet"/>
 			<item value="gpioPinConfigs"/>
 			<item value="gpio"/>
-			<item value="StartStopBttnPress"/>
-			<item value="hwi"/>
-			<item value="stack"/>
-			<item value="timer1sec"/>
-			<item value=";"/>
-			<item value="timer"/>
-			<item value="PWM"/>
-			<item value="pwm"/>
-			<item value="board.h"/>
-			<item value="uart"/>
-			<item value="PWM_Config "/>
-			<item value="Clock.timerId"/>
-			<item value="driverlib"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1944"/>
+		<item key="DIALOG_X_ORIGIN" value="2186"/>
 		<item key="DIALOG_Y_ORIGIN" value="928"/>
 		<item key="DIALOG_WIDTH" value="385"/>
 		<item key="DIALOG_HEIGHT" value="463"/>

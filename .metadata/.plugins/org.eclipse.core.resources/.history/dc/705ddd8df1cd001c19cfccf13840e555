@@ -1,0 +1,59 @@
+/*
+ * GlobalDraw.c
+ *
+ *  Created on: 7 May 2022
+ *      Author: polit
+ */
+#include <time.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdint.h>
+
+#include "grlib/grlib.h"
+#include "grlib/widget.h"
+#include "grlib/canvas.h"
+#include "grlib/checkbox.h"
+#include "grlib/container.h"
+#include "grlib/pushbutton.h"
+#include "grlib/radiobutton.h"
+#include "grlib/slider.h"
+
+//#include "Images/GUIImg.h"
+#include "Images/Images.h"
+#include "GlobalDraw.h"
+tRectangle Banner;
+tRectangle BannerB;
+void BannerInit(tContext *sContext){
+Banner.i16XMin = 0;
+Banner.i16YMin = 0;
+Banner.i16XMax = GrContextDpyWidthGet(sContext) - 1;
+Banner.i16YMax = 29;
+BannerB.i16XMin = 0;
+BannerB.i16YMin = 0;
+BannerB.i16XMax = GrContextDpyWidthGet(sContext) - 1;
+BannerB.i16YMax = 30;
+GrContextForegroundSet(sContext, ClrWhite);
+GrRectDraw(sContext, &Banner);
+GrContextForegroundSet(sContext, ClrDarkBlue);
+GrRectFill(sContext, &Banner);
+
+GrStringDrawCentered(sContext, "Loadinng...", -1,
+                     GrContextDpyWidthGet(sContext) / 2, 8, 0);
+}
+void TopBarDraw(tContext *sContext, tCanvasWidget *imgcan, char *time, bool Lightlvl){
+    GrContextForegroundSet(sContext, ClrDarkBlue);
+    GrRectFill(sContext, &Banner);
+    GrContextForegroundSet(sContext, ClrWhite);
+    GrContextFontSet(sContext, g_psFontCmss18b);
+    GrStringDrawCentered(sContext, time, -1,
+                         GrContextDpyWidthGet(sContext) / 2, 8, 0);
+    if(Lightlvl){
+    CanvasImageSet(imgcan,g_pui8Night);
+    WidgetPaint(imgcan);
+    } else{
+    CanvasImageSet(imgcan,g_pui8Day);
+    WidgetPaint(imgcan);
+    }
+}
+
+

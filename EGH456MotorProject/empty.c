@@ -109,6 +109,7 @@
 #include "Images/Images.h"
 #include "Interface/GlobalDraw.h"
 
+
 #define TASKSTACKSIZE   1024
 
 #ifdef ewarm
@@ -157,7 +158,7 @@ extern tCanvasWidget g_psPanels[];
 tRectangle sRect;
 bool LowLight=0;
 tCanvasWidget g_sCanvas2;
-
+tPushButtonWidget brrrr ;
 
 
 
@@ -257,6 +258,44 @@ Container(g_sContainer1, g_psPanels + 4, &g_sContainer2, 0,
 // The sixth panel, which contains a selection of push buttons.
 //
 //*****************************************************************************
+void btntest(){
+    int ahhhhhh=1;
+    WidgetRemove((tWidget *)&brrrr);
+}
+tSliderWidget slidertest = SliderStruct(g_psPanels+5, 0, 0,
+             &g_sKentec320x240x16_SSD2119, 5, 30, 220, 30, 0, 100, 25,
+             (SL_STYLE_FILL | SL_STYLE_BACKG_FILL | SL_STYLE_OUTLINE |
+              SL_STYLE_TEXT | SL_STYLE_BACKG_TEXT),
+             ClrGray, ClrBlack, ClrSilver, ClrWhite, ClrWhite,
+             &g_sFontCm20, "25%", 0, 0, OnSliderChange);
+tPushButtonWidget brrrr = RectangularButtonStruct(g_psPanels + 5, 0, 0,
+                                                  &g_sKentec320x240x16_SSD2119, 130, 200, 50, 50,
+                                                  PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+                                                  &g_sFontCm22, "5", g_pui8Blue50x50,
+                                                  g_pui8Blue50x50Press, 0, 0, btntest);
+tPushButtonWidget brrrr2 =RectangularButtonStruct(g_psPanels + 5, 0, 0,
+                        &g_sKentec320x240x16_SSD2119, 30, 35, 40, 40,
+                        PB_STYLE_FILL | PB_STYLE_OUTLINE | PB_STYLE_TEXT,
+                        ClrMidnightBlue, ClrBlack, ClrGray, ClrSilver,
+                        &g_sFontCm22, "1", 0, 0, 0, 0, btntest);
+tCanvasWidget sidertestC[] = {
+
+                                                      CanvasStruct(g_psPanels + 5,sidertestC+3, &brrrr, &g_sKentec320x240x16_SSD2119, 0,
+                                                                   85, 50, 50, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0),
+                                                                   CanvasStruct(g_psPanels + 5,sidertestC+4, &brrrr2, &g_sKentec320x240x16_SSD2119, 0,
+                                                                                85, 50, 50, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0),
+                              CanvasStruct(g_psPanels + 5, sidertestC+1, 0,
+                                           &g_sKentec320x240x16_SSD2119, 0,60, 200, 80,
+                                           CANVAS_STYLE_TEXT, 0, 0, ClrSilver, &g_sFontCm12, "MOTOR GO BRRRRR",
+                                           0, 0),
+                              CanvasStruct(g_psPanels + 5,sidertestC+2, &slidertest, &g_sKentec320x240x16_SSD2119, 0,
+                                           65, 220, 30, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0),
+
+
+
+
+};
+
 tCanvasWidget g_psPushButtonIndicators[] =
 {
     CanvasStruct(g_psPanels + 5, g_psPushButtonIndicators + 1, 0,
@@ -289,11 +328,16 @@ tCanvasWidget g_psPushButtonIndicators[] =
                  &g_sKentec320x240x16_SSD2119, 190, 115, 110, 24,
                  CANVAS_STYLE_TEXT, 0, 0, ClrSilver, &g_sFontCm20, "Auto",
                  0, 0),
-    CanvasStruct(g_psPanels + 5, 0, 0,
-                 &g_sKentec320x240x16_SSD2119, 190, 135, 110, 24,
-                 CANVAS_STYLE_TEXT, 0, 0, ClrSilver, &g_sFontCm20, "repeat",
-                 0, 0),
+                 CanvasStruct(g_psPanels + 5, 0, 0,
+                              &g_sKentec320x240x16_SSD2119, 190, 135, 110, 24,
+                              CANVAS_STYLE_TEXT, 0, 0, ClrSilver, &g_sFontCm20, "repeat",
+                              0, 0),
+                 CanvasStruct(g_psPanels + 5, 0, &slidertest,
+                              &g_sKentec320x240x16_SSD2119, 5, 115, 220, 30,
+                              CANVAS_STYLE_TEXT, 0, 0, ClrSilver, 0, 0,
+                              0, 0),
 };
+
 tPushButtonWidget g_psPushButtons[] =
 {
     RectangularButtonStruct(g_psPanels + 5, g_psPushButtons + 1, 0,
@@ -482,7 +526,7 @@ tCanvasWidget g_psPanels[] =
                  320, 166, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0),
     CanvasStruct(0, 0, &g_sContainer1, &g_sKentec320x240x16_SSD2119, 0, 24,
                  320, 166, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0),
-    CanvasStruct(0, 0, g_psPushButtons, &g_sKentec320x240x16_SSD2119, 0, 24,
+    CanvasStruct(0, 0, &sidertestC, &g_sKentec320x240x16_SSD2119, 0, 24,
                  320, 166, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0),
     CanvasStruct(0, 0, g_psRadioContainers, &g_sKentec320x240x16_SSD2119, 0,
                  24, 320, 166, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0),
@@ -526,9 +570,9 @@ RectangularButton(g_sPrevious, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 0, 190,
                   &g_sFontCm20, "-", g_pui8Blue50x50, g_pui8Blue50x50Press, 0, 0,
                   OnPrevious);
 
-Canvas(g_sTitle, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 50, 190, 220, 50,
+/*Canvas(g_sTitle, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 50, 190, 220, 50,
        CANVAS_STYLE_TEXT | CANVAS_STYLE_TEXT_OPAQUE, 0, 0, ClrSilver,
-       &g_sFontCm20, 0, 0, 0);
+       &g_sFontCm20, 0, 0, 0);*/
 
 RectangularButton(g_sNext, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 270, 190,
                   50, 50, PB_STYLE_IMG | PB_STYLE_TEXT, ClrBlack, ClrBlack, 0,
@@ -578,8 +622,8 @@ OnPrevious(tWidget *psWidget)
     //
     // Set the title of this panel.
     //
-    CanvasTextSet(&g_sTitle, g_pcPanei32Names[g_ui32Panel]);
-    WidgetPaint((tWidget *)&g_sTitle);
+    //CanvasTextSet(&g_sTitle, g_pcPanei32Names[g_ui32Panel]);
+    //WidgetPaint((tWidget *)&g_sTitle);
 
     //
     // See if this is the first panel.
@@ -648,8 +692,8 @@ OnNext(tWidget *psWidget)
     //
     // Set the title of this panel.
     //
-    CanvasTextSet(&g_sTitle, g_pcPanei32Names[g_ui32Panel]);
-    WidgetPaint((tWidget *)&g_sTitle);
+    //CanvasTextSet(&g_sTitle, g_pcPanei32Names[g_ui32Panel]);
+    //WidgetPaint((tWidget *)&g_sTitle);
 
     //
     // See if the previous panel was the first panel.
@@ -1073,51 +1117,6 @@ void MotorTest(){
     updateMotor(0, 1, 0);
     Task_sleep(100);
 
-    updateMotor(0, 0, 1);
-
-    Task_sleep(100);
-    updateMotor(1, 0, 0);
-    Task_sleep(100);
-    updateMotor(0, 1, 0);
-    Task_sleep(100);
-
-    updateMotor(0, 0, 1);
-
-    Task_sleep(100);
-    updateMotor(1, 0, 0);
-    Task_sleep(100);
-    updateMotor(0, 1, 0);
-    Task_sleep(100);
-
-    updateMotor(0, 0, 1);
-
-    Task_sleep(100);
-    updateMotor(1, 0, 0);
-    Task_sleep(100);
-    updateMotor(0, 1, 0);
-    Task_sleep(100);
-
-    updateMotor(0, 0, 1);
-
-    Task_sleep(100);
-    updateMotor(1, 0, 0);
-    Task_sleep(100);
-    updateMotor(0, 1, 0);
-    Task_sleep(100);
-
-    updateMotor(0, 0, 1);
-
-    Task_sleep(100);
-    updateMotor(1, 0, 0);
-    Task_sleep(100);
-    updateMotor(0, 1, 0);
-    Task_sleep(100);
-
-    updateMotor(0, 0, 1);
-
-    Task_sleep(100);
-    updateMotor(1, 0, 0);
-    Task_sleep(100);
 
 }
 Void heartBeatFxn(UArg arg0, UArg arg1)
@@ -1133,20 +1132,24 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
 
     // Paint the widget tree to make sure they all appear on the display.
     WidgetAdd(WIDGET_ROOT, (tWidget *)&g_sPrevious);
-    WidgetAdd(WIDGET_ROOT, (tWidget *)&g_sTitle);
+    //WidgetAdd(WIDGET_ROOT, (tWidget *)&g_sTitle);
     WidgetAdd(WIDGET_ROOT, (tWidget *)&g_sNext);
-
+    WidgetAdd(WIDGET_ROOT, (tWidget *)&slidertest);
+    WidgetAdd(WIDGET_ROOT, (tWidget *)&brrrr);
+    WidgetAdd(WIDGET_ROOT, (tWidget *)&brrrr2);
+    WidgetPaint(&slidertest);
+    WidgetPaint(&brrrr);
     //
     // Add the first panel to the widget tree.
     //
     g_ui32Panel = 0;
-   WidgetAdd(WIDGET_ROOT, (tWidget *)g_psPanels);
-    CanvasTextSet(&g_sTitle, g_pcPanei32Names[0]);
+   //WidgetAdd(WIDGET_ROOT, (tWidget *)g_psPanels);
+    //CanvasTextSet(&g_sTitle, g_pcPanei32Names[0]);
 
     //
     // Issue the initial paint request to the widgets.
     //
-    WidgetPaint(WIDGET_ROOT);
+    //WidgetPaint(WIDGET_ROOT);
     //MotorInit();
     //MotorTest();
 
@@ -1161,17 +1164,11 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
         Task_sleep(1000);
         sprintf(tempc,"%d:%d:%d %d/%d/%d \r\n",datetime.hours,datetime.minutes,datetime.seconds,datetime.days,datetime.months,datetime.year);
         //UART_write(uart, tempc, sizeof(tempc));
+        TopBarDraw(&sContext, &g_sCanvas2, tempc, LowLight);
+        LowLight=!LowLight;
 
-        FrameDraw(&sContext, tempc);
-        if(LowLight){
-        CanvasImageSet(&g_sCanvas2,g_pui8Night);
-        WidgetPaint(&g_sCanvas2);
-        LowLight=0;
-        } else{
-        CanvasImageSet(&g_sCanvas2,g_pui8Day);
-        LowLight=1;
-        WidgetPaint(&g_sCanvas2);
-        }
+
+
     }
 }
 
@@ -1199,7 +1196,7 @@ int main(void)
     Board_initI2C();
     Board_initUART();
     PinoutSet(false, false);
-
+    //DrawFrame()
 
     /* Construct heartBeat Task  thread */
     Task_Params_init(&taskParams);
@@ -1212,30 +1209,25 @@ int main(void)
     //tContext sContext;
     Kentec320x240x16_SSD2119Init(120000000);
     GrContextInit(&sContext, &g_sKentec320x240x16_SSD2119);
-    //TouchScreenInit(120000000);
+    TouchScreenInit(120000000);
     //TouchScreenCallbackSet(WidgetPointerMessage);
-    sRect.i16XMin = 0;
-    sRect.i16YMin = 0;
-    sRect.i16XMax = GrContextDpyWidthGet(&sContext) - 1;
-    sRect.i16YMax = 23;
-    GrContextForegroundSet(&sContext, ClrDarkBlue);
-    GrRectFill(&sContext, &sRect);
 
+    //GrContextForegroundSet(&sContext, ClrDarkBlue);
+    //GrRectFill(&sContext, &sRect);
     //
     // Put a white box around the banner.
     //
-    GrContextForegroundSet(&sContext, ClrWhite);
-    GrRectDraw(&sContext, &sRect);
+    //GrContextForegroundSet(&sContext, ClrWhite);
+    //GrRectDraw(&sContext, &sRect);
     //
     // Put the application name in the middle of the banner.
     //
-    GrContextFontSet(&sContext, &g_sFontCm20);
-    GrStringDrawCentered(&sContext, "Sophia Politylo N10489045", -1,
-                         GrContextDpyWidthGet(&sContext) / 2, 8, 0);
+    //GrContextFontSet(&sContext, &g_sFontCm20);
 
     //
     // Configure and enable uDMA
     //
+    BannerInit(&sContext);
     SysCtlPeripheralEnable(SYSCTL_PERIPH_UDMA);
     SysCtlDelay(10);
     uDMAControlBaseSet(&psDMAControlTable[0]);
@@ -1246,7 +1238,7 @@ int main(void)
     // widget tree.
     //
     //TouchScreenInit(g_ui32SysClock);
-    TouchScreenInit(120000000);
+    //TouchScreenInit(120000000);
     TouchScreenCallbackSet(WidgetPointerMessage);
 
     //

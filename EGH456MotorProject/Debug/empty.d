@@ -287,6 +287,7 @@ empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packag
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h
 empty.obj: ../Images/GUIImg.h
 empty.obj: ../Images/Images.h
+empty.obj: ../Interface/GlobalDraw.h
 
 ../empty.c:
 
@@ -861,4 +862,6 @@ C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbi
 ../Images/GUIImg.h:
 
 ../Images/Images.h:
+
+../Interface/GlobalDraw.h:
 
