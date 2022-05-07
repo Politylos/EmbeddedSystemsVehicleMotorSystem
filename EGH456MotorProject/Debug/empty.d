@@ -285,6 +285,8 @@ empty.obj: ../Clock.h
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Timer.h
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h
+empty.obj: ../Images/GUIImg.h
+empty.obj: ../Images/Images.h
 
 ../empty.c:
 
@@ -855,4 +857,8 @@ C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbi
 C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h:
 
 C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h:
+
+../Images/GUIImg.h:
+
+../Images/Images.h:
 
