@@ -162,7 +162,8 @@ bool LowLight=0;
 tCanvasWidget g_sCanvas2;
 tPushButtonWidget brrrr ;
 double dd[50]={0,0.0416493127863390,0.166597251145356,0.374843815077051,0.666389004581425,1.04123281965848,1.49937526030821,2.04081632653061,2.66555601832570,3.37359433569346,4.16493127863390,5.03956684714702,5.99750104123282,7.03873386089130,8.16326530612245,9.37109537692628,10.6622240733028,12.0366513952520,13.4943773427738,15.0354019158684,16.6597251145356,18.3673469387755,20.1582673885881,22.0324864639734,23.9900041649313,26.0308204914619,28.1549354435652,30.3623490212412,32.6530612244898,35.0270720533111,37.4843815077051,40.0249895876718,42.6488962932112,45.3561016243232,48.1466055810079,51.0204081632653,53.9775093710954,57.0179092044981,60.1416076634736,63.3486047480217,66.6389004581424,70.0124947938359,73.4693877551020,77.0095793419409,80.6330695543524,84.3398583923365,88.1299458558934,92.0033319450229,95.9600166597251,100};//{0,0.00416493127863390,0.0166597251145356,0.0374843815077051,0.0666389004581425,0.104123281965848,0.149937526030821,0.204081632653061,0.266555601832570,0.337359433569346,0.416493127863390,0.503956684714702,0.599750104123282,0.703873386089130,0.816326530612245,0.937109537692628,1.06622240733028,1.20366513952520,1.34943773427738,1.50354019158684,1.66597251145356,1.83673469387755,2.01582673885881,2.20324864639734,2.39900041649313,2.60308204914619,2.81549354435652,3.03623490212412,3.26530612244898,3.50270720533111,3.74843815077051,4.00249895876718,4.26488962932112,4.53561016243232,4.81466055810079,5.10204081632653,5.39775093710954,5.70179092044981,6.01416076634736,6.33486047480217,6.66389004581425,7.00124947938359,7.34693877551020,7.70095793419409,8.06330695543524,8.43398583923366,8.81299458558934,9.20033319450229,9.59600166597251,10,10};//{1,1.04164931278634,1.16659725114536,1.37484381507705,1.66638900458142,2.04123281965848,2.49937526030821,3.04081632653061,3.66555601832570,4.37359433569346,5.16493127863390,6.03956684714702,6.99750104123282,8.03873386089130,9.16326530612245,10.3710953769263,11.6622240733028,13.0366513952520,14.4943773427738,16.0354019158684,17.6597251145356,19.3673469387755,21.1582673885881,23.0324864639734,24.9900041649313,27.0308204914619,29.1549354435652,31.3623490212412,33.6530612244898,36.0270720533111,38.4843815077051,41.0249895876718,43.6488962932112,46.3561016243232,49.1466055810079,52.0204081632653,54.9775093710954,58.0179092044981,61.1416076634736,64.3486047480217,67.6389004581424,71.0124947938359,74.4693877551020,78.0095793419409,81.6330695543524,85.3398583923365,89.1299458558934,93.0033319450229,96.9600166597251,101,101};//{0,0.5,0.5,0.8,1.1,1.2.1.3,1.4,1.5,1.6,1.7.2,2.2,2.3.5,6,6.5,7,7.5,8,8.5,9,9.5,10,8,7,6,6,6,6.6,6.7,6.8,6.9,7.5,8,8,8,8,8.1,8.1,8,7.9,7.9,1,1,5,3,4,3,0,1,3,3,1,1,5,3,4,3,0,1,3,3,1,1,5,3,4,3,0,1,3,3,1,1,5,3,4,3,0,1,3,3,1,1,5,3,4,3,0,1,3,3,1,1,5,3,4,3,0,1,3,3};
-
+double lux = 100.1;
+double objectdist = 1.2;
 bool ongraph = 0;
 
 
@@ -1127,6 +1128,8 @@ extern void BackMainMotorPage();
 extern void graphSelectPage();
 extern void BackGraphSelect();
 extern void BackMainGraph();
+extern void backMainSensor();
+extern void SensorPage();
 Canvas(g_clear, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 0, 31,
        320, 209, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0);
 tPushButtonWidget MotorPgBtn = RectangularButtonStruct(0, 0, 0,
@@ -1138,7 +1141,7 @@ tPushButtonWidget SensorPgBtn = RectangularButtonStruct(0, 0, 0,
                                                   &g_sKentec320x240x16_SSD2119, 89, 117, 150, 40,
                                                   PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
                                                   &g_sFontCm16, "Sensor Control", g_pui8btn140x40,
-                                                  g_pui8btn150x40Press, 0, 0, btntest);
+                                                  g_pui8btn150x40Press, 0, 0, SensorPage);
 tPushButtonWidget GraphPgBtn = RectangularButtonStruct(0, 0, 0,
                                                   &g_sKentec320x240x16_SSD2119, 89, 172, 150, 40,
                                                   PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
@@ -1166,7 +1169,16 @@ tPushButtonWidget AccDownBtn = RectangularButtonStruct(0, 0, 0,
                                                   &g_sFontCm16, "", g_pui8arrowRight,
                                                   g_pui8arrowRight, 0, 0, btntest);
 
-
+tPushButtonWidget DistUpBtn = RectangularButtonStruct(0, 0, 0,
+                                                  &g_sKentec320x240x16_SSD2119, 274, 101, 36, 36,
+                                                  PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+                                                  &g_sFontCm16, "", g_pui8arrowRight,
+                                                  g_pui8arrowRight, 0, 0, btntest);
+tPushButtonWidget DistDownBtn = RectangularButtonStruct(0, 0, 0,
+                                                  &g_sKentec320x240x16_SSD2119, 138, 101, 36, 36,
+                                                  PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+                                                  &g_sFontCm16, "", g_pui8arrowLeft,
+                                                  g_pui8arrowLeft, 0, 0, btntest);
 
 tPushButtonWidget backMotorBtn = RectangularButtonStruct(0, 0, 0,
                                                   &g_sKentec320x240x16_SSD2119, 1, 209, 30, 30,
@@ -1179,6 +1191,11 @@ tPushButtonWidget backGraphBtn = RectangularButtonStruct(0, 0, 0,
                                                   PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
                                                   &g_sFontCm16, "", g_pui8backBtn,
                                                   g_pui8backBtn, 0, 0, BackGraphSelect);
+tPushButtonWidget backSensorBtn = RectangularButtonStruct(0, 0, 0,
+                                                  &g_sKentec320x240x16_SSD2119, 1, 209, 30, 30,
+                                                  PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+                                                  &g_sFontCm16, "", g_pui8backBtn,
+                                                  g_pui8backBtn, 0, 0, backMainSensor);
 tPushButtonWidget backGraphSelectBtn = RectangularButtonStruct(0, 0, 0,
                                                   &g_sKentec320x240x16_SSD2119, 1, 209, 30, 30,
                                                   PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
@@ -1221,6 +1238,7 @@ tSliderWidget MotorSpeedSlider = SliderStruct(g_psPanels+5, 0, 0,
 tRectangle clearBox;
 tRectangle CurrBox;
 tRectangle AccBox;
+tRectangle Distbox;
 int CalcNoRemainder(int num, int den){
     int rem;
     rem = num%den;
@@ -1270,15 +1288,15 @@ void GraphPage(){
     ongraph=1;
     GraphPrimitive(dd,x1,x2,y1,y2,50);
 }
+
 void MainPage(){
     clearBox.i16XMin = 0;
-    clearBox.i16YMin = 31;
+    clearBox.i16YMin = 32;
     clearBox.i16XMax = 319;
-    clearBox.i16YMax = 239;
+    clearBox.i16YMax = 240;
   WidgetAdd(WIDGET_ROOT,&MotorPgBtn);
   WidgetAdd(WIDGET_ROOT,&SensorPgBtn);
   WidgetAdd(WIDGET_ROOT,&GraphPgBtn);
-  GrContextForegroundSet(&sContext, ClrBlack);
   GrContextForegroundSet(&sContext, ClrBlack);
   GrRectFill(&sContext, &clearBox);
   WidgetPaint(&MotorPgBtn);
@@ -1290,6 +1308,44 @@ void RemoveMainPage(){
     WidgetRemove(&MotorPgBtn);
     WidgetRemove(&SensorPgBtn);
     WidgetRemove(&GraphPgBtn);
+}
+void SensorPage(){
+    RemoveMainPage();
+    GrContextForegroundSet(&sContext, ClrBlack);
+    GrRectFill(&sContext, &clearBox);
+    Distbox.i16XMin = 165;
+    Distbox.i16YMin = 101;
+    Distbox.i16XMax = 165+119;
+    Distbox.i16YMax = 101+36;
+    GrContextForegroundSet(&sContext, 0x404040);
+    GrRectFill(&sContext, &Distbox);
+    GrContextForegroundSet(&sContext, ClrWhite);
+    GrLineDraw(&sContext,0,64,319,64);
+    GrRectDraw(&sContext, &Distbox);
+    WidgetAdd(WIDGET_ROOT,&backSensorBtn);
+    WidgetPaint((tWidget *)&backSensorBtn);
+    WidgetAdd(WIDGET_ROOT,&DistDownBtn);
+    WidgetPaint((tWidget *)&DistDownBtn);
+    WidgetAdd(WIDGET_ROOT,&DistUpBtn);
+    WidgetPaint((tWidget *)&DistUpBtn);
+        GrContextFontSet(&sContext, g_psFontCmss12);
+        GrStringDrawCentered(&sContext, "Light Level: ", -1, 48, 47, 0);
+        GrStringDrawCentered(&sContext, "Closest Object: ", -1, 68, 80, 0);
+        GrStringDrawCentered(&sContext, "Min Distance", -1, 70, 120, 0);
+        char tempchar[13];
+        sprintf(tempchar,"%5.2f lux",lux);
+        GrStringDrawCentered(&sContext, tempchar, -1, 117, 47, 0);
+        sprintf(tempchar,"%5.2f m",objectdist);
+        GrStringDrawCentered(&sContext, tempchar, -1, 135, 80, 0);
+}
+void removeSensorPage(){
+    WidgetRemove(&backSensorBtn);
+    WidgetRemove(&DistDownBtn);
+    WidgetRemove(&DistUpBtn);
+}
+void backMainSensor(){
+    removeSensorPage();
+    MainPage();
 }
 void graphSelectPage(){
     RemoveMainPage();
