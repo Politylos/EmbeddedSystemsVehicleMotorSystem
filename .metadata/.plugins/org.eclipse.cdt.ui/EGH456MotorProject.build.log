@@ -8,39 +8,56 @@ gmake[1]: Nothing to be done for 'all'.
 Building file: "../empty.c"
 Invoking: ARM Compiler
 "C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
-"../empty.c", line 262: warning #179-D: variable "ahhhhhh" was declared but never referenced
-"../empty.c", line 270: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
-"../empty.c", line 275: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
-"../empty.c", line 1130: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
-"../empty.c", line 1135: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
-"../empty.c", line 1141: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
-"../empty.c", line 1146: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
-"../empty.c", line 1151: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
-"../empty.c", line 1156: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
-"../empty.c", line 1170: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
-"../empty.c", line 1191: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../empty.c", line 1192: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../empty.c", line 1193: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../empty.c", line 1197: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../empty.c", line 1198: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../empty.c", line 1199: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../empty.c", line 1202: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../empty.c", line 1203: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../empty.c", line 1204: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../empty.c", line 1265: warning #179-D: variable "LA" was declared but never referenced
-"../empty.c", line 1265: warning #179-D: variable "LB" was declared but never referenced
-"../empty.c", line 1265: warning #179-D: variable "LC" was declared but never referenced
-"../empty.c", line 1331: warning #225-D: function "FPUEnable" declared implicitly
-"../empty.c", line 1332: warning #225-D: function "FPULazyStackingEnable" declared implicitly
-"../empty.c", line 1377: warning #179-D: variable "ww" was declared but never referenced
-"../empty.c", line 1378: warning #179-D: variable "hh" was declared but never referenced
+"../empty.c", line 265: warning #179-D: variable "ahhhhhh" was declared but never referenced
+"../empty.c", line 273: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
+"../empty.c", line 278: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
+"../empty.c", line 1137: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
+"../empty.c", line 1148: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
+"../empty.c", line 1153: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
+"../empty.c", line 1158: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
+"../empty.c", line 1163: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
+"../empty.c", line 1188: warning #145-D: a value of type "void (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
+"../empty.c", line 1262: warning #994-D: missing return statement at end of non-void function "ArrayUpdate"
+"../empty.c", line 1271: warning #225-D: function "GraphPrimitive" declared implicitly
+"../empty.c", line 1278: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1279: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1280: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1284: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1285: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1286: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1290: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1291: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1292: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1298: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1299: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1300: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1301: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1302: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1303: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1304: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1305: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1306: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1307: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1310: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1311: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1312: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1313: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1314: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
+"../empty.c", line 1347: warning #179-D: variable "qq" was declared but never referenced
+"../empty.c", line 1356: warning #161-D: declaration is incompatible with previous "GraphPrimitive" (declared at line 1271)
+"../empty.c", line 1387: warning #179-D: variable "qq" was declared but never referenced
+"../empty.c", line 1459: warning #179-D: variable "LA" was declared but never referenced
+"../empty.c", line 1459: warning #179-D: variable "LB" was declared but never referenced
+"../empty.c", line 1459: warning #179-D: variable "LC" was declared but never referenced
+"../empty.c", line 1529: warning #225-D: function "FPUEnable" declared implicitly
+"../empty.c", line 1530: warning #225-D: function "FPULazyStackingEnable" declared implicitly
 Finished building: "../empty.c"
  
 making ../src/sysbios/sysbios.aem4f ...
 gmake[2]: Nothing to be done for 'all'.
 Building target: "EGH456MotorProject.out"
 Invoking: ARM Linker
-"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=1024 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./Clock.obj" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./Images/GUIImg.obj" "./Images/Images.obj" "./Interface/GlobalDraw.obj" "./Screen/GUIMain.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "./utils/ustdlib.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"EGH456MotorProject.map" --heap_size=0 --stack_size=2048 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="EGH456MotorProject_linkInfo.xml" --rom_model -o "EGH456MotorProject.out" "./Clock.obj" "./EK_TM4C1294XL.obj" "./UARTLocal.obj" "./empty.obj" "./Images/GUIImg.obj" "./Images/Images.obj" "./Interface/GlobalDraw.obj" "./Screen/GUIMain.obj" "./drivers/Kentec320x240x16_ssd2119_spi.obj" "./drivers/frame.obj" "./drivers/pinout.obj" "./drivers/touch.obj" "./utils/ustdlib.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/LIBS/MotorLib.lib" -l"C:/ti/tivaware_c_series_2_1_4_178/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
 <Linking>
 Finished building target: "EGH456MotorProject.out"
  
