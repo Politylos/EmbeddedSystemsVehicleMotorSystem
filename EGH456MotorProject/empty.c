@@ -260,7 +260,6 @@ Container(g_sContainer1, g_psPanels + 4, &g_sContainer2, 0,
 //*****************************************************************************
 void btntest(){
     int ahhhhhh=1;
-    WidgetRemove((tWidget *)&brrrr);
 }
 tSliderWidget slidertest = SliderStruct(g_psPanels+5, 0, 0,
              &g_sKentec320x240x16_SSD2119, 5, 30, 220, 30, 0, 100, 25,
@@ -1119,6 +1118,149 @@ void MotorTest(){
 
 
 }
+extern void MotorPage();
+extern void BackMainMotorPage();
+Canvas(g_clear, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 0, 31,
+       320, 209, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0);
+tPushButtonWidget MotorPgBtn = RectangularButtonStruct(0, 0, 0,
+                                                  &g_sKentec320x240x16_SSD2119, 89, 58, 150, 40,
+                                                  PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+                                                  &g_sFontCm16, "Motor Control", g_pui8btn140x40,
+                                                  g_pui8btn150x40Press, 0, 0, MotorPage);
+tPushButtonWidget SensorPgBtn = RectangularButtonStruct(0, 0, 0,
+                                                  &g_sKentec320x240x16_SSD2119, 89, 117, 150, 40,
+                                                  PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+                                                  &g_sFontCm16, "Sensor Control", g_pui8btn140x40,
+                                                  g_pui8btn150x40Press, 0, 0, btntest);
+tPushButtonWidget GraphPgBtn = RectangularButtonStruct(0, 0, 0,
+                                                  &g_sKentec320x240x16_SSD2119, 89, 172, 150, 40,
+                                                  PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+                                                  &g_sFontCm16, "Data Graphing", g_pui8btn140x40,
+                                                  g_pui8btn150x40Press, 0, 0, btntest);
+
+tPushButtonWidget CurrentUpBtn = RectangularButtonStruct(0, 0, 0,
+                                                  &g_sKentec320x240x16_SSD2119, 130, 111, 36, 36,
+                                                  PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+                                                  &g_sFontCm16, "", g_pui8arrowLeft,
+                                                  g_pui8arrowLeft, 0, 0, btntest);
+tPushButtonWidget CurrentDownBtn = RectangularButtonStruct(0, 0, 0,
+                                                  &g_sKentec320x240x16_SSD2119, 266, 111, 36, 36,
+                                                  PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+                                                  &g_sFontCm16, "", g_pui8arrowRight,
+                                                  g_pui8arrowRight, 0, 0, btntest);
+tPushButtonWidget AccUpBtn = RectangularButtonStruct(0, 0, 0,
+                                                  &g_sKentec320x240x16_SSD2119, 130, 155, 36, 36,
+                                                  PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+                                                  &g_sFontCm16, "", g_pui8arrowLeft,
+                                                  g_pui8arrowLeft, 0, 0, btntest);
+tPushButtonWidget AccDownBtn = RectangularButtonStruct(0, 0, 0,
+                                                  &g_sKentec320x240x16_SSD2119, 266, 155, 36, 36,
+                                                  PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+                                                  &g_sFontCm16, "", g_pui8arrowRight,
+                                                  g_pui8arrowRight, 0, 0, btntest);
+
+
+
+tPushButtonWidget backMotorBtn = RectangularButtonStruct(0, 0, 0,
+                                                  &g_sKentec320x240x16_SSD2119, 1, 209, 30, 30,
+                                                  PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+                                                  &g_sFontCm16, "", g_pui8backBtn,
+                                                  g_pui8backBtn, 0, 0, BackMainMotorPage);
+
+tPushButtonWidget MotorMode = RectangularButtonStruct(0, 0, 0,
+                                                  &g_sKentec320x240x16_SSD2119, 102, 199, 150, 40,
+                                                  PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+                                                  &g_sFontCm16, "Motor Start", g_pui8btn140x40,
+                                                  g_pui8btn150x40Press, 0, 0, btntest);
+
+tSliderWidget MotorSpeedSlider = SliderStruct(g_psPanels+5, 0, 0,
+             &g_sKentec320x240x16_SSD2119, 129, 69, 174, 38, 0, 100, 25,
+             (SL_STYLE_FILL | SL_STYLE_BACKG_FILL | SL_STYLE_OUTLINE |
+              SL_STYLE_TEXT | SL_STYLE_BACKG_TEXT),
+             ClrGray, ClrBlack, ClrSilver, ClrWhite, ClrWhite,
+             &g_sFontCm20, "25%", 0, 0, OnSliderChange);
+tRectangle clearBox;
+tRectangle CurrBox;
+tRectangle AccBox;
+
+void MainPage(){
+    clearBox.i16XMin = 0;
+    clearBox.i16YMin = 31;
+    clearBox.i16XMax = 319;
+    clearBox.i16YMax = 239;
+  WidgetAdd(WIDGET_ROOT,&MotorPgBtn);
+  WidgetAdd(WIDGET_ROOT,&SensorPgBtn);
+  WidgetAdd(WIDGET_ROOT,&GraphPgBtn);
+  GrContextForegroundSet(&sContext, ClrBlack);
+  GrContextForegroundSet(&sContext, ClrBlack);
+  GrRectFill(&sContext, &clearBox);
+  WidgetPaint(&MotorPgBtn);
+  WidgetPaint(&SensorPgBtn);
+  WidgetPaint(&GraphPgBtn);
+}
+void RemoveMainPage(){
+    WidgetRemove(&MotorPgBtn);
+    WidgetRemove(&SensorPgBtn);
+    WidgetRemove(&GraphPgBtn);
+}
+void BackMainMotorPage(){
+    WidgetRemove((tWidget *)&MotorSpeedSlider);
+    WidgetRemove((tWidget *)&CurrentUpBtn);
+    WidgetRemove((tWidget *)&CurrentDownBtn);
+    WidgetRemove((tWidget *)&backMotorBtn);
+    WidgetRemove((tWidget *)&AccDownBtn);
+    WidgetRemove((tWidget *)&AccUpBtn);
+    WidgetRemove((tWidget *)&MotorMode);
+    MainPage();
+}
+void MotorPage(){
+    //WidgetPaint(&g_clear);
+    RemoveMainPage();
+    CurrBox.i16XMin = 161;
+    CurrBox.i16YMin = 111;
+    CurrBox.i16XMax = 109+161;
+    CurrBox.i16YMax = 36+111-1;
+    AccBox.i16XMin = 161;
+    AccBox.i16YMin = 155;
+    AccBox.i16XMax = 109+161;
+    AccBox.i16YMax = 36+155-1;
+    GrContextForegroundSet(&sContext, ClrBlack);
+    GrRectFill(&sContext, &clearBox);
+    GrContextForegroundSet(&sContext, ClrWhite);
+    GrContextFontSet(&sContext, g_psFontCmss18b);
+    GrStringDrawCentered(&sContext, "Motor Speed", -1,
+                     71, 85, 0);
+    GrStringDrawCentered(&sContext, "Current Speed: ", -1,
+                     73, 46, 0);
+    GrStringDrawCentered(&sContext, "100 rad/s", -1,
+                     165, 46, 0);
+    GrStringDrawCentered(&sContext, "Max Current", -1,
+                     70, 131, 0);
+    GrStringDrawCentered(&sContext, "Max Acceleration", -1,
+                     83, 176, 0);
+    GrContextForegroundSet(&sContext, 0x404040);
+    GrRectFill(&sContext, &CurrBox);
+    GrRectFill(&sContext, &AccBox);
+    GrContextForegroundSet(&sContext, ClrWhite);
+    GrRectDraw(&sContext, &CurrBox);
+    GrRectDraw(&sContext, &AccBox);
+    WidgetAdd(WIDGET_ROOT,(tWidget *)&MotorSpeedSlider);
+    WidgetAdd(WIDGET_ROOT,(tWidget *)&CurrentUpBtn);
+    WidgetAdd(WIDGET_ROOT,(tWidget *)&CurrentDownBtn);
+    WidgetAdd(WIDGET_ROOT,(tWidget *)&backMotorBtn);
+    WidgetAdd(WIDGET_ROOT,(tWidget *)&AccDownBtn);
+    WidgetAdd(WIDGET_ROOT,(tWidget *)&AccUpBtn);
+    WidgetAdd(WIDGET_ROOT,(tWidget *)&MotorMode);
+    WidgetPaint((tWidget *)&MotorSpeedSlider);
+    WidgetPaint((tWidget *)&CurrentUpBtn);
+    WidgetPaint((tWidget *)&CurrentDownBtn);
+    WidgetPaint((tWidget *)&backMotorBtn);
+    WidgetPaint((tWidget *)&AccDownBtn);
+    WidgetPaint((tWidget *)&AccUpBtn);
+    WidgetPaint((tWidget *)&MotorMode);
+
+
+}
 Void heartBeatFxn(UArg arg0, UArg arg1)
 {
     bool LA,LB,LC;
@@ -1131,14 +1273,15 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
 
 
     // Paint the widget tree to make sure they all appear on the display.
-    WidgetAdd(WIDGET_ROOT, (tWidget *)&g_sPrevious);
+    /*WidgetAdd(WIDGET_ROOT, (tWidget *)&g_sPrevious);
     //WidgetAdd(WIDGET_ROOT, (tWidget *)&g_sTitle);
     WidgetAdd(WIDGET_ROOT, (tWidget *)&g_sNext);
     WidgetAdd(WIDGET_ROOT, (tWidget *)&slidertest);
     WidgetAdd(WIDGET_ROOT, (tWidget *)&brrrr);
     WidgetAdd(WIDGET_ROOT, (tWidget *)&brrrr2);
     WidgetPaint(&slidertest);
-    WidgetPaint(&brrrr);
+    WidgetPaint(&brrrr);*/
+    MainPage();
     //
     // Add the first panel to the widget tree.
     //
@@ -1232,6 +1375,8 @@ int main(void)
     SysCtlDelay(10);
     uDMAControlBaseSet(&psDMAControlTable[0]);
     uDMAEnable();
+    int ww=GrContextDpyWidthGet(&sContext);
+    int hh=GrContextDpyHeightGet(&sContext);
 
     //
     // Initialize the touch screen driver and have it route its messages to the

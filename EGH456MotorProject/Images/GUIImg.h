@@ -21,6 +21,11 @@ extern const uint8_t g_pui8RedSlider195x37[];
 extern const uint8_t g_pui8GreenSlider195x37[];
 extern const uint8_t g_pui8GettingHotter28x148[];
 extern const uint8_t g_pui8GettingHotter28x148Mono[];
+extern const uint8_t g_pui8btn140x40[];
+extern const uint8_t g_pui8btn150x40Press[];
+extern const uint8_t g_pui8backBtn[];
+extern const uint8_t g_pui8arrowRight[];
+extern const uint8_t g_pui8arrowLeft[];
 
 
 
