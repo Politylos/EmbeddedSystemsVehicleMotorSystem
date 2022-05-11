@@ -41,7 +41,7 @@ void BannerInit(tContext *sContext){
     GrStringDrawCentered(sContext, "Loadinng...", -1,
                      GrContextDpyWidthGet(sContext) / 2, 8, 0);
 }
-void TopBarDraw(tContext *sContext, tCanvasWidget *imgcan, char *time, bool Lightlvl){
+void TopBarDraw(tContext *sContext, tCanvasWidget *imgcan, tCanvasWidget *comp,tCanvasWidget *motor, char *time, bool Lightlvl,int Direction,int MotorStats){
     GrContextForegroundSet(sContext, 0x00001A);
     GrRectFill(sContext, &Banner);
     GrContextForegroundSet(sContext, ClrWhite);
@@ -50,11 +50,30 @@ void TopBarDraw(tContext *sContext, tCanvasWidget *imgcan, char *time, bool Ligh
                          GrContextDpyWidthGet(sContext) / 2, 8, 0);
     if(Lightlvl){
     CanvasImageSet(imgcan,g_pui8Night);
-    WidgetPaint(imgcan);
+
     } else{
     CanvasImageSet(imgcan,g_pui8Day);
-    WidgetPaint(imgcan);
     }
+    if(Direction==0){
+        CanvasImageSet(comp,g_pui8CompN);
+    } else if (Direction==1){
+        CanvasImageSet(comp,g_pui8CompE);
+    }else if (Direction==2){
+        CanvasImageSet(comp,g_pui8CompS);
+    } else{
+        CanvasImageSet(comp,g_pui8CompW);
+    }
+    if(MotorStats==0){
+        CanvasImageSet(motor,g_pui8idle);
+
+        } else if(MotorStats==1){
+        CanvasImageSet(motor,g_pui8Go);
+        } else{
+            CanvasImageSet(motor,g_pui8Stop);
+        }
+    WidgetPaint(imgcan);
+    WidgetPaint(comp);
+    WidgetPaint(motor);
 }
 
 

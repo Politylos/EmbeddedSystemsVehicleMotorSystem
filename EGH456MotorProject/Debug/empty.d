@@ -233,6 +233,7 @@ empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packag
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Clock.h
 empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IModule.h
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Event.h
+empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/I2C.h
 empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h
 empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/System.h
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/sysctl.h
@@ -754,6 +755,8 @@ C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbi
 C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IModule.h:
 
 C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Event.h:
+
+C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/I2C.h:
 
 C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h:
 

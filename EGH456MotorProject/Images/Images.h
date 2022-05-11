@@ -12,8 +12,14 @@
 #include <stdbool.h>
 #include "grlib/grlib.h"
 
+extern const uint8_t g_pui8Go[];
+extern const uint8_t g_pui8Stop[];
+extern const uint8_t g_pui8idle[];
 extern const uint8_t g_pui8Night[];
 extern const uint8_t g_pui8Day[];
-
+extern const uint8_t g_pui8CompS[];
+extern const uint8_t g_pui8CompN[];
+extern const uint8_t g_pui8CompW[];
+extern const uint8_t g_pui8CompE[];
 
 #endif /* IMAGES_IMAGES_H_ */

@@ -1,3 +1,6 @@
-2022/05/07-20:21:25.959 68f8 Reusing MANIFEST C:\Users\polit\Documents\EmbeddedSystemsVehicleMotorSystem\.jxbrowser.userdata\Default\Local Storage\leveldb/MANIFEST-000001
-2022/05/07-20:21:25.969 68f8 Recovering log #16
-2022/05/07-20:21:25.969 68f8 Reusing old log C:\Users\polit\Documents\EmbeddedSystemsVehicleMotorSystem\.jxbrowser.userdata\Default\Local Storage\leveldb/000016.log 
+2022/05/11-16:08:30.275 4930 Reusing MANIFEST C:\Users\polit\Documents\EmbeddedSystemsVehicleMotorSystem\.jxbrowser.userdata\Default\Local Storage\leveldb/MANIFEST-000001
+2022/05/11-16:08:30.325 4930 Recovering log #16
+2022/05/11-16:08:30.325 4930 Reusing old log C:\Users\polit\Documents\EmbeddedSystemsVehicleMotorSystem\.jxbrowser.userdata\Default\Local Storage\leveldb/000016.log 
+2022/05/11-16:25:13.729 4578 Level-0 table #20: started
+2022/05/11-16:25:13.732 4578 Level-0 table #20: 12868 bytes OK
+2022/05/11-16:25:13.733 4578 Delete type=0 #16

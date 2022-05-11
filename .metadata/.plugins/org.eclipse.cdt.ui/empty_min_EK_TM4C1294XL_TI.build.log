@@ -3,23 +3,39 @@
 
 "C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
  
-        1 file(s) copied.
 making ../src/sysbios/sysbios.aem4f ...
-Building file: "../empty_min.cfg"
-Invoking: XDCtools
-"C:/ti/ccs1110/xdctools_3_32_00_06_core/xs" --xdcpath="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/ndk_2_25_00_09/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/uia_2_00_05_50/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/ns_1_11_00_10/packages;" xdc.tools.configuro -o configPkg -t ti.targets.arm.elf.M4F -p ti.platforms.tiva:TM4C1294NCPDT -r release -c "C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS" --compileOptions "-mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path=\"C:/Users/polit/Desktop/EGH456/empty_min_EK_TM4C1294XL_TI\" --include_path=\"C:/Users/polit/Desktop/EGH456/empty_min_EK_TM4C1294XL_TI\" --include_path=\"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b\" --include_path=\"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix\" --include_path=\"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include\" --define=ccs=\"ccs\" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi  " "../empty_min.cfg"
 gmake[1]: Nothing to be done for 'all'.
-configuring empty_min.xem4f from package/cfg/empty_min_pem4f.cfg ...
-subdir_rules.mk:19: recipe for target 'build-1839843183-inproc' failed
-error: ti.sysbios.family.arm.m3.Hwi: "C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/Hwi.xs", line 687: ti.sysbios.family.arm.m3.Hwi.Instance#0 0: Only intNums > = 15 can be created.
-js: "C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/cfg/Main.xs", line 160: Error: Configuration failed!
-xdctools_3_32_00_06_core\gmake.exe: *** [package/cfg/empty_min_pem4f.xdl] Error 1
-xdctools_3_32_00_06_core\gmake.exe: *** [package/cfg/empty_min_pem4f.xdl] Deleting file `package/cfg/empty_min_pem4f.h'
-xdctools_3_32_00_06_core\gmake.exe: *** [package/cfg/empty_min_pem4f.xdl] Deleting file `package/cfg/empty_min_pem4f.c'
-js: "C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/tools/Cmdr.xs", line 51: Error: xdc.tools.configuro: configuration failed due to earlier errors (status = 2); 'linker.cmd' deleted.
-gmake[1]: *** [build-1839843183-inproc] Error 1
-gmake: *** [build-1839843183] Error 2
-subdir_rules.mk:16: recipe for target 'build-1839843183' failed
-gmake: Target 'all' not remade because of errors.
+Building file: "../empty_min.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty_min.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty_min.c"
+"../empty_min.c", line 91: warning #225-D: function "System_printf" declared implicitly
+"../empty_min.c", line 92: warning #225-D: function "System_flush" declared implicitly
+"../empty_min.c", line 96: warning #225-D: function "System_printf" declared implicitly
+"../empty_min.c", line 97: warning #225-D: function "System_flush" declared implicitly
+"../empty_min.c", line 101: warning #225-D: function "System_printf" declared implicitly
+"../empty_min.c", line 102: warning #225-D: function "System_flush" declared implicitly
+Finished building: "../empty_min.c"
+ 
+making ../src/sysbios/sysbios.aem4f ...
+gmake[2]: Nothing to be done for 'all'.
+Building target: "empty_min_EK_TM4C1294XL_TI.out"
+Invoking: Arm Linker
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"empty_min_EK_TM4C1294XL_TI.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="empty_min_EK_TM4C1294XL_TI_linkInfo.xml" --rom_model -o "empty_min_EK_TM4C1294XL_TI.out" "./EK_TM4C1294XL.obj" "./empty_min.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI/LIBS/MotorLib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+<Linking>
+ 
+ undefined     first referenced
+  symbol           in file     
+ ---------     ----------------
+ System_flush  ./empty_min.obj 
+ System_printf ./empty_min.obj 
+ 
+error #10234-D: unresolved symbols remain
+error #10010: errors encountered during linking; "empty_min_EK_TM4C1294XL_TI.out" not built
+ 
+>> Compilation failure
+makefile:149: recipe for target 'empty_min_EK_TM4C1294XL_TI.out' failed
+gmake[1]: *** [empty_min_EK_TM4C1294XL_TI.out] Error 1
+makefile:145: recipe for target 'all' failed
+gmake: *** [all] Error 2
 
 **** Build Finished ****

@@ -60,6 +60,7 @@
 #include <ti/sysbios/knl/Event.h>
 #include <ti/sysbios/knl/Queue.h>
 #include <ti/sysbios/knl/Semaphore.h>
+ #include <ti/drivers/I2C.h>
 #include <xdc/runtime/Error.h>
 #include <xdc/runtime/System.h>
 #include <driverlib/sysctl.h>
@@ -165,8 +166,11 @@ double dd[50]={0,0.0416493127863390,0.166597251145356,0.374843815077051,0.666389
 double lux = 100.1;
 double objectdist = 1.2;
 bool ongraph = 0;
-
-
+I2C_Handle i2c;
+enum Direction{North=0, East, South, West};
+enum MotorStat{Idle=0, Running, eStop};
+int currentDirection = North;
+int CurrentMotorStat = Idle;
 //*****************************************************************************
 //
 // The first panel, which contains introductory text explaining the
@@ -196,6 +200,14 @@ Canvas(g_sCanvas3, g_psPanels + 2, 0, 0, &g_sKentec320x240x16_SSD2119, 205,
 Canvas(g_sCanvas2, g_psPanels + 2, &g_sCanvas3, 0,
        &g_sKentec320x240x16_SSD2119, 292, 0, 25, 25,
        CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8Logo,
+       0);
+Canvas(g_scompass, 0, 0, 0,
+       &g_sKentec320x240x16_SSD2119, 260, 0, 25, 25,
+       CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8CompN,
+       0);
+Canvas(g_MotorStat, 0, 0, 0,
+       &g_sKentec320x240x16_SSD2119, 233, 0, 25, 25,
+       CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8idle,
        0);
 Canvas(g_sCanvas1, g_psPanels + 2, &g_sCanvas2, 0,
        &g_sKentec320x240x16_SSD2119, 5, 27, 195, 76,
@@ -1112,8 +1124,8 @@ void StartStopBttnPress(tWidget *psWidget)
 void MotorInit(){
     enableMotor();
     initMotorLib(20, NULL);
-    updateMotor(0, 0,1);
-    setDuty(100);
+    //updateMotor(0, 0,1);
+    setDuty(75);
 }
 void MotorTest(){
 
@@ -1512,6 +1524,7 @@ void TouchCheckTask(UArg arg0, UArg arg1){
 }
 Void heartBeatFxn(UArg arg0, UArg arg1)
 {
+    MotorInit();
     bool LA,LB,LC;
     HA=1;
     //Timer_start(timerclock);
@@ -1555,10 +1568,13 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
 
         //TouchScreenIntHandler;
         Task_sleep(1000);
+        //updatetime(&datetime);
         sprintf(tempc,"%d:%d:%d %d/%d/%d \r\n",datetime.hours,datetime.minutes,datetime.seconds,datetime.days,datetime.months,datetime.year);
         //UART_write(uart, tempc, sizeof(tempc));
-        TopBarDraw(&sContext, &g_sCanvas2, tempc, LowLight);
+        TopBarDraw(&sContext, &g_sCanvas2,&g_scompass,&g_MotorStat, tempc, LowLight,currentDirection,CurrentMotorStat);
         LowLight=!LowLight;
+        CurrentMotorStat= (CurrentMotorStat+1)%3;
+        currentDirection = (currentDirection+1)%4;
         ArrayUpdate(dd,s100hz,20);
         if(ongraph){
         UpdateGraphPlot(dd,x1,x2,y1,y2,50);
@@ -1573,13 +1589,20 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
  */
 void HAF(unsigned int index){
     HA=!HA;
+    System_printf("A\n");
+    System_flush();
 }
 void HBF(unsigned int index){
     HB=!HB;
+    System_printf("B\n");
+    System_flush();
 }
 void HCF(unsigned int index){
     HC=!HC;
+    System_printf("C\n");
+    System_flush();
 }
+
  int main(void)
 {
     FPUEnable();
@@ -1591,7 +1614,7 @@ void HCF(unsigned int index){
     Board_initGPIO();
     Board_initI2C();
     Board_initUART();
-    PinoutSet(false, false);
+//    PinoutSet(false, false);
     //DrawFrame()
 
     /* Construct heartBeat Task  thread */
@@ -1656,15 +1679,14 @@ void HCF(unsigned int index){
     }
 
     //FrameDraw(&sContext, tempc);
-    GPIO_setCallback(HALL_A, HAF);
-    GPIO_setCallback(HALL_B, HBF);
-    GPIO_setCallback(HALL_C, HCF);
+    //GPIO_setCallback(HALL_A, HAF);
+   // GPIO_setCallback(HALL_B, HBF);
+    //GPIO_setCallback(HALL_C, HCF);
 
     System_printf("Starting the example\nSystem provider is set to SysMin. "
                   "Halt the target to view any SysMin contents in ROV.\n");
     /* SysMin will only print to the console when you call flush or exit */
     System_flush();
-
     /* Start BIOS */
     timer1sec(&timerclock,&datetime);
     BIOS_start();
