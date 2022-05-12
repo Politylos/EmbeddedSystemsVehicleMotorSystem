@@ -12,6 +12,9 @@
 #include <stdbool.h>
 #include "grlib/grlib.h"
 
+extern const uint8_t g_pui8accSlow[];
+extern const uint8_t g_pui8accmid[];
+extern const uint8_t g_pui8accfast[];
 extern const uint8_t g_pui8Go[];
 extern const uint8_t g_pui8Stop[];
 extern const uint8_t g_pui8idle[];

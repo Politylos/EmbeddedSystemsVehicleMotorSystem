@@ -25,4 +25,16 @@
 		<nature>org.eclipse.cdt.core.ccnature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>motorlib.h</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/moorLIB/motorlib.h</locationURI>
+		</link>
+		<link>
+			<name>LIBS/MotorLib.lib</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/moorLIB/MotorLib.lib</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

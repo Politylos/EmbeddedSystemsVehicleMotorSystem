@@ -16,7 +16,7 @@ BIOS_INC  = -I"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/pa
 
 TARGET_INC = -I"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/"
 
-INCS = $(BIOS_INC) $(TARGET_INC)  --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" 
+INCS = $(BIOS_INC) $(TARGET_INC)  --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/moorLIB" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" 
 
 CC = C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl -c $(CCOPTS) -I C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include
 ASM = C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl -c $(CCOPTS) -I C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include

@@ -169,8 +169,10 @@ bool ongraph = 0;
 I2C_Handle i2c;
 enum Direction{North=0, East, South, West};
 enum MotorStat{Idle=0, Running, eStop};
+enum AccelerationStat{slow=0,normal,fast};
 int currentDirection = North;
 int CurrentMotorStat = Idle;
+int CurrentAcceleration = slow;
 //*****************************************************************************
 //
 // The first panel, which contains introductory text explaining the
@@ -209,6 +211,11 @@ Canvas(g_MotorStat, 0, 0, 0,
        &g_sKentec320x240x16_SSD2119, 233, 0, 25, 25,
        CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8idle,
        0);
+Canvas(g_Acceleration, 0, 0, 0,
+       &g_sKentec320x240x16_SSD2119, 206, 0, 25, 25,
+       CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8accSlow,
+       0);
+
 Canvas(g_sCanvas1, g_psPanels + 2, &g_sCanvas2, 0,
        &g_sKentec320x240x16_SSD2119, 5, 27, 195, 76,
        CANVAS_STYLE_FILL | CANVAS_STYLE_OUTLINE | CANVAS_STYLE_TEXT,
@@ -1569,12 +1576,13 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
         //TouchScreenIntHandler;
         Task_sleep(1000);
         //updatetime(&datetime);
-        sprintf(tempc,"%d:%d:%d %d/%d/%d \r\n",datetime.hours,datetime.minutes,datetime.seconds,datetime.days,datetime.months,datetime.year);
+        //sprintf(tempc,"%d:%d:%d %d/%d/%d \r\n",datetime.hours,datetime.minutes,datetime.seconds,datetime.days,datetime.months,datetime.year);
         //UART_write(uart, tempc, sizeof(tempc));
-        TopBarDraw(&sContext, &g_sCanvas2,&g_scompass,&g_MotorStat, tempc, LowLight,currentDirection,CurrentMotorStat);
+        TopBarDraw(&sContext, &g_sCanvas2,&g_scompass,&g_MotorStat,&g_Acceleration, datetime, LowLight,currentDirection,CurrentMotorStat,CurrentAcceleration);
         LowLight=!LowLight;
         CurrentMotorStat= (CurrentMotorStat+1)%3;
         currentDirection = (currentDirection+1)%4;
+        CurrentAcceleration=(CurrentAcceleration+1)%3;
         ArrayUpdate(dd,s100hz,20);
         if(ongraph){
         UpdateGraphPlot(dd,x1,x2,y1,y2,50);

@@ -4,10 +4,35 @@
 "C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
  
 making ../src/sysbios/sysbios.aem4f ...
+Building file: "../empty_min.cfg"
 gmake[1]: Nothing to be done for 'all'.
+Invoking: XDCtools
+"C:/ti/ccs1110/xdctools_3_32_00_06_core/xs" --xdcpath="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/ndk_2_25_00_09/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/uia_2_00_05_50/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/ns_1_11_00_10/packages;" xdc.tools.configuro -o configPkg -t ti.targets.arm.elf.M4F -p ti.platforms.tiva:TM4C1294NCPDT -r release -c "C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS" --compileOptions "-mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path=\"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI\" --include_path=\"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI\" --include_path=\"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b\" --include_path=\"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix\" --include_path=\"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/moorLIB\" --include_path=\"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include\" --define=ccs=\"ccs\" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi  " "../empty_min.cfg"
+making package.mak (because of config.bld) ...
+configuring empty_min.xem4f from package/cfg/empty_min_pem4f.cfg ...
+generating custom ti.sysbios library makefile ... 
+Starting build of library sources ...
+making C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI/src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI/src/sysbios'
+clem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/BIOS.c ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/Hwi_asm.sv7M ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/Hwi_asm_switch.sv7M ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/IntrinsicsSupport_asm.sv7M ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/TaskSupport_asm.sv7M ...
+arem4f BIOS.obj m3_Hwi_asm.obj m3_Hwi_asm_switch.obj m3_IntrinsicsSupport_asm.obj m3_TaskSupport_asm.obj ...
+gmake[1]: Leaving directory `C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI/src/sysbios'
+Build of libraries done.
+clem4f package/cfg/empty_min_pem4f.c ...
+"package/cfg/empty_min_pem4f.c", line 15004: warning #112-D: statement is unreachable
+"package/cfg/empty_min_pem4f.c", line 15490: warning #112-D: statement is unreachable
+"package/cfg/empty_min_pem4f.c", line 15764: warning #112-D: statement is unreachable
+"package/cfg/empty_min_pem4f.c", line 15945: warning #112-D: statement is unreachable
+"package/cfg/empty_min_pem4f.c", line 16326: warning #112-D: statement is unreachable
+Finished building: "../empty_min.cfg"
+ 
 Building file: "../empty_min.c"
 Invoking: Arm Compiler
-"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty_min.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty_min.c"
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/moorLIB" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty_min.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty_min.c"
 "../empty_min.c", line 91: warning #225-D: function "System_printf" declared implicitly
 "../empty_min.c", line 92: warning #225-D: function "System_flush" declared implicitly
 "../empty_min.c", line 96: warning #225-D: function "System_printf" declared implicitly
@@ -16,11 +41,17 @@ Invoking: Arm Compiler
 "../empty_min.c", line 102: warning #225-D: function "System_flush" declared implicitly
 Finished building: "../empty_min.c"
  
+Building file: "../EK_TM4C1294XL.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/moorLIB" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="EK_TM4C1294XL.d_raw" --cmd_file="configPkg/compiler.opt"  "../EK_TM4C1294XL.c"
+"../EK_TM4C1294XL.c", line 414: warning #837-D: pragma can only be applied to a file level symbol, not 'PWM_config'
+Finished building: "../EK_TM4C1294XL.c"
+ 
 making ../src/sysbios/sysbios.aem4f ...
 gmake[2]: Nothing to be done for 'all'.
 Building target: "empty_min_EK_TM4C1294XL_TI.out"
 Invoking: Arm Linker
-"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"empty_min_EK_TM4C1294XL_TI.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="empty_min_EK_TM4C1294XL_TI_linkInfo.xml" --rom_model -o "empty_min_EK_TM4C1294XL_TI.out" "./EK_TM4C1294XL.obj" "./empty_min.obj" "../EK_TM4C1294XL.cmd" "../LIBS/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI/LIBS/MotorLib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi -z -m"empty_min_EK_TM4C1294XL_TI.map" --heap_size=0 --stack_size=512 -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/lib" -i"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="empty_min_EK_TM4C1294XL_TI_linkInfo.xml" --rom_model -o "empty_min_EK_TM4C1294XL_TI.out" "./EK_TM4C1294XL.obj" "./empty_min.obj" "../EK_TM4C1294XL.cmd" "C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/moorLIB/MotorLib.lib" -l"configPkg/linker.cmd"  -l"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/moorLIB/MotorLib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/ccs/Debug/grlib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/usblib/ccs/Debug/usblib.lib" -l"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/ccs/Debug/driverlib.lib" -llibc.a 
 <Linking>
  
  undefined     first referenced

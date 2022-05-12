@@ -1,7 +1,7 @@
 ******************************************************************************
                   TI ARM Linker PC v20.2.5                     
 ******************************************************************************
->> Linked Wed May 11 16:35:13 2022
+>> Linked Thu May 12 10:36:28 2022
 
 OUTPUT FILE NAME:   <empty_min_EK_TM4C1294XL_TI.out>
 ENTRY POINT SYMBOL: "_c_int00"  address: 00003c79
@@ -635,7 +635,7 @@ MODULE SUMMARY
     +--+----------------------------+-------+---------+---------+
        Total:                       1656    7547      3812   
                                                              
-    ../LIBS/MotorLib.lib
+    C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/moorLIB/MotorLib.lib
        motorlib.obj                 1708    196       112    
     +--+----------------------------+-------+---------+---------+
        Total:                       1708    196       112    

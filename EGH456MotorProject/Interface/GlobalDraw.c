@@ -17,6 +17,7 @@
 #include "grlib/pushbutton.h"
 #include "grlib/radiobutton.h"
 #include "grlib/slider.h"
+#include "Clock.h"
 
 //#include "Images/GUIImg.h"
 #include "Images/Images.h"
@@ -39,15 +40,22 @@ void BannerInit(tContext *sContext){
     GrContextForegroundSet(sContext, ClrWhite);
     GrContextFontSet(sContext, g_psFontCmss18b);
     GrStringDrawCentered(sContext, "Loadinng...", -1,
-                     GrContextDpyWidthGet(sContext) / 2, 8, 0);
+                     GrContextDpyWidthGet(sContext) / 2-100, 8, 0);
 }
-void TopBarDraw(tContext *sContext, tCanvasWidget *imgcan, tCanvasWidget *comp,tCanvasWidget *motor, char *time, bool Lightlvl,int Direction,int MotorStats){
+void TopBarDraw(tContext *sContext, tCanvasWidget *imgcan, tCanvasWidget *comp,tCanvasWidget *motor,tCanvasWidget *acc, FT time, bool Lightlvl,int Direction,int MotorStats, int accStat){
     GrContextForegroundSet(sContext, 0x00001A);
     GrRectFill(sContext, &Banner);
     GrContextForegroundSet(sContext, ClrWhite);
-    GrContextFontSet(sContext, g_psFontCmss18b);
-    GrStringDrawCentered(sContext, time, -1,
-                         GrContextDpyWidthGet(sContext) / 2, 8, 0);
+    GrContextFontSet(sContext, g_psFontCmss20);
+    char tempc[8];
+    char tempd[10];
+    sprintf(tempc,"%d:%d:%d",time.hours,time.minutes,time.seconds);
+    sprintf(tempd,"%d/%d/%d",time.days,time.months,time.year);
+    GrStringDrawCentered(sContext, tempc, -1,
+                         GrContextDpyWidthGet(sContext) / 2-125, 20, 0);
+    GrContextFontSet(sContext, g_psFontCmss12b);
+    GrStringDrawCentered(sContext, tempd, -1,
+                         GrContextDpyWidthGet(sContext) / 2-60, 20, 0);
     if(Lightlvl){
     CanvasImageSet(imgcan,g_pui8Night);
 
@@ -71,9 +79,18 @@ void TopBarDraw(tContext *sContext, tCanvasWidget *imgcan, tCanvasWidget *comp,t
         } else{
             CanvasImageSet(motor,g_pui8Stop);
         }
+    if(accStat==0){
+        CanvasImageSet(acc,g_pui8accSlow);
+
+        } else if(accStat==1){
+        CanvasImageSet(acc,g_pui8accmid);
+        } else{
+            CanvasImageSet(acc,g_pui8accfast);
+        }
     WidgetPaint(imgcan);
     WidgetPaint(comp);
     WidgetPaint(motor);
+    WidgetPaint(acc);
 }
 
 

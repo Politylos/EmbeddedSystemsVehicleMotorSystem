@@ -159,7 +159,7 @@ empty_min.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/pa
 empty_min.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/GPIO.h
 empty_min.obj: ../Board.h
 empty_min.obj: ../EK_TM4C1294XL.h
-empty_min.obj: C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI/motorlib.h
+empty_min.obj: C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/moorLIB/motorlib.h
 empty_min.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h
 
 ../empty_min.c:
@@ -480,7 +480,7 @@ C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packag
 
 ../EK_TM4C1294XL.h:
 
-C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/empty_min_EK_TM4C1294XL_TI/motorlib.h:
+C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/moorLIB/motorlib.h:
 
 C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h:
 
