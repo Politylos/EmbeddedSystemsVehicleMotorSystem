@@ -44,6 +44,7 @@
 #include <math.h>
 #include "drivers/i2cOptDriver.h"
 #include "opt3001.h"
+#include <ti/sysbios/gates/GateHwi.h>
 //#include "utils/uartstdio.h"
 
 
@@ -93,7 +94,8 @@
  *                                           Local Variables
  * ------------------------------------------------------------------------------------------------
  */
-
+GateHwi_Handle gateHwi;
+GateHwi_Params gHwiprms;
 /* ------------------------------------------------------------------------------------------------
  *                                           Public functions
  * -------------------------------------------------------------------------------------------------
@@ -109,6 +111,8 @@
  **************************************************************************************************/
 bool sensorOpt3001Init(void)
 {
+     GateHwi_Params_init(&gHwiprms);
+            gateHwi = GateHwi_create(&gHwiprms, NULL);
 	sensorOpt3001Enable(false);
 
 	return (true);
@@ -150,6 +154,8 @@ void sensorOpt3001Enable(bool enable)
  **************************************************************************************************/
 void sensorOpt3001Read(uint16_t *rawData)
 {
+    UInt gateKey;
+    gateKey = GateHwi_enter(gateHwi);
 	bool success;
 	uint16_t val;
 
@@ -175,7 +181,7 @@ void sensorOpt3001Read(uint16_t *rawData)
 	{
 		//	  sensorSetErrorData
 	}
-
+	GateHwi_leave(gateHwi,gateKey);
 	//return (success);
 }
 
