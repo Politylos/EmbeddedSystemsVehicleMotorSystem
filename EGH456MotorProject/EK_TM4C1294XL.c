@@ -351,9 +351,9 @@ I2CTiva_Object i2cTivaObjects[EK_TM4C1294XL_I2CCOUNT];
 
 const I2CTiva_HWAttrs i2cTivaHWAttrs[EK_TM4C1294XL_I2CCOUNT] = {
     {
-     .baseAddr = I2C2_BASE,
-     .intNum = INT_I2C2,
-     .intPriority = (~0)
+        .baseAddr = I2C7_BASE,
+        .intNum = INT_I2C7,
+        .intPriority = (~0)
     },
     {
         .baseAddr = I2C8_BASE,
@@ -364,9 +364,9 @@ const I2CTiva_HWAttrs i2cTivaHWAttrs[EK_TM4C1294XL_I2CCOUNT] = {
 
 const I2C_Config I2C_config[] = {
     {
-     .fxnTablePtr = &I2CTiva_fxnTable,
-     .object = &i2cTivaObjects[0],
-     .hwAttrs = &i2cTivaHWAttrs[0]
+        .fxnTablePtr = &I2CTiva_fxnTable,
+        .object = &i2cTivaObjects[0],
+        .hwAttrs = &i2cTivaHWAttrs[0]
     },
     {
         .fxnTablePtr = &I2CTiva_fxnTable,
@@ -389,13 +389,13 @@ void EK_TM4C1294XL_initI2C(void)
      * conflict before running your the application.
      */
     /* Enable the peripheral */
-    SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C2);
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_I2C7);
 
     /* Configure the appropriate pins to be I2C instead of GPIO. */
-    GPIOPinConfigure(GPIO_PN5_I2C2SCL);
-    GPIOPinConfigure(GPIO_PN4_I2C2SDA);
-    GPIOPinTypeI2CSCL(GPIO_PORTN_BASE, GPIO_PIN_5);
-    GPIOPinTypeI2C(GPIO_PORTN_BASE, GPIO_PIN_4);
+    GPIOPinConfigure(GPIO_PD0_I2C7SCL);
+    GPIOPinConfigure(GPIO_PD1_I2C7SDA);
+    GPIOPinTypeI2CSCL(GPIO_PORTD_BASE, GPIO_PIN_0);
+    GPIOPinTypeI2C(GPIO_PORTD_BASE, GPIO_PIN_1);
 
     /* I2C8 Init */
     /* Enable the peripheral */

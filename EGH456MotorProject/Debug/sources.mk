@@ -127,7 +127,7 @@ SUBDIRS := \
 Images \
 Interface \
 LIBS \
+Screen \
 drivers \
-drivers/Sensors \
 utils \
 

@@ -18,14 +18,13 @@
 // ----------------------- Includes -----------------------
 #include <stdbool.h>
 #include <stdint.h>
-#include <ti/drivers/I2C.h>
+
 
 
 // ----------------------- Exported prototypes -----------------------
 extern bool writeI2C(uint8_t ui8Addr, uint8_t ui8Reg, uint8_t *Data);
 extern bool readI2C(uint8_t ui8Addr, uint8_t ui8Reg, uint8_t *Data);
-extern bool InitI2C();
-extern I2C_Handle      i2c;
+
 
 
 #endif /* _I2COPTDRIVER_H_ */

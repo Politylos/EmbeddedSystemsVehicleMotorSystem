@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="g_Acceleration"/>
+		<item key="selection" value="g_sCanvas2"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="g_Acceleration"/>
 			<item value="g_sCanvas2"/>
-			<item value="WidgetAdd(WIDGET_ROOT, (tWidget *)&amp;g_sNext)"/>
-			<item value="WidgetAdd(WIDGET_ROOT, (tWidget *)&amp;g_sNext);"/>
-			<item value="WidgetAdd"/>
-			<item value="ClrWhite"/>
-			<item value="TouchScreenInit"/>
-			<item value="drawframe"/>
+			<item value="udma"/>
+			<item value="sysctl"/>
+			<item value="dd"/>
+			<item value="GraphPrimitive"/>
+			<item value="sContext"/>
+			<item value="slidertest"/>
+			<item value="y2"/>
+			<item value="OnSliderChange0"/>
+			<item value="OnSliderChange"/>
+			<item value="onCanvasPaint0"/>
+			<item value="onCanvasPaint"/>
+			<item value="g_psPanels"/>
+			<item value="g_Acceleration"/>
 			<item value="g_ui32Panel"/>
-			<item value="ww"/>
-			<item value="day"/>
-			<item value="CanvasImageSet"/>
-			<item value="g_pui8Logo"/>
-			<item value="TouchScreenCallbackSet"/>
-			<item value="gpioPinConfigs"/>
 		</list>
 		<list key="replacehistory">
 		</list>
