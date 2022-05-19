@@ -109,7 +109,9 @@
 #include "Images/GUIImg.h"
 #include "Images/Images.h"
 #include "Interface/GlobalDraw.h"
-
+#include <ti/sysbios/knl/Semaphore.h>
+#include <ti/sysbios/gates/GateMutex.h>
+#include <ti/sysbios/gates/GateMutexPri.h>
 
 #define TASKSTACKSIZE   2048
 
@@ -167,12 +169,16 @@ double lux = 100.1;
 double objectdist = 1.2;
 bool ongraph = 0;
 I2C_Handle i2c;
+GateMutexPri_Handle ScreenGate;
+
+
 enum Direction{North=0, East, South, West};
 enum MotorStat{Idle=0, Running, eStop};
 enum AccelerationStat{slow=0,normal,fast};
 int currentDirection = North;
 int CurrentMotorStat = Idle;
 int CurrentAcceleration = slow;
+
 //*****************************************************************************
 //
 // The first panel, which contains introductory text explaining the
@@ -1309,6 +1315,8 @@ void GraphPage(){
 }
 
 void MainPage(){
+    IArg ScreenKey;
+    ScreenKey = GateMutexPri_enter(ScreenGate);
     clearBox.i16XMin = 0;
     clearBox.i16YMin = 32;
     clearBox.i16XMax = 319;
@@ -1321,14 +1329,18 @@ void MainPage(){
   WidgetPaint(&MotorPgBtn);
   WidgetPaint(&SensorPgBtn);
   WidgetPaint(&GraphPgBtn);
+  GateMutexPri_leave(ScreenGate,ScreenKey);
 }
 
 void RemoveMainPage(){
+   // ScreenKey = GateMutexPri_enter(ScreenGate);
     WidgetRemove(&MotorPgBtn);
     WidgetRemove(&SensorPgBtn);
     WidgetRemove(&GraphPgBtn);
 }
 void SensorPage(){
+    IArg ScreenKey;
+   ScreenKey = GateMutexPri_enter(ScreenGate);
     RemoveMainPage();
     GrContextForegroundSet(&sContext, ClrBlack);
     GrRectFill(&sContext, &clearBox);
@@ -1356,17 +1368,24 @@ void SensorPage(){
         GrStringDrawCentered(&sContext, tempchar, -1, 117, 47, 0);
         sprintf(tempchar,"%5.2f m",objectdist);
         GrStringDrawCentered(&sContext, tempchar, -1, 135, 80, 0);
+        GateMutexPri_leave(ScreenGate,ScreenKey);
 }
 void removeSensorPage(){
+    //ScreenKey = GateMutexPri_enter(ScreenGate);
     WidgetRemove(&backSensorBtn);
     WidgetRemove(&DistDownBtn);
     WidgetRemove(&DistUpBtn);
 }
 void backMainSensor(){
+    IArg ScreenKey;
+    ScreenKey = GateMutexPri_enter(ScreenGate);
     removeSensorPage();
+    GateMutexPri_leave(ScreenGate,ScreenKey);
     MainPage();
 }
 void graphSelectPage(){
+    IArg ScreenKey;
+    ScreenKey = GateMutexPri_enter(ScreenGate);
     RemoveMainPage();
     GrContextForegroundSet(&sContext, ClrBlack);
     GrRectFill(&sContext, &clearBox);
@@ -1380,28 +1399,41 @@ void graphSelectPage(){
     WidgetPaint(&LightGraphBtn);
     WidgetPaint(&TestGraphBtn);
     WidgetPaint(&backGraphSelectBtn);
+    GateMutexPri_leave(ScreenGate,ScreenKey);
 }
 void RemoveGraphSelect(){
+
+
     WidgetRemove(&PowerGraphBtn);
     WidgetRemove(&MotorGraphBtn);
     WidgetRemove(&LightGraphBtn);
     WidgetRemove(&TestGraphBtn);
     WidgetRemove(&backGraphSelectBtn);
+
 }
 void RemoveGraph(){
+    //ScreenKey = GateMutexPri_enter(ScreenGate);
     ongraph=0;
     WidgetRemove((tWidget *)&backGraphBtn);
 }
 void BackGraphSelect(){
+    IArg ScreenKey;
+    ScreenKey = GateMutexPri_enter(ScreenGate);
     RemoveGraph();
+    GateMutexPri_leave(ScreenGate,ScreenKey);
     graphSelectPage();
 }
 void BackMainGraph(){
+    IArg ScreenKey;
+    ScreenKey = GateMutexPri_enter(ScreenGate);
     RemoveGraphSelect();
+    GateMutexPri_leave(ScreenGate,ScreenKey);
     MainPage();
 }
 tRectangle graphClear;
 void UpdateGraphPlot(double *dataPoints,double tstart,double tend,double mesStart, double mesEnd, int size){
+    IArg ScreenKey;
+    ScreenKey = GateMutexPri_enter(ScreenGate);
     graphClear.i16XMin = 54;
     graphClear.i16YMin = 56;
     graphClear.i16XMax = 303;
@@ -1427,8 +1459,11 @@ void UpdateGraphPlot(double *dataPoints,double tstart,double tend,double mesStar
         GrLineDraw(&sContext,x,ystart,x+pixelW,yend);
         x=x+pixelW;
     }
+    GateMutexPri_leave(ScreenGate,ScreenKey);
 }
 void GraphPrimitive(double *dataPoints,double tstart,double tend,double mesStart, double mesEnd, int size){
+    IArg ScreenKey;
+    ScreenKey = GateMutexPri_enter(ScreenGate);
     int ydif = CalcNoRemainder(150,mesEnd-mesStart);
     mesEnd = mesStart+ydif;
     int pixelH=150/ydif;
@@ -1466,8 +1501,11 @@ void GraphPrimitive(double *dataPoints,double tstart,double tend,double mesStart
         GrLineDraw(&sContext,x,ystart,x+pixelW,yend);
         x=x+pixelW;
     }
+    GateMutexPri_leave(ScreenGate,ScreenKey);
 }
 void BackMainMotorPage(){
+    IArg ScreenKey;
+    ScreenKey = GateMutexPri_enter(ScreenGate);
     WidgetRemove((tWidget *)&MotorSpeedSlider);
     WidgetRemove((tWidget *)&CurrentUpBtn);
     WidgetRemove((tWidget *)&CurrentDownBtn);
@@ -1475,9 +1513,12 @@ void BackMainMotorPage(){
     WidgetRemove((tWidget *)&AccDownBtn);
     WidgetRemove((tWidget *)&AccUpBtn);
     WidgetRemove((tWidget *)&MotorMode);
+    GateMutexPri_leave(ScreenGate,ScreenKey);
     MainPage();
 }
 void MotorPage(){
+    IArg ScreenKey;
+    ScreenKey = GateMutexPri_enter(ScreenGate);
     //WidgetPaint(&g_clear);
     RemoveMainPage();
     CurrBox.i16XMin = 161;
@@ -1522,11 +1563,12 @@ void MotorPage(){
     WidgetPaint((tWidget *)&AccDownBtn);
     WidgetPaint((tWidget *)&AccUpBtn);
     WidgetPaint((tWidget *)&MotorMode);
+    GateMutexPri_leave(ScreenGate,ScreenKey);
 }
 void TouchCheckTask(UArg arg0, UArg arg1){
     while(1){
         WidgetMessageQueueProcess();
-        Task_sleep(100);
+        //Task_sleep(100);
     }
 }
 Void heartBeatFxn(UArg arg0, UArg arg1)
@@ -1566,7 +1608,8 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
     //MotorTest();
     double s100hz[20]={10,10,9,9,9.9,10,9,9,10,9,10,10,9,9,9.9,10,9,9,10,9};
     ArrayUpdate(dd,s100hz,20);
-    while (1) {
+    IArg ScreenKey;
+   while (1) {
         //Task_sleep(100);
         GPIO_toggle(Board_LED0);
         //MotorTest();
@@ -1578,6 +1621,7 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
         //updatetime(&datetime);
         //sprintf(tempc,"%d:%d:%d %d/%d/%d \r\n",datetime.hours,datetime.minutes,datetime.seconds,datetime.days,datetime.months,datetime.year);
         //UART_write(uart, tempc, sizeof(tempc));
+        ScreenKey = GateMutexPri_enter(ScreenGate);
         TopBarDraw(&sContext, &g_sCanvas2,&g_scompass,&g_MotorStat,&g_Acceleration, datetime, LowLight,currentDirection,CurrentMotorStat,CurrentAcceleration);
         LowLight=!LowLight;
         CurrentMotorStat= (CurrentMotorStat+1)%3;
@@ -1587,8 +1631,7 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
         if(ongraph){
         UpdateGraphPlot(dd,x1,x2,y1,y2,50);
         }
-
-
+        GateMutexPri_leave(ScreenGate,ScreenKey);
     }
 }
 
@@ -1641,6 +1684,13 @@ void HCF(unsigned int index){
     // Turn on user LED
     GPIO_write(Board_LED0, Board_LED_ON);
     //tContext sContext;
+
+    GateMutexPri_Params Gprams;
+   GateMutexPri_Params_init(&Gprams);
+
+   ScreenGate = GateMutexPri_create(&Gprams, NULL);
+   // GateMutexPri_construct(&ScreenGate, &Gprams);
+
     Kentec320x240x16_SSD2119Init(120000000);
     GrContextInit(&sContext, &g_sKentec320x240x16_SSD2119);
     TouchScreenInit(120000000);

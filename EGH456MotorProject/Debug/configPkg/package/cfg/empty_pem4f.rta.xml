@@ -8,7 +8,7 @@
   <dataTransportClassName>undefined</dataTransportClassName>
   <controlTransportClassName>undefined</controlTransportClassName>
   <loggers-length>0</loggers-length>
-  <modMap-length>36</modMap-length>
+  <modMap-length>37</modMap-length>
   <modMap key="xdc.runtime.Assert">
     <id>32770</id>
     <logger>null</logger>
@@ -169,23 +169,28 @@
     <logger>null</logger>
     <diagsMask>0000110000000000</diagsMask>
   </modMap>
-  <modMap key="ti.sysbios.gates.GateMutex">
+  <modMap key="ti.sysbios.gates.GateMutexPri">
     <id>32814</id>
     <logger>null</logger>
     <diagsMask>0000110000000000</diagsMask>
   </modMap>
+  <modMap key="ti.sysbios.gates.GateMutex">
+    <id>32815</id>
+    <logger>null</logger>
+    <diagsMask>0000110000000000</diagsMask>
+  </modMap>
   <modMap key="ti.sysbios.heaps.HeapMem">
-    <id>32816</id>
+    <id>32817</id>
     <logger>null</logger>
     <diagsMask>0000110000000000</diagsMask>
   </modMap>
   <modMap key="ti.sysbios.family.arm.lm4.TimestampProvider">
-    <id>32818</id>
+    <id>32819</id>
     <logger>null</logger>
     <diagsMask>0000100000000000</diagsMask>
   </modMap>
   <modMap key="ti.sysbios.family.arm.lm4.Timer">
-    <id>32819</id>
+    <id>32820</id>
     <logger>null</logger>
     <diagsMask>0000110000000000</diagsMask>
   </modMap>

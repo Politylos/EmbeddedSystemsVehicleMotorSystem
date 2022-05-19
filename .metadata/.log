@@ -10925,3 +10925,260 @@ org.json.JSONException: A JSONObject text must begin with '{' at 1 [character 2 
 !ENTRY com.ti.ccstudio.debug 1 0 2022-05-12 21:00:03.698
 !MESSAGE DS_ERROR: CORTEX_M4_0: Failed to remove the debug state from the target before disconnecting.  There may still be breakpoint op-codes embedded in program memory.  It is recommended that you reset the emulator before you connect and reload your program before you continue debugging
 
+!SESSION 2022-05-13 19:47:38.098 -----------------------------------------------
+eclipse.buildId=4.19.0.I20210303-1800
+java.version=11.0.13
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_AU
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.ti.ccstudio.branding.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2022-05-13 19:47:54.259
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY com.ti.common.core 1 0 2022-05-13 19:47:54.441
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 1 0 2022-05-13 19:47:54.442
+!MESSAGE debugServerDir=C:/ti/ccs1110/ccs/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.ui 1 0 2022-05-13 19:48:21.822
+!MESSAGE CCS IDE session started!
+	CCS build: 11.1.0.00011
+	CCS location: C:/ti/ccs1110/ccs
+	Workspace location: C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem
+
+!ENTRY com.ti.ccstudio.debug.server 4 214294189 2022-05-13 19:48:21.892
+!MESSAGE Unexpected CCS exit detected [12/5/22, 10:20 am]!!!
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-13 19:48:22.129
+!MESSAGE constructor
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-13 19:48:22.130
+!MESSAGE done with directories
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-13 19:48:22.131
+!MESSAGE loading ti_logger
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-13 19:48:22.132
+!MESSAGE Platform os: win32
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-13 19:48:22.133
+!MESSAGE loading cToolsIF
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-13 19:48:22.157
+!MESSAGE loading cTools
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-13 19:48:22.183
+!MESSAGE loading TraceFactory
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-13 19:48:22.205
+!MESSAGE loading sqlite3
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-13 19:48:22.225
+!MESSAGE loading CloudTrace
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-13 19:48:22.306
+!MESSAGE CloudTrace interface loaded
+
+!ENTRY com.ti.ccstudio.project.ui.webcontent 1 0 2022-05-13 19:48:22.431
+!MESSAGE CCS HTTP adapter started! [ccs.port:50844] - Open 'http://localhost:50844/ide' in web browser to see listing of available APIs...
+!SESSION 2022-05-14 17:13:59.472 -----------------------------------------------
+eclipse.buildId=4.19.0.I20210303-1800
+java.version=11.0.13
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_AU
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 1 0 2022-05-14 17:14:13.323
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 1 0 2022-05-14 17:14:13.325
+!MESSAGE debugServerDir=C:/ti/ccs1110/ccs/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.ui 1 0 2022-05-14 17:14:48.326
+!MESSAGE CCS IDE session started!
+	CCS build: 11.1.0.00011
+	CCS location: C:/ti/ccs1110/ccs
+	Workspace location: C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-14 17:14:48.711
+!MESSAGE constructor
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-14 17:14:48.712
+!MESSAGE done with directories
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-14 17:14:48.713
+!MESSAGE loading ti_logger
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-14 17:14:48.714
+!MESSAGE Platform os: win32
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-14 17:14:48.715
+!MESSAGE loading cToolsIF
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-14 17:14:48.767
+!MESSAGE loading cTools
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-14 17:14:48.813
+!MESSAGE loading TraceFactory
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-14 17:14:48.852
+!MESSAGE loading sqlite3
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-14 17:14:48.893
+!MESSAGE loading CloudTrace
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-14 17:14:49.004
+!MESSAGE CloudTrace interface loaded
+
+!ENTRY com.ti.ccstudio.project.ui.webcontent 1 0 2022-05-14 17:14:49.124
+!MESSAGE CCS HTTP adapter started! [ccs.port:65118] - Open 'http://localhost:65118/ide' in web browser to see listing of available APIs...
+!SESSION 2022-05-18 13:59:42.168 -----------------------------------------------
+eclipse.buildId=4.19.0.I20210303-1800
+java.version=11.0.13
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_AU
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 1 0 2022-05-18 14:00:00.410
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 1 0 2022-05-18 14:00:00.412
+!MESSAGE debugServerDir=C:/ti/ccs1110/ccs/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.ui 1 0 2022-05-18 14:00:09.942
+!MESSAGE CCS IDE session started!
+	CCS build: 11.1.0.00011
+	CCS location: C:/ti/ccs1110/ccs
+	Workspace location: C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem
+
+!ENTRY com.ti.ccstudio.debug.server 4 214294189 2022-05-18 14:00:10.005
+!MESSAGE Unexpected CCS exit detected [11/5/22, 1:23 pm]!!!
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-18 14:00:10.114
+!MESSAGE constructor
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-18 14:00:10.115
+!MESSAGE done with directories
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-18 14:00:10.115
+!MESSAGE loading ti_logger
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-18 14:00:10.117
+!MESSAGE Platform os: win32
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-18 14:00:10.118
+!MESSAGE loading cToolsIF
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-18 14:00:10.121
+!MESSAGE loading cTools
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-18 14:00:10.123
+!MESSAGE loading TraceFactory
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-18 14:00:10.125
+!MESSAGE loading sqlite3
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-18 14:00:10.127
+!MESSAGE loading CloudTrace
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-18 14:00:10.148
+!MESSAGE CloudTrace interface loaded
+
+!ENTRY com.ti.ccstudio.project.ui.webcontent 1 0 2022-05-18 14:00:10.219
+!MESSAGE CCS HTTP adapter started! [ccs.port:57874] - Open 'http://localhost:57874/ide' in web browser to see listing of available APIs...
+
+!ENTRY com.ti.ccstudio.debug 1 0 2022-05-18 14:45:35.480
+!MESSAGE DS_ERROR: CORTEX_M4_0: Error: Connection with the target was unexpectedly lost.
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2022-05-18 14:45:35.495
+!MESSAGE DS_ERROR: CORTEX_M4_0: Failed to remove the debug state from the target before disconnecting.  There may still be breakpoint op-codes embedded in program memory.  It is recommended that you reset the emulator before you connect and reload your program before you continue debugging
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2022-05-18 20:05:35.102
+!MESSAGE DS_ERROR: CORTEX_M4_0: Error: Connection with the target was unexpectedly lost.
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2022-05-18 20:05:35.118
+!MESSAGE DS_ERROR: CORTEX_M4_0: Failed to remove the debug state from the target before disconnecting.  There may still be breakpoint op-codes embedded in program memory.  It is recommended that you reset the emulator before you connect and reload your program before you continue debugging
+
+!SESSION 2022-05-19 15:13:10.557 -----------------------------------------------
+eclipse.buildId=4.19.0.I20210303-1800
+java.version=11.0.13
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_AU
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 1 0 2022-05-19 15:13:18.201
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 1 0 2022-05-19 15:13:18.202
+!MESSAGE debugServerDir=C:/ti/ccs1110/ccs/ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 1 0 2022-05-19 15:13:48.372
+!MESSAGE CommonCorePlugin - failed attempt to get p2 context: The profile is currently in use.
+
+!ENTRY com.ti.common.core 1 0 2022-05-19 15:13:49.243
+!MESSAGE CommonCorePlugin - got p2 context...
+
+!ENTRY com.ti.ccstudio.ui 1 0 2022-05-19 15:13:54.816
+!MESSAGE CCS IDE session started!
+	CCS build: 11.1.0.00011
+	CCS location: C:/ti/ccs1110/ccs
+	Workspace location: C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-19 15:13:55.265
+!MESSAGE constructor
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-19 15:13:55.267
+!MESSAGE done with directories
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-19 15:13:55.267
+!MESSAGE loading ti_logger
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-19 15:13:55.269
+!MESSAGE Platform os: win32
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-19 15:13:55.270
+!MESSAGE loading cToolsIF
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-19 15:13:55.327
+!MESSAGE loading cTools
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-19 15:13:55.379
+!MESSAGE loading TraceFactory
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-19 15:13:55.428
+!MESSAGE loading sqlite3
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-19 15:13:55.481
+!MESSAGE loading CloudTrace
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-05-19 15:13:55.625
+!MESSAGE CloudTrace interface loaded
+
+!ENTRY com.ti.ccstudio.project.ui.webcontent 1 0 2022-05-19 15:13:55.778
+!MESSAGE CCS HTTP adapter started! [ccs.port:58212] - Open 'http://localhost:58212/ide' in web browser to see listing of available APIs...
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 15:49:55.839
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\udma.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 15:49:56.040
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\adc.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 15:49:56.063
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\gpio.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 15:49:56.080
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\grlib\image.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 15:49:56.099
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\timer.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 15:49:56.116
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\uart.c

@@ -17,6 +17,7 @@ ORDERED_OBJS += \
 "./Images/GUIImg.obj" \
 "./Images/Images.obj" \
 "./Interface/GlobalDraw.obj" \
+"./Interface/Pages.obj" \
 "./Screen/GUIMain.obj" \
 "./drivers/Kentec320x240x16_ssd2119_spi.obj" \
 "./drivers/frame.obj" \
@@ -185,8 +186,8 @@ EGH456MotorProject.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "Clock.obj" "EK_TM4C1294XL.obj" "UARTLocal.obj" "empty.obj" "Images\GUIImg.obj" "Images\Images.obj" "Interface\GlobalDraw.obj" "Screen\GUIMain.obj" "drivers\Kentec320x240x16_ssd2119_spi.obj" "drivers\frame.obj" "drivers\opt3001.obj" "drivers\pinout.obj" "drivers\touch.obj" "utils\ustdlib.obj" 
-	-$(RM) "Clock.d" "EK_TM4C1294XL.d" "UARTLocal.d" "empty.d" "Images\GUIImg.d" "Images\Images.d" "Interface\GlobalDraw.d" "Screen\GUIMain.d" "drivers\Kentec320x240x16_ssd2119_spi.d" "drivers\frame.d" "drivers\opt3001.d" "drivers\pinout.d" "drivers\touch.d" "utils\ustdlib.d" 
+	-$(RM) "Clock.obj" "EK_TM4C1294XL.obj" "UARTLocal.obj" "empty.obj" "Images\GUIImg.obj" "Images\Images.obj" "Interface\GlobalDraw.obj" "Interface\Pages.obj" "Screen\GUIMain.obj" "drivers\Kentec320x240x16_ssd2119_spi.obj" "drivers\frame.obj" "drivers\opt3001.obj" "drivers\pinout.obj" "drivers\touch.obj" "utils\ustdlib.obj" 
+	-$(RM) "Clock.d" "EK_TM4C1294XL.d" "UARTLocal.d" "empty.d" "Images\GUIImg.d" "Images\Images.d" "Interface\GlobalDraw.d" "Interface\Pages.d" "Screen\GUIMain.d" "drivers\Kentec320x240x16_ssd2119_spi.d" "drivers\frame.d" "drivers\opt3001.d" "drivers\pinout.d" "drivers\touch.d" "utils\ustdlib.d" 
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
 	-@echo 'Finished clean'
 	-@echo ' '
