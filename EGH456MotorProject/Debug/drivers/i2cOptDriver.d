@@ -13,12 +13,14 @@ drivers/i2cOptDriver.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS
 drivers/i2cOptDriver.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_types.h
 drivers/i2cOptDriver.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_stdint.h
 drivers/i2cOptDriver.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/sys/_stdint.h
-drivers/i2cOptDriver.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_memmap.h
 drivers/i2cOptDriver.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/I2C.h
 drivers/i2cOptDriver.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stddef.h
+drivers/i2cOptDriver.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_memmap.h
 drivers/i2cOptDriver.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/utils/uartstdio.h
 drivers/i2cOptDriver.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdarg.h
 drivers/i2cOptDriver.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/sysctl.h
+drivers/i2cOptDriver.obj: C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Board.h
+drivers/i2cOptDriver.obj: C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/EK_TM4C1294XL.h
 
 ../drivers/i2cOptDriver.c:
 
@@ -46,15 +48,19 @@ C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_stdint.h
 
 C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/sys/_stdint.h:
 
-C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_memmap.h:
-
 C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/I2C.h:
 
 C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stddef.h:
+
+C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/inc/hw_memmap.h:
 
 C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/utils/uartstdio.h:
 
 C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdarg.h:
 
 C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/sysctl.h:
+
+C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Board.h:
+
+C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/EK_TM4C1294XL.h:
 

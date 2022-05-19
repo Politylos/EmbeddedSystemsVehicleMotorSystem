@@ -286,9 +286,11 @@ empty.obj: ../Clock.h
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Timer.h
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h
 empty.obj: ../Interface/GraphFunctions.h
+empty.obj: ../drivers/Sensors/SensorsClock.h
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h
 empty.obj: ../Images/GUIImg.h
 empty.obj: ../Images/Images.h
+empty.obj: ../drivers/i2cOptDriver.h
 empty.obj: ../Interface/GlobalDraw.h
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Semaphore.h
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/gates/GateMutex.h
@@ -879,11 +881,15 @@ C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbi
 
 ../Interface/GraphFunctions.h:
 
+../drivers/Sensors/SensorsClock.h:
+
 C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h:
 
 ../Images/GUIImg.h:
 
 ../Images/Images.h:
+
+../drivers/i2cOptDriver.h:
 
 ../Interface/GlobalDraw.h:
 

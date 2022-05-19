@@ -11194,3 +11194,188 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.ti.ccstud
 
 !ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 17:13:52.384
 !MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\uart.c
+
+!ENTRY com.ti.ccstudio.debug 1 0 2022-05-19 18:57:33.986
+!MESSAGE DS_ERROR: CORTEX_M4_0: Error connecting to the target: Unable to communicate with the device. Please check your connection.
+
+
+!ENTRY com.ti.ccstudio.debug 1 0 2022-05-19 18:57:34.143
+!MESSAGE DS_ERROR: Error connecting to the target:
+Unable to communicate with the device. Please check your connection.
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 18:59:56.154
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\pwm.c
+
+!ENTRY com.ti.ccstudio.debug 4 0 2022-05-19 18:59:56.742
+!MESSAGE Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0 - WARNING: opCode alignment dropped! (Requested address 0xe26b | aligned address 0xe26c)
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 18:59:56.849
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\timer.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 18:59:56.867
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\grlib\string.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 18:59:56.899
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\i2c.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 18:59:56.976
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\adc.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 18:59:56.991
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\fpu.c
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-05-19 19:00:03.983
+!MESSAGE Request for monitor: '_Application_9_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_BreakpointManager_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_BreakpointManager_Breakpoint(302)' resulted in an error.
+!SUBENTRY 1 com.ti.ccstudio.debug 4 10004 2022-05-19 19:00:03.983
+!MESSAGE Error enabling this function: There is no AET resource to support this job.
+!STACK 0
+com.ti.debug.engine.IBreakpointManager$BreakpointException: Error enabling this function: There is no AET resource to support this job.
+	at com.ti.debug.engine.impl.BreakpointManager.checkForException(BreakpointManager.java:60)
+	at com.ti.debug.engine.impl.BreakpointManager.enable(BreakpointManager.java:115)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.dsEnabled(BreakpointManagerDMContext.java:720)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.insertBreakpoint(BreakpointManagerDMContext.java:351)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.insertBreakpoint(BreakpointManagerDMContext.java:315)
+	at com.ti.ccstudio.debug.service.BreakpointService.insertBreakpoint(BreakpointService.java:474)
+	at com.ti.ccstudio.debug.service.BreakpointService$8$1.handleCompleted(BreakpointService.java:598)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+!ENTRY com.ti.ccstudio.debug 4 0 2022-05-19 19:00:58.541
+!MESSAGE Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0 - WARNING: opCode alignment dropped! (Requested address 0xb7f9 | aligned address 0xb7fa)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-05-19 19:10:57.468
+!MESSAGE Request for monitor: '_Application_14_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_BreakpointManager_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_BreakpointManager_Breakpoint(505)' resulted in an error.
+!SUBENTRY 1 com.ti.ccstudio.debug 4 10004 2022-05-19 19:10:57.468
+!MESSAGE Error enabling this function: There is no AET resource to support this job.
+!STACK 0
+com.ti.debug.engine.IBreakpointManager$BreakpointException: Error enabling this function: There is no AET resource to support this job.
+	at com.ti.debug.engine.impl.BreakpointManager.checkForException(BreakpointManager.java:60)
+	at com.ti.debug.engine.impl.BreakpointManager.enable(BreakpointManager.java:115)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.dsEnabled(BreakpointManagerDMContext.java:720)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.insertBreakpoint(BreakpointManagerDMContext.java:351)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.insertBreakpoint(BreakpointManagerDMContext.java:315)
+	at com.ti.ccstudio.debug.service.BreakpointService.insertBreakpoint(BreakpointService.java:474)
+	at com.ti.ccstudio.debug.service.BreakpointService$8$1.handleCompleted(BreakpointService.java:598)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-05-19 19:13:29.227
+!MESSAGE Request for monitor: '_Application_16_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_BreakpointManager_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_BreakpointManager_Breakpoint(582)' resulted in an error.
+!SUBENTRY 1 com.ti.ccstudio.debug 4 10004 2022-05-19 19:13:29.227
+!MESSAGE Error enabling this function: There is no AET resource to support this job.
+!STACK 0
+com.ti.debug.engine.IBreakpointManager$BreakpointException: Error enabling this function: There is no AET resource to support this job.
+	at com.ti.debug.engine.impl.BreakpointManager.checkForException(BreakpointManager.java:60)
+	at com.ti.debug.engine.impl.BreakpointManager.enable(BreakpointManager.java:115)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.dsEnabled(BreakpointManagerDMContext.java:720)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.insertBreakpoint(BreakpointManagerDMContext.java:351)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.insertBreakpoint(BreakpointManagerDMContext.java:315)
+	at com.ti.ccstudio.debug.service.BreakpointService.insertBreakpoint(BreakpointService.java:474)
+	at com.ti.ccstudio.debug.service.BreakpointService$8$1.handleCompleted(BreakpointService.java:598)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 19:16:46.751
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\grlib\canvas.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 19:21:09.700
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\grlib\canvas.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 19:21:26.029
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\uart.c
+
+!ENTRY com.ti.ccstudio.debug 4 0 2022-05-19 19:21:26.904
+!MESSAGE Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0 - WARNING: opCode alignment dropped! (Requested address 0xe51d | aligned address 0xe51e)
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 19:21:27.072
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\gpio.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 19:21:27.091
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\grlib\image.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 19:21:27.108
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\timer.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 19:21:27.166
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\i2c.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 19:21:27.218
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\pwm.c
+
+!ENTRY com.ti.ccstudio.debug 4 0 2022-05-19 19:21:27.259
+!MESSAGE Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0 - WARNING: opCode alignment dropped! (Requested address 0xe5bb | aligned address 0xe5bc)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-05-19 19:22:39.077
+!MESSAGE Request for monitor: '_Application_24_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_BreakpointManager_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_BreakpointManager_Breakpoint(907)' resulted in an error.
+!SUBENTRY 1 com.ti.ccstudio.debug 4 10004 2022-05-19 19:22:39.077
+!MESSAGE Error enabling this function: There is no AET resource to support this job.
+!STACK 0
+com.ti.debug.engine.IBreakpointManager$BreakpointException: Error enabling this function: There is no AET resource to support this job.
+	at com.ti.debug.engine.impl.BreakpointManager.checkForException(BreakpointManager.java:60)
+	at com.ti.debug.engine.impl.BreakpointManager.enable(BreakpointManager.java:115)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.dsEnabled(BreakpointManagerDMContext.java:720)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.insertBreakpoint(BreakpointManagerDMContext.java:351)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.insertBreakpoint(BreakpointManagerDMContext.java:315)
+	at com.ti.ccstudio.debug.service.BreakpointService.insertBreakpoint(BreakpointService.java:474)
+	at com.ti.ccstudio.debug.service.BreakpointService$8$1.handleCompleted(BreakpointService.java:598)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 19:22:48.089
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\uart.c
+
+!ENTRY com.ti.ccstudio.debug 4 0 2022-05-19 19:25:04.780
+!MESSAGE Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0 - WARNING: opCode alignment dropped! (Requested address 0xb691 | aligned address 0xb692)
+
+!ENTRY com.ti.ccstudio.debug 4 0 2022-05-19 19:29:20.793
+!MESSAGE Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0 - WARNING: opCode alignment dropped! (Requested address 0x54c7 | aligned address 0x54c8)
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 19:30:10.712
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\timer.c
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-05-19 19:30:20.675
+!MESSAGE Request for monitor: '_Application_29_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_BreakpointManager_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_BreakpointManager_Breakpoint(1121)' resulted in an error.
+!SUBENTRY 1 com.ti.ccstudio.debug 4 10004 2022-05-19 19:30:20.675
+!MESSAGE Error enabling this function: There is no AET resource to support this job.
+!STACK 0
+com.ti.debug.engine.IBreakpointManager$BreakpointException: Error enabling this function: There is no AET resource to support this job.
+	at com.ti.debug.engine.impl.BreakpointManager.checkForException(BreakpointManager.java:60)
+	at com.ti.debug.engine.impl.BreakpointManager.enable(BreakpointManager.java:115)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.dsEnabled(BreakpointManagerDMContext.java:720)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.insertBreakpoint(BreakpointManagerDMContext.java:351)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.insertBreakpoint(BreakpointManagerDMContext.java:315)
+	at com.ti.ccstudio.debug.service.BreakpointService.insertBreakpoint(BreakpointService.java:474)
+	at com.ti.ccstudio.debug.service.BreakpointService$8$1.handleCompleted(BreakpointService.java:598)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 19:35:16.473
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\grlib\slider.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 19:35:16.584
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\timer.c

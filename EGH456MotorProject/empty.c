@@ -105,10 +105,12 @@
 #include "empty.h"
 #include "Clock.h"
 #include"Interface/GraphFunctions.h"
+#include "drivers/Sensors/SensorsClock.h"
 //#include <ti/sysbios/family/arm/msp432/Seconds.h>
 #include <ti/sysbios/hal/Seconds.h>
 #include "Images/GUIImg.h"
 #include "Images/Images.h"
+#include "drivers/i2cOptDriver.h"
 #include "Interface/GlobalDraw.h"
 #include <ti/sysbios/knl/Semaphore.h>
 #include <ti/sysbios/gates/GateMutex.h>
@@ -218,6 +220,22 @@ void TouchCheckTask(UArg arg0, UArg arg1){
 }
 Void heartBeatFxn(UArg arg0, UArg arg1)
 {
+    if (InitI2C()){
+               if( InitSensors()){
+
+                   if (InitSensorsHWI()){
+                                                        System_printf("I2C sensors running\n");
+                                                    }else{
+                                                        System_printf("Unable to start clock for I2C\n");
+                                                    }
+               } else {
+                   System_printf("Sensors not configed\n");
+               }
+           } else{
+               System_printf("Cant open I2C\n");
+           }
+    System_flush();
+
     MotorInit();
     bool LA,LB,LC;
     HA=1;
@@ -325,8 +343,10 @@ void HCF(unsigned int index){
         taskParams.stackSize = TASKSTACKSIZE;
         taskParams.stack = &taskTouchStack;
         taskParams.priority = 3;
-        Task_construct(&taskTouchStruct, (Task_FuncPtr)TouchCheckTask, &taskParams, NULL);
+       // Task_construct(&taskTouchStruct, (Task_FuncPtr)TouchCheckTask, &taskParams, NULL);
     // Turn on user LED
+
+
     GPIO_write(Board_LED0, Board_LED_ON);
     //tContext sContext;
 
