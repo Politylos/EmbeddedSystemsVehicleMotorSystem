@@ -11182,3 +11182,15 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.ti.ccstud
 
 !ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 15:49:56.116
 !MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\uart.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 16:07:02.457
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\grlib\canvas.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 17:06:33.866
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\pwm.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 17:06:33.910
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\uart.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-05-19 17:13:52.384
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\driverlib\uart.c
