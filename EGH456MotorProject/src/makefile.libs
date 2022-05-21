@@ -1,6 +1,6 @@
 #
 # This file was generated based on the configuration script:
-#     C:\Users\polit\Documents\EmbeddedSystemsVehicleMotorSystem\EGH456MotorProject\empty.cfg
+#     C:\egh456\EmbeddedSystemsVehicleMotorSystem\EGH456MotorProject\empty.cfg
 #
 # This makefile may be included in other makefiles that need to build
 # the libraries containing the compiled source files generated as
@@ -14,7 +14,7 @@
 #
 # The absolute path to the generated source directory (at the time the
 # sources were generated) is:
-#    C:\Users\polit\Documents\EmbeddedSystemsVehicleMotorSystem\EGH456MotorProject\src
+#    C:\egh456\EmbeddedSystemsVehicleMotorSystem\EGH456MotorProject\src
 #
 GEN_SRC_DIR ?= ../src
 

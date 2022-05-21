@@ -12,7 +12,7 @@ drivers/frame.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/includ
 drivers/frame.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_types.h
 drivers/frame.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_stdint.h
 drivers/frame.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/sys/_stdint.h
-drivers/frame.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/grlib.h
+drivers/frame.obj: C:/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/grlib.h
 drivers/frame.obj: C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/frame.h
 
 ../drivers/frame.c:
@@ -39,7 +39,7 @@ C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_stdint.h
 
 C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/sys/_stdint.h:
 
-C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/grlib.h:
+C:/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/grlib.h:
 
 C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/frame.h:
 

@@ -11,8 +11,8 @@ utils/ustdlib.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/includ
 utils/ustdlib.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_types.h
 utils/ustdlib.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_stdint.h
 utils/ustdlib.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/sys/_stdint.h
-utils/ustdlib.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/debug.h
-utils/ustdlib.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/utils/ustdlib.h
+utils/ustdlib.obj: C:/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/debug.h
+utils/ustdlib.obj: C:/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/utils/ustdlib.h
 utils/ustdlib.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdarg.h
 utils/ustdlib.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/time.h
 utils/ustdlib.obj: C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/abi_prefix.h
@@ -40,9 +40,9 @@ C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/machine/_stdint.h
 
 C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/sys/_stdint.h:
 
-C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/debug.h:
+C:/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/debug.h:
 
-C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/utils/ustdlib.h:
+C:/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/utils/ustdlib.h:
 
 C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include/stdarg.h:
 

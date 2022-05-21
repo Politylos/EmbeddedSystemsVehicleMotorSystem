@@ -49,13 +49,15 @@ void TopBarDraw(tContext *sContext, tCanvasWidget *imgcan, tCanvasWidget *comp,t
     GrContextFontSet(sContext, g_psFontCmss20);
     char tempc[8];
     char tempd[10];
-    sprintf(tempc,"%d:%d:%d",time.hours,time.minutes,time.seconds);
-    sprintf(tempd,"%d/%d/%d",time.days,time.months,time.year);
-    GrStringDrawCentered(sContext, tempc, -1,
-                         GrContextDpyWidthGet(sContext) / 2-125, 20, 0);
+    sprintf(tempc,"%02d:%02d:%02d",time.hours,time.minutes,time.seconds);
+    sprintf(tempd,"%02d/%02d/%02d",time.days,time.months,time.year);
+//    GrStringDrawCentered(sContext, tempc, 8,
+//                         GrContextDpyWidthGet(sContext) / 2-115, 20, 0);
+    GrStringDraw(sContext, tempc, 8, 16, 10, 0);
     GrContextFontSet(sContext, g_psFontCmss12b);
-    GrStringDrawCentered(sContext, tempd, -1,
-                         GrContextDpyWidthGet(sContext) / 2-60, 20, 0);
+//    GrStringDrawCentered(sContext, tempd, -1,
+//                         GrContextDpyWidthGet(sContext) / 2-30, 20, 0);
+    GrStringDraw(sContext, tempd, 10, 100, 14, 0);
     if(Lightlvl){
     CanvasImageSet(imgcan,g_pui8Night);
 

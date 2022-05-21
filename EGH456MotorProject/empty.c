@@ -60,7 +60,7 @@
 #include <ti/sysbios/knl/Event.h>
 #include <ti/sysbios/knl/Queue.h>
 #include <ti/sysbios/knl/Semaphore.h>
- #include <ti/drivers/I2C.h>
+#include <ti/drivers/I2C.h>
 #include <xdc/runtime/Error.h>
 #include <xdc/runtime/System.h>
 #include <driverlib/sysctl.h>
@@ -188,8 +188,8 @@ Canvas(g_sIntroduction, g_psPanels, 0, 0, &g_sKentec320x240x16_SSD2119, 0, 24,
 //
 //*****************************************************************************
 Canvas(g_sPrimitives, g_psPanels + 1, 0, 0, &g_sKentec320x240x16_SSD2119, 0,
-       24, 320, 166, CANVAS_STYLE_APP_DRAWN, 0, 0, 0, 0, 0, 0,
-       OnPrimitivePaint);
+        24, 320, 166, CANVAS_STYLE_APP_DRAWN, 0, 0, 0, 0, 0, 0,
+        OnPrimitivePaint);
 
 //*****************************************************************************
 //
@@ -197,29 +197,29 @@ Canvas(g_sPrimitives, g_psPanels + 1, 0, 0, &g_sKentec320x240x16_SSD2119, 0,
 //
 //*****************************************************************************
 Canvas(g_sCanvas3, g_psPanels + 2, 0, 0, &g_sKentec320x240x16_SSD2119, 205,
-       27, 110, 158, CANVAS_STYLE_OUTLINE | CANVAS_STYLE_APP_DRAWN, 0, ClrGray,
-       0, 0, 0, 0, OnCanvasPaint);
+        27, 110, 158, CANVAS_STYLE_OUTLINE | CANVAS_STYLE_APP_DRAWN, 0, ClrGray,
+        0, 0, 0, 0, OnCanvasPaint);
 Canvas(g_sCanvas2, g_psPanels + 2, &g_sCanvas3, 0,
-       &g_sKentec320x240x16_SSD2119, 292, 0, 25, 25,
-       CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8Logo,
-       0);
+        &g_sKentec320x240x16_SSD2119, 292, 0, 25, 25,
+        CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8Logo,
+        0);
 Canvas(g_scompass, 0, 0, 0,
-       &g_sKentec320x240x16_SSD2119, 260, 0, 25, 25,
-       CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8CompN,
-       0);
+        &g_sKentec320x240x16_SSD2119, 260, 0, 25, 25,
+        CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8CompN,
+        0);
 Canvas(g_MotorStat, 0, 0, 0,
-       &g_sKentec320x240x16_SSD2119, 233, 0, 25, 25,
-       CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8idle,
-       0);
+        &g_sKentec320x240x16_SSD2119, 233, 0, 25, 25,
+        CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8idle,
+        0);
 Canvas(g_Acceleration, 0, 0, 0,
-       &g_sKentec320x240x16_SSD2119, 206, 0, 25, 25,
-       CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8accSlow,
-       0);
+        &g_sKentec320x240x16_SSD2119, 206, 0, 25, 25,
+        CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8accSlow,
+        0);
 
 Canvas(g_sCanvas1, g_psPanels + 2, &g_sCanvas2, 0,
-       &g_sKentec320x240x16_SSD2119, 5, 27, 195, 76,
-       CANVAS_STYLE_FILL | CANVAS_STYLE_OUTLINE | CANVAS_STYLE_TEXT,
-       ClrMidnightBlue, ClrGray, ClrSilver, &g_sFontCm22, "Text", 0, 0);
+        &g_sKentec320x240x16_SSD2119, 5, 27, 195, 76,
+        CANVAS_STYLE_FILL | CANVAS_STYLE_OUTLINE | CANVAS_STYLE_TEXT,
+        ClrMidnightBlue, ClrGray, ClrSilver, &g_sFontCm22, "Text", 0, 0);
 
 //*****************************************************************************
 //
@@ -229,31 +229,31 @@ Canvas(g_sCanvas1, g_psPanels + 2, &g_sCanvas2, 0,
 tCanvasWidget g_psCheckBoxIndicators[] =
 {
     CanvasStruct(g_psPanels + 3, g_psCheckBoxIndicators + 1, 0,
-                 &g_sKentec320x240x16_SSD2119, 230, 30, 50, 42,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
+            &g_sKentec320x240x16_SSD2119, 230, 30, 50, 42,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
     CanvasStruct(g_psPanels + 3, g_psCheckBoxIndicators + 2, 0,
-                 &g_sKentec320x240x16_SSD2119, 230, 82, 50, 48,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
+            &g_sKentec320x240x16_SSD2119, 230, 82, 50, 48,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
     CanvasStruct(g_psPanels + 3, 0, 0,
-                 &g_sKentec320x240x16_SSD2119, 230, 134, 50, 42,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0)
+            &g_sKentec320x240x16_SSD2119, 230, 134, 50, 42,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0)
 };
 tCheckBoxWidget g_psCheckBoxes[] =
 {
     CheckBoxStruct(g_psPanels + 3, g_psCheckBoxes + 1, 0,
-                   &g_sKentec320x240x16_SSD2119, 40, 30, 185, 42,
-                   CB_STYLE_OUTLINE | CB_STYLE_FILL | CB_STYLE_TEXT, 16,
-                   ClrMidnightBlue, ClrGray, ClrSilver, &g_sFontCm22, "Select",
-                   0, OnCheckChange),
+            &g_sKentec320x240x16_SSD2119, 40, 30, 185, 42,
+            CB_STYLE_OUTLINE | CB_STYLE_FILL | CB_STYLE_TEXT, 16,
+            ClrMidnightBlue, ClrGray, ClrSilver, &g_sFontCm22, "Select",
+            0, OnCheckChange),
     CheckBoxStruct(g_psPanels + 3, g_psCheckBoxes + 2, 0,
-                   &g_sKentec320x240x16_SSD2119, 40, 82, 185, 48,
-                   CB_STYLE_IMG, 16, 0, ClrGray, 0, 0, 0, g_pui8Logo,
-                   OnCheckChange),
+            &g_sKentec320x240x16_SSD2119, 40, 82, 185, 48,
+            CB_STYLE_IMG, 16, 0, ClrGray, 0, 0, 0, g_pui8Logo,
+            OnCheckChange),
     CheckBoxStruct(g_psPanels + 3, g_psCheckBoxIndicators, 0,
-                   &g_sKentec320x240x16_SSD2119, 40, 134, 189, 42,
-                   CB_STYLE_OUTLINE | CB_STYLE_TEXT, 16,
-                   0, ClrGray, ClrGreen, &g_sFontCm20, "Select",
-                   0, OnCheckChange),
+            &g_sKentec320x240x16_SSD2119, 40, 134, 189, 42,
+            CB_STYLE_OUTLINE | CB_STYLE_TEXT, 16,
+            0, ClrGray, ClrGreen, &g_sFontCm20, "Select",
+            0, OnCheckChange),
 };
 #define NUM_CHECK_BOXES         (sizeof(g_psCheckBoxes) /   \
                                  sizeof(g_psCheckBoxes[0]))
@@ -264,17 +264,17 @@ tCheckBoxWidget g_psCheckBoxes[] =
 //
 //*****************************************************************************
 Container(g_sContainer3, g_psPanels + 4, 0, 0, &g_sKentec320x240x16_SSD2119,
-          210, 47, 105, 118, CTR_STYLE_OUTLINE | CTR_STYLE_FILL,
-          ClrMidnightBlue, ClrGray, 0, 0, 0);
+        210, 47, 105, 118, CTR_STYLE_OUTLINE | CTR_STYLE_FILL,
+        ClrMidnightBlue, ClrGray, 0, 0, 0);
 Container(g_sContainer2, g_psPanels + 4, &g_sContainer3, 0,
-          &g_sKentec320x240x16_SSD2119, 5, 109, 200, 76,
-          (CTR_STYLE_OUTLINE | CTR_STYLE_FILL | CTR_STYLE_TEXT |
-           CTR_STYLE_TEXT_CENTER), ClrMidnightBlue, ClrGray, ClrSilver,
-          &g_sFontCm22, "Group2");
+        &g_sKentec320x240x16_SSD2119, 5, 109, 200, 76,
+        (CTR_STYLE_OUTLINE | CTR_STYLE_FILL | CTR_STYLE_TEXT |
+        CTR_STYLE_TEXT_CENTER), ClrMidnightBlue, ClrGray, ClrSilver,
+        &g_sFontCm22, "Group2");
 Container(g_sContainer1, g_psPanels + 4, &g_sContainer2, 0,
-          &g_sKentec320x240x16_SSD2119, 5, 27, 200, 76,
-          CTR_STYLE_OUTLINE | CTR_STYLE_FILL | CTR_STYLE_TEXT, ClrMidnightBlue,
-          ClrGray, ClrSilver, &g_sFontCm22, "Group1");
+        &g_sKentec320x240x16_SSD2119, 5, 27, 200, 76,
+        CTR_STYLE_OUTLINE | CTR_STYLE_FILL | CTR_STYLE_TEXT, ClrMidnightBlue,
+        ClrGray, ClrSilver, &g_sFontCm22, "Group1");
 
 //*****************************************************************************
 //
@@ -285,33 +285,32 @@ void btntest(){
     int ahhhhhh=1;
 }
 tSliderWidget slidertest = SliderStruct(g_psPanels+5, 0, 0,
-             &g_sKentec320x240x16_SSD2119, 5, 30, 220, 30, 0, 100, 25,
-             (SL_STYLE_FILL | SL_STYLE_BACKG_FILL | SL_STYLE_OUTLINE |
-              SL_STYLE_TEXT | SL_STYLE_BACKG_TEXT),
-             ClrGray, ClrBlack, ClrSilver, ClrWhite, ClrWhite,
-             &g_sFontCm20, "25%", 0, 0, OnSliderChange);
+        &g_sKentec320x240x16_SSD2119, 5, 30, 220, 30, 0, 100, 25,
+        (SL_STYLE_FILL | SL_STYLE_BACKG_FILL | SL_STYLE_OUTLINE |
+        SL_STYLE_TEXT | SL_STYLE_BACKG_TEXT),
+        ClrGray, ClrBlack, ClrSilver, ClrWhite, ClrWhite,
+        &g_sFontCm20, "25%", 0, 0, OnSliderChange);
 tPushButtonWidget brrrr = RectangularButtonStruct(g_psPanels + 5, 0, 0,
-                                                  &g_sKentec320x240x16_SSD2119, 130, 200, 50, 50,
-                                                  PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
-                                                  &g_sFontCm22, "5", g_pui8Blue50x50,
-                                                  g_pui8Blue50x50Press, 0, 0, btntest);
+        &g_sKentec320x240x16_SSD2119, 130, 200, 50, 50,
+        PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+        &g_sFontCm22, "5", g_pui8Blue50x50,
+        g_pui8Blue50x50Press, 0, 0, btntest);
 tPushButtonWidget brrrr2 =RectangularButtonStruct(g_psPanels + 5, 0, 0,
-                        &g_sKentec320x240x16_SSD2119, 30, 35, 40, 40,
-                        PB_STYLE_FILL | PB_STYLE_OUTLINE | PB_STYLE_TEXT,
-                        ClrMidnightBlue, ClrBlack, ClrGray, ClrSilver,
-                        &g_sFontCm22, "1", 0, 0, 0, 0, btntest);
+        &g_sKentec320x240x16_SSD2119, 30, 35, 40, 40,
+        PB_STYLE_FILL | PB_STYLE_OUTLINE | PB_STYLE_TEXT,
+        ClrMidnightBlue, ClrBlack, ClrGray, ClrSilver,
+        &g_sFontCm22, "1", 0, 0, 0, 0, btntest);
 tCanvasWidget sidertestC[] = {
-
-                                                      CanvasStruct(g_psPanels + 5,sidertestC+3, &brrrr, &g_sKentec320x240x16_SSD2119, 0,
-                                                                   85, 50, 50, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0),
-                                                                   CanvasStruct(g_psPanels + 5,sidertestC+4, &brrrr2, &g_sKentec320x240x16_SSD2119, 0,
-                                                                                85, 50, 50, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0),
-                              CanvasStruct(g_psPanels + 5, sidertestC+1, 0,
-                                           &g_sKentec320x240x16_SSD2119, 0,60, 200, 80,
-                                           CANVAS_STYLE_TEXT, 0, 0, ClrSilver, &g_sFontCm12, "MOTOR GO BRRRRR",
-                                           0, 0),
-                              CanvasStruct(g_psPanels + 5,sidertestC+2, &slidertest, &g_sKentec320x240x16_SSD2119, 0,
-                                           65, 220, 30, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0),
+        CanvasStruct(g_psPanels + 5,sidertestC+3, &brrrr, &g_sKentec320x240x16_SSD2119, 0,
+        85, 50, 50, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0),
+        CanvasStruct(g_psPanels + 5,sidertestC+4, &brrrr2, &g_sKentec320x240x16_SSD2119, 0,
+        85, 50, 50, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0),
+        CanvasStruct(g_psPanels + 5, sidertestC+1, 0,
+        &g_sKentec320x240x16_SSD2119, 0,60, 200, 80,
+        CANVAS_STYLE_TEXT, 0, 0, ClrSilver, &g_sFontCm12, "MOTOR GO BRRRRR",
+        0, 0),
+        CanvasStruct(g_psPanels + 5,sidertestC+2, &slidertest, &g_sKentec320x240x16_SSD2119, 0,
+        65, 220, 30, CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0),
 
 
 
@@ -321,80 +320,80 @@ tCanvasWidget sidertestC[] = {
 tCanvasWidget g_psPushButtonIndicators[] =
 {
     CanvasStruct(g_psPanels + 5, g_psPushButtonIndicators + 1, 0,
-                 &g_sKentec320x240x16_SSD2119, 40, 85, 20, 20,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
+            &g_sKentec320x240x16_SSD2119, 40, 85, 20, 20,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
     CanvasStruct(g_psPanels + 5, g_psPushButtonIndicators + 2, 0,
-                 &g_sKentec320x240x16_SSD2119, 90, 85, 20, 20,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
+            &g_sKentec320x240x16_SSD2119, 90, 85, 20, 20,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
     CanvasStruct(g_psPanels + 5, g_psPushButtonIndicators + 3, 0,
-                 &g_sKentec320x240x16_SSD2119, 145, 85, 20, 20,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
+            &g_sKentec320x240x16_SSD2119, 145, 85, 20, 20,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
     CanvasStruct(g_psPanels + 5, g_psPushButtonIndicators + 4, 0,
-                 &g_sKentec320x240x16_SSD2119, 40, 165, 20, 20,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
+            &g_sKentec320x240x16_SSD2119, 40, 165, 20, 20,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
     CanvasStruct(g_psPanels + 5, g_psPushButtonIndicators + 5, 0,
-                 &g_sKentec320x240x16_SSD2119, 90, 165, 20, 20,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
+            &g_sKentec320x240x16_SSD2119, 90, 165, 20, 20,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
     CanvasStruct(g_psPanels + 5, g_psPushButtonIndicators + 6, 0,
-                 &g_sKentec320x240x16_SSD2119, 145, 165, 20, 20,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
+            &g_sKentec320x240x16_SSD2119, 145, 165, 20, 20,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
     CanvasStruct(g_psPanels + 5, g_psPushButtonIndicators + 7, 0,
-                 &g_sKentec320x240x16_SSD2119, 190, 35, 110, 24,
-                 CANVAS_STYLE_TEXT, 0, 0, ClrSilver, &g_sFontCm20, "Non-auto",
-                 0, 0),
+            &g_sKentec320x240x16_SSD2119, 190, 35, 110, 24,
+            CANVAS_STYLE_TEXT, 0, 0, ClrSilver, &g_sFontCm20, "Non-auto",
+            0, 0),
     CanvasStruct(g_psPanels + 5, g_psPushButtonIndicators + 8, 0,
-                 &g_sKentec320x240x16_SSD2119, 190, 55, 110, 24,
-                 CANVAS_STYLE_TEXT, 0, 0, ClrSilver, &g_sFontCm20, "repeat",
-                 0, 0),
+            &g_sKentec320x240x16_SSD2119, 190, 55, 110, 24,
+            CANVAS_STYLE_TEXT, 0, 0, ClrSilver, &g_sFontCm20, "repeat",
+            0, 0),
     CanvasStruct(g_psPanels + 5, g_psPushButtonIndicators + 9, 0,
-                 &g_sKentec320x240x16_SSD2119, 190, 115, 110, 24,
-                 CANVAS_STYLE_TEXT, 0, 0, ClrSilver, &g_sFontCm20, "Auto",
-                 0, 0),
-                 CanvasStruct(g_psPanels + 5, 0, 0,
-                              &g_sKentec320x240x16_SSD2119, 190, 135, 110, 24,
-                              CANVAS_STYLE_TEXT, 0, 0, ClrSilver, &g_sFontCm20, "repeat",
-                              0, 0),
-                 CanvasStruct(g_psPanels + 5, 0, &slidertest,
-                              &g_sKentec320x240x16_SSD2119, 5, 115, 220, 30,
-                              CANVAS_STYLE_TEXT, 0, 0, ClrSilver, 0, 0,
-                              0, 0),
+            &g_sKentec320x240x16_SSD2119, 190, 115, 110, 24,
+            CANVAS_STYLE_TEXT, 0, 0, ClrSilver, &g_sFontCm20, "Auto",
+            0, 0),
+    CanvasStruct(g_psPanels + 5, 0, 0,
+            &g_sKentec320x240x16_SSD2119, 190, 135, 110, 24,
+            CANVAS_STYLE_TEXT, 0, 0, ClrSilver, &g_sFontCm20, "repeat",
+            0, 0),
+    CanvasStruct(g_psPanels + 5, 0, &slidertest,
+            &g_sKentec320x240x16_SSD2119, 5, 115, 220, 30,
+            CANVAS_STYLE_TEXT, 0, 0, ClrSilver, 0, 0,
+            0, 0),
 };
 
 tPushButtonWidget g_psPushButtons[] =
 {
     RectangularButtonStruct(g_psPanels + 5, g_psPushButtons + 1, 0,
-                            &g_sKentec320x240x16_SSD2119, 30, 35, 40, 40,
-                            PB_STYLE_FILL | PB_STYLE_OUTLINE | PB_STYLE_TEXT,
-                            ClrMidnightBlue, ClrBlack, ClrGray, ClrSilver,
-                            &g_sFontCm22, "1", 0, 0, 0, 0, OnButtonPress),
+            &g_sKentec320x240x16_SSD2119, 30, 35, 40, 40,
+            PB_STYLE_FILL | PB_STYLE_OUTLINE | PB_STYLE_TEXT,
+            ClrMidnightBlue, ClrBlack, ClrGray, ClrSilver,
+            &g_sFontCm22, "1", 0, 0, 0, 0, OnButtonPress),
     CircularButtonStruct(g_psPanels + 5, g_psPushButtons + 2, 0,
-                         &g_sKentec320x240x16_SSD2119, 100, 55, 20,
-                         PB_STYLE_FILL | PB_STYLE_OUTLINE | PB_STYLE_TEXT,
-                         ClrMidnightBlue, ClrBlack, ClrGray, ClrSilver,
-                         &g_sFontCm22, "3", 0, 0, 0, 0, OnButtonPress),
+            &g_sKentec320x240x16_SSD2119, 100, 55, 20,
+            PB_STYLE_FILL | PB_STYLE_OUTLINE | PB_STYLE_TEXT,
+            ClrMidnightBlue, ClrBlack, ClrGray, ClrSilver,
+            &g_sFontCm22, "3", 0, 0, 0, 0, OnButtonPress),
     RectangularButtonStruct(g_psPanels + 5, g_psPushButtons + 3, 0,
-                            &g_sKentec320x240x16_SSD2119, 130, 30, 50, 50,
-                            PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
-                            &g_sFontCm22, "5", g_pui8Blue50x50,
-                            g_pui8Blue50x50Press, 0, 0, OnButtonPress),
+            &g_sKentec320x240x16_SSD2119, 130, 30, 50, 50,
+            PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
+            &g_sFontCm22, "5", g_pui8Blue50x50,
+            g_pui8Blue50x50Press, 0, 0, OnButtonPress),
     RectangularButtonStruct(g_psPanels + 5, g_psPushButtons + 4, 0,
-                            &g_sKentec320x240x16_SSD2119, 30, 115, 40, 40,
-                            (PB_STYLE_FILL | PB_STYLE_OUTLINE | PB_STYLE_TEXT |
-                             PB_STYLE_AUTO_REPEAT), ClrMidnightBlue, ClrBlack,
-                            ClrGray, ClrSilver, &g_sFontCm22, "2", 0, 0, 125,
-                            25, OnButtonPress),
+            &g_sKentec320x240x16_SSD2119, 30, 115, 40, 40,
+            (PB_STYLE_FILL | PB_STYLE_OUTLINE | PB_STYLE_TEXT |
+            PB_STYLE_AUTO_REPEAT), ClrMidnightBlue, ClrBlack,
+            ClrGray, ClrSilver, &g_sFontCm22, "2", 0, 0, 125,
+            25, OnButtonPress),
     CircularButtonStruct(g_psPanels + 5, g_psPushButtons + 5, 0,
-                         &g_sKentec320x240x16_SSD2119, 100, 135, 20,
-                         (PB_STYLE_FILL | PB_STYLE_OUTLINE | PB_STYLE_TEXT |
-                          PB_STYLE_AUTO_REPEAT), ClrMidnightBlue, ClrBlack,
-                         ClrGray, ClrSilver, &g_sFontCm22, "4", 0, 0, 125, 25,
-                         OnButtonPress),
+            &g_sKentec320x240x16_SSD2119, 100, 135, 20,
+            (PB_STYLE_FILL | PB_STYLE_OUTLINE | PB_STYLE_TEXT |
+            PB_STYLE_AUTO_REPEAT), ClrMidnightBlue, ClrBlack,
+            ClrGray, ClrSilver, &g_sFontCm22, "4", 0, 0, 125, 25,
+            OnButtonPress),
     RectangularButtonStruct(g_psPanels + 5, g_psPushButtonIndicators, 0,
-                            &g_sKentec320x240x16_SSD2119, 130, 110, 50, 50,
-                            (PB_STYLE_IMG | PB_STYLE_TEXT |
-                             PB_STYLE_AUTO_REPEAT), 0, 0, 0, ClrSilver,
-                            &g_sFontCm22, "6", g_pui8Blue50x50,
-                            g_pui8Blue50x50Press, 125, 25, OnButtonPress),
+            &g_sKentec320x240x16_SSD2119, 130, 110, 50, 50,
+            (PB_STYLE_IMG | PB_STYLE_TEXT |
+            PB_STYLE_AUTO_REPEAT), 0, 0, 0, ClrSilver,
+            &g_sFontCm22, "6", g_pui8Blue50x50,
+            g_pui8Blue50x50Press, 125, 25, OnButtonPress),
 };
 #define NUM_PUSH_BUTTONS        (sizeof(g_psPushButtons) /   \
                                  sizeof(g_psPushButtons[0]))
@@ -409,68 +408,68 @@ tContainerWidget g_psRadioContainers[];
 tCanvasWidget g_psRadioButtonIndicators[] =
 {
     CanvasStruct(g_psRadioContainers, g_psRadioButtonIndicators + 1, 0,
-                 &g_sKentec320x240x16_SSD2119, 95, 62, 20, 20,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
+            &g_sKentec320x240x16_SSD2119, 95, 62, 20, 20,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
     CanvasStruct(g_psRadioContainers, g_psRadioButtonIndicators + 2, 0,
-                 &g_sKentec320x240x16_SSD2119, 95, 107, 20, 20,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
+            &g_sKentec320x240x16_SSD2119, 95, 107, 20, 20,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
     CanvasStruct(g_psRadioContainers, 0, 0,
-                 &g_sKentec320x240x16_SSD2119, 95, 152, 20, 20,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
+            &g_sKentec320x240x16_SSD2119, 95, 152, 20, 20,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
     CanvasStruct(g_psRadioContainers + 1, g_psRadioButtonIndicators + 4, 0,
-                 &g_sKentec320x240x16_SSD2119, 260, 62, 20, 20,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
+            &g_sKentec320x240x16_SSD2119, 260, 62, 20, 20,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
     CanvasStruct(g_psRadioContainers + 1, g_psRadioButtonIndicators + 5, 0,
-                 &g_sKentec320x240x16_SSD2119, 260, 107, 20, 20,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
+            &g_sKentec320x240x16_SSD2119, 260, 107, 20, 20,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
     CanvasStruct(g_psRadioContainers + 1, 0, 0,
-                 &g_sKentec320x240x16_SSD2119, 260, 152, 20, 20,
-                 CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
+            &g_sKentec320x240x16_SSD2119, 260, 152, 20, 20,
+            CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8LightOff, 0),
 };
 tRadioButtonWidget g_psRadioButtons1[] =
 {
     RadioButtonStruct(g_psRadioContainers, g_psRadioButtons1 + 1, 0,
-                      &g_sKentec320x240x16_SSD2119, 10, 50, 80, 45,
-                      RB_STYLE_TEXT, 16, 0, ClrSilver, ClrSilver, &g_sFontCm20,
-                      "One", 0, OnRadioChange),
+            &g_sKentec320x240x16_SSD2119, 10, 50, 80, 45,
+            RB_STYLE_TEXT, 16, 0, ClrSilver, ClrSilver, &g_sFontCm20,
+            "One", 0, OnRadioChange),
     RadioButtonStruct(g_psRadioContainers, g_psRadioButtons1 + 2, 0,
-                      &g_sKentec320x240x16_SSD2119, 10, 95, 80, 45,
-                      RB_STYLE_TEXT, 16, 0, ClrSilver, ClrSilver, &g_sFontCm20,
-                      "Two", 0, OnRadioChange),
+            &g_sKentec320x240x16_SSD2119, 10, 95, 80, 45,
+            RB_STYLE_TEXT, 16, 0, ClrSilver, ClrSilver, &g_sFontCm20,
+            "Two", 0, OnRadioChange),
     RadioButtonStruct(g_psRadioContainers, g_psRadioButtonIndicators, 0,
-                      &g_sKentec320x240x16_SSD2119, 10, 140, 80, 45,
-                      RB_STYLE_TEXT, 24, 0, ClrSilver, ClrSilver, &g_sFontCm20,
-                      "Three", 0, OnRadioChange)
+            &g_sKentec320x240x16_SSD2119, 10, 140, 80, 45,
+            RB_STYLE_TEXT, 24, 0, ClrSilver, ClrSilver, &g_sFontCm20,
+            "Three", 0, OnRadioChange)
 };
 #define NUM_RADIO1_BUTTONS      (sizeof(g_psRadioButtons1) /   \
                                  sizeof(g_psRadioButtons1[0]))
 tRadioButtonWidget g_psRadioButtons2[] =
 {
     RadioButtonStruct(g_psRadioContainers + 1, g_psRadioButtons2 + 1, 0,
-                      &g_sKentec320x240x16_SSD2119, 175, 50, 80, 45,
-                      RB_STYLE_IMG, 16, 0, ClrSilver, 0, 0, 0, g_pui8Logo,
-                      OnRadioChange),
+            &g_sKentec320x240x16_SSD2119, 175, 50, 80, 45,
+            RB_STYLE_IMG, 16, 0, ClrSilver, 0, 0, 0, g_pui8Logo,
+            OnRadioChange),
     RadioButtonStruct(g_psRadioContainers + 1, g_psRadioButtons2 + 2, 0,
-                      &g_sKentec320x240x16_SSD2119, 175, 95, 80, 45,
-                      RB_STYLE_IMG, 24, 0, ClrSilver, 0, 0, 0, g_pui8Logo,
-                      OnRadioChange),
+            &g_sKentec320x240x16_SSD2119, 175, 95, 80, 45,
+            RB_STYLE_IMG, 24, 0, ClrSilver, 0, 0, 0, g_pui8Logo,
+            OnRadioChange),
     RadioButtonStruct(g_psRadioContainers + 1, g_psRadioButtonIndicators + 3,
-                      0, &g_sKentec320x240x16_SSD2119, 175, 140, 80, 45,
-                      RB_STYLE_IMG, 24, 0, ClrSilver, 0, 0, 0, g_pui8Logo,
-                      OnRadioChange)
+            0, &g_sKentec320x240x16_SSD2119, 175, 140, 80, 45,
+            RB_STYLE_IMG, 24, 0, ClrSilver, 0, 0, 0, g_pui8Logo,
+            OnRadioChange)
 };
 #define NUM_RADIO2_BUTTONS      (sizeof(g_psRadioButtons2) /   \
                                  sizeof(g_psRadioButtons2[0]))
 tContainerWidget g_psRadioContainers[] =
 {
     ContainerStruct(g_psPanels + 6, g_psRadioContainers + 1, g_psRadioButtons1,
-                    &g_sKentec320x240x16_SSD2119, 5, 27, 148, 160,
-                    CTR_STYLE_OUTLINE | CTR_STYLE_TEXT, 0, ClrGray, ClrSilver,
-                    &g_sFontCm20, "Group One"),
+            &g_sKentec320x240x16_SSD2119, 5, 27, 148, 160,
+            CTR_STYLE_OUTLINE | CTR_STYLE_TEXT, 0, ClrGray, ClrSilver,
+            &g_sFontCm20, "Group One"),
     ContainerStruct(g_psPanels + 6, 0, g_psRadioButtons2,
-                    &g_sKentec320x240x16_SSD2119, 167, 27, 148, 160,
-                    CTR_STYLE_OUTLINE | CTR_STYLE_TEXT, 0, ClrGray, ClrSilver,
-                    &g_sFontCm20, "Group Two")
+            &g_sKentec320x240x16_SSD2119, 167, 27, 148, 160,
+            CTR_STYLE_OUTLINE | CTR_STYLE_TEXT, 0, ClrGray, ClrSilver,
+            &g_sFontCm20, "Group Two")
 };
 
 //*****************************************************************************
@@ -479,49 +478,49 @@ tContainerWidget g_psRadioContainers[] =
 //
 //*****************************************************************************
 Canvas(g_sSliderValueCanvas, g_psPanels + 7, 0, 0,
-       &g_sKentec320x240x16_SSD2119, 210, 30, 60, 40,
-       CANVAS_STYLE_TEXT | CANVAS_STYLE_TEXT_OPAQUE, ClrBlack, 0, ClrSilver,
-       &g_sFontCm24, "50%",
-       0, 0);
+        &g_sKentec320x240x16_SSD2119, 210, 30, 60, 40,
+        CANVAS_STYLE_TEXT | CANVAS_STYLE_TEXT_OPAQUE, ClrBlack, 0, ClrSilver,
+        &g_sFontCm24, "50%",
+        0, 0);
 
 tSliderWidget g_psSliders[] =
 {
     SliderStruct(g_psPanels + 7, g_psSliders + 1, 0,
-                 &g_sKentec320x240x16_SSD2119, 5, 115, 220, 30, 0, 100, 25,
-                 (SL_STYLE_FILL | SL_STYLE_BACKG_FILL | SL_STYLE_OUTLINE |
-                  SL_STYLE_TEXT | SL_STYLE_BACKG_TEXT),
-                 ClrGray, ClrBlack, ClrSilver, ClrWhite, ClrWhite,
-                 &g_sFontCm20, "25%", 0, 0, OnSliderChange),
+            &g_sKentec320x240x16_SSD2119, 5, 115, 220, 30, 0, 100, 25,
+            (SL_STYLE_FILL | SL_STYLE_BACKG_FILL | SL_STYLE_OUTLINE |
+            SL_STYLE_TEXT | SL_STYLE_BACKG_TEXT),
+            ClrGray, ClrBlack, ClrSilver, ClrWhite, ClrWhite,
+            &g_sFontCm20, "25%", 0, 0, OnSliderChange),
     SliderStruct(g_psPanels + 7, g_psSliders + 2, 0,
-                 &g_sKentec320x240x16_SSD2119, 5, 155, 220, 25, 0, 100, 25,
-                 (SL_STYLE_FILL | SL_STYLE_BACKG_FILL | SL_STYLE_OUTLINE |
-                  SL_STYLE_TEXT),
-                 ClrWhite, ClrBlueViolet, ClrSilver, ClrBlack, 0,
-                 &g_sFontCm18, "Foreground Text Only", 0, 0, OnSliderChange),
+            &g_sKentec320x240x16_SSD2119, 5, 155, 220, 25, 0, 100, 25,
+            (SL_STYLE_FILL | SL_STYLE_BACKG_FILL | SL_STYLE_OUTLINE |
+            SL_STYLE_TEXT),
+            ClrWhite, ClrBlueViolet, ClrSilver, ClrBlack, 0,
+            &g_sFontCm18, "Foreground Text Only", 0, 0, OnSliderChange),
     SliderStruct(g_psPanels + 7, g_psSliders + 3, 0,
-                 &g_sKentec320x240x16_SSD2119, 240, 70, 26, 110, 0, 100, 50,
-                 (SL_STYLE_FILL | SL_STYLE_BACKG_FILL | SL_STYLE_VERTICAL |
-                  SL_STYLE_OUTLINE | SL_STYLE_LOCKED), ClrDarkGreen,
-                  ClrDarkRed, ClrSilver, 0, 0, 0, 0, 0, 0, 0),
+            &g_sKentec320x240x16_SSD2119, 240, 70, 26, 110, 0, 100, 50,
+            (SL_STYLE_FILL | SL_STYLE_BACKG_FILL | SL_STYLE_VERTICAL |
+            SL_STYLE_OUTLINE | SL_STYLE_LOCKED), ClrDarkGreen,
+            ClrDarkRed, ClrSilver, 0, 0, 0, 0, 0, 0, 0),
     SliderStruct(g_psPanels + 7, g_psSliders + 4, 0,
-                 &g_sKentec320x240x16_SSD2119, 280, 30, 30, 150, 0, 100, 75,
-                 (SL_STYLE_IMG | SL_STYLE_BACKG_IMG | SL_STYLE_VERTICAL |
-                 SL_STYLE_OUTLINE), 0, ClrBlack, ClrSilver, 0, 0, 0,
-                 0, g_pui8GettingHotter28x148, g_pui8GettingHotter28x148Mono,
-                 OnSliderChange),
+            &g_sKentec320x240x16_SSD2119, 280, 30, 30, 150, 0, 100, 75,
+            (SL_STYLE_IMG | SL_STYLE_BACKG_IMG | SL_STYLE_VERTICAL |
+            SL_STYLE_OUTLINE), 0, ClrBlack, ClrSilver, 0, 0, 0,
+            0, g_pui8GettingHotter28x148, g_pui8GettingHotter28x148Mono,
+            OnSliderChange),
     SliderStruct(g_psPanels + 7, g_psSliders + 5, 0,
-                 &g_sKentec320x240x16_SSD2119, 5, 30, 195, 37, 0, 100, 50,
-                 SL_STYLE_IMG | SL_STYLE_BACKG_IMG, 0, 0, 0, 0, 0, 0,
-                 0, g_pui8GreenSlider195x37, g_pui8RedSlider195x37,
-                 OnSliderChange),
+            &g_sKentec320x240x16_SSD2119, 5, 30, 195, 37, 0, 100, 50,
+            SL_STYLE_IMG | SL_STYLE_BACKG_IMG, 0, 0, 0, 0, 0, 0,
+            0, g_pui8GreenSlider195x37, g_pui8RedSlider195x37,
+            OnSliderChange),
     SliderStruct(g_psPanels + 7, &g_sSliderValueCanvas, 0,
-                 &g_sKentec320x240x16_SSD2119, 5, 80, 220, 25, 0, 100, 50,
-                 (SL_STYLE_FILL | SL_STYLE_BACKG_FILL | SL_STYLE_TEXT |
-                  SL_STYLE_BACKG_TEXT | SL_STYLE_TEXT_OPAQUE |
-                  SL_STYLE_BACKG_TEXT_OPAQUE),
-                 ClrBlue, ClrYellow, ClrSilver, ClrYellow, ClrBlue,
-                 &g_sFontCm18, "Text in both areas", 0, 0,
-                 OnSliderChange),
+            &g_sKentec320x240x16_SSD2119, 5, 80, 220, 25, 0, 100, 50,
+            (SL_STYLE_FILL | SL_STYLE_BACKG_FILL | SL_STYLE_TEXT |
+            SL_STYLE_BACKG_TEXT | SL_STYLE_TEXT_OPAQUE |
+            SL_STYLE_BACKG_TEXT_OPAQUE),
+            ClrBlue, ClrYellow, ClrSilver, ClrYellow, ClrBlue,
+            &g_sFontCm18, "Text in both areas", 0, 0,
+            OnSliderChange),
 };
 
 #define SLIDER_TEXT_VAL_INDEX   0
@@ -1313,14 +1312,14 @@ void MainPage(){
     clearBox.i16YMin = 32;
     clearBox.i16XMax = 319;
     clearBox.i16YMax = 240;
-  WidgetAdd(WIDGET_ROOT,&MotorPgBtn);
-  WidgetAdd(WIDGET_ROOT,&SensorPgBtn);
-  WidgetAdd(WIDGET_ROOT,&GraphPgBtn);
-  GrContextForegroundSet(&sContext, ClrBlack);
-  GrRectFill(&sContext, &clearBox);
-  WidgetPaint(&MotorPgBtn);
-  WidgetPaint(&SensorPgBtn);
-  WidgetPaint(&GraphPgBtn);
+    WidgetAdd(WIDGET_ROOT,&MotorPgBtn);
+    WidgetAdd(WIDGET_ROOT,&SensorPgBtn);
+    WidgetAdd(WIDGET_ROOT,&GraphPgBtn);
+    GrContextForegroundSet(&sContext, ClrBlack);
+    GrRectFill(&sContext, &clearBox);
+    WidgetPaint(&MotorPgBtn);
+    WidgetPaint(&SensorPgBtn);
+    WidgetPaint(&GraphPgBtn);
 }
 
 void RemoveMainPage(){
@@ -1347,15 +1346,15 @@ void SensorPage(){
     WidgetPaint((tWidget *)&DistDownBtn);
     WidgetAdd(WIDGET_ROOT,&DistUpBtn);
     WidgetPaint((tWidget *)&DistUpBtn);
-        GrContextFontSet(&sContext, g_psFontCmss12);
-        GrStringDrawCentered(&sContext, "Light Level: ", -1, 48, 47, 0);
-        GrStringDrawCentered(&sContext, "Closest Object: ", -1, 68, 80, 0);
-        GrStringDrawCentered(&sContext, "Min Distance", -1, 70, 120, 0);
-        char tempchar[13];
-        sprintf(tempchar,"%5.2f lux",lux);
-        GrStringDrawCentered(&sContext, tempchar, -1, 117, 47, 0);
-        sprintf(tempchar,"%5.2f m",objectdist);
-        GrStringDrawCentered(&sContext, tempchar, -1, 135, 80, 0);
+    GrContextFontSet(&sContext, g_psFontCmss12);
+    GrStringDrawCentered(&sContext, "Light Level: ", -1, 48, 47, 0);
+    GrStringDrawCentered(&sContext, "Closest Object: ", -1, 68, 80, 0);
+    GrStringDrawCentered(&sContext, "Min Distance", -1, 70, 120, 0);
+    char tempchar[13];
+    sprintf(tempchar,"%5.2f lux",lux);
+    GrStringDrawCentered(&sContext, tempchar, -1, 117, 47, 0);
+    sprintf(tempchar,"%5.2f m",objectdist);
+    GrStringDrawCentered(&sContext, tempchar, -1, 135, 80, 0);
 }
 void removeSensorPage(){
     WidgetRemove(&backSensorBtn);
@@ -1409,12 +1408,12 @@ void UpdateGraphPlot(double *dataPoints,double tstart,double tend,double mesStar
     GrContextForegroundSet(&sContext, ClrBlack);
     GrRectFill(&sContext, &graphClear);
     int ydif = CalcNoRemainder(150,mesEnd-mesStart);
-        mesEnd = mesStart+ydif;
-        int pixelH=150/ydif;
-        int pixelW = 250/size;
-        int i;
-        int ystart;
-        int yend;
+    mesEnd = mesStart+ydif;
+    int pixelH=150/ydif;
+    int pixelW = 250/size;
+    int i;
+    int ystart;
+    int yend;
     int x = 54;
     //GrContextForegroundSet(&sContext, ClrBlack);
     //GrRectFill(&sContext, &clearBox);
@@ -1592,9 +1591,7 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
     }
 }
 
-/*
- *  ======== main ========
- */
+
 void HAF(unsigned int index){
     HA=!HA;
     System_printf("A\n");
@@ -1610,6 +1607,11 @@ void HCF(unsigned int index){
     System_printf("C\n");
     System_flush();
 }
+
+
+/*
+ *  ======== main ========
+ */
 
  int main(void)
 {
@@ -1632,12 +1634,14 @@ void HCF(unsigned int index){
     taskParams.stack = &task0Stack;
     taskParams.priority = 4;
     Task_construct(&task0Struct, (Task_FuncPtr)heartBeatFxn, &taskParams, NULL);
+
     Task_Params_init(&taskParams);
-        //taskParams.arg0 = 1000;
-        taskParams.stackSize = TASKSTACKSIZE;
-        taskParams.stack = &taskTouchStack;
-        taskParams.priority = 3;
-        Task_construct(&taskTouchStruct, (Task_FuncPtr)TouchCheckTask, &taskParams, NULL);
+    //taskParams.arg0 = 1000;
+    taskParams.stackSize = TASKSTACKSIZE;
+    taskParams.stack = &taskTouchStack;
+    taskParams.priority = 3;
+    Task_construct(&taskTouchStruct, (Task_FuncPtr)TouchCheckTask, &taskParams, NULL);
+
     // Turn on user LED
     GPIO_write(Board_LED0, Board_LED_ON);
     //tContext sContext;
@@ -1701,4 +1705,3 @@ void HCF(unsigned int index){
 
     return (0);
 }
-
