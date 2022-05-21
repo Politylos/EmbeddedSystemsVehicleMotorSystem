@@ -27,7 +27,7 @@ bool InitSensorsHWI(){
 
         /* Construct a periodic Clock Instance with period = 5 system time units */
         Clock_construct(&clkLight, (Clock_FuncPtr)sensorOpt3001Read,
-                        1, &clkParams);
+                       100, &clkParams);
         return true;
 
 }

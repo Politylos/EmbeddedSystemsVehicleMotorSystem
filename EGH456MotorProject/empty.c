@@ -220,7 +220,24 @@ void TouchCheckTask(UArg arg0, UArg arg1){
 }
 Void heartBeatFxn(UArg arg0, UArg arg1)
 {
-    if (InitI2C()){
+    //MainPage();
+        //
+        // Add the first panel to the widget tree.
+        //
+        g_ui32Panel = 0;
+       //WidgetAdd(WIDGET_ROOT, (tWidget *)g_psPanels);
+        //CanvasTextSet(&g_sTitle, g_pcPanei32Names[0]);
+
+        //
+        // Issue the initial paint request to the widgets.
+        //
+        //WidgetPaint(WIDGET_ROOT);
+        //MotorInit();
+        //MotorTest();
+        double s100hz[20]={10,10,9,9,9.9,10,9,9,10,9,10,10,9,9,9.9,10,9,9,10,9};
+        ArrayUpdate(dd,s100hz,20);
+
+    /*if (InitI2C()){
                if( InitSensors()){
 
                    if (InitSensorsHWI()){
@@ -234,10 +251,9 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
            } else{
                System_printf("Cant open I2C\n");
            }
-    System_flush();
+    System_flush();*/
 
-    MotorInit();
-    bool LA,LB,LC;
+
     HA=1;
     //Timer_start(timerclock);
    //MotorInit();
@@ -255,22 +271,6 @@ Void heartBeatFxn(UArg arg0, UArg arg1)
     WidgetAdd(WIDGET_ROOT, (tWidget *)&brrrr2);
     WidgetPaint(&slidertest);
     WidgetPaint(&brrrr);*/
-    MainPage();
-    //
-    // Add the first panel to the widget tree.
-    //
-    g_ui32Panel = 0;
-   //WidgetAdd(WIDGET_ROOT, (tWidget *)g_psPanels);
-    //CanvasTextSet(&g_sTitle, g_pcPanei32Names[0]);
-
-    //
-    // Issue the initial paint request to the widgets.
-    //
-    //WidgetPaint(WIDGET_ROOT);
-    //MotorInit();
-    //MotorTest();
-    double s100hz[20]={10,10,9,9,9.9,10,9,9,10,9,10,10,9,9,9.9,10,9,9,10,9};
-    ArrayUpdate(dd,s100hz,20);
 
    while (1) {
         //Task_sleep(100);

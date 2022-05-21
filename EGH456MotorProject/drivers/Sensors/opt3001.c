@@ -156,7 +156,7 @@ void sensorOpt3001Read(uint16_t *rawData)
 {
     UInt gateKey;
     gateKey = GateHwi_enter(gateHwi);
-	bool success;
+	/*bool success;
 	uint16_t val;
 
 	success = readI2C(OPT3001_I2C_ADDRESS, REG_CONFIGURATION, (uint8_t *)&val);
@@ -180,7 +180,7 @@ void sensorOpt3001Read(uint16_t *rawData)
 	else
 	{
 		//	  sensorSetErrorData
-	}
+	}*/
 	GateHwi_leave(gateHwi,gateKey);
 	//return (success);
 }
@@ -195,7 +195,7 @@ void sensorOpt3001Read(uint16_t *rawData)
 bool sensorOpt3001Test(void)
 {
 	uint16_t val;
-	
+
 	// Check manufacturer ID
 	readI2C(OPT3001_I2C_ADDRESS, REG_MANUFACTURER_ID, (uint8_t *)&val);
 	val = (val << 8) | (val>>8 &0xFF);

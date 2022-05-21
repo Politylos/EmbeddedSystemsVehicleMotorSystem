@@ -19,14 +19,18 @@
 #include "utils/uartstdio.h"
 #include "driverlib/sysctl.h"
 #include "Board.h"
-
+#include <ti/sysbios/gates/GateHwi.h>
 I2C_Handle      i2c;
+GateHwi_Handle gateTrans;
+GateHwi_Params Transprms;
 bool InitI2C(){
+    GateHwi_Params_init(&Transprms);
+    gateTrans = GateHwi_create(&Transprms, NULL);
     /* Create I2C for usage */
         I2C_Params      i2cParams;
         I2C_Params_init(&i2cParams);
         i2cParams.bitRate = I2C_400kHz;
-        i2cParams.transferMode = I2C_MODE_CALLBACK;
+        //i2cParams.transferMode = I2C_MODE_CALLBACK;
         i2c = I2C_open(Board_I2C0, &i2cParams);
         if (i2c == NULL) {
 
@@ -132,9 +136,10 @@ bool readI2C(uint8_t ui8Addr, uint8_t ui8Reg, uint8_t *data)
     i2cTransaction.writeCount = 1;
     i2cTransaction.readBuf = data;
     i2cTransaction.readCount = 2;
-
+    UInt gateKey;
+    gateKey = GateHwi_enter(gateTrans);
     I2C_transfer(i2c, &i2cTransaction);
-
+    GateHwi_leave(gateTrans,gateKey);
 
 
     return true;
