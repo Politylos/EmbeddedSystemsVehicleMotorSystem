@@ -309,6 +309,12 @@ digraph configuration {
         ti_sysbios_knl_Intrinsics [style=filled,fillcolor=lightgray, label="Intrinsics"];
         ti_sysbios_knl__top -> ti_sysbios_knl_Intrinsics[style=invis];
         ti_sysbios_knl_Intrinsics -> ti_sysbios_knl__bot[style=invis];
+        ti_sysbios_knl_Event [style=filled,fillcolor=lightgray, label="Event"];
+        ti_sysbios_knl__top -> ti_sysbios_knl_Event[style=invis];
+        ti_sysbios_knl_Event -> ti_sysbios_knl__bot[style=invis];
+        ti_sysbios_knl_Mailbox [style=filled,fillcolor=lightgray, label="Mailbox"];
+        ti_sysbios_knl__top -> ti_sysbios_knl_Mailbox[style=invis];
+        ti_sysbios_knl_Mailbox -> ti_sysbios_knl__bot[style=invis];
         ti_sysbios_knl_Queue [style=filled,fillcolor=lightgray, label="Queue"];
         ti_sysbios_knl__top -> ti_sysbios_knl_Queue[style=invis];
         ti_sysbios_knl_Queue -> ti_sysbios_knl__bot[style=invis];
@@ -344,14 +350,28 @@ digraph configuration {
     }
     subgraph cluster35 {
         label="";
-        ti_drivers_ports__top [shape=box,label="ti.drivers.ports\n1,0,0,0", color=white];
+        ti_sysbios_gates__top [shape=box,label="ti.sysbios.gates\n2,0,0,0,0", color=white];
+        ti_sysbios_gates__bot [shape=point,label="", style=invis];
+        ti_sysbios_gates_GateHwi [style=filled,fillcolor=lightgray, label="GateHwi"];
+        ti_sysbios_gates__top -> ti_sysbios_gates_GateHwi[style=invis];
+        ti_sysbios_gates_GateHwi -> ti_sysbios_gates__bot[style=invis];
+        ti_sysbios_gates_GateMutexPri [style=filled,fillcolor=lightgray, label="GateMutexPri"];
+        ti_sysbios_gates__top -> ti_sysbios_gates_GateMutexPri[style=invis];
+        ti_sysbios_gates_GateMutexPri -> ti_sysbios_gates__bot[style=invis];
+        ti_sysbios_gates_GateMutex [style=filled,fillcolor=lightgray, label="GateMutex"];
+        ti_sysbios_gates__top -> ti_sysbios_gates_GateMutex[style=invis];
+        ti_sysbios_gates_GateMutex -> ti_sysbios_gates__bot[style=invis];
     }
     subgraph cluster36 {
+        label="";
+        ti_drivers_ports__top [shape=box,label="ti.drivers.ports\n1,0,0,0", color=white];
+    }
+    subgraph cluster37 {
         label="";
         ti_mw_fatfs__top [shape=box,label="ti.mw.fatfs\n", color=white];
         ti_mw_fatfs__bot [shape=point,label="", style=invis];
     }
-    subgraph cluster37 {
+    subgraph cluster38 {
         label="";
         ti_drivers__top [shape=box,label="ti.drivers\n1,0,0,0", color=white];
         ti_drivers__bot [shape=point,label="", style=invis];
@@ -359,28 +379,17 @@ digraph configuration {
         ti_drivers__top -> ti_drivers_Config[style=invis];
         ti_drivers_Config -> ti_drivers__bot[style=invis];
     }
-    subgraph cluster38 {
+    subgraph cluster39 {
         label="";
         ti_mw_wifi_cc3x00__top [shape=box,label="ti.mw.wifi.cc3x00\n1,0,0,1449624895255", color=white];
     }
-    subgraph cluster39 {
+    subgraph cluster40 {
         label="";
         ti_mw__top [shape=box,label="ti.mw\n", color=white];
         ti_mw__bot [shape=point,label="", style=invis];
         ti_mw_Config [style=filled,fillcolor=lightgray, label="Config"];
         ti_mw__top -> ti_mw_Config[style=invis];
         ti_mw_Config -> ti_mw__bot[style=invis];
-    }
-    subgraph cluster40 {
-        label="";
-        ti_sysbios_gates__top [shape=box,label="ti.sysbios.gates\n2,0,0,0,1449624895255", color=white];
-        ti_sysbios_gates__bot [shape=point,label="", style=invis];
-        ti_sysbios_gates_GateHwi [style=filled,fillcolor=lightgray, label="GateHwi"];
-        ti_sysbios_gates__top -> ti_sysbios_gates_GateHwi[style=invis];
-        ti_sysbios_gates_GateHwi -> ti_sysbios_gates__bot[style=invis];
-        ti_sysbios_gates_GateMutex [style=filled,fillcolor=lightgray, label="GateMutex"];
-        ti_sysbios_gates__top -> ti_sysbios_gates_GateMutex[style=invis];
-        ti_sysbios_gates_GateMutex -> ti_sysbios_gates__bot[style=invis];
     }
     subgraph cluster41 {
         label="";
@@ -434,15 +443,15 @@ digraph configuration {
     ti_targets_arm_elf_M4F__1_0_5__2_5 [shape=record,label="ti.targets.arm.elf.M4F|1,0,5.2,5",style=filled, fillcolor=lightgrey];
     ti_sysbios_family_arm_lm4__bot -> ti_targets_arm_elf_M4F__1_0_5__2_5 [ltail=cluster34];
     ti_targets_arm_elf_M4F__1_0_5__2_5 [shape=record,label="ti.targets.arm.elf.M4F|1,0,5.2,5",style=filled, fillcolor=lightgrey];
-    ti_drivers_ports__top -> ti_targets_arm_elf_M4F__1_0_5__2_5 [ltail=cluster35];
+    ti_sysbios_gates__bot -> ti_targets_arm_elf_M4F__1_0_5__2_5 [ltail=cluster35];
     ti_targets_arm_elf_M4F__1_0_5__2_5 [shape=record,label="ti.targets.arm.elf.M4F|1,0,5.2,5",style=filled, fillcolor=lightgrey];
-    ti_mw_fatfs__bot -> ti_targets_arm_elf_M4F__1_0_5__2_5 [ltail=cluster36];
+    ti_drivers_ports__top -> ti_targets_arm_elf_M4F__1_0_5__2_5 [ltail=cluster36];
     ti_targets_arm_elf_M4F__1_0_5__2_5 [shape=record,label="ti.targets.arm.elf.M4F|1,0,5.2,5",style=filled, fillcolor=lightgrey];
-    ti_drivers__bot -> ti_targets_arm_elf_M4F__1_0_5__2_5 [ltail=cluster37];
+    ti_mw_fatfs__bot -> ti_targets_arm_elf_M4F__1_0_5__2_5 [ltail=cluster37];
     ti_targets_arm_elf_M4F__1_0_5__2_5 [shape=record,label="ti.targets.arm.elf.M4F|1,0,5.2,5",style=filled, fillcolor=lightgrey];
-    ti_mw_wifi_cc3x00__top -> ti_targets_arm_elf_M4F__1_0_5__2_5 [ltail=cluster38];
+    ti_drivers__bot -> ti_targets_arm_elf_M4F__1_0_5__2_5 [ltail=cluster38];
     ti_targets_arm_elf_M4F__1_0_5__2_5 [shape=record,label="ti.targets.arm.elf.M4F|1,0,5.2,5",style=filled, fillcolor=lightgrey];
-    ti_sysbios_gates__bot -> ti_targets_arm_elf_M4F__1_0_5__2_5 [ltail=cluster40];
+    ti_mw_wifi_cc3x00__top -> ti_targets_arm_elf_M4F__1_0_5__2_5 [ltail=cluster39];
     ti_targets_arm_elf_M4F__1_0_5__2_5 [shape=record,label="ti.targets.arm.elf.M4F|1,0,5.2,5",style=filled, fillcolor=lightgrey];
     ti_sysbios_xdcruntime__bot -> ti_targets_arm_elf_M4F__1_0_5__2_5 [ltail=cluster41];
     ti_targets_arm_elf_M4F__1_0_5__2_5 [shape=record,label="ti.targets.arm.elf.M4F|1,0,5.2,5",style=filled, fillcolor=lightgrey];

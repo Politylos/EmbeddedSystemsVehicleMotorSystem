@@ -10,7 +10,7 @@
 
 
 
-
+extern double opt3001_filteredValue;
 
 
 #endif /* EMPTY_H_ */

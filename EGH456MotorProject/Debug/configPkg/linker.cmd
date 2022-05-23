@@ -31,7 +31,7 @@
 
 --args 0x0
 -heap  0x0
--stack 0x300
+-stack 0x400
 
 /*
  * Linker command file contributions from all loaded packages:
@@ -109,6 +109,8 @@ ti_sysbios_family_arm_m3_Hwi_nvic = 0xe000e000;
 
 /* Content from ti.sysbios.family.arm.lm4 (null): */
 
+/* Content from ti.sysbios.gates (null): */
+
 /* Content from ti.drivers.ports (null): */
 
 /* Content from ti.mw.fatfs (null): */
@@ -118,8 +120,6 @@ ti_sysbios_family_arm_m3_Hwi_nvic = 0xe000e000;
 /* Content from ti.mw.wifi.cc3x00 (null): */
 
 /* Content from ti.mw (null): */
-
-/* Content from ti.sysbios.gates (null): */
 
 /* Content from ti.sysbios.xdcruntime (null): */
 

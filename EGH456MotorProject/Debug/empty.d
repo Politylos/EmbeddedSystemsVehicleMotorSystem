@@ -233,6 +233,11 @@ empty.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sy
 empty.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Clock.h
 empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IModule.h
 empty.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Event.h
+empty.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/gates/GateHwi.h
+empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h
+empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IInstance.h
+empty.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/gates/package/package.defs.h
+empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IGateProvider.h
 empty.obj: C:/ti/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/I2C.h
 empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h
 empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/System.h
@@ -285,10 +290,13 @@ empty.obj: ../empty.h
 empty.obj: ../Clock.h
 empty.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Timer.h
 empty.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h
+empty.obj: ../Interface/GraphFunctions.h
 empty.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h
 empty.obj: ../Images/GUIImg.h
 empty.obj: ../Images/Images.h
 empty.obj: ../Interface/GlobalDraw.h
+empty.obj: ../sensors/bmi160.h
+empty.obj: ../sensors/opt3001.h
 
 ../empty.c:
 
@@ -756,6 +764,16 @@ C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IModule.h:
 
 C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Event.h:
 
+C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/gates/GateHwi.h:
+
+C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h:
+
+C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IInstance.h:
+
+C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/gates/package/package.defs.h:
+
+C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IGateProvider.h:
+
 C:/ti/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/I2C.h:
 
 C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h:
@@ -860,6 +878,8 @@ C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/T
 
 C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h:
 
+../Interface/GraphFunctions.h:
+
 C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Seconds.h:
 
 ../Images/GUIImg.h:
@@ -867,4 +887,8 @@ C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/S
 ../Images/Images.h:
 
 ../Interface/GlobalDraw.h:
+
+../sensors/bmi160.h:
+
+../sensors/opt3001.h:
 

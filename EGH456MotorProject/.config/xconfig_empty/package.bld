@@ -11,7 +11,7 @@ var makeAssembly = false;
 var Executable = xdc.module('xdc.bld.Executable');
 
 var exeOpts = new Executable.Attrs({
-        cfgScript: 'C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/empty.cfg',
+        cfgScript: 'C:/egh456/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/empty.cfg',
         profile: 'release',
         cfgHome: 'xconfig_empty',
 });
@@ -40,8 +40,8 @@ else {
 }
 
 var thisObj = {
-    cfg:        'C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/empty.cfg',
-    outputPath: 'C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/.config/xconfig_empty',
+    cfg:        'C:/egh456/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/empty.cfg',
+    outputPath: 'C:/egh456/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/.config/xconfig_empty',
     exeName:    'empty' + suffix,
     exeIntName: 'empty' + suffix.replace('.', '_'),
     targ:       targ,
