@@ -8,11 +8,7 @@
   <dataTransportClassName>undefined</dataTransportClassName>
   <controlTransportClassName>undefined</controlTransportClassName>
   <loggers-length>0</loggers-length>
-<<<<<<< HEAD
-  <modMap-length>37</modMap-length>
-=======
   <modMap-length>39</modMap-length>
->>>>>>> sensor_dev
   <modMap key="xdc.runtime.Assert">
     <id>32770</id>
     <logger>null</logger>
@@ -188,45 +184,23 @@
     <logger>null</logger>
     <diagsMask>0000110000000000</diagsMask>
   </modMap>
-<<<<<<< HEAD
-  <modMap key="ti.sysbios.gates.GateMutexPri">
-    <id>32814</id>
-=======
   <modMap key="ti.sysbios.gates.GateMutex">
     <id>32817</id>
->>>>>>> sensor_dev
-    <logger>null</logger>
-    <diagsMask>0000110000000000</diagsMask>
-  </modMap>
-  <modMap key="ti.sysbios.gates.GateMutex">
-    <id>32815</id>
     <logger>null</logger>
     <diagsMask>0000110000000000</diagsMask>
   </modMap>
   <modMap key="ti.sysbios.heaps.HeapMem">
-<<<<<<< HEAD
-    <id>32817</id>
-=======
     <id>32819</id>
->>>>>>> sensor_dev
     <logger>null</logger>
     <diagsMask>0000110000000000</diagsMask>
   </modMap>
   <modMap key="ti.sysbios.family.arm.lm4.TimestampProvider">
-<<<<<<< HEAD
-    <id>32819</id>
-=======
     <id>32821</id>
->>>>>>> sensor_dev
     <logger>null</logger>
     <diagsMask>0000100000000000</diagsMask>
   </modMap>
   <modMap key="ti.sysbios.family.arm.lm4.Timer">
-<<<<<<< HEAD
-    <id>32820</id>
-=======
     <id>32822</id>
->>>>>>> sensor_dev
     <logger>null</logger>
     <diagsMask>0000110000000000</diagsMask>
   </modMap>
