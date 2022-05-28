@@ -8,42 +8,36 @@ SHELL = cmd.exe
 C_SRCS += \
 ../drivers/Kentec320x240x16_ssd2119_spi.c \
 ../drivers/frame.c \
-../drivers/opt3001.c \
 ../drivers/pinout.c \
 ../drivers/touch.c 
 
 C_DEPS += \
 ./drivers/Kentec320x240x16_ssd2119_spi.d \
 ./drivers/frame.d \
-./drivers/opt3001.d \
 ./drivers/pinout.d \
 ./drivers/touch.d 
 
 OBJS += \
 ./drivers/Kentec320x240x16_ssd2119_spi.obj \
 ./drivers/frame.obj \
-./drivers/opt3001.obj \
 ./drivers/pinout.obj \
 ./drivers/touch.obj 
 
 OBJS__QUOTED += \
 "drivers\Kentec320x240x16_ssd2119_spi.obj" \
 "drivers\frame.obj" \
-"drivers\opt3001.obj" \
 "drivers\pinout.obj" \
 "drivers\touch.obj" 
 
 C_DEPS__QUOTED += \
 "drivers\Kentec320x240x16_ssd2119_spi.d" \
 "drivers\frame.d" \
-"drivers\opt3001.d" \
 "drivers\pinout.d" \
 "drivers\touch.d" 
 
 C_SRCS__QUOTED += \
 "../drivers/Kentec320x240x16_ssd2119_spi.c" \
 "../drivers/frame.c" \
-"../drivers/opt3001.c" \
 "../drivers/pinout.c" \
 "../drivers/touch.c" 
 

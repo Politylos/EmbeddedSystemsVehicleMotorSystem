@@ -129,5 +129,6 @@ Interface \
 LIBS \
 Screen \
 drivers \
+sensors \
 utils \
 

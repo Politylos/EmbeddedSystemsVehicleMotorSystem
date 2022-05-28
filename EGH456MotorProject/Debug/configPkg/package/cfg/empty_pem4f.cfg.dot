@@ -5,7 +5,7 @@ digraph configuration {
     concentrate=true;
     compound=true;
     label="\nConfiguration for configPkg/empty.xem4f"
-  node [font=Helvetica, fontsize=14, fontcolor=black];  subgraph cluster0 {label=""; __cfg [label="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/empty.cfg", color=white, fontcolor=blue];
+  node [font=Helvetica, fontsize=14, fontcolor=black];  subgraph cluster0 {label=""; __cfg [label="C:/egh456/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/empty.cfg", color=white, fontcolor=blue];
     node [font=Helvetica, fontsize=10];    subgraph cluster1 {
         label="";
         xdc_services_global__top [shape=box,label="xdc.services.global\n1,0,0,0", color=white];
@@ -309,6 +309,12 @@ digraph configuration {
         ti_sysbios_knl_Intrinsics [style=filled,fillcolor=lightgray, label="Intrinsics"];
         ti_sysbios_knl__top -> ti_sysbios_knl_Intrinsics[style=invis];
         ti_sysbios_knl_Intrinsics -> ti_sysbios_knl__bot[style=invis];
+        ti_sysbios_knl_Event [style=filled,fillcolor=lightgray, label="Event"];
+        ti_sysbios_knl__top -> ti_sysbios_knl_Event[style=invis];
+        ti_sysbios_knl_Event -> ti_sysbios_knl__bot[style=invis];
+        ti_sysbios_knl_Mailbox [style=filled,fillcolor=lightgray, label="Mailbox"];
+        ti_sysbios_knl__top -> ti_sysbios_knl_Mailbox[style=invis];
+        ti_sysbios_knl_Mailbox -> ti_sysbios_knl__bot[style=invis];
         ti_sysbios_knl_Queue [style=filled,fillcolor=lightgray, label="Queue"];
         ti_sysbios_knl__top -> ti_sysbios_knl_Queue[style=invis];
         ti_sysbios_knl_Queue -> ti_sysbios_knl__bot[style=invis];
