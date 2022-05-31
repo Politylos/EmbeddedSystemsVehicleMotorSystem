@@ -17,7 +17,7 @@ typedef struct
     double acc_y;
     double acc_z;
 } bmi160_accel_values_t;
-
+extern int MaxAccel;
 bool bmi160_init(void);
 bool bmi160_readAccel(int16_t *rawData);
 double bmi160_readConvert(int16_t rawValue);

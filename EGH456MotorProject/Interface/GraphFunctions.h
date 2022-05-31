@@ -10,8 +10,9 @@
 
 extern int CalcNoRemainder(int num, int den);
 extern double CalcAvg(double *data, int size);
-extern double* ArrayUpdate(double *arr, double *newdata, int size);
-
+extern double* ArrayUpdate(double *arr, double newdata);
+extern double min_element(double arr[]);
+extern double max_element(double arr[]);
 
 
 

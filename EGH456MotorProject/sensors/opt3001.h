@@ -10,6 +10,6 @@
 
 bool opt3001_init(void);
 bool opt3001_read(uint16_t *rawData);
-void opt3001_convert(uint16_t rawData, float *convertedLux);
+void opt3001_convert(uint16_t rawData, double *convertedLux);
 
 #endif /* SENSORS_OPT3001_H_ */

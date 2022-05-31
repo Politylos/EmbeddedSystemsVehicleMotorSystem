@@ -33,6 +33,8 @@
 //// TODO Maybe make these dynamic, as in able to set and read from device
 //const int BMI160_ACC_RANGE        2;
 
+int MaxAccel=40;
+
 /* Basic delay for initialisation */
 void bmi160_delay(uint16_t value)
 {

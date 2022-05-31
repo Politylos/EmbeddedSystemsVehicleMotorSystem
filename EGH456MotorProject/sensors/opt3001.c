@@ -92,7 +92,7 @@ bool opt3001_read(uint16_t *rawData)
  *
  * @return      none
  **************************************************************************************************/
-void opt3001_convert(uint16_t rawData, float *convertedLux)
+void opt3001_convert(uint16_t rawData, double *convertedLux)
 {
     uint16_t e, m;
 

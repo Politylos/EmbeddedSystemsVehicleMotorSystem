@@ -36,6 +36,10 @@
 #include "GraphFunctions.h"
 #include "drivers/touch.h"
 #include "empty.h"
+#include "GraphData.h"
+#include "sensors/sensors.h"
+
+#include "sensors/bmi160.h"
 
 #ifdef ewarm
 #pragma data_alignment=1024
@@ -49,6 +53,7 @@ tDMAControlTable psDMAControlTable[64] __attribute__ ((aligned(1024)));
 
 extern void MotorPage();
 extern void GraphPage();
+extern void GraphPageLight();
 extern void BackMainMotorPage();
 extern void graphSelectPage();
 extern void BackGraphSelect();
@@ -56,11 +61,19 @@ extern void BackMainGraph();
 extern void backMainSensor();
 extern void SensorPage();
 extern void btntest();
+extern void GraphPageAccel();
+extern ChangeUp(int* var);
+extern ChangeDown(int* var);
+extern ChangeAccelUp();
+extern ChangeAccelDown();
+
 
 extern void GraphPrimitive(double *dataPoints, double tstart, double tend,
                            double mesStart, double mesEnd, int size);
 
 tContext sContext;
+
+bool OnSensorPage=false;
 
 Canvas(g_clear, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 0, 31, 320, 209,
        CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0);
@@ -112,13 +125,13 @@ tPushButtonWidget DistUpBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 274, 101, 36, 36,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "", g_pui8arrowRight,
-        g_pui8arrowRight, 0, 0, btntest)
+        g_pui8arrowRight, 0, 0, ChangeAccelUp)
 ;
 tPushButtonWidget DistDownBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 138, 101, 36, 36,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "", g_pui8arrowLeft,
-        g_pui8arrowLeft, 0, 0, btntest)
+        g_pui8arrowLeft, 0, 0, ChangeAccelDown)
 ;
 
 tPushButtonWidget backMotorBtn = RectangularButtonStruct(0, 0, 0,
@@ -170,13 +183,13 @@ tPushButtonWidget LightGraphBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 83, 138, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Light Graph", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, MotorPage)
+        g_pui8btn150x40Press, 0, 0, GraphPageLight)
 ;
 tPushButtonWidget TestGraphBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 83, 187, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
-        &g_sFontCm16, "Test Graph", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, GraphPage)
+        &g_sFontCm16, "Acceleration Graph", g_pui8btn140x40,
+        g_pui8btn150x40Press, 0, 0, GraphPageAccel)
 ;
 
 tSliderWidget MotorSpeedSlider = SliderStruct(0, 0, 0,
@@ -358,6 +371,46 @@ void GraphPage()
                       95.9600166597251, 100 };
     GraphPrimitive(dd, x1, x2, y1, y2, 50);
 }
+void UpdateLightGraph(){
+    double x1 = 0;
+    double x2 = 10;
+    //double test[] =  {1,1,2,3,4,5,6,7,10,0};
+    double y1 = min_element(LightData);
+    double y2 = max_element(LightData);
+    //ongraph=1;
+    UpdateGraphPlot(LightData, x1, x2, y1, y2, 50);
+}
+void GraphPageLight()
+{
+    double x1 = 0;
+    double x2 = 10;
+    //double test[] =  {1,1,2,3,4,5,6,7,10,0};
+    double y1 = min_element(LightData);
+    double y2 = max_element(LightData);
+    //ongraph=1;
+    GraphPrimitive(LightData, x1, x2, y1, y2, 50);
+    LightGraph = true;
+}
+void GraphPageAccel()
+{
+    double x1 = 0;
+    double x2 = 10;
+    //double test[] =  {1,1,2,3,4,5,6,7,10,0};
+    double y1 = min_element(AccelData);
+    double y2 = max_element(AccelData);
+    //ongraph=1;
+    GraphPrimitive(AccelData, x1, x2, y1, y2, 50);
+    AccelGraph = true;
+}
+void UpdateAccelGraph(){
+    double x1 = 0;
+    double x2 = 10;
+    //double test[] =  {1,1,2,3,4,5,6,7,10,0};
+    double y1 = min_element(AccelData);
+    double y2 = max_element(AccelData);
+    //ongraph=1;
+    UpdateGraphPlot(AccelData, x1, x2, y1, y2, 50);
+}
 
 void MainPage()
 {
@@ -387,6 +440,7 @@ void RemoveMainPage()
 }
 void SensorPage()
 {
+    OnSensorPage= true;
     //double lux = 12.45;
     double lux = opt3001_filteredValue;
     double objectdist = 23;
@@ -412,14 +466,51 @@ void SensorPage()
     WidgetPaint((tWidget* )&DistUpBtn);
     GrContextFontSet(&sContext, g_psFontCmss12);
     GrStringDrawCentered(&sContext, "Light Level: ", -1, 48, 47, 0);
-    GrStringDrawCentered(&sContext, "Closest Object: ", -1, 68, 80, 0);
-    GrStringDrawCentered(&sContext, "Min Distance", -1, 70, 120, 0);
+    GrStringDrawCentered(&sContext, "Current Acceleration: ", -1, 68, 80, 0);
+    GrStringDrawCentered(&sContext, "Max Acceleration", -1, 70, 120, 0);
     char tempchar[13];
-    sprintf(tempchar, "%5.2f lux", lux);
+    //double value = (double)LightSecond/ 1.0;
+    sprintf(tempchar, "%5.2f lux", LightSecond);
     GrStringDrawCentered(&sContext, tempchar, -1, 117, 47, 0);
-    sprintf(tempchar, "%5.2f m", objectdist);
+    sprintf(tempchar, "%5.2f m/s", AccelSecond);
     GrStringDrawCentered(&sContext, tempchar, -1, 135, 80, 0);
+    sprintf(tempchar, "%i m/s", MaxAccel);
+    GrStringDrawCentered(&sContext, tempchar, -1, 224, 119, 0);
     GateMutexPri_leave(ScreenGate, ScreenKey);
+}
+void updateSensorPage(){
+    char tempchar[13];
+    tRectangle covertext;
+    IArg ScreenKey;
+    ScreenKey = GateMutexPri_enter(ScreenGate);
+    covertext.i16XMin = 117-30;
+    covertext.i16YMin = 47-10;
+    covertext.i16XMax = 117+30;
+    covertext.i16YMax = 47+10;
+    //double value = (double)LightSecond/ 1.0;
+    GrContextForegroundSet(&sContext, ClrBlack);
+    GrRectFill(&sContext, &covertext);
+    covertext.i16XMin = 150-30;
+    covertext.i16YMin = 80-10;
+    covertext.i16XMax = 150+30;
+    covertext.i16YMax = 80+10;
+    GrRectFill(&sContext, &covertext);
+    covertext.i16XMin = 224-30;
+    covertext.i16YMin = 119-10;
+    covertext.i16XMax = 224+30;
+    covertext.i16YMax = 119+10;
+    GrContextForegroundSet(&sContext, 0x404040);
+    GrRectFill(&sContext, &covertext);
+    GrContextForegroundSet(&sContext, ClrWhite);
+    GrContextFontSet(&sContext, g_psFontCmss12);
+    sprintf(tempchar, "%5.2f lux", LightSecond);
+    GrStringDrawCentered(&sContext, tempchar, -1, 117, 47, 0);
+    sprintf(tempchar, "%5.2f m/s", AccelSecond);
+    GrStringDrawCentered(&sContext, tempchar, -1, 150, 80, 0);
+    sprintf(tempchar, "%5.2i m/s", MaxAccel);
+    GrStringDrawCentered(&sContext, tempchar, -1, 224, 119, 0);
+    GateMutexPri_leave(ScreenGate, ScreenKey);
+
 }
 void removeSensorPage()
 {
@@ -427,6 +518,7 @@ void removeSensorPage()
     WidgetRemove(&backSensorBtn);
     WidgetRemove(&DistDownBtn);
     WidgetRemove(&DistUpBtn);
+    OnSensorPage=false;
 }
 void backMainSensor()
 {
@@ -469,6 +561,8 @@ void RemoveGraph()
     //ScreenKey = GateMutexPri_enter(ScreenGate);
     //ongraph=0;
     WidgetRemove((tWidget*) &backGraphBtn);
+    LightGraph = false;
+    AccelGraph = false;
 }
 void BackGraphSelect()
 {
@@ -493,7 +587,7 @@ void UpdateGraphPlot(double *dataPoints, double tstart, double tend,
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     graphClear.i16XMin = 54;
-    graphClear.i16YMin = 56;
+    graphClear.i16YMin = 40;
     graphClear.i16XMax = 303;
     graphClear.i16YMax = 207;
     GrContextForegroundSet(&sContext, ClrBlack);
@@ -526,7 +620,7 @@ void GraphPrimitive(double *dataPoints, double tstart, double tend,
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
-    int ydif = CalcNoRemainder(150, mesEnd - mesStart);
+    int ydif = CalcNoRemainder(150, (int)(mesEnd - mesStart));
     mesEnd = mesStart + ydif;
     int pixelH = 150 / ydif;
     int pixelW = 250 / size;
@@ -626,3 +720,17 @@ void MotorPage()
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 
+ChangeUp(int* var){
+    *var=var+1;
+}
+ChangeDown(int* var){
+    *var=var-1;
+}
+ChangeAccelUp(){
+    MaxAccel=MaxAccel+1;
+    //ChangeUp(&MaxAccel);
+}
+ChangeAccelDown(){
+    MaxAccel=MaxAccel-1;
+
+}
