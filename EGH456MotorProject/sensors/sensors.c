@@ -233,7 +233,10 @@ void accelSensorFilterFxn(void)
     FilteredAccelPos=(FilteredAccelPos+1)%SENSOR_ACCEL_BUFFERSIZE_Filtered;
     if (MaxAccel  <= Sensor_Filtered_Buffer[FilteredAccelPos]){
         EstopPower();
-        EStop =checkEstop();
+
+
     }
+
+
 }
 

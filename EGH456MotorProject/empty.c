@@ -229,6 +229,7 @@ void heartBeatFxn(UArg arg0, UArg arg1)
     {
 
         Task_sleep(1000);
+        EStop =checkEstop();
         TopBarDraw(&sContext, datetime, LowLight, currentDirection,
                    CurrentMotorStat, CurrentAcceleration);
         if (LightSecond < 5){
@@ -251,10 +252,12 @@ void heartBeatFxn(UArg arg0, UArg arg1)
         }
         if (EStop){
             GPIO_write(Board_LED1, Board_LED_ON);
+            CurrentMotorStat = 2;
         } else {
             GPIO_write(Board_LED1, Board_LED_OFF);
+            CurrentMotorStat = 1;
         }
-        CurrentMotorStat = (CurrentMotorStat + 1) % 3;
+
         currentDirection = (currentDirection + 1) % 4;
         if (LightGraph){
             UpdateLightGraph();
@@ -293,12 +296,13 @@ int main(void)
     Board_initGPIO();
     Board_initI2C();
     Board_initUART();
+    initEstop();
     PinoutSet(false, false);
     //DrawFrame()
 
     // Open i2c
     i2c_Open();
-    initEstop();
+
     /* Construct heartBeat Task  thread */
     Task_Params_init(&taskParams);
     taskParams.arg0 = 1000;

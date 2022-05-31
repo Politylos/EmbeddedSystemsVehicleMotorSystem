@@ -32,9 +32,14 @@ void EstopPower(){
 }
 bool checkEstop(){
     postedStop = Event_pend(EstopEvent,
-                        0, AccelStop + PowerEstop,/* orMask */
-                        TIMEOUT);
-    return postedStop;
+                            0, AccelStop + PowerEstop,/* orMask */
+                            TIMEOUT);
+    if(postedStop){
+        return true;
+    }else{
+        return false;
+    }
+    //return postedStop;
 
 
 }
