@@ -77,6 +77,8 @@
 /* Board Header file */
 #include "Board.h"
 #include <drivers/motorlib.h>
+#include "Interface/GraphFunctions.h"
+#include "Interface/GraphData.h"
 
 #define PERIOD  200 //ms
 #define PWM_START  25
@@ -90,12 +92,20 @@ Clock_Handle clk2Handle;
 
 GateHwi_Handle gateHwi;
 GateHwi_Params gHwiprms;
-
+double VelocityBuffer[5];
+double VelocitySecond=0;
+int bufferpos = 0;
 Swi_Handle SwiHandle;
 
 int Hall_changed = 0;
-volatile float desired_speed = 600; //rpm
+volatile double desired_speed = 1500; //rpm
 bool estop = false;
+double pwm_current = PWM_START;
+double error_sum = 0;
+double current_speed = 0;
+double current_speed_estop = 0;
+double previous_speed = 0;
+double previous_speed_estop = 0;
 /*
  *  ======== clk0Fxn =======
  */
@@ -103,16 +113,11 @@ Void clk0Fxn(UArg arg0)
 {
     UInt32 time;
     time = Clock_getTicks();
-    if(time == 9800){
+    /*if(time == 6800){
         estop = true;
-    }
+    }*/
     Swi_post(SwiHandle); //every period
 }
-
-//Void clk1Fxn(UArg arg0) //set the motor to accelerate or decelerate change the desired speed every 1000ms (1s)
-//{
-   // Swi_post(SwiHandle); //every period
-//}
 
 /*
  *  ======== Initialise Motor ========
@@ -173,8 +178,8 @@ void HAllF(unsigned int index){
     GateHwi_leave(gateHwi, gateKey);
 }
 
-float GetCurrentSpeed(){
-    float revp = ((float)Hall_changed/(float)CHANGES_PER_REVOLUTION); //revolutions in period
+double GetCurrentSpeed(){
+    double revp = ((double)Hall_changed/(double)CHANGES_PER_REVOLUTION); //revolutions in period
     return (revp*60000 / PERIOD); //speed in RPM
 }
 
@@ -188,25 +193,67 @@ double GetDesiredSpeed(double user_desired_speed){ //from UI
     }
 }
 
+void PIControl(double current_speed, double desired_speed){
+
+    double error = 0;
+    double kp = 0.005;
+    double ki = 0.00005;
+    double pwm = 0;
+    int pwm_max = 95;
+    int pwm_int = 0;
+
+    if(Hall_changed != 0){
+        error = desired_speed - current_speed;
+        error_sum += error;
+
+        pwm = (kp*error) + (ki*error_sum);
+        pwm_int = (int)pwm;
+       // System_printf("pwm = %d, error = %d, error_sum = %d\n", pwm_int, (int)error, (int)error_sum);
+
+        if(pwm_int > 5 && pwm_int < (pwm_max - pwm_current)){
+            pwm_current += pwm_int;
+          //  System_printf("1, current pwm = %d\n", (int)pwm_current);
+        }
+        else if(pwm_int == 0){
+           // System_printf("2, current pwm = %d\n", (int)pwm_current);
+        }
+        else if(pwm_int > pwm_max){
+            pwm_current += 1;
+           // System_printf("3, current pwm = %d\n", (int)pwm_current);
+        }
+        else if(pwm_int <= 5){ //!stop &&
+            pwm_current -= 1;
+           // System_printf("4, current pwm = %d\n", (int)pwm_current);
+        }
+        else if(estop && pwm_int <= 0){
+            if(current_speed <= 0){
+                pwm_current = 0;
+            }
+            else{
+                pwm_current -= pwm_int;
+            }
+           // System_printf("7, stop pwm = %d\n", (int)pwm_current);
+            setDuty(pwm_current);
+        }
+        //if less than 5 for too long the motor stops to spin - get out of there
+        if((pwm_current <= pwm_max) && (pwm_current > 5)){
+        //    System_printf("6, set current pwm = %d\n", (int)pwm_current);
+            setDuty(pwm_current);
+        }
+        else if(estop){
+        //    System_printf("6, set current pwm = %d\n", (int)pwm_current);
+            setDuty(pwm_current);
+        }
+    }
+}
+
 /*
  *  ======== Speed Regulation Swi Function ========
  */
-float pwm_current = PWM_START;
-float error_sum = 0;
-float current_speed = 0;
-float current_speed_estop = 0;
-float previous_speed = 0;
-float previous_speed_estop = 0;
 Void RegulateSpeed(UArg a0, UArg a1)
 {
     UInt gateKey;
     UInt32 time;
-    float error = 0;
-    float kp = 0.007;
-    float ki = 0.00005;
-    float pwm = 0;
-    int pwm_max = 95;
-    int pwm_int = 0;
 
     gateKey = GateHwi_enter(gateHwi);
 
@@ -214,82 +261,62 @@ Void RegulateSpeed(UArg a0, UArg a1)
     time = Clock_getTicks();
     previous_speed = current_speed;
     current_speed = GetCurrentSpeed();
+
     //current_speed_estop = current_speed;
     //desired_speed = GetDesiredSpeed(user_desired_speed);
-    System_printf("time %lu, hall changed %d, current_speed RPM = %d, prev speed = %d\n",time, Hall_changed, (int)current_speed, (int)previous_speed);
+    //System_printf("time %lu, hall changed %d, current_speed RPM = %d, prev speed = %d\n",time, Hall_changed, (int)current_speed, (int)previous_speed);
 
     /*check for estop conditions*/
 
-
     /*calculate acceleration*/
     //if(time > 0 && time % 1000 == 0){//every second
-        float speed_rate = current_speed - previous_speed;
-        float acceleration = (speed_rate/(float)PERIOD)*100;
+        double speed_rate = current_speed - previous_speed;
+        double acceleration = (speed_rate/(double)PERIOD)*100;
         if(estop && current_speed != 0){
-                desired_speed = 0;
                 acceleration = ESTOP_DECEL;
-                previous_speed = current_speed - ((acceleration*PERIOD)); //this is the problem should decrease by 200
+                //previous_speed = previous_speed + ((acceleration*PERIOD)); //this is the problem should decrease by 200
                 current_speed = (acceleration*PERIOD) + previous_speed;
-                System_printf("estop current_speed RPM = %d, prev speed = %d\n", (int)current_speed, (int)previous_speed);
+              //  System_printf("estop current_speed RPM = %d, prev speed = %d\n", (int)current_speed, (int)previous_speed);
         }
         else if(acceleration > (MAX_ACCEL*100)){
             acceleration = MAX_ACCEL;
             current_speed = (acceleration*PERIOD) + previous_speed;
-            System_printf("time %d, max acceleration -> speed changed %d\n",time, (int)current_speed);
+            //System_printf("time %d, max acceleration -> speed changed %d\n",time, (int)current_speed);
         }
         else if(acceleration < (MAX_DECEL*100)){
             acceleration = MAX_DECEL;
             current_speed = (acceleration*PERIOD) + previous_speed;
-            System_printf("time %d, min acceleration -> speed changed%d\n",time, (int)current_speed);
+          //  System_printf("time %d, min acceleration -> speed changed%d\n",time, (int)current_speed);
         }
         else{
-            System_printf("time %d, normal acceleration %d, %d, %d\n",time, (int)acceleration, (int)(MAX_ACCEL*100), (int)(MAX_DECEL*100) );
+        //    System_printf("time %d, normal acceleration %d, %d, %d\n",time, (int)acceleration, (int)(MAX_ACCEL*100), (int)(MAX_DECEL*100) );
         }
 
 
-    /*PI control*/
-    if(Hall_changed != 0){
-       // if(estop){
-         //   current_speed = current_speed_estop;
-        //}
-        error = desired_speed - current_speed;
-        error_sum += error;
-
-        pwm = (kp*error) + (ki*error_sum);
-        pwm_int = (int)pwm;
-        System_printf("pwm = %d, error = %d, error_sum = %d\n", pwm_int, (int)error, (int)error_sum);
-
-        if(pwm_int > 5 && pwm_int < (pwm_max - pwm_current)){
-            pwm_current += pwm_int;
-            System_printf("1, current pwm = %d\n", (int)pwm_current);
-        }
-        else if(pwm_int == 0){
-            System_printf("2, current pwm = %d\n", (int)pwm_current);
-        }
-        else if(pwm_int > pwm_max){
-            pwm_current += 1;
-            System_printf("3, current pwm = %d\n", (int)pwm_current);
-        }
-        else if(pwm_int <= 5){ //!stop &&
-            pwm_current -= 1;
-            System_printf("4, current pwm = %d\n", (int)pwm_current);
-        }
-        else if(estop && pwm_int <= 0){
-            pwm_current -= pwm_int;
-            System_printf("7, stop pwm = %d\n", (int)pwm_current);
-            setDuty(pwm_current);
-        }
-        //if less than 5 for too long the motor stops to spin - get out of there
-        if((pwm_current <= pwm_max) && (pwm_current > 5)){
-            System_printf("6, set current pwm = %d\n", (int)pwm_current);
-            setDuty(pwm_current);
-        }
+    /*estop control*/
+    if(estop && current_speed <= 0){
+      //  System_printf("motor stop\n");
+        stopMotor(0); //1
+        disableMotor();
+    }
+    else if(estop && current_speed != 0){
+        PIControl(current_speed, 0); //desired speed is zero
+    }
+    else{
+        PIControl(current_speed, desired_speed);
     }
 
     Hall_changed = 0; //reset
+    VelocityBuffer[bufferpos] = current_speed;
+        if (bufferpos==4){
+            VelocitySecond=CalcAvg(VelocityBuffer,5);
+            if (VelocitySecond < 0){VelocitySecond=0;}
+            ArrayUpdate(VelocityData,VelocitySecond);
+        }
+        bufferpos = (bufferpos+1)%5;
     GateHwi_leave(gateHwi, gateKey);
 
-    System_flush();
+    //System_flush();
 }
 /*
  *  ======== main ========

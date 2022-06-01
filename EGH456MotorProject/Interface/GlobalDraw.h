@@ -19,4 +19,8 @@ extern void UpdateLightGraph();
 extern bool OnSensorPage;
 extern void updateSensorPage();
 extern void UpdateAccelGraph();
+extern void UpdateCurrentGraph();
+extern void UpdateVelocityGraph();
+extern bool OnMotorPage;
+extern void MotorPageUpdate();
 #endif /* INTERFACE_GLOBALDRAW_H_ */

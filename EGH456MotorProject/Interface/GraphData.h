@@ -15,7 +15,11 @@ extern bool LightGraph;
 extern double LightData[GRAPHBUFFER];
 extern void initGraphBuffers();
 extern bool AccelGraph;
+extern bool VelocityGraph;
+extern bool CurrentGraph;
+extern double VelocityData[GRAPHBUFFER];
 extern double AccelData[GRAPHBUFFER];
+extern double CurrentData[GRAPHBUFFER];
 
 
 #endif /* INTERFACE_GRAPHDATA_H_ */

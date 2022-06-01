@@ -12,11 +12,13 @@
 #include"GraphFunctions.h"
 
 int CalcNoRemainder(int num, int den){
+    if (den<num){
     int rem;
     rem = num%den;
     while (rem > 0){
         den=den+1;
         rem = num%den;
+    }
     }
     return den;
 }

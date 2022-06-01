@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="g_sCanvas2"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="swiCurrentSensorFilterHandle"/>
+			<item value="currentSensorFilterFxn"/>
+			<item value="LightGraph"/>
+			<item value="pixelH"/>
+			<item value="accelGraph"/>
+			<item value="float"/>
+			<item value="GateMutexPri_leave"/>
+			<item value="GateMutexPri"/>
 			<item value="g_sCanvas2"/>
 			<item value="udma"/>
 			<item value="sysctl"/>
@@ -15,16 +23,9 @@
 			<item value="GraphPrimitive"/>
 			<item value="sContext"/>
 			<item value="slidertest"/>
-			<item value="y2"/>
-			<item value="OnSliderChange0"/>
-			<item value="OnSliderChange"/>
-			<item value="onCanvasPaint0"/>
-			<item value="onCanvasPaint"/>
-			<item value="g_psPanels"/>
-			<item value="g_Acceleration"/>
-			<item value="g_ui32Panel"/>
 		</list>
 		<list key="replacehistory">
+			<item value="double"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

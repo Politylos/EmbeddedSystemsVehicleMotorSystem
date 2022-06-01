@@ -40,6 +40,7 @@
 #include "sensors/sensors.h"
 
 #include "sensors/bmi160.h"
+#include "drivers/Motor/Motor.h"
 
 #ifdef ewarm
 #pragma data_alignment=1024
@@ -66,6 +67,11 @@ extern ChangeUp(int* var);
 extern ChangeDown(int* var);
 extern ChangeAccelUp();
 extern ChangeAccelDown();
+extern void GraphPageVelocity();
+extern void ChangeCurrentDown();
+extern void ChangeCurrentUp();
+extern void OnSliderChange(tWidget *psWidget, int32_t i32Value);
+extern void GraphPageCurrent();
 
 
 extern void GraphPrimitive(double *dataPoints, double tstart, double tend,
@@ -74,6 +80,7 @@ extern void GraphPrimitive(double *dataPoints, double tstart, double tend,
 tContext sContext;
 
 bool OnSensorPage=false;
+bool OnMotorPage=false;
 
 Canvas(g_clear, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 0, 31, 320, 209,
        CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0);
@@ -100,13 +107,13 @@ tPushButtonWidget CurrentUpBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 130, 111, 36, 36,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "", g_pui8arrowLeft,
-        g_pui8arrowLeft, 0, 0, btntest)
+        g_pui8arrowLeft, 0, 0, ChangeCurrentDown)
 ;
 tPushButtonWidget CurrentDownBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 266, 111, 36, 36,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "", g_pui8arrowRight,
-        g_pui8arrowRight, 0, 0, btntest)
+        g_pui8arrowRight, 0, 0, ChangeCurrentUp)
 ;
 tPushButtonWidget AccUpBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 130, 155, 36, 36,
@@ -171,13 +178,13 @@ tPushButtonWidget PowerGraphBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 83, 43, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Power Graph", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, MotorPage)
+        g_pui8btn150x40Press, 0, 0, GraphPageCurrent)
 ;
 tPushButtonWidget MotorGraphBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 83, 90, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Motor Speed Graph", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, MotorPage)
+        g_pui8btn150x40Press, 0, 0, GraphPageVelocity)
 ;
 tPushButtonWidget LightGraphBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 83, 138, 150, 40,
@@ -193,11 +200,11 @@ tPushButtonWidget TestGraphBtn = RectangularButtonStruct(0, 0, 0,
 ;
 
 tSliderWidget MotorSpeedSlider = SliderStruct(0, 0, 0,
-        &g_sKentec320x240x16_SSD2119, 129, 69, 174, 38, 0, 100, 25,
+        &g_sKentec320x240x16_SSD2119, 129, 69, 174, 38, 0, 5000, 25,
         (SL_STYLE_FILL | SL_STYLE_BACKG_FILL | SL_STYLE_OUTLINE |
                 SL_STYLE_TEXT | SL_STYLE_BACKG_TEXT),
         ClrGray, ClrBlack, ClrSilver, ClrWhite, ClrWhite,
-        &g_sFontCm20, "25%", 0, 0, btntest)
+        &g_sFontCm20, "25RPM", 0, 0, OnSliderChange)
 ;
 
 tRectangle clearBox;
@@ -225,6 +232,26 @@ tRectangle Banner;
 tRectangle BannerB;
 
 GateMutexPri_Handle ScreenGate;
+
+void
+OnSliderChange(tWidget *psWidget, int32_t i32Value)
+{
+    static char pcCanvasText[9];
+    static char pcSliderText[5];
+
+    //
+    // Is this the widget whose value we mirror in the canvas widget and the
+    // locked slider?
+    //
+        //
+        // Yes - update the canvas to show the slider value.
+        //
+        usprintf(pcCanvasText, "%6dRPM", i32Value);
+        SliderTextSet(&MotorSpeedSlider, pcCanvasText);
+        WidgetPaint((tWidget *)&MotorSpeedSlider);
+        desired_speed = i32Value;
+
+}
 
 
 void btntest()
@@ -272,7 +299,9 @@ void TopBarDraw(tContext *sContext, FT time, bool Lightlvl, int Direction,
                 int MotorStats, int accStat)
 {
     IArg ScreenKey;
-    ScreenKey = GateMutexPri_enter(ScreenGate);
+    UInt gateKey;
+    gateKey = GateHwi_enter(gateHwi);
+    //ScreenKey = GateMutexPri_enter(ScreenGate);
     GrContextForegroundSet(sContext, 0x00001A);
     GrRectFill(sContext, &Banner);
     GrContextForegroundSet(sContext, ClrWhite);
@@ -342,7 +371,8 @@ void TopBarDraw(tContext *sContext, FT time, bool Lightlvl, int Direction,
     WidgetPaint(&g_scompass);
     WidgetPaint(&g_MotorStat);
     WidgetPaint(&g_Acceleration);
-    GateMutexPri_leave(ScreenGate, ScreenKey);
+    GateHwi_leave(gateHwi, gateKey);
+    //GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 
 void GraphPage()
@@ -391,6 +421,28 @@ void GraphPageLight()
     GraphPrimitive(LightData, x1, x2, y1, y2, 50);
     LightGraph = true;
 }
+
+void UpdateCurrentGraph(){
+    double x1 = 0;
+    double x2 = 10;
+    //double test[] =  {1,1,2,3,4,5,6,7,10,0};
+    double y1 = min_element(CurrentData);
+    double y2 = max_element(CurrentData);
+    //ongraph=1;
+    UpdateGraphPlot(CurrentData, x1, x2, y1, y2, 50);
+}
+void GraphPageCurrent()
+{
+    double x1 = 0;
+    double x2 = 10;
+    //double test[] =  {1,1,2,3,4,5,6,7,10,0};
+    double y1 = min_element(CurrentData);
+    double y2 = max_element(CurrentData);
+    //ongraph=1;
+    GraphPrimitive(LightData, x1, x2, y1, y2, 50);
+    CurrentGraph = true;
+}
+
 void GraphPageAccel()
 {
     double x1 = 0;
@@ -411,11 +463,33 @@ void UpdateAccelGraph(){
     //ongraph=1;
     UpdateGraphPlot(AccelData, x1, x2, y1, y2, 50);
 }
+void UpdateVelocityGraph(){
+    double x1 = 0;
+    double x2 = 10;
+    //double test[] =  {1,1,2,3,4,5,6,7,10,0};
+    double y1 = 0;//min_element(VelocityData);
+    double y2 = 6000;//max_element(VelocityData);
+    //ongraph=1;
+    UpdateGraphPlot(VelocityData, x1, x2, y1, y2, 50);
+}
+void GraphPageVelocity()
+{
+    double x1 = 0;
+    double x2 = 10;
+    //double test[] =  {1,1,2,3,4,5,6,7,10,0};
+    double y1 = 0;//min_element(VelocityData);
+    double y2 = 6000;//max_element(VelocityData);
+    //ongraph=1;
+    GraphPrimitive(VelocityData, x1, x2, y1, y2, 50);
+    VelocityGraph = true;
+}
 
 void MainPage()
 {
-    IArg ScreenKey;
-    ScreenKey = GateMutexPri_enter(ScreenGate);
+    //IArg ScreenKey;
+    //ScreenKey = GateMutexPri_enter(ScreenGate);
+    UInt gateKey;
+    gateKey = GateHwi_enter(gateHwi);
     clearBox.i16XMin = 0;
     clearBox.i16YMin = 32;
     clearBox.i16XMax = 319;
@@ -428,7 +502,8 @@ void MainPage()
     WidgetPaint(&MotorPgBtn);
     WidgetPaint(&SensorPgBtn);
     WidgetPaint(&GraphPgBtn);
-    GateMutexPri_leave(ScreenGate, ScreenKey);
+    GateHwi_leave(gateHwi, gateKey);
+    //GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 
 void RemoveMainPage()
@@ -563,6 +638,8 @@ void RemoveGraph()
     WidgetRemove((tWidget*) &backGraphBtn);
     LightGraph = false;
     AccelGraph = false;
+    VelocityGraph = false;
+    CurrentGraph = false;
 }
 void BackGraphSelect()
 {
@@ -594,7 +671,7 @@ void UpdateGraphPlot(double *dataPoints, double tstart, double tend,
     GrRectFill(&sContext, &graphClear);
     int ydif = CalcNoRemainder(150, mesEnd - mesStart);
     mesEnd = mesStart + ydif;
-    int pixelH = 150 / ydif;
+    double pixelH = (double)150 / (double)ydif;
     int pixelW = 250 / size;
     int i;
     int ystart;
@@ -622,7 +699,7 @@ void GraphPrimitive(double *dataPoints, double tstart, double tend,
     ScreenKey = GateMutexPri_enter(ScreenGate);
     int ydif = CalcNoRemainder(150, (int)(mesEnd - mesStart));
     mesEnd = mesStart + ydif;
-    int pixelH = 150 / ydif;
+    double pixelH = (double)150 / (double)ydif;
     int pixelW = 250 / size;
     int i;
     int ystart;
@@ -672,7 +749,31 @@ void BackMainMotorPage()
     WidgetRemove((tWidget*) &AccUpBtn);
     WidgetRemove((tWidget*) &MotorMode);
     GateMutexPri_leave(ScreenGate, ScreenKey);
+    OnMotorPage = false;
     MainPage();
+}
+void MotorPageUpdate(){
+    char tempchar[10];
+    tRectangle covertext;
+    sprintf(tempchar, "%5.2fRPM", VelocitySecond);
+    covertext.i16XMin = 165-30;
+    covertext.i16YMin = 46-10;
+    covertext.i16XMax = 165+50;
+    covertext.i16YMax = 46+10;
+    GrContextForegroundSet(&sContext, ClrBlack);
+    GrRectFill(&sContext, &covertext);
+    covertext.i16XMin = 214-30;
+    covertext.i16YMin = 129-10;
+    covertext.i16XMax = 214+30;
+    covertext.i16YMax = 129+10;
+    GrContextForegroundSet(&sContext, 0x404040);
+    GrRectFill(&sContext, &covertext);
+    GrContextForegroundSet(&sContext, ClrWhite);
+    GrContextFontSet(&sContext, g_psFontCmss12);
+    GrStringDrawCentered(&sContext, tempchar, -1, 165, 46, 0);
+    GrStringDrawCentered(&sContext, "Current Speed: ", -1, 73, 46, 0);
+    sprintf(tempchar, "%5.2fRPM", MaxCurrent);
+    GrStringDrawCentered(&sContext, tempchar, -1, 214, 129, 0);
 }
 void MotorPage()
 {
@@ -692,9 +793,13 @@ void MotorPage()
     GrRectFill(&sContext, &clearBox);
     GrContextForegroundSet(&sContext, ClrWhite);
     GrContextFontSet(&sContext, g_psFontCmss18b);
+    char tempchar[10];
+    sprintf(tempchar, "%5.2fRPM", VelocitySecond);
     GrStringDrawCentered(&sContext, "Motor Speed", -1, 71, 85, 0);
     GrStringDrawCentered(&sContext, "Current Speed: ", -1, 73, 46, 0);
-    GrStringDrawCentered(&sContext, "100 rad/s", -1, 165, 46, 0);
+    GrStringDrawCentered(&sContext, tempchar, -1, 165, 46, 0);
+    sprintf(tempchar, "%5.2fRPM", MaxCurrent);
+    GrStringDrawCentered(&sContext, tempchar, -1, 214, 129, 0);
     GrStringDrawCentered(&sContext, "Max Current", -1, 70, 131, 0);
     GrStringDrawCentered(&sContext, "Max Acceleration", -1, 83, 176, 0);
     GrContextForegroundSet(&sContext, 0x404040);
@@ -718,6 +823,7 @@ void MotorPage()
     WidgetPaint((tWidget* )&AccUpBtn);
     WidgetPaint((tWidget* )&MotorMode);
     GateMutexPri_leave(ScreenGate, ScreenKey);
+    OnMotorPage = true;
 }
 
 ChangeUp(int* var){
@@ -730,7 +836,17 @@ ChangeAccelUp(){
     MaxAccel=MaxAccel+1;
     //ChangeUp(&MaxAccel);
 }
+
 ChangeAccelDown(){
     MaxAccel=MaxAccel-1;
+
+}
+
+void ChangeCurrentDown(){
+    MaxCurrent=MaxCurrent-0.1;
+
+}
+void ChangeCurrentUp(){
+    MaxCurrent=MaxCurrent+0.1;
 
 }

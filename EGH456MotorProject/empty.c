@@ -150,6 +150,8 @@ Task_Struct task0Struct;
 Task_Struct taskTouchStruct;
 Task_Struct readAccelStruct;
 Task_Struct readLightStruct;
+Task_Struct readCurrentStruct;
+Char readCurrentStack[TASKSTACKSIZE];
 Char task0Stack[TASKSTACKSIZE];
 Char taskTouchStack[TASKSTACKSIZE];
 Char readAccelStack[TASKSTACKSIZE];
@@ -220,11 +222,11 @@ void TouchCheckTask(UArg arg0, UArg arg1)
 
 void heartBeatFxn(UArg arg0, UArg arg1)
 {
+
     MainPage();
 
     g_ui32Panel = 0;
     bool prevStop = 0;
-
     while (1)
     {
 
@@ -265,8 +267,15 @@ void heartBeatFxn(UArg arg0, UArg arg1)
             updateSensorPage();
         }else if (AccelGraph){
             UpdateAccelGraph();
+        }else if(VelocityGraph){
+            UpdateVelocityGraph();
+        }else if (CurrentGraph){
+            UpdateCurrentGraph();
+        }else if (OnMotorPage){
+            MotorPageUpdate();
         }
     }
+
 }
 
 /*
@@ -290,7 +299,7 @@ int main(void)
     /* Swi parameters */
     Swi_Params swiAccelSensorFilterParams;
     Swi_Params swiLightSensorFilterParams;
-
+    Swi_Params swiCurrentSensorFilterParams;
     /* Call board init functions */
     Board_initGeneral();
     Board_initGPIO();
@@ -322,6 +331,14 @@ int main(void)
     Task_construct(&taskTouchStruct, (Task_FuncPtr) TouchCheckTask, &taskParams,
     NULL);
 
+    /* Task for current reading */
+        Task_Params_init(&taskParams);
+        taskParams.stackSize = TASKSTACKSIZE;
+        taskParams.stack = &readCurrentStack;
+        taskParams.priority = 10;
+        Task_construct(&readCurrentStruct, (Task_FuncPtr) readCurrentFxn,
+                       &taskParams, NULL);
+
     /* Task for accel reading */
     Task_Params_init(&taskParams);
     taskParams.stackSize = TASKSTACKSIZE;
@@ -349,6 +366,13 @@ int main(void)
     swiLightSensorFilterParams.priority = 12;
     swiLightSensorFilterHandle = Swi_create((Task_FuncPtr) lightSensorFilterFxn,
                                             &swiLightSensorFilterParams, NULL);
+
+    /* Swi for current sensor filters */
+    Swi_Params_init(&swiCurrentSensorFilterParams);
+    swiCurrentSensorFilterParams.priority = 12;
+    swiCurrentSensorFilterHandle = Swi_create(
+            (Task_FuncPtr) currentSensorFilterFxn, &swiCurrentSensorFilterParams,
+            NULL);
 
     // Turn on user LED
 
@@ -379,7 +403,7 @@ int main(void)
     /* SysMin will only print to the console when you call flush or exit */
     System_flush();
     /* Start BIOS */
-    timer1sec(&timerclock, &datetime);
+    //timer1sec(&timerclock, &datetime);
     BIOS_start();
 
     return (0);

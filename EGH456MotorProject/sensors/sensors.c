@@ -5,7 +5,6 @@
  *      Author: Baker
  */
 
-
 #include "sensors.h"
 #include <stdio.h>
 #include <stdbool.h>
@@ -24,10 +23,21 @@
 #include "opt3001.h"
 #include "i2cDriver.h"
 #include "drivers/Motor/Estop.h"
+#include <driverlib/adc.h>
+#include <driverlib/gpio.h>
+#include <driverlib/sysctl.h>
+#include <inc/hw_memmap.h>
+
+
+
 double LightSecond=0;
+double CurrentSecond = 0;
 double AccelSecond = 0;
+double MaxCurrent =1;
 Swi_Handle swiAccelSensorFilterHandle;
 Swi_Handle swiLightSensorFilterHandle;
+Swi_Handle swiCurrentSensorFilterHandle;
+
 I2C_Handle i2c;
 I2C_Params i2cParams;          // Structure for I2C parameters
 /* I2C initialisation function */
@@ -196,7 +206,7 @@ void readAccFxn(UArg arg0, UArg arg1)
             System_printf("bmi160 not read\n");
             System_flush();
         }
-        Task_sleep(5);
+        Task_sleep(5); // 200 Hz
     }
 }
 
@@ -240,3 +250,118 @@ void accelSensorFilterFxn(void)
 
 }
 
+/*
+ * Initialise the ADC for current readings
+ */
+void adc_init(void)
+{
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_ADC1);
+
+    // ISEN B current sensor AIN0 PE_3
+    GPIOPinTypeADC(GPIO_PORTE_BASE, GPIO_PIN_3);
+    ADCSequenceConfigure(ADC1_BASE, 2, ADC_TRIGGER_PROCESSOR, 0);
+    ADCSequenceStepConfigure(ADC1_BASE, 2, 0, ADC_CTL_IE | ADC_CTL_CH0 | ADC_CTL_END);
+    ADCSequenceEnable(ADC1_BASE, 2);
+    ADCIntClear(ADC1_BASE, 2);
+
+    // ISEN C current sensor AIN4 PD_7
+    GPIOPinTypeADC(GPIO_PORTD_BASE, GPIO_PIN_7);
+    ADCSequenceConfigure(ADC1_BASE, 1, ADC_TRIGGER_PROCESSOR, 0);
+    ADCSequenceStepConfigure(ADC1_BASE, 1, 0, ADC_CTL_IE | ADC_CTL_CH4 | ADC_CTL_END);
+    ADCSequenceEnable(ADC1_BASE, 1);
+    ADCIntClear(ADC1_BASE, 1);
+}
+
+/*
+ * Task thread to read current values from ADC
+ */
+#define SENSOR_CURRENT_BUFFERSIZE 5
+double adc_current_values[SENSOR_CURRENT_BUFFERSIZE];
+double adcBuffer2[33];
+void readCurrentFxn(UArg arg0, UArg arg1)
+{
+    // ADC full scale voltage 3.3V (datasheet p1861)
+    // ADC full resolution 12 bits 4096 (datasheet p1862)
+    // ADC volts = (ADC_FULLSCALE / RESOLUTION) * adc_value
+    // Raw values from ADC
+    uint8_t adc_current_buffer_pos = 0;
+    uint32_t adcRawValue1[1], adcRawValue2[1];
+    double adcVolts1, adcVolts2;
+    double adcCurrentB, adcCurrentC, adcCurrentTotal;
+
+    // Initialise ADC for current reading
+    adc_init();
+
+    // Spin the wheels
+    while (1)
+    {
+        // Start ADC conversions
+        ADCProcessorTrigger(ADC1_BASE, 1);
+        ADCProcessorTrigger(ADC1_BASE, 2);
+
+        // Wait for ADC conversions to complete
+        while(!ADCIntStatus(ADC1_BASE, 1, false));
+        while(!ADCIntStatus(ADC1_BASE, 2, false));
+
+        // Clear the ADC conversion complete interrupts
+        ADCIntClear(ADC1_BASE, 1);
+        ADCIntClear(ADC1_BASE, 2);
+
+        // Read the ADC value registers
+        ADCSequenceDataGet(ADC1_BASE, 1, adcRawValue1);
+        ADCSequenceDataGet(ADC1_BASE, 2, adcRawValue2);
+
+        // Convert ADC values to volts
+        adcVolts1 = ((double)adcRawValue1[0] * 3.3) / 4096.0;
+        adcVolts2 = ((double)adcRawValue2[0] * 3.3) / 4096.0;
+
+        // Calculate current of ADC value
+        adcCurrentB = ((3.3 / 2.0) - adcVolts2) / (10 * 0.007);
+        adcCurrentC = ((3.3 / 2.0) - adcVolts1) / (10 * 0.007);
+
+        // Combine 2 phases
+        adcCurrentTotal = (adcCurrentB + adcCurrentC) * 1.5;
+
+        // Copy value to buffer
+        adc_current_values[adc_current_buffer_pos] = adcCurrentTotal;
+
+        if (++adc_current_buffer_pos >= SENSOR_CURRENT_BUFFERSIZE)
+        {
+            adc_current_buffer_pos = 0;
+            Swi_post(swiCurrentSensorFilterHandle);
+        }
+
+        Task_sleep(6); // 166 Hz
+    }
+}
+
+double current_filteredValue = 0;
+int bufferCurrent=0;
+/*
+ * Swi for current sensor filtering
+ */
+void currentSensorFilterFxn(void)
+{
+    uint8_t buffer_position;
+    double current_value_average = 0;
+
+
+    // TODO protect current_light_values
+    for (buffer_position = 0; buffer_position < SENSOR_CURRENT_BUFFERSIZE; buffer_position++)
+    {
+        current_value_average += adc_current_values[buffer_position];
+    }
+
+    // TODO protect current_filteredValue
+    current_filteredValue = current_value_average / SENSOR_CURRENT_BUFFERSIZE;
+    adcBuffer2[bufferCurrent]=current_filteredValue;
+    if(bufferCurrent==32){
+        CurrentSecond = CalcAvg(adcBuffer2,33);
+        ArrayUpdate(CurrentData,CurrentSecond);
+    }
+    bufferCurrent=(bufferCurrent+1)%33;
+    current_filteredValue=(current_filteredValue+1)/33;
+    if(current_filteredValue > MaxCurrent){
+        EstopPower();
+    }
+}
