@@ -117,7 +117,7 @@
 #include "sensors/sensors.h"
 
 #include "drivers/Motor/Estop.h"
-
+#include "drivers/Motor/Motor.h"
 
 
 #define TASKSTACKSIZE   2048
@@ -296,6 +296,7 @@ int main(void)
     Board_initGPIO();
     Board_initI2C();
     Board_initUART();
+    MotorMain();
     initEstop();
     PinoutSet(false, false);
     //DrawFrame()
