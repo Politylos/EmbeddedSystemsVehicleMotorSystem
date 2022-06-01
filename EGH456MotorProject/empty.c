@@ -231,7 +231,7 @@ void heartBeatFxn(UArg arg0, UArg arg1)
     {
 
         Task_sleep(1000);
-        EStop =checkEstop();
+
         TopBarDraw(&sContext, datetime, LowLight, currentDirection,
                    CurrentMotorStat, CurrentAcceleration);
         if (LightSecond < 5){
@@ -252,12 +252,14 @@ void heartBeatFxn(UArg arg0, UArg arg1)
         } else{
             CurrentAcceleration = 2;
         }
-        if (EStop){
+        if (estop){
             GPIO_write(Board_LED1, Board_LED_ON);
             CurrentMotorStat = 2;
         } else {
             GPIO_write(Board_LED1, Board_LED_OFF);
-            CurrentMotorStat = 1;
+            if(Stop){
+                CurrentMotorStat = 0;
+            } else{CurrentMotorStat = 1;}
         }
 
         currentDirection = (currentDirection + 1) % 4;

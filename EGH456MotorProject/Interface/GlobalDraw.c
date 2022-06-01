@@ -72,7 +72,7 @@ extern void ChangeCurrentDown();
 extern void ChangeCurrentUp();
 extern void OnSliderChange(tWidget *psWidget, int32_t i32Value);
 extern void GraphPageCurrent();
-
+extern void ChangeMotorStat();
 
 extern void GraphPrimitive(double *dataPoints, double tstart, double tend,
                            double mesStart, double mesEnd, int size);
@@ -171,7 +171,7 @@ tPushButtonWidget MotorMode = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 102, 199, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Motor Start", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, btntest)
+        g_pui8btn150x40Press, 0, 0, ChangeMotorStat)
 ;
 
 tPushButtonWidget PowerGraphBtn = RectangularButtonStruct(0, 0, 0,
@@ -849,4 +849,18 @@ void ChangeCurrentDown(){
 void ChangeCurrentUp(){
     MaxCurrent=MaxCurrent+0.1;
 
+}
+void ChangeMotorStat(){
+    if (!estop){
+        Stop=!Stop;
+        if(!Stop){
+            PushButtonTextSet(&MotorMode,"Motor Stop");
+            MotorStart();
+        }else{
+            PushButtonTextSet(&MotorMode,"Motor Start");
+        }
+    }else{
+        PushButtonTextSet(&MotorMode,"Motor Start");
+    }
+    WidgetPaint((tWidget *)&MotorMode);
 }

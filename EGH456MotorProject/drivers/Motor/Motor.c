@@ -86,6 +86,7 @@
 #define MAX_ACCEL  0.5 //rpm/ms
 #define MAX_DECEL  -1*MAX_ACCEL //rpm/period
 #define ESTOP_DECEL  -1*(1000/1000) //rpm/period
+#define STOP_DECEL  -1*(500/1000) //rpm/period
 
 Clock_Struct clk0Struct, clk1Struct;
 Clock_Handle clk2Handle;
@@ -99,13 +100,14 @@ Swi_Handle SwiHandle;
 
 int Hall_changed = 0;
 volatile double desired_speed = 1500; //rpm
-bool estop = false;
+bool estop = 0;
 double pwm_current = PWM_START;
 double error_sum = 0;
 double current_speed = 0;
 double current_speed_estop = 0;
 double previous_speed = 0;
 double previous_speed_estop = 0;
+bool Stop=1;
 /*
  *  ======== clk0Fxn =======
  */
@@ -193,6 +195,15 @@ double GetDesiredSpeed(double user_desired_speed){ //from UI
     }
 }
 
+void MotorStart(){
+    enableMotor();
+    bool HA = GPIO_read(EK_TM4C1294XL_HA);
+    bool HB = GPIO_read(EK_TM4C1294XL_HB);
+    bool HC = GPIO_read(EK_TM4C1294XL_HC);
+    updateMotor(HA,HB,HC);
+    Hall_changed=0;
+}
+
 void PIControl(double current_speed, double desired_speed){
 
     double error = 0;
@@ -256,12 +267,11 @@ Void RegulateSpeed(UArg a0, UArg a1)
     UInt32 time;
 
     gateKey = GateHwi_enter(gateHwi);
-
+    estop =checkEstop();
     /*get current speed*/
     time = Clock_getTicks();
     previous_speed = current_speed;
     current_speed = GetCurrentSpeed();
-
     //current_speed_estop = current_speed;
     //desired_speed = GetDesiredSpeed(user_desired_speed);
     //System_printf("time %lu, hall changed %d, current_speed RPM = %d, prev speed = %d\n",time, Hall_changed, (int)current_speed, (int)previous_speed);
@@ -277,6 +287,10 @@ Void RegulateSpeed(UArg a0, UArg a1)
                 //previous_speed = previous_speed + ((acceleration*PERIOD)); //this is the problem should decrease by 200
                 current_speed = (acceleration*PERIOD) + previous_speed;
               //  System_printf("estop current_speed RPM = %d, prev speed = %d\n", (int)current_speed, (int)previous_speed);
+        }else if (Stop && current_speed != 0){
+            acceleration = STOP_DECEL;
+            //previous_speed = previous_speed + ((acceleration*PERIOD)); //this is the problem should decrease by 200
+            current_speed = (acceleration*PERIOD) + previous_speed;
         }
         else if(acceleration > (MAX_ACCEL*100)){
             acceleration = MAX_ACCEL;
@@ -294,12 +308,14 @@ Void RegulateSpeed(UArg a0, UArg a1)
 
 
     /*estop control*/
-    if(estop && current_speed <= 0){
+    if((estop && current_speed <= 10)||(Stop && current_speed <= 10)){
       //  System_printf("motor stop\n");
         stopMotor(0); //1
         disableMotor();
+        estop=0;
+        Stop=1;
     }
-    else if(estop && current_speed != 0){
+    else if((estop && current_speed != 0)||(Stop && current_speed != 0)){
         PIControl(current_speed, 0); //desired speed is zero
     }
     else{

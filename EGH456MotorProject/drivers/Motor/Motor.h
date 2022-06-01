@@ -45,6 +45,9 @@ extern void MotorMain(void);
 extern double GetDesiredSpeed(double user_desired_speed);
 extern volatile double desired_speed;
 extern double VelocitySecond;
+extern bool Stop;
+extern bool estop;
+extern void MotorStart();
 
 extern GateHwi_Handle gateHwi;
 

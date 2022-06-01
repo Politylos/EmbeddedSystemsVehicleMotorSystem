@@ -22,6 +22,7 @@ ORDERED_OBJS += \
 "./Interface/Pages.obj" \
 "./Screen/GUIMain.obj" \
 "./drivers/Kentec320x240x16_ssd2119_spi.obj" \
+"./drivers/current.obj" \
 "./drivers/frame.obj" \
 "./drivers/pinout.obj" \
 "./drivers/touch.obj" \
@@ -197,8 +198,8 @@ EGH456MotorProject.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(GEN_FILES__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "Clock.obj" "EK_TM4C1294XL.obj" "UARTLocal.obj" "empty.obj" "Images\GUIImg.obj" "Images\Images.obj" "Interface\GlobalDraw.obj" "Interface\GraphData.obj" "Interface\GraphFunctions.obj" "Interface\Pages.obj" "Screen\GUIMain.obj" "drivers\Kentec320x240x16_ssd2119_spi.obj" "drivers\frame.obj" "drivers\pinout.obj" "drivers\touch.obj" "drivers\Motor\Estop.obj" "drivers\Motor\Motor.obj" "sensors\bmi160.obj" "sensors\i2cDriver.obj" "sensors\opt3001.obj" "sensors\sensors.obj" "utils\ustdlib.obj" 
-	-$(RM) "Clock.d" "EK_TM4C1294XL.d" "UARTLocal.d" "empty.d" "Images\GUIImg.d" "Images\Images.d" "Interface\GlobalDraw.d" "Interface\GraphData.d" "Interface\GraphFunctions.d" "Interface\Pages.d" "Screen\GUIMain.d" "drivers\Kentec320x240x16_ssd2119_spi.d" "drivers\frame.d" "drivers\pinout.d" "drivers\touch.d" "drivers\Motor\Estop.d" "drivers\Motor\Motor.d" "sensors\bmi160.d" "sensors\i2cDriver.d" "sensors\opt3001.d" "sensors\sensors.d" "utils\ustdlib.d" 
+	-$(RM) "Clock.obj" "EK_TM4C1294XL.obj" "UARTLocal.obj" "empty.obj" "Images\GUIImg.obj" "Images\Images.obj" "Interface\GlobalDraw.obj" "Interface\GraphData.obj" "Interface\GraphFunctions.obj" "Interface\Pages.obj" "Screen\GUIMain.obj" "drivers\Kentec320x240x16_ssd2119_spi.obj" "drivers\current.obj" "drivers\frame.obj" "drivers\pinout.obj" "drivers\touch.obj" "drivers\Motor\Estop.obj" "drivers\Motor\Motor.obj" "sensors\bmi160.obj" "sensors\i2cDriver.obj" "sensors\opt3001.obj" "sensors\sensors.obj" "utils\ustdlib.obj" 
+	-$(RM) "Clock.d" "EK_TM4C1294XL.d" "UARTLocal.d" "empty.d" "Images\GUIImg.d" "Images\Images.d" "Interface\GlobalDraw.d" "Interface\GraphData.d" "Interface\GraphFunctions.d" "Interface\Pages.d" "Screen\GUIMain.d" "drivers\Kentec320x240x16_ssd2119_spi.d" "drivers\current.d" "drivers\frame.d" "drivers\pinout.d" "drivers\touch.d" "drivers\Motor\Estop.d" "drivers\Motor\Motor.d" "sensors\bmi160.d" "sensors\i2cDriver.d" "sensors\opt3001.d" "sensors\sensors.d" "utils\ustdlib.d" 
 	-$(RMDIR) $(GEN_MISC_DIRS__QUOTED)
 	-@echo 'Finished clean'
 	-@echo ' '

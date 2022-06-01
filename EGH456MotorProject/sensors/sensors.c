@@ -33,7 +33,7 @@
 double LightSecond=0;
 double CurrentSecond = 0;
 double AccelSecond = 0;
-double MaxCurrent =1;
+double MaxCurrent =100;
 Swi_Handle swiAccelSensorFilterHandle;
 Swi_Handle swiLightSensorFilterHandle;
 Swi_Handle swiCurrentSensorFilterHandle;
