@@ -4,3 +4,4 @@ Release/*
 .xdchelp
 config/*
 .launches/*
+.metadata/version.ini

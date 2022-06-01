@@ -1,0 +1,349 @@
+/*
+ * Motor.c
+ *
+ *  Created on: 1 Jun. 2022
+ *      Author: akank
+ */
+
+/*
+ * Copyright (c) 2015, Texas Instruments Incorporated
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * *  Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * *  Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * *  Neither the name of Texas Instruments Incorporated nor the names of
+ *    its contributors may be used to endorse or promote products derived
+ *    from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+ * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+/*
+ *  ======== empty_min.c ========
+ */
+#include <time.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdint.h>
+#include <math.h>
+/* XDCtools Header files */
+#include <xdc/std.h>
+
+/* BIOS Header files */
+#include <ti/sysbios/BIOS.h>
+#include <ti/sysbios/knl/Task.h>
+
+/* TI-RTOS Header files */
+#include <ti/drivers/GPIO.h>
+#include <ti/drivers/UART.h>
+#include "driverlib/uart.h"
+#include <driverlib/gpio.h>
+#include <ti/sysbios/hal/Hwi.h>
+#include <ti/sysbios/knl/swi.h>
+#include <ti/sysbios/knl/Clock.h>
+#include <ti/sysbios/knl/Task.h>
+#include <ti/sysbios/knl/Event.h>
+#include <ti/sysbios/knl/Queue.h>
+#include <ti/sysbios/knl/Semaphore.h>
+#include <ti/sysbios/gates/GateHwi.h>
+ #include <ti/drivers/I2C.h>
+#include <xdc/runtime/Error.h>
+#include <xdc/runtime/Log.h>
+#include <xdc/runtime/System.h>
+#include <driverlib/sysctl.h>
+#include <driverlib/pin_map.h>
+#include <ti/sysbios/hal/Timer.h>
+#include <math.h>
+
+/* Board Header file */
+#include "Board.h"
+#include <drivers/motorlib.h>
+
+#define PERIOD  200 //ms
+#define PWM_START  25
+#define CHANGES_PER_REVOLUTION  26
+#define MAX_ACCEL  0.5 //rpm/ms
+#define MAX_DECEL  -1*MAX_ACCEL //rpm/period
+#define ESTOP_DECEL  -1*(1000/1000) //rpm/period
+
+Clock_Struct clk0Struct, clk1Struct;
+Clock_Handle clk2Handle;
+
+GateHwi_Handle gateHwi;
+GateHwi_Params gHwiprms;
+
+Swi_Handle SwiHandle;
+
+int Hall_changed = 0;
+volatile float desired_speed = 600; //rpm
+bool estop = false;
+/*
+ *  ======== clk0Fxn =======
+ */
+Void clk0Fxn(UArg arg0)
+{
+    UInt32 time;
+    time = Clock_getTicks();
+    if(time == 9800){
+        estop = true;
+    }
+    Swi_post(SwiHandle); //every period
+}
+
+//Void clk1Fxn(UArg arg0) //set the motor to accelerate or decelerate change the desired speed every 1000ms (1s)
+//{
+   // Swi_post(SwiHandle); //every period
+//}
+
+/*
+ *  ======== Initialise Motor ========
+ */
+void MotorInit(){
+    Error_Block eb;
+    Error_init(&eb);
+
+    initMotorLib(100, &eb);
+    setDuty(PWM_START);
+    enableMotor();
+
+    //trigger motor hall effect sensors
+    updateMotor(0,0,0);
+
+    System_printf("Motor initialisation complete\n");
+    System_flush();
+}
+
+/*
+ *  ======== eStop Motor ========
+ */
+void eStop(){ //input sensor values
+    System_printf("Estop triggered\n");
+
+    //if estop condition flag is true or event has occured
+//    if(estop && current_speed != 0){
+//                    desired_speed = 0;
+//                    acceleration = ESTOP_DECEL;
+//                    previous_speed = current_speed - ((acceleration*PERIOD)); //this is the problem should decrease by 200
+//                    current_speed = (acceleration*PERIOD) + previous_speed;
+//                    System_printf("estop current_speed RPM = %d, prev speed = %d\n", (int)current_speed, (int)previous_speed);
+//            }
+    desired_speed = 0;
+    stopMotor(0); //1
+    disableMotor();
+
+    System_flush();
+}
+
+/*
+ *  ======== Hall Effect Sensor Hwi Functions ========
+ */
+
+void HAllF(unsigned int index){
+    UInt gateKey;
+
+    gateKey = GateHwi_enter(gateHwi);
+
+    //read hall sensor GPIO pins
+    bool HA = GPIO_read(EK_TM4C1294XL_HA);
+    bool HB = GPIO_read(EK_TM4C1294XL_HB);
+    bool HC = GPIO_read(EK_TM4C1294XL_HC);
+
+    Hall_changed++; //increment counter
+
+    updateMotor(HA,HB,HC);
+    GateHwi_leave(gateHwi, gateKey);
+}
+
+float GetCurrentSpeed(){
+    float revp = ((float)Hall_changed/(float)CHANGES_PER_REVOLUTION); //revolutions in period
+    return (revp*60000 / PERIOD); //speed in RPM
+}
+
+double GetDesiredSpeed(double user_desired_speed){ //from UI
+
+    if(desired_speed <= 0){
+        return 0;
+    }
+    else{
+        return user_desired_speed;
+    }
+}
+
+/*
+ *  ======== Speed Regulation Swi Function ========
+ */
+float pwm_current = PWM_START;
+float error_sum = 0;
+float current_speed = 0;
+float current_speed_estop = 0;
+float previous_speed = 0;
+float previous_speed_estop = 0;
+Void RegulateSpeed(UArg a0, UArg a1)
+{
+    UInt gateKey;
+    UInt32 time;
+    float error = 0;
+    float kp = 0.007;
+    float ki = 0.00005;
+    float pwm = 0;
+    int pwm_max = 95;
+    int pwm_int = 0;
+
+    gateKey = GateHwi_enter(gateHwi);
+
+    /*get current speed*/
+    time = Clock_getTicks();
+    previous_speed = current_speed;
+    current_speed = GetCurrentSpeed();
+    //current_speed_estop = current_speed;
+    //desired_speed = GetDesiredSpeed(user_desired_speed);
+    System_printf("time %lu, hall changed %d, current_speed RPM = %d, prev speed = %d\n",time, Hall_changed, (int)current_speed, (int)previous_speed);
+
+    /*check for estop conditions*/
+
+
+    /*calculate acceleration*/
+    //if(time > 0 && time % 1000 == 0){//every second
+        float speed_rate = current_speed - previous_speed;
+        float acceleration = (speed_rate/(float)PERIOD)*100;
+        if(estop && current_speed != 0){
+                desired_speed = 0;
+                acceleration = ESTOP_DECEL;
+                previous_speed = current_speed - ((acceleration*PERIOD)); //this is the problem should decrease by 200
+                current_speed = (acceleration*PERIOD) + previous_speed;
+                System_printf("estop current_speed RPM = %d, prev speed = %d\n", (int)current_speed, (int)previous_speed);
+        }
+        else if(acceleration > (MAX_ACCEL*100)){
+            acceleration = MAX_ACCEL;
+            current_speed = (acceleration*PERIOD) + previous_speed;
+            System_printf("time %d, max acceleration -> speed changed %d\n",time, (int)current_speed);
+        }
+        else if(acceleration < (MAX_DECEL*100)){
+            acceleration = MAX_DECEL;
+            current_speed = (acceleration*PERIOD) + previous_speed;
+            System_printf("time %d, min acceleration -> speed changed%d\n",time, (int)current_speed);
+        }
+        else{
+            System_printf("time %d, normal acceleration %d, %d, %d\n",time, (int)acceleration, (int)(MAX_ACCEL*100), (int)(MAX_DECEL*100) );
+        }
+
+
+    /*PI control*/
+    if(Hall_changed != 0){
+       // if(estop){
+         //   current_speed = current_speed_estop;
+        //}
+        error = desired_speed - current_speed;
+        error_sum += error;
+
+        pwm = (kp*error) + (ki*error_sum);
+        pwm_int = (int)pwm;
+        System_printf("pwm = %d, error = %d, error_sum = %d\n", pwm_int, (int)error, (int)error_sum);
+
+        if(pwm_int > 5 && pwm_int < (pwm_max - pwm_current)){
+            pwm_current += pwm_int;
+            System_printf("1, current pwm = %d\n", (int)pwm_current);
+        }
+        else if(pwm_int == 0){
+            System_printf("2, current pwm = %d\n", (int)pwm_current);
+        }
+        else if(pwm_int > pwm_max){
+            pwm_current += 1;
+            System_printf("3, current pwm = %d\n", (int)pwm_current);
+        }
+        else if(pwm_int <= 5){ //!stop &&
+            pwm_current -= 1;
+            System_printf("4, current pwm = %d\n", (int)pwm_current);
+        }
+        else if(estop && pwm_int <= 0){
+            pwm_current -= pwm_int;
+            System_printf("7, stop pwm = %d\n", (int)pwm_current);
+            setDuty(pwm_current);
+        }
+        //if less than 5 for too long the motor stops to spin - get out of there
+        if((pwm_current <= pwm_max) && (pwm_current > 5)){
+            System_printf("6, set current pwm = %d\n", (int)pwm_current);
+            setDuty(pwm_current);
+        }
+    }
+
+    Hall_changed = 0; //reset
+    GateHwi_leave(gateHwi, gateKey);
+
+    System_flush();
+}
+/*
+ *  ======== main ========
+ */
+void MotorMain(void)
+ {
+    //Task_Params taskParams;
+    Clock_Params clkParams;
+
+    /* Call board init functions */
+
+
+    /*enable Hall Effect Sensor GPIO pins */
+    GPIO_enableInt(EK_TM4C1294XL_HA);
+    GPIO_enableInt(EK_TM4C1294XL_HB);
+    GPIO_enableInt(EK_TM4C1294XL_HC);
+
+    /* Construct a periodic Clock Instance with period system time units */
+    Clock_Params_init(&clkParams);
+    clkParams.period = PERIOD;
+    clkParams.startFlag = TRUE;
+
+    Clock_construct(&clk0Struct, (Clock_FuncPtr)clk0Fxn, PERIOD, &clkParams);
+
+    /*Create the Swi thread*/
+    Swi_Params swiParams;
+    Swi_Params_init(&swiParams);
+    SwiHandle = Swi_create(RegulateSpeed,&swiParams, NULL);
+
+    /*Create Hwi Gate Mutex*/
+    GateHwi_Params_init(&gHwiprms);
+    gateHwi = GateHwi_create(&gHwiprms, NULL);
+    if (gateHwi == NULL) {
+        System_abort("Gate Hwi create failed");
+    }
+
+    if (SwiHandle == NULL) {
+        System_abort("Swi create failed");
+    }
+
+    /*Initialise Motor*/
+    MotorInit();
+
+    /*Hall Effect Sensor HWI through GPIO*/
+    GPIO_setCallback(EK_TM4C1294XL_HA, HAllF);
+    GPIO_setCallback(EK_TM4C1294XL_HB, HAllF);
+    GPIO_setCallback(EK_TM4C1294XL_HC, HAllF);
+
+    System_printf("main complete\n");
+    System_flush();
+
+    /* Start BIOS */
+
+}
+
+
+
