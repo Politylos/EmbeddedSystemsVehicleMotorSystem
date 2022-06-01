@@ -14,8 +14,11 @@ extern double LightSecond;
 extern void readAccFxn(UArg arg0, UArg arg1);
 extern void lightSensorFilterFxn(void);
 extern void readOptFxn(UArg arg0, UArg arg1);
+extern void readCurrentFxn(UArg arg0, UArg arg1);
 extern void i2c_Open(void);
 extern void accelSensorFilterFxn(void);
+extern void currentSensorFilterFxn(void);
 extern Swi_Handle swiAccelSensorFilterHandle;
 extern Swi_Handle swiLightSensorFilterHandle;
+extern Swi_Handle swiCurrentSensorFilterHandle;
 #endif /* SENSORS_SENSORS_H_ */

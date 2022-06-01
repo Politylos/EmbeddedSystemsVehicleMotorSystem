@@ -150,10 +150,12 @@ Task_Struct task0Struct;
 Task_Struct taskTouchStruct;
 Task_Struct readAccelStruct;
 Task_Struct readLightStruct;
+Task_Struct readCurrentStruct;
 Char task0Stack[TASKSTACKSIZE];
 Char taskTouchStack[TASKSTACKSIZE];
 Char readAccelStack[TASKSTACKSIZE];
 Char readLightStack[TASKSTACKSIZE];
+Char readCurrentStack[TASKSTACKSIZE];
 
 char tempc[30];
 
@@ -290,6 +292,8 @@ int main(void)
     /* Swi parameters */
     Swi_Params swiAccelSensorFilterParams;
     Swi_Params swiLightSensorFilterParams;
+    Swi_Params swiCurrentSensorFilterParams;
+
 
     /* Call board init functions */
     Board_initGeneral();
@@ -338,6 +342,14 @@ int main(void)
     Task_construct(&readLightStruct, (Task_FuncPtr) readOptFxn, &taskParams,
                    &testOptError);
 
+    /* Task for current reading */
+    Task_Params_init(&taskParams);
+    taskParams.stackSize = TASKSTACKSIZE;
+    taskParams.stack = &readCurrentStack;
+    taskParams.priority = 10;
+    Task_construct(&readCurrentStruct, (Task_FuncPtr) readCurrentFxn,
+                   &taskParams, NULL);
+
     /* Swi for accel sensor filters */
     Swi_Params_init(&swiAccelSensorFilterParams);
     swiAccelSensorFilterParams.priority = 12;
@@ -349,6 +361,13 @@ int main(void)
     swiLightSensorFilterParams.priority = 12;
     swiLightSensorFilterHandle = Swi_create((Task_FuncPtr) lightSensorFilterFxn,
                                             &swiLightSensorFilterParams, NULL);
+
+    /* Swi for current sensor filters */
+    Swi_Params_init(&swiCurrentSensorFilterParams);
+    swiCurrentSensorFilterParams.priority = 12;
+    swiCurrentSensorFilterHandle = Swi_create(
+            (Task_FuncPtr) currentSensorFilterFxn, &swiCurrentSensorFilterParams,
+            NULL);
 
     // Turn on user LED
 

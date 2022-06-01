@@ -255,12 +255,12 @@ Screen/GUIMain.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packa
 Screen/GUIMain.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h
 Screen/GUIMain.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/interfaces/ISeconds.h
 Screen/GUIMain.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/package/Seconds_SecondsProxy.h
-Screen/GUIMain.obj: C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/drivers/motorlib.h
+Screen/GUIMain.obj: C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/drivers/motorlib.h
 Screen/GUIMain.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h
 Screen/GUIMain.obj: C:/ti/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/UART.h
-Screen/GUIMain.obj: C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/UARTLocal.h
-Screen/GUIMain.obj: C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Board.h
-Screen/GUIMain.obj: C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/EK_TM4C1294XL.h
+Screen/GUIMain.obj: C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/UARTLocal.h
+Screen/GUIMain.obj: C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Board.h
+Screen/GUIMain.obj: C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/EK_TM4C1294XL.h
 
 ../Screen/GUIMain.c:
 
@@ -772,15 +772,15 @@ C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/inter
 
 C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/package/Seconds_SecondsProxy.h:
 
-C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/drivers/motorlib.h:
+C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/drivers/motorlib.h:
 
 C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h:
 
 C:/ti/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/UART.h:
 
-C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/UARTLocal.h:
+C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/UARTLocal.h:
 
-C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Board.h:
+C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Board.h:
 
-C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/EK_TM4C1294XL.h:
+C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/EK_TM4C1294XL.h:
 

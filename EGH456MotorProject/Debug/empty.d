@@ -280,7 +280,7 @@ empty.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sy
 empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h
 empty.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/interfaces/ISeconds.h
 empty.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/package/Seconds_SecondsProxy.h
-empty.obj: C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/drivers/motorlib.h
+empty.obj: C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/drivers/motorlib.h
 empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h
 empty.obj: C:/ti/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/UART.h
 empty.obj: ../UARTLocal.h
@@ -879,7 +879,7 @@ C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/inter
 
 C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/package/Seconds_SecondsProxy.h:
 
-C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/drivers/motorlib.h:
+C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/drivers/motorlib.h:
 
 C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h:
 

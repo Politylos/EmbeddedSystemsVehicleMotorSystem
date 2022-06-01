@@ -102,7 +102,7 @@ Interface/GlobalDraw.obj: C:/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Seri
 Interface/GlobalDraw.obj: C:/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/pushbutton.h
 Interface/GlobalDraw.obj: C:/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/radiobutton.h
 Interface/GlobalDraw.obj: C:/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/slider.h
-Interface/GlobalDraw.obj: C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Clock.h
+Interface/GlobalDraw.obj: C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Clock.h
 Interface/GlobalDraw.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Timer.h
 Interface/GlobalDraw.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h
 Interface/GlobalDraw.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IInstance.h
@@ -221,19 +221,19 @@ Interface/GlobalDraw.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/ru
 Interface/GlobalDraw.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Queue.h
 Interface/GlobalDraw.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Task.h
 Interface/GlobalDraw.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IGateProvider.h
-Interface/GlobalDraw.obj: C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Images/Images.h
-Interface/GlobalDraw.obj: C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Images/GUIImg.h
+Interface/GlobalDraw.obj: C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Images/Images.h
+Interface/GlobalDraw.obj: C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Images/GUIImg.h
 Interface/GlobalDraw.obj: ../Interface/GlobalDraw.h
 Interface/GlobalDraw.obj: C:/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/udma.h
 Interface/GlobalDraw.obj: C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/Kentec320x240x16_ssd2119_spi.h
 Interface/GlobalDraw.obj: ../Interface/GraphFunctions.h
 Interface/GlobalDraw.obj: C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/touch.h
-Interface/GlobalDraw.obj: C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/empty.h
+Interface/GlobalDraw.obj: C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/empty.h
 Interface/GlobalDraw.obj: ../Interface/GraphData.h
-Interface/GlobalDraw.obj: C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/sensors/sensors.h
+Interface/GlobalDraw.obj: C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/sensors/sensors.h
 Interface/GlobalDraw.obj: C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/swi.h
 Interface/GlobalDraw.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/System.h
-Interface/GlobalDraw.obj: C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/sensors/bmi160.h
+Interface/GlobalDraw.obj: C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/sensors/bmi160.h
 
 ../Interface/GlobalDraw.c:
 
@@ -439,7 +439,7 @@ C:/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/radiobu
 
 C:/ti/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/grlib/slider.h:
 
-C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Clock.h:
+C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Clock.h:
 
 C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/hal/Timer.h:
 
@@ -677,9 +677,9 @@ C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/T
 
 C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IGateProvider.h:
 
-C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Images/Images.h:
+C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Images/Images.h:
 
-C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Images/GUIImg.h:
+C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/Images/GUIImg.h:
 
 ../Interface/GlobalDraw.h:
 
@@ -691,15 +691,15 @@ C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s
 
 C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/touch.h:
 
-C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/empty.h:
+C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/empty.h:
 
 ../Interface/GraphData.h:
 
-C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/sensors/sensors.h:
+C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/sensors/sensors.h:
 
 C:/ti/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/swi.h:
 
 C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/System.h:
 
-C:/Users/akank/Documents/GitHub/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/sensors/bmi160.h:
+C:/egh456_1/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/sensors/bmi160.h:
 
