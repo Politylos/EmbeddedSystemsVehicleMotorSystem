@@ -521,6 +521,8 @@ void SensorPage()
     double objectdist = 23;
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
+    UInt gateKey;
+    gateKey = GateHwi_enter(gateHwi);
     RemoveMainPage();
     GrContextForegroundSet(&sContext, ClrBlack);
     GrRectFill(&sContext, &clearBox);
@@ -551,6 +553,7 @@ void SensorPage()
     GrStringDrawCentered(&sContext, tempchar, -1, 135, 80, 0);
     sprintf(tempchar, "%i m/s", MaxAccel);
     GrStringDrawCentered(&sContext, tempchar, -1, 224, 119, 0);
+    GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 void updateSensorPage(){
@@ -558,6 +561,8 @@ void updateSensorPage(){
     tRectangle covertext;
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
+    UInt gateKey;
+    gateKey = GateHwi_enter(gateHwi);
     covertext.i16XMin = 117-30;
     covertext.i16YMin = 47-10;
     covertext.i16XMax = 117+30;
@@ -584,6 +589,7 @@ void updateSensorPage(){
     GrStringDrawCentered(&sContext, tempchar, -1, 150, 80, 0);
     sprintf(tempchar, "%5.2i m/s", MaxAccel);
     GrStringDrawCentered(&sContext, tempchar, -1, 224, 119, 0);
+    GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
 
 }
@@ -599,7 +605,10 @@ void backMainSensor()
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
+    UInt gateKey;
+    gateKey = GateHwi_enter(gateHwi);
     removeSensorPage();
+    GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
     MainPage();
 }
@@ -607,6 +616,8 @@ void graphSelectPage()
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
+    UInt gateKey;
+    gateKey = GateHwi_enter(gateHwi);
     RemoveMainPage();
     GrContextForegroundSet(&sContext, ClrBlack);
     GrRectFill(&sContext, &clearBox);
@@ -620,6 +631,7 @@ void graphSelectPage()
     WidgetPaint(&LightGraphBtn);
     WidgetPaint(&TestGraphBtn);
     WidgetPaint(&backGraphSelectBtn);
+    GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 void RemoveGraphSelect()
@@ -645,7 +657,10 @@ void BackGraphSelect()
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
+    UInt gateKey;
+    gateKey = GateHwi_enter(gateHwi);
     RemoveGraph();
+    GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
     graphSelectPage();
 }
@@ -653,7 +668,10 @@ void BackMainGraph()
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
+    UInt gateKey;
+    gateKey = GateHwi_enter(gateHwi);
     RemoveGraphSelect();
+    GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
     MainPage();
 }
@@ -663,6 +681,8 @@ void UpdateGraphPlot(double *dataPoints, double tstart, double tend,
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
+    UInt gateKey;
+    gateKey = GateHwi_enter(gateHwi);
     graphClear.i16XMin = 54;
     graphClear.i16YMin = 40;
     graphClear.i16XMax = 303;
@@ -689,6 +709,7 @@ void UpdateGraphPlot(double *dataPoints, double tstart, double tend,
         GrLineDraw(&sContext, x, ystart, x + pixelW, yend);
         x = x + pixelW;
     }
+    GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 
@@ -697,6 +718,8 @@ void GraphPrimitive(double *dataPoints, double tstart, double tend,
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
+    UInt gateKey;
+    gateKey = GateHwi_enter(gateHwi);
     int ydif = CalcNoRemainder(150, (int)(mesEnd - mesStart));
     mesEnd = mesStart + ydif;
     double pixelH = (double)150 / (double)ydif;
@@ -735,12 +758,15 @@ void GraphPrimitive(double *dataPoints, double tstart, double tend,
         GrLineDraw(&sContext, x, ystart, x + pixelW, yend);
         x = x + pixelW;
     }
+    GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 void BackMainMotorPage()
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
+    UInt gateKey;
+    gateKey = GateHwi_enter(gateHwi);
     WidgetRemove((tWidget*) &MotorSpeedSlider);
     WidgetRemove((tWidget*) &CurrentUpBtn);
     WidgetRemove((tWidget*) &CurrentDownBtn);
@@ -748,6 +774,7 @@ void BackMainMotorPage()
     WidgetRemove((tWidget*) &AccDownBtn);
     WidgetRemove((tWidget*) &AccUpBtn);
     WidgetRemove((tWidget*) &MotorMode);
+    GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
     OnMotorPage = false;
     MainPage();
@@ -779,6 +806,8 @@ void MotorPage()
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
+    UInt gateKey;
+    gateKey = GateHwi_enter(gateHwi);
     //WidgetPaint(&g_clear);
     RemoveMainPage();
     CurrBox.i16XMin = 161;
@@ -822,6 +851,7 @@ void MotorPage()
     WidgetPaint((tWidget* )&AccDownBtn);
     WidgetPaint((tWidget* )&AccUpBtn);
     WidgetPaint((tWidget* )&MotorMode);
+    GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
     OnMotorPage = true;
 }

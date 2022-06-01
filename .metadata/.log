@@ -376,3 +376,82 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.ti.ccstud
 
 !ENTRY com.ti.ccstudio.project.ui.webcontent 1 0 2022-06-01 17:19:54.475
 !MESSAGE CCS HTTP adapter started! [ccs.port:55166] - Open 'http://localhost:55166/ide' in web browser to see listing of available APIs...
+!SESSION 2022-06-01 18:49:39.109 -----------------------------------------------
+eclipse.buildId=4.19.0.I20210303-1800
+java.version=11.0.13
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_AU
+Framework arguments:  -product com.ti.ccstudio.branding.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.ti.ccstudio.branding.product
+
+!ENTRY com.ti.common.core 1 0 2022-06-01 18:49:42.600
+!MESSAGE path=ccs_base/DebugServer
+
+!ENTRY com.ti.common.core 1 0 2022-06-01 18:49:42.602
+!MESSAGE debugServerDir=C:/ti/ccs1110/ccs/ccs_base/DebugServer
+
+!ENTRY com.ti.ccstudio.ui 1 0 2022-06-01 18:49:52.462
+!MESSAGE CCS IDE session started!
+	CCS build: 11.1.0.00011
+	CCS location: C:/ti/ccs1110/ccs
+	Workspace location: C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-06-01 18:49:52.594
+!MESSAGE constructor
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-06-01 18:49:52.594
+!MESSAGE done with directories
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-06-01 18:49:52.595
+!MESSAGE loading ti_logger
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-06-01 18:49:52.596
+!MESSAGE Platform os: win32
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-06-01 18:49:52.597
+!MESSAGE loading cToolsIF
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-06-01 18:49:52.599
+!MESSAGE loading cTools
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-06-01 18:49:52.602
+!MESSAGE loading TraceFactory
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-06-01 18:49:52.603
+!MESSAGE loading sqlite3
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-06-01 18:49:52.606
+!MESSAGE loading CloudTrace
+
+!ENTRY com.ti.dbgtrc.webapp.CloudTraceInterface 0 0 2022-06-01 18:49:52.612
+!MESSAGE CloudTrace interface loaded
+
+!ENTRY com.ti.ccstudio.project.ui.webcontent 1 0 2022-06-01 18:49:52.690
+!MESSAGE CCS HTTP adapter started! [ccs.port:58429] - Open 'http://localhost:58429/ide' in web browser to see listing of available APIs...
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-06-01 18:57:31.252
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\grlib\image.c
+
+!ENTRY org.eclipse.cdt.dsf.ui 2 0 2022-06-01 18:58:52.990
+!MESSAGE Unable to locate file: C:\Jenkins\workspace\TivaWare-Git-Release\DriverLib\build\DriverLib.test\grlib\image.c
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2022-06-01 18:59:09.022
+!MESSAGE Request for monitor: '_Application_1_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_BreakpointManager_Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0_BreakpointManager_Breakpoint(81)' resulted in an error.
+!SUBENTRY 1 com.ti.ccstudio.debug 4 10004 2022-06-01 18:59:09.022
+!MESSAGE Error enabling this function: There is no AET resource to support this job.
+!STACK 0
+com.ti.debug.engine.IBreakpointManager$BreakpointException: Error enabling this function: There is no AET resource to support this job.
+	at com.ti.debug.engine.impl.BreakpointManager.checkForException(BreakpointManager.java:60)
+	at com.ti.debug.engine.impl.BreakpointManager.enable(BreakpointManager.java:115)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.dsEnabled(BreakpointManagerDMContext.java:720)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.insertBreakpoint(BreakpointManagerDMContext.java:351)
+	at com.ti.ccstudio.debug.service.contexts.BreakpointManagerDMContext.insertBreakpoint(BreakpointManagerDMContext.java:315)
+	at com.ti.ccstudio.debug.service.BreakpointService.insertBreakpoint(BreakpointService.java:474)
+	at com.ti.ccstudio.debug.service.BreakpointService$8$1.handleCompleted(BreakpointService.java:598)
+	at org.eclipse.cdt.dsf.concurrent.RequestMonitor$2.run(RequestMonitor.java:317)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)

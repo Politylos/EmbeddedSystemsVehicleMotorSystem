@@ -79,6 +79,7 @@
 #include <drivers/motorlib.h>
 #include "Interface/GraphFunctions.h"
 #include "Interface/GraphData.h"
+#include "Estop.h"
 
 #define PERIOD  200 //ms
 #define PWM_START  25
@@ -267,7 +268,7 @@ Void RegulateSpeed(UArg a0, UArg a1)
     UInt32 time;
 
     gateKey = GateHwi_enter(gateHwi);
-    estop =checkEstop();
+
     /*get current speed*/
     time = Clock_getTicks();
     previous_speed = current_speed;
@@ -298,6 +299,7 @@ Void RegulateSpeed(UArg a0, UArg a1)
             //System_printf("time %d, max acceleration -> speed changed %d\n",time, (int)current_speed);
         }
         else if(acceleration < (MAX_DECEL*100)){
+
             acceleration = MAX_DECEL;
             current_speed = (acceleration*PERIOD) + previous_speed;
           //  System_printf("time %d, min acceleration -> speed changed%d\n",time, (int)current_speed);
@@ -305,6 +307,7 @@ Void RegulateSpeed(UArg a0, UArg a1)
         else{
         //    System_printf("time %d, normal acceleration %d, %d, %d\n",time, (int)acceleration, (int)(MAX_ACCEL*100), (int)(MAX_DECEL*100) );
         }
+        if(!estop){estop =checkEstop();}
 
 
     /*estop control*/
@@ -314,6 +317,7 @@ Void RegulateSpeed(UArg a0, UArg a1)
         disableMotor();
         estop=0;
         Stop=1;
+        //estop =checkEstop();
     }
     else if((estop && current_speed != 0)||(Stop && current_speed != 0)){
         PIControl(current_speed, 0); //desired speed is zero
