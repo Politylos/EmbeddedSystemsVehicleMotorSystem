@@ -231,7 +231,7 @@ void heartBeatFxn(UArg arg0, UArg arg1)
     {
 
         Task_sleep(1000);
-
+        updatetime(&datetime);
         TopBarDraw(&sContext, datetime, LowLight, currentDirection,
                    CurrentMotorStat, CurrentAcceleration);
         if (LightSecond < 5){

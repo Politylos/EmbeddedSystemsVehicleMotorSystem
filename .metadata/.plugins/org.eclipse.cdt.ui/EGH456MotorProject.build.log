@@ -5,56 +5,13 @@
  
 making ../src/sysbios/sysbios.aem4f ...
 gmake[1]: Nothing to be done for 'all'.
-Building file: "../Interface/GlobalDraw.c"
+Building file: "../empty.c"
 Invoking: ARM Compiler
-"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="Interface/GlobalDraw.d_raw" --obj_directory="Interface" --cmd_file="configPkg/compiler.opt"  "../Interface/GlobalDraw.c"
-"../Interface/GlobalDraw.c", line 131: warning #145-D: a value of type "int (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
-"../Interface/GlobalDraw.c", line 137: warning #145-D: a value of type "int (*)()" cannot be used to initialize an entity of type "void (*)(tWidget *)"
-"../Interface/GlobalDraw.c", line 249: warning #225-D: function "usprintf" declared implicitly
-"../Interface/GlobalDraw.c", line 240: warning #179-D: variable "pcSliderText" was declared but never referenced
-"../Interface/GlobalDraw.c", line 259: warning #179-D: variable "ahhhhhh" was declared but never referenced
-"../Interface/GlobalDraw.c", line 370: warning #169-D: argument of type "tCanvasWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 371: warning #169-D: argument of type "tCanvasWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 372: warning #169-D: argument of type "tCanvasWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 373: warning #169-D: argument of type "tCanvasWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 301: warning #179-D: variable "ScreenKey" was declared but never referenced
-"../Interface/GlobalDraw.c", line 497: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 498: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 499: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 502: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 503: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 504: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 512: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 513: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 514: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 538: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 540: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 542: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 520: warning #179-D: variable "lux" was declared but never referenced
-"../Interface/GlobalDraw.c", line 521: warning #179-D: variable "objectdist" was declared but never referenced
-"../Interface/GlobalDraw.c", line 599: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 600: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 601: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 624: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 625: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 626: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 627: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 628: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 629: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 630: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 631: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 632: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 633: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 639: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 640: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 641: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 642: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 643: warning #169-D: argument of type "tPushButtonWidget *" is incompatible with parameter of type "tWidget *"
-"../Interface/GlobalDraw.c", line 703: warning #179-D: variable "qq" was declared but never referenced
-"../Interface/GlobalDraw.c", line 753: warning #179-D: variable "qq" was declared but never referenced
-"../Interface/GlobalDraw.c", line 860: warning #515-D: a value of type "int *" cannot be assigned to an entity of type "int"
-"../Interface/GlobalDraw.c", line 863: warning #515-D: a value of type "int *" cannot be assigned to an entity of type "int"
-Finished building: "../Interface/GlobalDraw.c"
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+"../empty.c", line 229: warning #179-D: variable "prevStop" was declared but never referenced
+"../empty.c", line 295: warning #225-D: function "FPUEnable" declared implicitly
+"../empty.c", line 296: warning #225-D: function "FPULazyStackingEnable" declared implicitly
+Finished building: "../empty.c"
  
 making ../src/sysbios/sysbios.aem4f ...
 gmake[2]: Nothing to be done for 'all'.
