@@ -8,6 +8,7 @@
 #include "driverlib/uart.h"
 #include "utils/uartstdio.h"
 
+
 #define FIRST_STEP 0
 #define SEQUENCE_NUMBER 0
 #define ADC_PRIORITY 0
