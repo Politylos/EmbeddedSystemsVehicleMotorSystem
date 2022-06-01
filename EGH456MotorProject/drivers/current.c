@@ -63,7 +63,7 @@ double GetCurrentValue() {
 
 
     // Convert digital value to current reading (VREF- is 0, so it can be ignored)
-    current_value = ((REF_VOLTAGE/2)- (pui32ADC1Value[1]))/(10*0.007);
+    current_value = ((REF_VOLTAGE/2)- (pui32ADC1Value[0]))/(10*0.007);
 
 
     return current_value;
