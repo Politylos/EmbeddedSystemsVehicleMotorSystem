@@ -2,3 +2,4 @@
 void StartADCSampling();
 double GetCurrentValue();
 
+
