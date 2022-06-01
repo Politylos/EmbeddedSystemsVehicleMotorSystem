@@ -1,0 +1,4 @@
+
+void StartADCSampling();
+double GetCurrentValue();
+
