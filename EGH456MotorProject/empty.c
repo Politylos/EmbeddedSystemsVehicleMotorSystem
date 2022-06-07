@@ -197,6 +197,10 @@ enum AccelerationStat
 {
     slow = 0, normal, fast
 };
+enum CurrentScreen
+{
+    Empty = 0,MainS, MotorS, SensorS,GraphSS,GraphPS,GraphLS,GraphMS,GraphAS
+};
 int currentDirection = North;
 int CurrentMotorStat = Idle;
 int CurrentAcceleration = slow;
@@ -214,7 +218,33 @@ void TouchCheckTask(UArg arg0, UArg arg1)
     while (1)
     {
         WidgetMessageQueueProcess();
-        //Task_sleep(100);
+        switch(SelectedScreen) {
+        case (MainS):
+        MainPage();
+        break;
+        case (MotorS):
+        MotorPage();
+        break;
+        case (SensorS):
+        SensorPage();
+        break;
+        case (GraphSS):
+        graphSelectPage();
+        break;
+        case (GraphPS):
+        GraphPageCurrent();
+        break;
+        case (GraphLS):
+        GraphPageLight();
+        break;
+        case (GraphMS):
+        GraphPageVelocity();
+        break;
+        case (GraphAS):
+        GraphPageAccel();
+        break;
+              //Task_sleep(100);
+        }
     }
 }
 

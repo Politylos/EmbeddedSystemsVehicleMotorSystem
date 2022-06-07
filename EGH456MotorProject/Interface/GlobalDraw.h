@@ -23,4 +23,6 @@ extern void UpdateCurrentGraph();
 extern void UpdateVelocityGraph();
 extern bool OnMotorPage;
 extern void MotorPageUpdate();
+extern enum CurrentScreen;
+extern enum CurrentScreen SelectedScreen;
 #endif /* INTERFACE_GLOBALDRAW_H_ */

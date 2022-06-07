@@ -75,12 +75,18 @@ extern void GraphPageCurrent();
 extern void ChangeMotorStat();
 
 extern void GraphPrimitive(double *dataPoints, double tstart, double tend,
-                           double mesStart, double mesEnd, int size);
+                           double mesStart, double mesEnd, int size,uint8_t *text);
 
 tContext sContext;
 
 bool OnSensorPage=false;
 bool OnMotorPage=false;
+
+enum CurrentScreen
+{
+    Empty = 0,MainS, MotorS, SensorS,GraphSS,GraphPS,GraphLS,GraphMS,GraphAS
+};
+enum CurrentScreen SelectedScreen = Empty;
 
 Canvas(g_clear, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 0, 31, 320, 209,
        CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0);
@@ -217,6 +223,9 @@ Canvas(g_sCanvas3, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 205, 27, 110, 158,
        0);
 Canvas(g_sCanvas2, 0, &g_sCanvas3, 0, &g_sKentec320x240x16_SSD2119, 292, 0, 25,
        25, CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8Logo, 0);
+
+Canvas(g_text, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 6, 80, 17,104, CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, accelText, 0);
+
 Canvas(g_scompass, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 260, 0, 25, 25,
        CANVAS_STYLE_IMG, 0, 0, 0, 0, 0, g_pui8CompN, 0);
 Canvas(g_MotorStat, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 233, 0, 25, 25,
@@ -368,39 +377,14 @@ void TopBarDraw(tContext *sContext, FT time, bool Lightlvl, int Direction,
         CanvasImageSet(&g_Acceleration, g_pui8accfast);
     }
     WidgetPaint(&g_sCanvas2);
-    WidgetPaint(&g_scompass);
+    //WidgetPaint(&g_scompass);
     WidgetPaint(&g_MotorStat);
     WidgetPaint(&g_Acceleration);
     //GateHwi_leave(gateHwi, gateKey);
     //GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 
-void GraphPage()
-{
-    float x1 = 0;
-    float x2 = 10;
-    float y1 = 0;
-    float y2 = 100;
-    //ongraph=1;
-    double dd[50] = { 0, 0.0416493127863390, 0.166597251145356,
-                      0.374843815077051, 0.666389004581425, 1.04123281965848,
-                      1.49937526030821, 2.04081632653061, 2.66555601832570,
-                      3.37359433569346, 4.16493127863390, 5.03956684714702,
-                      5.99750104123282, 7.03873386089130, 8.16326530612245,
-                      9.37109537692628, 10.6622240733028, 12.0366513952520,
-                      13.4943773427738, 15.0354019158684, 16.6597251145356,
-                      18.3673469387755, 20.1582673885881, 22.0324864639734,
-                      23.9900041649313, 26.0308204914619, 28.1549354435652,
-                      30.3623490212412, 32.6530612244898, 35.0270720533111,
-                      37.4843815077051, 40.0249895876718, 42.6488962932112,
-                      45.3561016243232, 48.1466055810079, 51.0204081632653,
-                      53.9775093710954, 57.0179092044981, 60.1416076634736,
-                      63.3486047480217, 66.6389004581424, 70.0124947938359,
-                      73.4693877551020, 77.0095793419409, 80.6330695543524,
-                      84.3398583923365, 88.1299458558934, 92.0033319450229,
-                      95.9600166597251, 100 };
-    GraphPrimitive(dd, x1, x2, y1, y2, 50);
-}
+
 void UpdateLightGraph(){
     double x1 = 0;
     double x2 = 10;
@@ -412,13 +396,15 @@ void UpdateLightGraph(){
 }
 void GraphPageLight()
 {
+    SelectedScreen = GraphLS;
     double x1 = 0;
     double x2 = 10;
     //double test[] =  {1,1,2,3,4,5,6,7,10,0};
     double y1 = min_element(LightData)+1;
     double y2 = max_element(LightData)+1;
     //ongraph=1;
-    GraphPrimitive(LightData, x1, x2, y1, y2, 50);
+    GraphPrimitive(LightData, x1, x2, y1, y2, 50,BrightText);
+    SelectedScreen = Empty;
     LightGraph = true;
 }
 
@@ -433,26 +419,31 @@ void UpdateCurrentGraph(){
 }
 void GraphPageCurrent()
 {
+    SelectedScreen = GraphPS;
     double x1 = 0;
     double x2 = 10;
     //double test[] =  {1,1,2,3,4,5,6,7,10,0};
     double y1 = min_element(CurrentData)+1;
     double y2 = max_element(CurrentData)+1;
     //ongraph=1;
-    GraphPrimitive(LightData, x1, x2, y1, y2, 50);
+    GraphPrimitive(LightData, x1, x2, y1, y2, 50,CurrentText);
+    SelectedScreen = Empty;
     CurrentGraph = true;
+
 }
 
 void GraphPageAccel()
 {
+    SelectedScreen = GraphAS;
     double x1 = 0;
     double x2 = 10;
     //double test[] =  {1,1,2,3,4,5,6,7,10,0};
     double y1 = min_element(AccelData)+1;
     double y2 = max_element(AccelData)+1;
     //ongraph=1;
-    GraphPrimitive(AccelData, x1, x2, y1, y2, 50);
+    GraphPrimitive(AccelData, x1, x2, y1, y2, 50,accelText);
     AccelGraph = true;
+    SelectedScreen = Empty;
 }
 void UpdateAccelGraph(){
     double x1 = 0;
@@ -474,22 +465,25 @@ void UpdateVelocityGraph(){
 }
 void GraphPageVelocity()
 {
+    SelectedScreen = GraphMS;
     double x1 = 0;
     double x2 = 10;
     //double test[] =  {1,1,2,3,4,5,6,7,10,0};
     double y1 = 0;//min_element(VelocityData);
     double y2 = 6000;//max_element(VelocityData);
     //ongraph=1;
-    GraphPrimitive(VelocityData, x1, x2, y1, y2, 50);
+    GraphPrimitive(VelocityData, x1, x2, y1, y2, 50,VelText);
+    SelectedScreen = Empty;
     VelocityGraph = true;
 }
 
 void MainPage()
 {
-    //IArg ScreenKey;
-    //ScreenKey = GateMutexPri_enter(ScreenGate);
+    IArg ScreenKey;
+    ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
     //gateKey = GateHwi_enter(gateHwi);
+    SelectedScreen = MainS;
     clearBox.i16XMin = 0;
     clearBox.i16YMin = 32;
     clearBox.i16XMax = 319;
@@ -502,8 +496,9 @@ void MainPage()
     WidgetPaint(&MotorPgBtn);
     WidgetPaint(&SensorPgBtn);
     WidgetPaint(&GraphPgBtn);
+    SelectedScreen = Empty;
     //GateHwi_leave(gateHwi, gateKey);
-    //GateMutexPri_leave(ScreenGate, ScreenKey);
+    GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 
 void RemoveMainPage()
@@ -515,6 +510,7 @@ void RemoveMainPage()
 }
 void SensorPage()
 {
+    SelectedScreen = SensorS;
     OnSensorPage= true;
     //double lux = 12.45;
     double lux = opt3001_filteredValue;
@@ -554,6 +550,7 @@ void SensorPage()
     sprintf(tempchar, "%i m/s", MaxAccel);
     GrStringDrawCentered(&sContext, tempchar, -1, 224, 119, 0);
     //GateHwi_leave(gateHwi, gateKey);
+    SelectedScreen = Empty;
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 void updateSensorPage(){
@@ -614,6 +611,7 @@ void backMainSensor()
 }
 void graphSelectPage()
 {
+    SelectedScreen = GraphSS;
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
@@ -632,6 +630,7 @@ void graphSelectPage()
     WidgetPaint(&TestGraphBtn);
     WidgetPaint(&backGraphSelectBtn);
     //GateHwi_leave(gateHwi, gateKey);
+    SelectedScreen = Empty;
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 void RemoveGraphSelect()
@@ -714,7 +713,7 @@ void UpdateGraphPlot(double *dataPoints, double tstart, double tend,
 }
 
 void GraphPrimitive(double *dataPoints, double tstart, double tend,
-                    double mesStart, double mesEnd, int size)
+                    double mesStart, double mesEnd, int size,uint8_t *text)
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
@@ -758,6 +757,8 @@ void GraphPrimitive(double *dataPoints, double tstart, double tend,
         GrLineDraw(&sContext, x, ystart, x + pixelW, yend);
         x = x + pixelW;
     }
+    CanvasImageSet(&g_text,text);
+    WidgetPaint(&g_text);
     //GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
@@ -812,6 +813,7 @@ void MotorPageUpdate(){
 }
 void MotorPage()
 {
+    SelectedScreen = MotorS;
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
@@ -863,6 +865,7 @@ void MotorPage()
     //WidgetPaint((tWidget* )&AccUpBtn);
     WidgetPaint((tWidget* )&MotorMode);
     //GateHwi_leave(gateHwi, gateKey);
+    SelectedScreen = Empty;
     GateMutexPri_leave(ScreenGate, ScreenKey);
     OnMotorPage = true;
 }

@@ -26,7 +26,9 @@ extern const uint8_t g_pui8btn150x40Press[];
 extern const uint8_t g_pui8backBtn[];
 extern const uint8_t g_pui8arrowRight[];
 extern const uint8_t g_pui8arrowLeft[];
-
-
+extern const uint8_t VelText[];
+extern const uint8_t BrightText[];
+extern const uint8_t accelText[];
+extern const uint8_t CurrentText[];
 
 #endif /* IMAGES_GUIIMG_H_ */
