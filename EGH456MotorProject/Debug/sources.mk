@@ -127,7 +127,6 @@ SUBDIRS := \
 Images \
 Interface \
 LIBS \
-Screen \
 drivers \
 drivers/Motor \
 sensors \

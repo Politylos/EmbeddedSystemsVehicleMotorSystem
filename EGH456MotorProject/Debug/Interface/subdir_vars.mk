@@ -8,37 +8,31 @@ SHELL = cmd.exe
 C_SRCS += \
 ../Interface/GlobalDraw.c \
 ../Interface/GraphData.c \
-../Interface/GraphFunctions.c \
-../Interface/Pages.c 
+../Interface/GraphFunctions.c 
 
 C_DEPS += \
 ./Interface/GlobalDraw.d \
 ./Interface/GraphData.d \
-./Interface/GraphFunctions.d \
-./Interface/Pages.d 
+./Interface/GraphFunctions.d 
 
 OBJS += \
 ./Interface/GlobalDraw.obj \
 ./Interface/GraphData.obj \
-./Interface/GraphFunctions.obj \
-./Interface/Pages.obj 
+./Interface/GraphFunctions.obj 
 
 OBJS__QUOTED += \
 "Interface\GlobalDraw.obj" \
 "Interface\GraphData.obj" \
-"Interface\GraphFunctions.obj" \
-"Interface\Pages.obj" 
+"Interface\GraphFunctions.obj" 
 
 C_DEPS__QUOTED += \
 "Interface\GlobalDraw.d" \
 "Interface\GraphData.d" \
-"Interface\GraphFunctions.d" \
-"Interface\Pages.d" 
+"Interface\GraphFunctions.d" 
 
 C_SRCS__QUOTED += \
 "../Interface/GlobalDraw.c" \
 "../Interface/GraphData.c" \
-"../Interface/GraphFunctions.c" \
-"../Interface/Pages.c" 
+"../Interface/GraphFunctions.c" 
 
 

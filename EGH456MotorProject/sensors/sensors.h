@@ -18,6 +18,7 @@ extern void readCurrentFxn(UArg arg0, UArg arg1);
 extern void i2c_Open(void);
 extern void accelSensorFilterFxn(void);
 extern void currentSensorFilterFxn(void);
+extern double CurrentSecond;
 extern Swi_Handle swiAccelSensorFilterHandle;
 extern Swi_Handle swiLightSensorFilterHandle;
 extern Swi_Handle swiCurrentSensorFilterHandle;

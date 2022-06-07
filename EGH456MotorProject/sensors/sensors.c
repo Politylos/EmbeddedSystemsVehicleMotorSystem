@@ -27,13 +27,14 @@
 #include <driverlib/gpio.h>
 #include <driverlib/sysctl.h>
 #include <inc/hw_memmap.h>
+#include "drivers/Motor/Motor.h"
 
 
 
 double LightSecond=0;
 double CurrentSecond = 0;
 double AccelSecond = 0;
-double MaxCurrent =100;
+double MaxCurrent =1;
 Swi_Handle swiAccelSensorFilterHandle;
 Swi_Handle swiLightSensorFilterHandle;
 Swi_Handle swiCurrentSensorFilterHandle;
@@ -110,8 +111,8 @@ void readOptFxn(UArg arg0, UArg arg1)
         }
         else
         {
-            System_printf("opt3001 not read\n");
-            System_flush();
+            //System_printf("opt3001 not read\n");
+            //System_flush();
         }
         Task_sleep(500);
     }
@@ -360,8 +361,10 @@ void currentSensorFilterFxn(void)
         ArrayUpdate(CurrentData,CurrentSecond);
     }
     bufferCurrent=(bufferCurrent+1)%33;
-    current_filteredValue=(current_filteredValue+1)/33;
-    if(current_filteredValue > MaxCurrent){
-        EstopPower();
+    //current_filteredValue=(current_filteredValue+1)/33;
+    if((!Stop)&&(!estop)){
+        if((current_filteredValue > MaxCurrent)){
+            EstopPower();
+        }
     }
 }

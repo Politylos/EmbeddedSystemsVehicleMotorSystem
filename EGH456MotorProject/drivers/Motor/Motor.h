@@ -46,6 +46,7 @@ extern double GetDesiredSpeed(double user_desired_speed);
 extern volatile double desired_speed;
 extern double VelocitySecond;
 extern bool Stop;
+extern int noMove;
 extern bool estop;
 extern void MotorStart();
 
