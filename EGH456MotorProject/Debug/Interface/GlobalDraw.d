@@ -226,6 +226,11 @@ Interface/GlobalDraw.obj: C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSy
 Interface/GlobalDraw.obj: ../Interface/GlobalDraw.h
 Interface/GlobalDraw.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/driverlib/udma.h
 Interface/GlobalDraw.obj: C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/Kentec320x240x16_ssd2119_spi.h
+Interface/GlobalDraw.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/gates/GateSwi.h
+Interface/GlobalDraw.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h
+Interface/GlobalDraw.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IInstance.h
+Interface/GlobalDraw.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Assert.h
+Interface/GlobalDraw.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IGateProvider.h
 Interface/GlobalDraw.obj: ../Interface/GraphFunctions.h
 Interface/GlobalDraw.obj: C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/touch.h
 Interface/GlobalDraw.obj: C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/empty.h
@@ -297,6 +302,7 @@ Interface/GlobalDraw.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_
 Interface/GlobalDraw.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h
 Interface/GlobalDraw.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IInstance.h
 Interface/GlobalDraw.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IGateProvider.h
+Interface/GlobalDraw.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/gates/GateSwi.h
 Interface/GlobalDraw.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/I2C.h
 Interface/GlobalDraw.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h
 Interface/GlobalDraw.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Log.h
@@ -756,6 +762,16 @@ C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b/drive
 
 C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/Kentec320x240x16_ssd2119_spi.h:
 
+C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/gates/GateSwi.h:
+
+C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h:
+
+C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IInstance.h:
+
+C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Assert.h:
+
+C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IGateProvider.h:
+
 ../Interface/GraphFunctions.h:
 
 C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1/drivers/touch.h:
@@ -897,6 +913,8 @@ C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h:
 C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IInstance.h:
 
 C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IGateProvider.h:
+
+C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/gates/GateSwi.h:
 
 C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages/ti/drivers/I2C.h:
 

@@ -329,6 +329,11 @@ empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packag
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Queue.h
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Semaphore.h
 empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/gates/GateHwi.h
+empty.obj: C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/gates/GateSwi.h
+empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h
+empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IInstance.h
+empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Assert.h
+empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IGateProvider.h
 empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h
 empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Log.h
 empty.obj: C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/System.h
@@ -991,6 +996,16 @@ C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbi
 C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/knl/Semaphore.h:
 
 C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/gates/GateHwi.h:
+
+C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/gates/GateSwi.h:
+
+C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Types.h:
+
+C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IInstance.h:
+
+C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Assert.h:
+
+C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/IGateProvider.h:
 
 C:/ti/ccs1110/xdctools_3_32_00_06_core/packages/xdc/runtime/Error.h:
 

@@ -221,27 +221,35 @@ void TouchCheckTask(UArg arg0, UArg arg1)
         switch(SelectedScreen) {
         case (MainS):
         MainPage();
+        SelectedScreen = Empty;
         break;
         case (MotorS):
         MotorPage();
+        SelectedScreen = Empty;
         break;
         case (SensorS):
         SensorPage();
+        SelectedScreen = Empty;
         break;
         case (GraphSS):
         graphSelectPage();
+        SelectedScreen = Empty;
         break;
         case (GraphPS):
         GraphPageCurrent();
+        SelectedScreen = Empty;
         break;
         case (GraphLS):
         GraphPageLight();
+        SelectedScreen = Empty;
         break;
         case (GraphMS):
         GraphPageVelocity();
+        SelectedScreen = Empty;
         break;
         case (GraphAS):
         GraphPageAccel();
+        SelectedScreen = Empty;
         break;
               //Task_sleep(100);
         }

@@ -30,6 +30,7 @@
 #include <ti/sysbios/knl/Queue.h>
 #include <ti/sysbios/knl/Semaphore.h>
 #include <ti/sysbios/gates/GateHwi.h>
+#include <ti/sysbios/gates/GateSwi.h>
  #include <ti/drivers/I2C.h>
 #include <xdc/runtime/Error.h>
 #include <xdc/runtime/Log.h>
@@ -45,6 +46,7 @@ extern void MotorMain(void);
 extern double GetDesiredSpeed(double user_desired_speed);
 extern volatile double desired_speed;
 extern double VelocitySecond;
+extern GateSwi_Handle SwiGate;
 extern bool Stop;
 extern int noMove;
 extern bool estop;

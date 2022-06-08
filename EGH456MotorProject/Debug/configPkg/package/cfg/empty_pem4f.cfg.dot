@@ -355,6 +355,9 @@ digraph configuration {
         ti_sysbios_gates_GateHwi [style=filled,fillcolor=lightgray, label="GateHwi"];
         ti_sysbios_gates__top -> ti_sysbios_gates_GateHwi[style=invis];
         ti_sysbios_gates_GateHwi -> ti_sysbios_gates__bot[style=invis];
+        ti_sysbios_gates_GateSwi [style=filled,fillcolor=lightgray, label="GateSwi"];
+        ti_sysbios_gates__top -> ti_sysbios_gates_GateSwi[style=invis];
+        ti_sysbios_gates_GateSwi -> ti_sysbios_gates__bot[style=invis];
         ti_sysbios_gates_GateMutexPri [style=filled,fillcolor=lightgray, label="GateMutexPri"];
         ti_sysbios_gates__top -> ti_sysbios_gates_GateMutexPri[style=invis];
         ti_sysbios_gates_GateMutexPri -> ti_sysbios_gates__bot[style=invis];

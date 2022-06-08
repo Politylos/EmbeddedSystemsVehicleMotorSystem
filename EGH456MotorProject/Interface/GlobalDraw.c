@@ -32,7 +32,7 @@
 #include "GlobalDraw.h"
 #include "driverlib/udma.h"
 #include "drivers/Kentec320x240x16_ssd2119_spi.h"
-
+#include <ti/sysbios/gates/GateSwi.h>
 #include "GraphFunctions.h"
 #include "drivers/touch.h"
 #include "empty.h"
@@ -73,6 +73,37 @@ extern void ChangeCurrentUp();
 extern void OnSliderChange(tWidget *psWidget, int32_t i32Value);
 extern void GraphPageCurrent();
 extern void ChangeMotorStat();
+enum CurrentScreen
+{
+    Empty = 0,MainS, MotorS, SensorS,GraphSS,GraphPS,GraphLS,GraphMS,GraphAS
+};
+enum CurrentScreen SelectedScreen = Empty;
+
+void setMotorPage(){
+    SelectedScreen = MotorS;
+}
+void setMainPage(){
+    SelectedScreen = MainS;
+}
+void setSensorPage(){
+    SelectedScreen = SensorS;
+}
+void setGraphSPage(){
+    SelectedScreen = GraphSS;
+}
+void setGraphPPage(){
+    SelectedScreen = GraphPS;
+}
+void setGraphLPage(){
+    SelectedScreen = GraphLS;
+}
+void setGraphMPage(){
+    SelectedScreen = GraphMS;
+}
+void setGraphAPage(){
+    SelectedScreen = GraphAS;
+}
+
 
 extern void GraphPrimitive(double *dataPoints, double tstart, double tend,
                            double mesStart, double mesEnd, int size,uint8_t *text);
@@ -82,11 +113,7 @@ tContext sContext;
 bool OnSensorPage=false;
 bool OnMotorPage=false;
 
-enum CurrentScreen
-{
-    Empty = 0,MainS, MotorS, SensorS,GraphSS,GraphPS,GraphLS,GraphMS,GraphAS
-};
-enum CurrentScreen SelectedScreen = Empty;
+
 
 Canvas(g_clear, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 0, 31, 320, 209,
        CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0);
@@ -94,19 +121,19 @@ tPushButtonWidget MotorPgBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 89, 58, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Motor Control", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, MotorPage)
+        g_pui8btn150x40Press, 0, 0, setMotorPage)
 ;
 tPushButtonWidget SensorPgBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 89, 117, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Sensor Control", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, SensorPage)
+        g_pui8btn150x40Press, 0, 0, setSensorPage)
 ;
 tPushButtonWidget GraphPgBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 89, 172, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Data Graphing", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, graphSelectPage)
+        g_pui8btn150x40Press, 0, 0, setGraphSPage)
 ;
 
 tPushButtonWidget CurrentUpBtn = RectangularButtonStruct(0, 0, 0,
@@ -184,25 +211,25 @@ tPushButtonWidget PowerGraphBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 83, 43, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Power Graph", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, GraphPageCurrent)
+        g_pui8btn150x40Press, 0, 0, setGraphPPage)
 ;
 tPushButtonWidget MotorGraphBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 83, 90, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Motor Speed Graph", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, GraphPageVelocity)
+        g_pui8btn150x40Press, 0, 0, setGraphMPage)
 ;
 tPushButtonWidget LightGraphBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 83, 138, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Light Graph", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, GraphPageLight)
+        g_pui8btn150x40Press, 0, 0, setGraphLPage)
 ;
 tPushButtonWidget TestGraphBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 83, 187, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Acceleration Graph", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, GraphPageAccel)
+        g_pui8btn150x40Press, 0, 0, setGraphAPage)
 ;
 
 tSliderWidget MotorSpeedSlider = SliderStruct(0, 0, 0,
@@ -210,7 +237,7 @@ tSliderWidget MotorSpeedSlider = SliderStruct(0, 0, 0,
         (SL_STYLE_FILL | SL_STYLE_BACKG_FILL | SL_STYLE_OUTLINE |
                 SL_STYLE_TEXT | SL_STYLE_BACKG_TEXT),
         ClrGray, ClrBlack, ClrSilver, ClrWhite, ClrWhite,
-        &g_sFontCm20, "25RPM", 0, 0, OnSliderChange)
+        &g_sFontCm20, "", 0, 0, OnSliderChange)
 ;
 
 tRectangle clearBox;
@@ -404,7 +431,7 @@ void GraphPageLight()
     double y2 = max_element(LightData)+1;
     //ongraph=1;
     GraphPrimitive(LightData, x1, x2, y1, y2, 50,BrightText);
-    SelectedScreen = Empty;
+    //SelectedScreen = Empty;
     LightGraph = true;
 }
 
@@ -427,7 +454,7 @@ void GraphPageCurrent()
     double y2 = max_element(CurrentData)+1;
     //ongraph=1;
     GraphPrimitive(LightData, x1, x2, y1, y2, 50,CurrentText);
-    SelectedScreen = Empty;
+    //SelectedScreen = Empty;
     CurrentGraph = true;
 
 }
@@ -443,7 +470,7 @@ void GraphPageAccel()
     //ongraph=1;
     GraphPrimitive(AccelData, x1, x2, y1, y2, 50,accelText);
     AccelGraph = true;
-    SelectedScreen = Empty;
+    //SelectedScreen = Empty;
 }
 void UpdateAccelGraph(){
     double x1 = 0;
@@ -473,7 +500,7 @@ void GraphPageVelocity()
     double y2 = 6000;//max_element(VelocityData);
     //ongraph=1;
     GraphPrimitive(VelocityData, x1, x2, y1, y2, 50,VelText);
-    SelectedScreen = Empty;
+    //SelectedScreen = Empty;
     VelocityGraph = true;
 }
 
@@ -496,7 +523,7 @@ void MainPage()
     WidgetPaint(&MotorPgBtn);
     WidgetPaint(&SensorPgBtn);
     WidgetPaint(&GraphPgBtn);
-    SelectedScreen = Empty;
+    //SelectedScreen = Empty;
     //GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
@@ -550,7 +577,7 @@ void SensorPage()
     sprintf(tempchar, "%i m/s", MaxAccel);
     GrStringDrawCentered(&sContext, tempchar, -1, 224, 119, 0);
     //GateHwi_leave(gateHwi, gateKey);
-    SelectedScreen = Empty;
+    //SelectedScreen = Empty;
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 void updateSensorPage(){
@@ -630,7 +657,7 @@ void graphSelectPage()
     WidgetPaint(&TestGraphBtn);
     WidgetPaint(&backGraphSelectBtn);
     //GateHwi_leave(gateHwi, gateKey);
-    SelectedScreen = Empty;
+    //SelectedScreen = Empty;
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 void RemoveGraphSelect()
@@ -817,6 +844,7 @@ void MotorPage()
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
+    static char pcCanvasText[9];
     //gateKey = GateHwi_enter(gateHwi);
     //WidgetPaint(&g_clear);
     RemoveMainPage();
@@ -824,6 +852,9 @@ void MotorPage()
     //CurrBox.i16YMin = 111;
     //CurrBox.i16XMax = 109 + 161;
     //CurrBox.i16YMax = 36 + 111 - 1;
+    usprintf(pcCanvasText, "%6dRPM", (int)desired_speed);
+    SliderValueSet(&MotorSpeedSlider,desired_speed);
+    SliderTextSet(&MotorSpeedSlider, pcCanvasText);
     AccBox.i16XMin = 161;
     AccBox.i16YMin = 155;
     AccBox.i16XMax = 109 + 161;
@@ -865,7 +896,7 @@ void MotorPage()
     //WidgetPaint((tWidget* )&AccUpBtn);
     WidgetPaint((tWidget* )&MotorMode);
     //GateHwi_leave(gateHwi, gateKey);
-    SelectedScreen = Empty;
+    //SelectedScreen = Empty;
     GateMutexPri_leave(ScreenGate, ScreenKey);
     OnMotorPage = true;
 }
@@ -895,16 +926,21 @@ void ChangeCurrentUp(){
 
 }
 void ChangeMotorStat(){
+    UInt SwiKey;
+    SwiKey = GateSwi_enter(SwiGate);
     if (!estop){
-        Stop=!Stop;
+
         if(!Stop){
+            PushButtonTextSet(&MotorMode,"Motor Start");
+            Stop=1;
+        }else{
             PushButtonTextSet(&MotorMode,"Motor Stop");
             MotorStart();
-        }else{
-            PushButtonTextSet(&MotorMode,"Motor Start");
+            Stop=0;
         }
     }else{
         PushButtonTextSet(&MotorMode,"Motor Start");
     }
+    GateSwi_leave(SwiGate, SwiKey);
     WidgetPaint((tWidget *)&MotorMode);
 }

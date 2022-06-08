@@ -65,6 +65,7 @@
 #include <ti/sysbios/knl/Queue.h>
 #include <ti/sysbios/knl/Semaphore.h>
 #include <ti/sysbios/gates/GateHwi.h>
+#include <ti/sysbios/gates/GateSwi.h>
  #include <ti/drivers/I2C.h>
 #include <xdc/runtime/Error.h>
 #include <xdc/runtime/Log.h>
@@ -94,6 +95,10 @@ Clock_Handle clk2Handle;
 
 GateHwi_Handle gateHwi;
 GateHwi_Params gHwiprms;
+
+GateSwi_Handle SwiGate;
+GateSwi_Params SwiPrams;
+
 double VelocityBuffer[20];
 double VelocitySecond=0;
 int bufferpos = 0;
@@ -161,7 +166,7 @@ void eStop(){ //input sensor values
 //            }
     desired_speed = 0;
     stopMotor(0); //1
-    disableMotor();
+    //disableMotor();
 
     System_flush();
 }
@@ -211,6 +216,7 @@ void MotorStart(){
     UInt gateKey;
     gateKey = GateHwi_enter(gateHwi);
     Hall_changed=0;
+    Stop=0;
     GateHwi_leave(gateHwi, gateKey);
 }
 
@@ -280,6 +286,7 @@ void PIControl(double current_speed, double desired_speed){
 Void RegulateSpeed(UArg a0, UArg a1)
 {
     UInt gateKey;
+    UInt SwiKey;
     UInt32 time;
 
 
@@ -301,6 +308,7 @@ Void RegulateSpeed(UArg a0, UArg a1)
     //if(time > 0 && time % 1000 == 0){//every second
 
         double acceleration = 0;//(speed_rate/(double)PERIOD)*100;
+        SwiKey = GateSwi_enter(SwiGate);
         if((current_speed==0)&&(((!estop)&&(!Stop)))){
             MotorStart();
 
@@ -355,23 +363,25 @@ Void RegulateSpeed(UArg a0, UArg a1)
 
 
     /*estop control*/
-    if((estop && current_speed <= 1000)||(Stop && current_speed <= 500)){
+    if((estop && current_speed <= 1000)){
       //  System_printf("motor stop\n");
         stopMotor(0); //1
-        disableMotor();
+        //disableMotor();
         estop=0;
         Stop=1;
         noMove=1;
         current_Des = 0;
         //estop =checkEstop();
     }
-    else if((estop && current_speed != 0)||(Stop && current_speed != 0)){
-        PIControl(current_speed, current_Des); //desired speed is zero
+    else if((Stop) && (current_speed <= 500)){
+        stopMotor(0);
+        current_Des = 0;
+        //PIControl(current_speed, current_Des); //desired speed is zero
     }
     else{
         PIControl(current_speed, current_Des);
     }
-
+    GateSwi_leave(SwiGate, SwiKey);
 
     VelocityBuffer[bufferpos] = current_speed;
         if (bufferpos==19){
@@ -418,6 +428,13 @@ void MotorMain(void)
     if (gateHwi == NULL) {
         System_abort("Gate Hwi create failed");
     }
+
+    GateSwi_Params_init(&SwiPrams);
+    SwiGate = GateSwi_create(&SwiPrams, NULL);
+        if (SwiGate == NULL) {
+            System_abort("Gate Swi create failed");
+        }
+
 
     if (SwiHandle == NULL) {
         System_abort("Swi create failed");

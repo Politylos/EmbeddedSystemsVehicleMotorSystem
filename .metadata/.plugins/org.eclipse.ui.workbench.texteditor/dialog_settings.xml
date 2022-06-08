@@ -1,36 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Task"/>
+		<item key="selection" value="GraphLS"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="task"/>
-			<item value="ChangeMotorStat"/>
-			<item value="MotorMode"/>
-			<item value="swiCurrentSensorFilterHandle"/>
-			<item value="currentSensorFilterFxn"/>
-			<item value="LightGraph"/>
-			<item value="pixelH"/>
-			<item value="accelGraph"/>
-			<item value="float"/>
-			<item value="GateMutexPri_leave"/>
-			<item value="GateMutexPri"/>
+			<item value="GraphLS"/>
+			<item value="GraphPS"/>
+			<item value="GraphSS"/>
+			<item value="SensorS"/>
+			<item value="MotorS"/>
+			<item value="Running"/>
+			<item value="MotorStat"/>
+			<item value="//gateKey = GateHwi_enter(gateHwi);"/>
+			<item value="//GateHwi_leave(gateHwi, gateKey);"/>
+			<item value="g_text"/>
+			<item value="g_scompass"/>
+			<item value="GraphPrimitive"/>
+			<item value="GraphPage"/>
 			<item value="g_sCanvas2"/>
-			<item value="udma"/>
-			<item value="sysctl"/>
-			<item value="dd"/>
+			<item value="estop"/>
 		</list>
 		<list key="replacehistory">
+			<item value="gateKey = GateHwi_enter(gateHwi);"/>
+			<item value="GateHwi_leave(gateHwi, gateKey);"/>
+			<item value="//gateKey = GateHwi_enter(gateHwi);"/>
+			<item value="//GateHwi_leave(gateHwi, gateKey);"/>
 			<item value="double"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="2186"/>
-		<item key="DIALOG_Y_ORIGIN" value="928"/>
+		<item key="DIALOG_X_ORIGIN" value="1214"/>
+		<item key="DIALOG_Y_ORIGIN" value="643"/>
 		<item key="DIALOG_WIDTH" value="385"/>
 		<item key="DIALOG_HEIGHT" value="463"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
