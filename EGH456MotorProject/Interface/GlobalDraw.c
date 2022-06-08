@@ -121,19 +121,19 @@ tPushButtonWidget MotorPgBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 89, 58, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Motor Control", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, setMotorPage)
+        g_pui8btn150x40Press, 0, 0, MotorPage)
 ;
 tPushButtonWidget SensorPgBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 89, 117, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Sensor Control", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, setSensorPage)
+        g_pui8btn150x40Press, 0, 0, SensorPage)
 ;
 tPushButtonWidget GraphPgBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 89, 172, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Data Graphing", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, setGraphSPage)
+        g_pui8btn150x40Press, 0, 0, graphSelectPage)
 ;
 
 tPushButtonWidget CurrentUpBtn = RectangularButtonStruct(0, 0, 0,
@@ -211,25 +211,25 @@ tPushButtonWidget PowerGraphBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 83, 43, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Power Graph", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, setGraphPPage)
+        g_pui8btn150x40Press, 0, 0, GraphPageCurrent)
 ;
 tPushButtonWidget MotorGraphBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 83, 90, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Motor Speed Graph", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, setGraphMPage)
+        g_pui8btn150x40Press, 0, 0, GraphPageVelocity)
 ;
 tPushButtonWidget LightGraphBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 83, 138, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Light Graph", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, setGraphLPage)
+        g_pui8btn150x40Press, 0, 0, GraphPageLight)
 ;
 tPushButtonWidget TestGraphBtn = RectangularButtonStruct(0, 0, 0,
         &g_sKentec320x240x16_SSD2119, 83, 187, 150, 40,
         PB_STYLE_IMG | PB_STYLE_TEXT, 0, 0, 0, ClrSilver,
         &g_sFontCm16, "Acceleration Graph", g_pui8btn140x40,
-        g_pui8btn150x40Press, 0, 0, setGraphAPage)
+        g_pui8btn150x40Press, 0, 0, GraphPageAccel)
 ;
 
 tSliderWidget MotorSpeedSlider = SliderStruct(0, 0, 0,
@@ -486,7 +486,7 @@ void UpdateVelocityGraph(){
     double x2 = 10;
     //double test[] =  {1,1,2,3,4,5,6,7,10,0};
     double y1 = 0;//min_element(VelocityData);
-    double y2 = 6000;//max_element(VelocityData);
+    double y2 = max_element(VelocityData);
     //ongraph=1;
     UpdateGraphPlot(VelocityData, x1, x2, y1, y2, 50);
 }
@@ -497,7 +497,7 @@ void GraphPageVelocity()
     double x2 = 10;
     //double test[] =  {1,1,2,3,4,5,6,7,10,0};
     double y1 = 0;//min_element(VelocityData);
-    double y2 = 6000;//max_element(VelocityData);
+    double y2 = max_element(VelocityData);
     //ongraph=1;
     GraphPrimitive(VelocityData, x1, x2, y1, y2, 50,VelText);
     //SelectedScreen = Empty;
@@ -705,6 +705,7 @@ tRectangle graphClear;
 void UpdateGraphPlot(double *dataPoints, double tstart, double tend,
                      double mesStart, double mesEnd, int size)
 {
+    char tempchar[9];
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
@@ -715,6 +716,12 @@ void UpdateGraphPlot(double *dataPoints, double tstart, double tend,
     graphClear.i16YMax = 207;
     GrContextForegroundSet(&sContext, ClrBlack);
     GrRectFill(&sContext, &graphClear);
+
+    graphClear.i16XMin = 5;
+    graphClear.i16YMin = 57-15;
+    graphClear.i16XMax = 51;
+    graphClear.i16YMax = 57+15;
+    GrRectFill(&sContext, &graphClear);
     int ydif = CalcNoRemainder(150, mesEnd - mesStart);
     mesEnd = mesStart + ydif;
     double pixelH = (double)150 / (double)ydif;
@@ -723,6 +730,10 @@ void UpdateGraphPlot(double *dataPoints, double tstart, double tend,
     int ystart;
     int yend;
     int x = 54;
+    sprintf(tempchar, "%5.2f", mesEnd);
+    GrContextFontSet(&sContext, g_psFontCmss12);
+    GrContextForegroundSet(&sContext, ClrWhite);
+    GrStringDrawCentered(&sContext, tempchar, -1, 30, 57, 0);
     //GrContextForegroundSet(&sContext, ClrBlack);
     //GrRectFill(&sContext, &clearBox);
     GrContextForegroundSet(&sContext, ClrRed);
@@ -773,7 +784,7 @@ void GraphPrimitive(double *dataPoints, double tstart, double tend,
     sprintf(tempchar, "%5.2f", mesStart);
     GrStringDrawCentered(&sContext, tempchar, -1, 35, 207, 0);
     sprintf(tempchar, "%5.2f", mesEnd);
-    GrStringDrawCentered(&sContext, tempchar, -1, 35, 57, 0);
+    GrStringDrawCentered(&sContext, tempchar, -1, 30, 57, 0);
     int x = 54;
     GrContextForegroundSet(&sContext, ClrRed);
     int qq = size - 1;

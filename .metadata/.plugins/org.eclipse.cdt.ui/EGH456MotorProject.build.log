@@ -3,15 +3,50 @@
 
 "C:\\ti\\ccs1110\\ccs\\utils\\bin\\gmake" -k -j 16 all -O 
  
+        1 file(s) copied.
 making ../src/sysbios/sysbios.aem4f ...
+Building file: "../empty.cfg"
+Invoking: XDCtools
+"C:/ti/ccs1110/xdctools_3_32_00_06_core/xs" --xdcpath="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/tidrivers_tivac_2_16_00_08/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/ndk_2_25_00_09/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/uia_2_00_05_50/packages;C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/ns_1_11_00_10/packages;" xdc.tools.configuro -o configPkg -t ti.targets.arm.elf.M4F -p ti.platforms.tiva:TM4C1294NCPDT -r release -c "C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS" --compileOptions "-mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path=\"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject\" --include_path=\"C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1\" --include_path=\"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject\" --include_path=\"C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject\" --include_path=\"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b\" --include_path=\"C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix\" --include_path=\"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include\" --define=ccs=\"ccs\" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi  " "../empty.cfg"
 gmake[1]: Nothing to be done for 'all'.
-Building file: "../drivers/Motor/Motor.c"
+configuring empty.xem4f from package/cfg/empty_pem4f.cfg ...
+generating custom ti.sysbios library makefile ... 
+Starting build of library sources ...
+making C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/src/sysbios/sysbios.aem4f ...
+gmake[1]: Entering directory `C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/src/sysbios'
+clem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/BIOS.c ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/Hwi_asm.sv7M ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/Hwi_asm_switch.sv7M ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/IntrinsicsSupport_asm.sv7M ...
+asmem4f C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/family/arm/m3/TaskSupport_asm.sv7M ...
+arem4f BIOS.obj m3_Hwi_asm.obj m3_Hwi_asm_switch.obj m3_IntrinsicsSupport_asm.obj m3_TaskSupport_asm.obj ...
+gmake[1]: Leaving directory `C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject/src/sysbios'
+Build of libraries done.
+clem4f package/cfg/empty_pem4f.c ...
+"package/cfg/empty_pem4f.c", line 17454: warning #112-D: statement is unreachable
+"package/cfg/empty_pem4f.c", line 17926: warning #112-D: statement is unreachable
+"package/cfg/empty_pem4f.c", line 18412: warning #112-D: statement is unreachable
+"package/cfg/empty_pem4f.c", line 18647: warning #112-D: statement is unreachable
+"package/cfg/empty_pem4f.c", line 18867: warning #112-D: statement is unreachable
+"package/cfg/empty_pem4f.c", line 19066: warning #112-D: statement is unreachable
+"package/cfg/empty_pem4f.c", line 19247: warning #112-D: statement is unreachable
+Finished building: "../empty.cfg"
+ 
+Building file: "../empty.c"
 Invoking: ARM Compiler
-"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="drivers/Motor/Motor.d_raw" --obj_directory="drivers/Motor" --cmd_file="configPkg/compiler.opt"  "../drivers/Motor/Motor.c"
-"../drivers/Motor/Motor.c", line 123: warning #552-D: variable "time" was set but never used
-"../drivers/Motor/Motor.c", line 229: warning #179-D: variable "pwm_max" was declared but never referenced
-"../drivers/Motor/Motor.c", line 290: warning #552-D: variable "time" was set but never used
-Finished building: "../drivers/Motor/Motor.c"
+"C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c1294xl-boostxl-kentec-s1" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/Users/polit/Documents/EmbeddedSystemsVehicleMotorSystem/EGH456MotorProject" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/TivaWare_C_Series-2.1.1.71b" --include_path="C:/ti/ccs1110/tirtos_tivac_2_16_00_08/products/bios_6_45_01_29/packages/ti/sysbios/posix" --include_path="C:/ti/ccs1110/ccs/tools/compiler/ti-cgt-arm_20.2.5.LTS/include" --define=ccs="ccs" --define=PART_TM4C1294NCPDT --define=ccs --define=TIVAWARE -g --gcc --diag_warning=225 --diag_warning=255 --diag_wrap=off --display_error_number --gen_func_subsections=on --abi=eabi --preproc_with_compile --preproc_dependency="empty.d_raw" --cmd_file="configPkg/compiler.opt"  "../empty.c"
+"..\Interface/GlobalDraw.h", line 26: warning #1054-D: a storage class may not be specified here
+"../empty.c", line 227: warning #225-D: function "MotorPage" declared implicitly
+"../empty.c", line 231: warning #225-D: function "SensorPage" declared implicitly
+"../empty.c", line 235: warning #225-D: function "graphSelectPage" declared implicitly
+"../empty.c", line 239: warning #225-D: function "GraphPageCurrent" declared implicitly
+"../empty.c", line 243: warning #225-D: function "GraphPageLight" declared implicitly
+"../empty.c", line 247: warning #225-D: function "GraphPageVelocity" declared implicitly
+"../empty.c", line 251: warning #225-D: function "GraphPageAccel" declared implicitly
+"../empty.c", line 267: warning #179-D: variable "prevStop" was declared but never referenced
+"../empty.c", line 333: warning #225-D: function "FPUEnable" declared implicitly
+"../empty.c", line 334: warning #225-D: function "FPULazyStackingEnable" declared implicitly
+Finished building: "../empty.c"
  
 making ../src/sysbios/sysbios.aem4f ...
 gmake[2]: Nothing to be done for 'all'.

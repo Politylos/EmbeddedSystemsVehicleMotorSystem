@@ -146,8 +146,8 @@ void MotorInit(){
     //trigger motor hall effect sensors
     updateMotor(0,0,0);
 
-    System_printf("Motor initialisation complete\n");
-    System_flush();
+    //System_printf("Motor initialisation complete\n");
+   // System_flush();
 }
 
 /*
@@ -420,6 +420,7 @@ void MotorMain(void)
     /*Create the Swi thread*/
     Swi_Params swiParams;
     Swi_Params_init(&swiParams);
+    swiParams.priority = 13;
     SwiHandle = Swi_create(RegulateSpeed,&swiParams, NULL);
 
     /*Create Hwi Gate Mutex*/
@@ -448,8 +449,8 @@ void MotorMain(void)
     GPIO_setCallback(EK_TM4C1294XL_HB, HAllF);
     GPIO_setCallback(EK_TM4C1294XL_HC, HAllF);
 
-    System_printf("main complete\n");
-    System_flush();
+    //System_printf("main complete\n");
+    //System_flush();
 
     /* Start BIOS */
 

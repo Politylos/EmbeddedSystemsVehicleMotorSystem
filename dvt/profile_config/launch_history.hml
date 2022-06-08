@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.13" class="java.beans.XMLDecoder">
+ <object class="com.ti.dvt.profile.LaunchHistorySystem" id="LaunchHistorySystem0">
+  <void property="idHistoryMap">
+   <void method="put">
+    <string>Stellaris In-Circuit Debug Interface_0/CORTEX_M4_0</string>
+    <object class="com.ti.dvt.profile.LaunchHistory">
+     <void property="contextId">
+      <string>1d6e0</string>
+     </void>
+     <void property="orderedItems">
+      <object class="java.util.ArrayList"/>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>

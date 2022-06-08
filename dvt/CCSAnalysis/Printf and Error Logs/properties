@@ -1,0 +1,7 @@
+#Wed, 08 Jun 2022 11:44:31 +1000
+#Ant properties
+#Wed Jun 08 11:44:31 AEST 2022
+p.Version=1.0.0
+
+dvt.activity.name=RTOS Analyzer/Printf and Error Logs
+dvt.factory.activity=${dvt.basepath}common/analysis/usecases/dvt/SA_DebugLogs.control.xml

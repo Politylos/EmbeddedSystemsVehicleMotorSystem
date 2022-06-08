@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="GraphLS"/>
+		<item key="selection" value="bmi160_delay"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
-		<item key="wholeword" value="true"/>
+		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="bmi160_delay"/>
+			<item value="debug"/>
+			<item value="main complete"/>
+			<item value="BIOS.logsEnabled = true;"/>
+			<item value="ROM.romName"/>
+			<item value="Board_initGeneral"/>
+			<item value="Stop"/>
+			<item value="SelectedScreen = Empty;"/>
 			<item value="GraphLS"/>
 			<item value="GraphPS"/>
 			<item value="GraphSS"/>
@@ -15,16 +23,9 @@
 			<item value="MotorS"/>
 			<item value="Running"/>
 			<item value="MotorStat"/>
-			<item value="//gateKey = GateHwi_enter(gateHwi);"/>
-			<item value="//GateHwi_leave(gateHwi, gateKey);"/>
-			<item value="g_text"/>
-			<item value="g_scompass"/>
-			<item value="GraphPrimitive"/>
-			<item value="GraphPage"/>
-			<item value="g_sCanvas2"/>
-			<item value="estop"/>
 		</list>
 		<list key="replacehistory">
+			<item value="//SelectedScreen = Empty;"/>
 			<item value="gateKey = GateHwi_enter(gateHwi);"/>
 			<item value="GateHwi_leave(gateHwi, gateKey);"/>
 			<item value="//gateKey = GateHwi_enter(gateHwi);"/>
