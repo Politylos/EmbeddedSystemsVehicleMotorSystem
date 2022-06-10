@@ -1095,8 +1095,8 @@
          <RTOS_Load_Analysis_Caption> </RTOS_Load_Analysis_Caption>
          <Context_Aware_Function_Profiler>false</Context_Aware_Function_Profiler>
          <Context_Aware_Function_Profiler_Caption>Enable &quot;Context-Aware Function Profiler&quot;</Context_Aware_Function_Profiler_Caption>
-         <Task_Profiler>false</Task_Profiler>
-         <Task_Profiler_Caption>Enable &quot;Task Profiler&quot;</Task_Profiler_Caption>
+         <Task_Profiler>true</Task_Profiler>
+         <Task_Profiler_Caption> </Task_Profiler_Caption>
          <EWIP_Events>true</EWIP_Events>
          <EWIP_Events_Caption> </EWIP_Events_Caption>
          <Benchmarking>false</Benchmarking>
@@ -1149,12 +1149,16 @@
          <numCores>1</numCores>
       </taskLogger>
       <hwiLogger>
-         <instance>null</instance>
-         <name>null</name>
+         <instance>ti.uia.loggers.LoggerStopMode.Instance#2</instance>
+         <name>SYSBIOS System Logger</name>
+         <sizeInMAUs>0</sizeInMAUs>
+         <numCores>1</numCores>
       </hwiLogger>
       <swiLogger>
-         <instance>null</instance>
-         <name>null</name>
+         <instance>ti.uia.loggers.LoggerStopMode.Instance#2</instance>
+         <name>SYSBIOS System Logger</name>
+         <sizeInMAUs>0</sizeInMAUs>
+         <numCores>1</numCores>
       </swiLogger>
       <semaphoreLogger>
          <instance>null</instance>

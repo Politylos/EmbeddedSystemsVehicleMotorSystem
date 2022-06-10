@@ -4,6 +4,11 @@
  *  Created on: 7 May 2022
  *      Author: polit
  */
+//*****************************************************************************
+//
+// Includes
+//
+//*****************************************************************************
 #include <time.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -52,6 +57,12 @@ tDMAControlTable psDMAControlTable[64];
 tDMAControlTable psDMAControlTable[64] __attribute__ ((aligned(1024)));
 #endif
 
+//*****************************************************************************
+//
+// Pre define of functions
+//
+//*****************************************************************************
+
 extern void MotorPage();
 extern void GraphPage();
 extern void GraphPageLight();
@@ -73,6 +84,13 @@ extern void ChangeCurrentUp();
 extern void OnSliderChange(tWidget *psWidget, int32_t i32Value);
 extern void GraphPageCurrent();
 extern void ChangeMotorStat();
+
+//*****************************************************************************
+//
+// Defining enums for screen identification
+//
+//*****************************************************************************
+
 enum CurrentScreen
 {
     Empty = 0,MainS, MotorS, SensorS,GraphSS,GraphPS,GraphLS,GraphMS,GraphAS
@@ -108,12 +126,25 @@ void setGraphAPage(){
 extern void GraphPrimitive(double *dataPoints, double tstart, double tend,
                            double mesStart, double mesEnd, int size,uint8_t *text);
 
+
+
+//*****************************************************************************
+//
+// defining variables
+//
+//*****************************************************************************
 tContext sContext;
 
 bool OnSensorPage=false;
 bool OnMotorPage=false;
 
 
+
+//*****************************************************************************
+//
+// defininng GUI elements for screens
+//
+//*****************************************************************************
 
 Canvas(g_clear, 0, 0, 0, &g_sKentec320x240x16_SSD2119, 0, 31, 320, 209,
        CANVAS_STYLE_FILL, ClrBlack, 0, 0, 0, 0, 0, 0);
@@ -269,19 +300,16 @@ tRectangle BannerB;
 
 GateMutexPri_Handle ScreenGate;
 
+
+/*
+ * Function is used to update the current desired velociy for the motor
+ * takes slider widget and current value on the slider
+ */
 void
 OnSliderChange(tWidget *psWidget, int32_t i32Value)
 {
     static char pcCanvasText[9];
     static char pcSliderText[5];
-
-    //
-    // Is this the widget whose value we mirror in the canvas widget and the
-    // locked slider?
-    //
-        //
-        // Yes - update the canvas to show the slider value.
-        //
         usprintf(pcCanvasText, "%6dRPM", i32Value);
         SliderTextSet(&MotorSpeedSlider, pcCanvasText);
         WidgetPaint((tWidget *)&MotorSpeedSlider);
@@ -294,7 +322,9 @@ void btntest()
 {
     int ahhhhhh = 1;
 }
-
+/*
+ * This function is used to initalise the variables to manipulate the screen
+ */
 void InitScreen()
 {
     GateMutexPri_Params Gprams;
@@ -311,6 +341,10 @@ void InitScreen()
     TouchScreenCallbackSet(WidgetPointerMessage);
     MainPage();
 }
+/*
+ * This Function use used to initilise the element to draw on the global top banner
+ * takes pointer to screen context to write to
+ */
 void BannerInit(tContext *sContext)
 {
     Banner.i16XMin = 0;
@@ -331,13 +365,15 @@ void BannerInit(tContext *sContext)
                          GrContextDpyWidthGet(sContext) / 2-100, 8, 0);
 }
 
+/*
+ * This Function use used to update the current time and image displayed on the top banner of the screen
+ * takes pointer to screen context to write to
+ */
 void TopBarDraw(tContext *sContext, FT time, bool Lightlvl, int Direction,
                 int MotorStats, int accStat)
 {
     IArg ScreenKey;
     UInt gateKey;
-    //gateKey = GateHwi_enter(gateHwi);
-    //ScreenKey = GateMutexPri_enter(ScreenGate);
     GrContextForegroundSet(sContext, 0x00001A);
     GrRectFill(sContext, &Banner);
     GrContextForegroundSet(sContext, ClrWhite);
@@ -361,22 +397,6 @@ void TopBarDraw(tContext *sContext, FT time, bool Lightlvl, int Direction,
     {
         CanvasImageSet(&g_sCanvas2, g_pui8Day);
     }
-    /*if (Direction == 0)
-    {
-        CanvasImageSet(&g_scompass, g_pui8CompN);
-    }
-    else if (Direction == 1)
-    {
-        CanvasImageSet(&g_scompass, g_pui8CompE);
-    }
-    else if (Direction == 2)
-    {
-        CanvasImageSet(&g_scompass, g_pui8CompS);
-    }
-    else
-    {
-        CanvasImageSet(&g_scompass, g_pui8CompW);
-    }*/
     if (MotorStats == 0)
     {
         CanvasImageSet(&g_MotorStat, g_pui8idle);
@@ -404,23 +424,23 @@ void TopBarDraw(tContext *sContext, FT time, bool Lightlvl, int Direction,
         CanvasImageSet(&g_Acceleration, g_pui8accfast);
     }
     WidgetPaint(&g_sCanvas2);
-    //WidgetPaint(&g_scompass);
     WidgetPaint(&g_MotorStat);
     WidgetPaint(&g_Acceleration);
-    //GateHwi_leave(gateHwi, gateKey);
-    //GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 
-
+/*
+ * This Function is used to update the current plot for the light value graph
+ */
 void UpdateLightGraph(){
     double x1 = 0;
     double x2 = 10;
-    //double test[] =  {1,1,2,3,4,5,6,7,10,0};
     double y1 = min_element(LightData)+1;
     double y2 = max_element(LightData)+1;
-    //ongraph=1;
     UpdateGraphPlot(LightData, x1, x2, y1, y2, 50);
 }
+/*
+ * This Function is used to display the plot for the light value graph
+ */
 void GraphPageLight()
 {
     SelectedScreen = GraphLS;
@@ -434,7 +454,9 @@ void GraphPageLight()
     //SelectedScreen = Empty;
     LightGraph = true;
 }
-
+/*
+ * This Function is used to update the current plot for the current graph
+ */
 void UpdateCurrentGraph(){
     double x1 = 0;
     double x2 = 10;
@@ -444,6 +466,9 @@ void UpdateCurrentGraph(){
     //ongraph=1;
     UpdateGraphPlot(CurrentData, x1, x2, y1, y2, 50);
 }
+/*
+ * This Function is used to display the plot for the current graph
+ */
 void GraphPageCurrent()
 {
     SelectedScreen = GraphPS;
@@ -458,58 +483,64 @@ void GraphPageCurrent()
     CurrentGraph = true;
 
 }
-
+/*
+ * This Function is used to display the accerlation plot for the  m/s acceleration graph
+ */
 void GraphPageAccel()
 {
     SelectedScreen = GraphAS;
     double x1 = 0;
     double x2 = 10;
-    //double test[] =  {1,1,2,3,4,5,6,7,10,0};
     double y1 = min_element(AccelData)+1;
     double y2 = max_element(AccelData)+1;
-    //ongraph=1;
     GraphPrimitive(AccelData, x1, x2, y1, y2, 50,accelText);
     AccelGraph = true;
-    //SelectedScreen = Empty;
+
 }
+/*
+ * this function is used to update the accerlation plot for the BMI160 acceleration graph
+ */
 void UpdateAccelGraph(){
     double x1 = 0;
     double x2 = 10;
-    //double test[] =  {1,1,2,3,4,5,6,7,10,0};
+
     double y1 = min_element(AccelData)+1;
     double y2 = max_element(AccelData)+1;
-    //ongraph=1;
     UpdateGraphPlot(AccelData, x1, x2, y1, y2, 50);
 }
+/*
+ * This Function is used to display the velocity plot in  m/s for the motor velocity graph
+ */
 void UpdateVelocityGraph(){
     double x1 = 0;
     double x2 = 10;
-    //double test[] =  {1,1,2,3,4,5,6,7,10,0};
-    double y1 = 0;//min_element(VelocityData);
+
+    double y1 = 0;
     double y2 = max_element(VelocityData);
-    //ongraph=1;
     UpdateGraphPlot(VelocityData, x1, x2, y1, y2, 50);
 }
+/*
+ * this function is used to update the velocity plot for the motor velocity graph
+ */
 void GraphPageVelocity()
 {
     SelectedScreen = GraphMS;
     double x1 = 0;
     double x2 = 10;
-    //double test[] =  {1,1,2,3,4,5,6,7,10,0};
-    double y1 = 0;//min_element(VelocityData);
+
+    double y1 = 0;
     double y2 = max_element(VelocityData);
-    //ongraph=1;
     GraphPrimitive(VelocityData, x1, x2, y1, y2, 50,VelText);
-    //SelectedScreen = Empty;
     VelocityGraph = true;
 }
-
+/*
+ * this function is used to draw the main page forr the user
+ */
 void MainPage()
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
-    //gateKey = GateHwi_enter(gateHwi);
     SelectedScreen = MainS;
     clearBox.i16XMin = 0;
     clearBox.i16YMin = 32;
@@ -523,29 +554,33 @@ void MainPage()
     WidgetPaint(&MotorPgBtn);
     WidgetPaint(&SensorPgBtn);
     WidgetPaint(&GraphPgBtn);
-    //SelectedScreen = Empty;
-    //GateHwi_leave(gateHwi, gateKey);
+
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
-
+/*
+ * this function is used to unbind the main page buttons
+ */
 void RemoveMainPage()
 {
-    // ScreenKey = GateMutexPri_enter(ScreenGate);
+
     WidgetRemove(&MotorPgBtn);
     WidgetRemove(&SensorPgBtn);
     WidgetRemove(&GraphPgBtn);
 }
+/*
+ * this function is used to draw the sensor page for the user
+ */
 void SensorPage()
 {
     SelectedScreen = SensorS;
     OnSensorPage= true;
-    //double lux = 12.45;
+
     double lux = opt3001_filteredValue;
     double objectdist = 23;
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
-    //gateKey = GateHwi_enter(gateHwi);
+
     RemoveMainPage();
     GrContextForegroundSet(&sContext, ClrBlack);
     GrRectFill(&sContext, &clearBox);
@@ -569,29 +604,24 @@ void SensorPage()
     GrStringDrawCentered(&sContext, "Current Acceleration: ", -1, 68, 80, 0);
     GrStringDrawCentered(&sContext, "Max Acceleration", -1, 70, 120, 0);
     char tempchar[13];
-    //double value = (double)LightSecond/ 1.0;
-    sprintf(tempchar, "%5.2f lux", LightSecond);
-    GrStringDrawCentered(&sContext, tempchar, -1, 117, 47, 0);
-    sprintf(tempchar, "%5.2f m/s", AccelSecond);
-    GrStringDrawCentered(&sContext, tempchar, -1, 135, 80, 0);
-    sprintf(tempchar, "%i m/s", MaxAccel);
+
     GrStringDrawCentered(&sContext, tempchar, -1, 224, 119, 0);
-    //GateHwi_leave(gateHwi, gateKey);
-    //SelectedScreen = Empty;
+
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
+/*
+ * this function is used to update the dynamic information on the sensor page
+ */
 void updateSensorPage(){
     char tempchar[13];
     tRectangle covertext;
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
-    //gateKey = GateHwi_enter(gateHwi);
     covertext.i16XMin = 117-30;
     covertext.i16YMin = 47-10;
     covertext.i16XMax = 117+30;
     covertext.i16YMax = 47+10;
-    //double value = (double)LightSecond/ 1.0;
     GrContextForegroundSet(&sContext, ClrBlack);
     GrRectFill(&sContext, &covertext);
     covertext.i16XMin = 150-30;
@@ -613,36 +643,41 @@ void updateSensorPage(){
     GrStringDrawCentered(&sContext, tempchar, -1, 150, 80, 0);
     sprintf(tempchar, "%5.2i m/s", MaxAccel);
     GrStringDrawCentered(&sContext, tempchar, -1, 224, 119, 0);
-    //GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
 
 }
+/*
+ * this function is used to unbind the sensor page buttons
+ */
 void removeSensorPage()
 {
-    //ScreenKey = GateMutexPri_enter(ScreenGate);
     WidgetRemove(&backSensorBtn);
     WidgetRemove(&DistDownBtn);
     WidgetRemove(&DistUpBtn);
     OnSensorPage=false;
 }
+/*
+ * this function is a combination of function to take the user back to the main page
+ * from the sensor page
+ */
 void backMainSensor()
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
-    //gateKey = GateHwi_enter(gateHwi);
     removeSensorPage();
-    //GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
     MainPage();
 }
+/*
+ * this function draws the graph select page for the user
+ */
 void graphSelectPage()
 {
     SelectedScreen = GraphSS;
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
-    //gateKey = GateHwi_enter(gateHwi);
     RemoveMainPage();
     GrContextForegroundSet(&sContext, ClrBlack);
     GrRectFill(&sContext, &clearBox);
@@ -656,10 +691,11 @@ void graphSelectPage()
     WidgetPaint(&LightGraphBtn);
     WidgetPaint(&TestGraphBtn);
     WidgetPaint(&backGraphSelectBtn);
-    //GateHwi_leave(gateHwi, gateKey);
-    //SelectedScreen = Empty;
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
+/*
+ * this function is used to unbind the grpah select page buttons
+ */
 void RemoveGraphSelect()
 {
     WidgetRemove(&PowerGraphBtn);
@@ -669,39 +705,45 @@ void RemoveGraphSelect()
     WidgetRemove(&backGraphSelectBtn);
 
 }
+/*
+ * this function is used to unbind the graph plotting page
+ */
 void RemoveGraph()
 {
-    //ScreenKey = GateMutexPri_enter(ScreenGate);
-    //ongraph=0;
     WidgetRemove((tWidget*) &backGraphBtn);
     LightGraph = false;
     AccelGraph = false;
     VelocityGraph = false;
     CurrentGraph = false;
 }
+/*
+ * this function is used to take the user back to the grpah select page from the the plotting page
+ */
 void BackGraphSelect()
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
-    //gateKey = GateHwi_enter(gateHwi);
     RemoveGraph();
-    //GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
     graphSelectPage();
 }
+/*
+ * this function is used to take the user back to the main page from the graph select page
+ */
 void BackMainGraph()
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
-    //gateKey = GateHwi_enter(gateHwi);
     RemoveGraphSelect();
-    //GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
     MainPage();
 }
 tRectangle graphClear;
+/*
+ * this function is used to update the plot on the grpah plot page
+ */
 void UpdateGraphPlot(double *dataPoints, double tstart, double tend,
                      double mesStart, double mesEnd, int size)
 {
@@ -709,7 +751,7 @@ void UpdateGraphPlot(double *dataPoints, double tstart, double tend,
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
-    //gateKey = GateHwi_enter(gateHwi);
+    //clearing the plot for a new draw
     graphClear.i16XMin = 54;
     graphClear.i16YMin = 40;
     graphClear.i16XMax = 303;
@@ -722,23 +764,24 @@ void UpdateGraphPlot(double *dataPoints, double tstart, double tend,
     graphClear.i16XMax = 51;
     graphClear.i16YMax = 57+15;
     GrRectFill(&sContext, &graphClear);
+    //calc the requred distance between the y max and y min
     int ydif = CalcNoRemainder(150, mesEnd - mesStart);
     mesEnd = mesStart + ydif;
+    //get ratio of pixels to ymax and min
     double pixelH = (double)150 / (double)ydif;
     int pixelW = 250 / size;
     int i;
     int ystart;
     int yend;
     int x = 54;
+    //draw the ymax on the grpah
     sprintf(tempchar, "%5.2f", mesEnd);
     GrContextFontSet(&sContext, g_psFontCmss12);
     GrContextForegroundSet(&sContext, ClrWhite);
     GrStringDrawCentered(&sContext, tempchar, -1, 30, 57, 0);
-    //GrContextForegroundSet(&sContext, ClrBlack);
-    //GrRectFill(&sContext, &clearBox);
     GrContextForegroundSet(&sContext, ClrRed);
     int qq = size - 1;
-
+    //plot the new data on the grpah iterating over the data buffer
     for (i = 0; i < size - 1; i++)
     {
         ystart = -dataPoints[i] * pixelH + 207;
@@ -746,7 +789,6 @@ void UpdateGraphPlot(double *dataPoints, double tstart, double tend,
         GrLineDraw(&sContext, x, ystart, x + pixelW, yend);
         x = x + pixelW;
     }
-    //GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
 
@@ -756,7 +798,6 @@ void GraphPrimitive(double *dataPoints, double tstart, double tend,
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
-    //gateKey = GateHwi_enter(gateHwi);
     int ydif = CalcNoRemainder(150, (int)(mesEnd - mesStart));
     mesEnd = mesStart + ydif;
     double pixelH = (double)150 / (double)ydif;
@@ -765,6 +806,7 @@ void GraphPrimitive(double *dataPoints, double tstart, double tend,
     int ystart;
     int yend;
     RemoveGraphSelect();
+    //drawig the grraph screen
     GrContextForegroundSet(&sContext, ClrBlack);
     GrRectFill(&sContext, &clearBox);
     GrContextForegroundSet(&sContext, ClrWhite);
@@ -776,6 +818,7 @@ void GraphPrimitive(double *dataPoints, double tstart, double tend,
     WidgetPaint((tWidget* )&backGraphBtn);
     GrContextFontSet(&sContext, g_psFontCmss12);
     char tempchar[9];
+    //drawing the limits to the screen
     sprintf(tempchar, "%5.2f", tstart);
     GrStringDrawCentered(&sContext, tempchar, -1, 55, 220, 0);
     sprintf(tempchar, "%5.2f", tend);
@@ -787,7 +830,9 @@ void GraphPrimitive(double *dataPoints, double tstart, double tend,
     GrStringDrawCentered(&sContext, tempchar, -1, 30, 57, 0);
     int x = 54;
     GrContextForegroundSet(&sContext, ClrRed);
+
     int qq = size - 1;
+    //drawing the plot line to the screen going through the data buffer
     for (i = 0; i < size - 1; i++)
     {
         ystart = -dataPoints[i] * pixelH + 207;
@@ -797,15 +842,16 @@ void GraphPrimitive(double *dataPoints, double tstart, double tend,
     }
     CanvasImageSet(&g_text,text);
     WidgetPaint(&g_text);
-    //GateHwi_leave(gateHwi, gateKey);
     GateMutexPri_leave(ScreenGate, ScreenKey);
 }
+/*
+ * this function is used to unbind the mtor screen buton from the screen
+ */
 void BackMainMotorPage()
 {
     IArg ScreenKey;
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
-    //gateKey = GateHwi_enter(gateHwi);
     WidgetRemove((tWidget*) &MotorSpeedSlider);
     WidgetRemove((tWidget*) &CurrentUpBtn);
     WidgetRemove((tWidget*) &CurrentDownBtn);
@@ -818,6 +864,10 @@ void BackMainMotorPage()
     OnMotorPage = false;
     MainPage();
 }
+/*
+ * this function is used to update the dynamic data to the screen
+ * (current velocity, desired, current draw and max current)
+ */
 void MotorPageUpdate(){
     char tempchar[10];
     tRectangle covertext;
@@ -843,12 +893,14 @@ void MotorPageUpdate(){
     GrContextForegroundSet(&sContext, ClrWhite);
     GrContextFontSet(&sContext, g_psFontCmss12);
     GrStringDrawCentered(&sContext, tempchar, -1, 165, 46, 0);
-    //GrStringDrawCentered(&sContext, "Current Speed: ", -1, 73, 46, 0);
     sprintf(tempchar, "%5.2fA  ", MaxCurrent);
     GrStringDrawCentered(&sContext, tempchar, -1, 214, 176, 0);
     sprintf(tempchar, "%5.2fA  ", CurrentSecond);
     GrStringDrawCentered(&sContext, tempchar, -1, 200, 130, 0);
 }
+/*
+ * this function is used to draw the motor page for the user
+ */
 void MotorPage()
 {
     SelectedScreen = MotorS;
@@ -856,13 +908,7 @@ void MotorPage()
     ScreenKey = GateMutexPri_enter(ScreenGate);
     UInt gateKey;
     static char pcCanvasText[9];
-    //gateKey = GateHwi_enter(gateHwi);
-    //WidgetPaint(&g_clear);
     RemoveMainPage();
-    //CurrBox.i16XMin = 161;
-    //CurrBox.i16YMin = 111;
-    //CurrBox.i16XMax = 109 + 161;
-    //CurrBox.i16YMax = 36 + 111 - 1;
     usprintf(pcCanvasText, "%6dRPM", (int)desired_speed);
     SliderValueSet(&MotorSpeedSlider,desired_speed);
     SliderTextSet(&MotorSpeedSlider, pcCanvasText);
@@ -875,67 +921,54 @@ void MotorPage()
     GrContextForegroundSet(&sContext, ClrWhite);
     GrContextFontSet(&sContext, g_psFontCmss18b);
     char tempchar[10];
-    sprintf(tempchar, "%5.2fRPM", VelocitySecond);
     GrStringDrawCentered(&sContext, "Motor Speed", -1, 71, 85, 0);
     GrStringDrawCentered(&sContext, "Current Speed: ", -1, 73, 46, 0);
-    GrStringDrawCentered(&sContext, tempchar, -1, 165, 46, 0);
     sprintf(tempchar, "%5.2fA  ", MaxCurrent);
     GrStringDrawCentered(&sContext, tempchar, -1, 214, 176, 0);
     GrStringDrawCentered(&sContext, "Max Current", -1, 70, 176, 0);
-    sprintf(tempchar, "%5.2fA  ", CurrentSecond);
-    GrStringDrawCentered(&sContext, "Current Current", -1, 70, 130, 0);
     GrStringDrawCentered(&sContext, tempchar, -1, 200, 130, 0);
-    //GrStringDrawCentered(&sContext, "Max Acceleration", -1, 83, 176, 0);
     GrContextForegroundSet(&sContext, 0x404040);
-    //GrRectFill(&sContext, &CurrBox);
     GrRectFill(&sContext, &AccBox);
     GrContextForegroundSet(&sContext, ClrWhite);
-    //GrRectDraw(&sContext, &CurrBox);
     GrRectDraw(&sContext, &AccBox);
+    if(Stop){
+                PushButtonTextSet(&MotorMode,"Motor Start");
+            }else{
+                PushButtonTextSet(&MotorMode,"Motor Stop");
+            }
     WidgetAdd(WIDGET_ROOT, (tWidget*) &MotorSpeedSlider);
     WidgetAdd(WIDGET_ROOT, (tWidget*) &CurrentUpBtn);
     WidgetAdd(WIDGET_ROOT, (tWidget*) &CurrentDownBtn);
     WidgetAdd(WIDGET_ROOT, (tWidget*) &backMotorBtn);
-    //WidgetAdd(WIDGET_ROOT, (tWidget*) &AccDownBtn);
-    //WidgetAdd(WIDGET_ROOT, (tWidget*) &AccUpBtn);
     WidgetAdd(WIDGET_ROOT, (tWidget*) &MotorMode);
     WidgetPaint((tWidget* )&MotorSpeedSlider);
     WidgetPaint((tWidget* )&CurrentUpBtn);
     WidgetPaint((tWidget* )&CurrentDownBtn);
     WidgetPaint((tWidget* )&backMotorBtn);
-    //WidgetPaint((tWidget* )&AccDownBtn);
-    //WidgetPaint((tWidget* )&AccUpBtn);
     WidgetPaint((tWidget* )&MotorMode);
-    //GateHwi_leave(gateHwi, gateKey);
-    //SelectedScreen = Empty;
     GateMutexPri_leave(ScreenGate, ScreenKey);
     OnMotorPage = true;
 }
-
-ChangeUp(int* var){
-    *var=var+1;
-}
-ChangeDown(int* var){
-    *var=var-1;
-}
+//this function is used to chage the max accleleration allowed up
 ChangeAccelUp(){
     MaxAccel=MaxAccel+1;
-    //ChangeUp(&MaxAccel);
 }
-
+//this function is used to chage the max accleleration allowed down
 ChangeAccelDown(){
     MaxAccel=MaxAccel-1;
 
 }
-
+//this function is used to chage the max current draw allowed up
 void ChangeCurrentDown(){
     MaxCurrent=MaxCurrent-0.1;
 
 }
+//this function is used to chage the max current draw allowed down
 void ChangeCurrentUp(){
     MaxCurrent=MaxCurrent+0.1;
 
 }
+//this function is used to stop and start the motor
 void ChangeMotorStat(){
     UInt SwiKey;
     SwiKey = GateSwi_enter(SwiGate);
@@ -954,4 +987,10 @@ void ChangeMotorStat(){
     }
     GateSwi_leave(SwiGate, SwiKey);
     WidgetPaint((tWidget *)&MotorMode);
+}
+ChangeUp(int* var){
+    *var=var+1;
+}
+ChangeDown(int* var){
+    *var=var-1;
 }

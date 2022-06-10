@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="bmi160_delay"/>
+		<item key="selection" value="HA"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
-		<item key="wholeword" value="false"/>
+		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="HA"/>
+			<item value="SwiHandle"/>
+			<item value="motor"/>
+			<item value="Sensor"/>
+			<item value="btntest"/>
 			<item value="bmi160_delay"/>
 			<item value="debug"/>
 			<item value="main complete"/>
@@ -18,11 +23,6 @@
 			<item value="SelectedScreen = Empty;"/>
 			<item value="GraphLS"/>
 			<item value="GraphPS"/>
-			<item value="GraphSS"/>
-			<item value="SensorS"/>
-			<item value="MotorS"/>
-			<item value="Running"/>
-			<item value="MotorStat"/>
 		</list>
 		<list key="replacehistory">
 			<item value="//SelectedScreen = Empty;"/>

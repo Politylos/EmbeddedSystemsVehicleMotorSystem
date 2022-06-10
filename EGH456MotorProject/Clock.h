@@ -25,7 +25,7 @@ typedef struct FullTime{
 
 extern  FT timeConvert(Seconds_Time time);
 
-extern bool timer1sec(Timer_Handle *timer,FT *data);
+extern bool timer1sec();
 extern void updatetime(FT *date);
 
 #endif /* CLOCK_H_ */

@@ -123,25 +123,25 @@ void updatetime(FT *date){
     UInt32 test3 =Seconds_getTime(&secs);
     *date = timeConvert(secs);
 }
-bool timer1sec(Timer_Handle *timer,FT *data){
-    Seconds_set(1651752452);
+bool timer1sec(){
+    Seconds_set(1654736708);
     Seconds_Module_startup();
-    Timer_Params params;
-    Timer_Params_init(&params);
-    params.period = Clock_tickPeriod*1000;
+    //Timer_Params params;
+    //Timer_Params_init(&params);
+    //params.period = Clock_tickPeriod*1000;
     // Period of a tick
-    params.periodType = ti_sysbios_interfaces_ITimer_PeriodType_MICROSECS;
+    //params.periodType = ti_sysbios_interfaces_ITimer_PeriodType_MICROSECS;
 
     // Period type
-    params.runMode = ti_sysbios_interfaces_ITimer_RunMode_CONTINUOUS;
+    //params.runMode = ti_sysbios_interfaces_ITimer_RunMode_CONTINUOUS;
     // Timer run mode
-    params.startMode = ti_sysbios_interfaces_ITimer_StartMode_AUTO;
-    params.arg = data;
-    *timer=Timer_create(5,updatetime,&params,NULL);
-    if (timer == NULL){
-        return false;
-    }
-    return true;
+    //params.startMode = ti_sysbios_interfaces_ITimer_StartMode_AUTO;
+    //params.arg = data;
+    //*timer=Timer_create(5,updatetime,&params,NULL);
+    //if (timer == NULL){
+    //    return false;
+    //}
+   // return true;
 }
 
 

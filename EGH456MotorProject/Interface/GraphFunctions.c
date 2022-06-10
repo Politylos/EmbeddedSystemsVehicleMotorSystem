@@ -10,7 +10,11 @@
 #include <stdint.h>
 #include <math.h>
 #include"GraphFunctions.h"
-
+/*
+ * this function is used to count up from a given number unitll the reminder is 0
+ * takes num: set number to get 0 reminder from
+ *       den: number to count up from to get 0 remender
+ */
 int CalcNoRemainder(int num, int den){
     if (den<num){
     int rem;
@@ -22,7 +26,13 @@ int CalcNoRemainder(int num, int den){
     }
     return den;
 }
-
+/*
+ * this function is used to add up all the elemnets in an array to caclulate the avrage value in
+ * that array
+ * takes data: array of size n to avrage
+ *       size: length of array
+ *       returns double avrage of arrray's elements
+ */
 double CalcAvg(double *data, int size){
     int i;
     double Avg=0;
@@ -32,7 +42,12 @@ double CalcAvg(double *data, int size){
     Avg=Avg/size;
     return Avg;
 }
-
+/*
+ * this function is used to insert a new value into the start of an array, moving all
+ * other values up 1
+ * takes arr: array to insert new elemnt ointo
+ *       newdata: element to insert into the array
+ */
 double* ArrayUpdate(double *arr, double newdata){
     //double data = CalcAvg(newdata,size);
     int i;
@@ -52,6 +67,11 @@ double* ArrayUpdate(double *arr, double newdata){
 
     //return temparr;
 }
+/*
+ * this function finds the max value in an array
+ * take arr: array of legnth 50
+ * returns: maax elemnt from arr
+ */
 double max_element(double arr[]){
     int i;
     double maxEle=0;
@@ -62,7 +82,11 @@ double max_element(double arr[]){
     }
     return maxEle;
 }
-
+/*
+ * this function finds the min value in an array
+ * take arr: array of legnth 50
+ * returns: min elemnt from arr
+ */
 double min_element(double arr[]){
     int i;
     double ele;

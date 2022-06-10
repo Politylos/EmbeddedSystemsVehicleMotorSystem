@@ -102,7 +102,6 @@
 #include "Clock.h"
 #include "interface/GraphData.h"
 #include"Interface/GraphFunctions.h"
-//#include <ti/sysbios/family/arm/msp432/Seconds.h>
 #include <ti/sysbios/hal/Seconds.h>
 #include "Images/GUIImg.h"
 #include "Images/Images.h"
@@ -179,7 +178,6 @@ extern tCanvasWidget g_psPanels[];
 tRectangle sRect;
 
 bool LowLight = 1;
-//tCanvasWidget g_sCanvas2;
 tPushButtonWidget brrrr;
 bool ongraph = 0;
 I2C_Handle i2c;
@@ -206,18 +204,19 @@ int CurrentMotorStat = Idle;
 int CurrentAcceleration = slow;
 
 
-//*****************************************************************************
-//
-// The panel that is currently being displayed.
-//
-//*****************************************************************************
-uint32_t g_ui32Panel;
 
+uint32_t g_ui32Panel;
+/*
+ * this function is used as the idle function, with it checking ofr a touch event from the user
+ * , this function is used to draw a new page on a page change
+ */
 void TouchCheckTask(UArg arg0, UArg arg1)
 {
     while (1)
     {
+        //checking for touch event
         WidgetMessageQueueProcess();
+        //checking to see if the user changed page and updating the screen if required
         switch(SelectedScreen) {
         case (MainS):
         MainPage();
@@ -251,12 +250,14 @@ void TouchCheckTask(UArg arg0, UArg arg1)
         GraphPageAccel();
         SelectedScreen = Empty;
         break;
-              //Task_sleep(100);
         }
     }
 }
 
-
+/*
+ * Draw function that updates the the global top banner,
+ * along with the current sensor and motor infomation from the sensors
+ */
 
 void heartBeatFxn(UArg arg0, UArg arg1)
 {
@@ -269,20 +270,19 @@ void heartBeatFxn(UArg arg0, UArg arg1)
     {
 
         Task_sleep(1000);
+        //update time
         updatetime(&datetime);
-        TopBarDraw(&sContext, datetime, LowLight, currentDirection,
-                   CurrentMotorStat, CurrentAcceleration);
+
+
+        //turn light on if light level is low
         if (LightSecond < 5){
-            if (LowLight == 0){
-                GPIO_write(Board_LED0, Board_LED_ON);
-            }
+            GPIO_write(Board_LED0, Board_LED_ON);
             LowLight = 1;
         }else{
-            if (LowLight == 1){
-                GPIO_write(Board_LED0, Board_LED_OFF);
-            }
+            GPIO_write(Board_LED0, Board_LED_OFF);
             LowLight = 0;
         }
+        //updating icon for acceleration
         if(AccelSecond <15){
             CurrentAcceleration = 0;
         }else if (AccelSecond <22){
@@ -290,17 +290,21 @@ void heartBeatFxn(UArg arg0, UArg arg1)
         } else{
             CurrentAcceleration = 2;
         }
+        //updting icon for motor's current stat
         if (estop){
-            GPIO_write(Board_LED1, Board_LED_ON);
+
             CurrentMotorStat = 2;
         } else {
-            GPIO_write(Board_LED1, Board_LED_OFF);
+
             if(Stop){
                 CurrentMotorStat = 0;
-            } else{CurrentMotorStat = 1;}
+                GPIO_write(Board_LED1, Board_LED_OFF);
+            } else{CurrentMotorStat = 1;GPIO_write(Board_LED1, Board_LED_ON);}
         }
-
-        currentDirection = (currentDirection + 1) % 4;
+        //updating icons on top bar
+        TopBarDraw(&sContext, datetime, LowLight, currentDirection,
+                   CurrentMotorStat, CurrentAcceleration);
+        //updating the data on specific page, depending on what page is current displayed
         if (LightGraph){
             UpdateLightGraph();
         }else if (OnSensorPage){
@@ -314,6 +318,7 @@ void heartBeatFxn(UArg arg0, UArg arg1)
         }else if (OnMotorPage){
             MotorPageUpdate();
         }
+
     }
 
 }
@@ -348,7 +353,6 @@ int main(void)
     MotorMain();
     initEstop();
     PinoutSet(false, false);
-    //DrawFrame()
 
     // Open i2c
     i2c_Open();
@@ -414,36 +418,18 @@ int main(void)
             (Task_FuncPtr) currentSensorFilterFxn, &swiCurrentSensorFilterParams,
             NULL);
 
-    // Turn on user LED
-
-    //tContext sContext;
-
-
-    // GateMutexPri_construct(&ScreenGate, &Gprams);
-
-    //
-    // Add the title block and the previous and next buttons to the widget
-    // tree.
-    //
-
     if (!initUART(&uart))
     {
         System_printf("EROR\n");
     }
     initGraphBuffers();
     InitScreen();
-
-    //FrameDraw(&sContext, tempc);
-    //GPIO_setCallback(HALL_A, HAF);
-    // GPIO_setCallback(HALL_B, HBF);
-    //GPIO_setCallback(HALL_C, HCF);
-
+    timer1sec();
     System_printf("Starting the example\nSystem provider is set to SysMin. "
                   "Halt the target to view any SysMin contents in ROV.\n");
     /* SysMin will only print to the console when you call flush or exit */
     System_flush();
     /* Start BIOS */
-    //timer1sec(&timerclock, &datetime);
     BIOS_start();
 
     return (0);
